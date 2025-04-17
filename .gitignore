@@ -1,0 +1,9 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+.env
+
+#i have create an myenv python env foldernow how to gitignore it ?
+
+
+myenv/
+skin-disease-datasaet/
