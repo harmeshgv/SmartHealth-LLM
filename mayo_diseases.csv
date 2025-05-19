@@ -1,1088 +1,133 @@
-Disease Name,Link
-Atrial fibrillation,https://www.mayoclinic.org/diseases-conditions/atrial-fibrillation/symptoms-causes/syc-20350624
-Hyperhidrosis,https://www.mayoclinic.org/diseases-conditions/hyperhidrosis/symptoms-causes/syc-20367152
-Bartholin's cyst,https://www.mayoclinic.org/diseases-conditions/bartholin-cyst/symptoms-causes/syc-20369976
-Gastroesophageal reflux disease (GERD),https://www.mayoclinic.org/diseases-conditions/gerd/symptoms-causes/syc-20361940
-Infant reflux,https://www.mayoclinic.org/diseases-conditions/infant-acid-reflux/symptoms-causes/syc-20351408
-Hidradenitis suppurativa,https://www.mayoclinic.org/diseases-conditions/hidradenitis-suppurativa/symptoms-causes/syc-20352306
-HIV/AIDS,https://www.mayoclinic.org/diseases-conditions/hiv-aids/symptoms-causes/syc-20373524
-Acute myelogenous leukemia,https://www.mayoclinic.org/diseases-conditions/acute-myelogenous-leukemia/symptoms-causes/syc-20369109
-Guillain-Barre syndrome,https://www.mayoclinic.org/diseases-conditions/guillain-barre-syndrome/symptoms-causes/syc-20362793
-Acute kidney injury,https://www.mayoclinic.org/diseases-conditions/kidney-failure/symptoms-causes/syc-20369048
-Acute lymphocytic leukemia,https://www.mayoclinic.org/diseases-conditions/acute-lymphocytic-leukemia/symptoms-causes/syc-20369077
-Acute lymphocytic leukemia,https://www.mayoclinic.org/diseases-conditions/acute-lymphocytic-leukemia/symptoms-causes/syc-20369077
-Acute myelogenous leukemia,https://www.mayoclinic.org/diseases-conditions/acute-myelogenous-leukemia/symptoms-causes/syc-20369109
-Acute myelogenous leukemia,https://www.mayoclinic.org/diseases-conditions/acute-myelogenous-leukemia/symptoms-causes/syc-20369109
-Acute myelogenous leukemia,https://www.mayoclinic.org/diseases-conditions/acute-myelogenous-leukemia/symptoms-causes/syc-20369109
-Radiation sickness,https://www.mayoclinic.org/diseases-conditions/radiation-sickness/symptoms-causes/syc-20377058
-Radiation sickness,https://www.mayoclinic.org/diseases-conditions/radiation-sickness/symptoms-causes/syc-20377058
-Acute kidney injury,https://www.mayoclinic.org/diseases-conditions/kidney-failure/symptoms-causes/syc-20369048
-ARDS,https://www.mayoclinic.org/diseases-conditions/ards/symptoms-causes/syc-20355576
-Acute sinusitis,https://www.mayoclinic.org/diseases-conditions/acute-sinusitis/symptoms-causes/syc-20351671
-Autoimmune epilepsy,https://www.mayoclinic.org/diseases-conditions/autoimmune-epilepsy/symptoms-causes/syc-20576892
-Alcohol use disorder,https://www.mayoclinic.org/diseases-conditions/alcohol-use-disorder/symptoms-causes/syc-20369243
-Compulsive gambling,https://www.mayoclinic.org/diseases-conditions/compulsive-gambling/symptoms-causes/syc-20355178
-Nicotine dependence,https://www.mayoclinic.org/diseases-conditions/nicotine-dependence/symptoms-causes/syc-20351584
-Mesenteric lymphadenitis,https://www.mayoclinic.org/diseases-conditions/mesenteric-lymphadenitis/symptoms-causes/syc-20353799
-Attention-deficit/hyperactivity disorder (ADHD) in children,https://www.mayoclinic.org/diseases-conditions/adhd/symptoms-causes/syc-20350889
-Adult attention-deficit/hyperactivity disorder (ADHD),https://www.mayoclinic.org/diseases-conditions/adult-adhd/symptoms-causes/syc-20350878
-Frozen shoulder,https://www.mayoclinic.org/diseases-conditions/frozen-shoulder/symptoms-causes/syc-20372684
-Childhood schizophrenia,https://www.mayoclinic.org/diseases-conditions/childhood-schizophrenia/symptoms-causes/syc-20354483
-Benign adrenal tumors,https://www.mayoclinic.org/diseases-conditions/benign-adrenal-tumors/symptoms-causes/syc-20356190
-Autoimmune encephalitis,https://www.mayoclinic.org/diseases-conditions/autoimmune-encephalitis/symptoms-causes/syc-20576380
-Acute flaccid myelitis (AFM),https://www.mayoclinic.org/diseases-conditions/acute-flaccid-myelitis/symptoms-causes/syc-20493046
-Dry macular degeneration,https://www.mayoclinic.org/diseases-conditions/dry-macular-degeneration/symptoms-causes/syc-20350375
-"Macular degeneration, wet",https://www.mayoclinic.org/diseases-conditions/wet-macular-degeneration/symptoms-causes/syc-20351107
-Myelofibrosis,https://www.mayoclinic.org/diseases-conditions/myelofibrosis/symptoms-causes/syc-20355057
-Guillain-Barre syndrome,https://www.mayoclinic.org/diseases-conditions/guillain-barre-syndrome/symptoms-causes/syc-20362793
-HIV/AIDS,https://www.mayoclinic.org/diseases-conditions/hiv-aids/symptoms-causes/syc-20373524
-Alcohol use disorder,https://www.mayoclinic.org/diseases-conditions/alcohol-use-disorder/symptoms-causes/syc-20369243
-Alcoholic hepatitis,https://www.mayoclinic.org/diseases-conditions/alcoholic-hepatitis/symptoms-causes/syc-20351388
-Churg-Strauss syndrome,https://www.mayoclinic.org/diseases-conditions/churg-strauss-syndrome/symptoms-causes/syc-20353760
-Churg-Strauss syndrome,https://www.mayoclinic.org/diseases-conditions/churg-strauss-syndrome/symptoms-causes/syc-20353760
-Hay fever,https://www.mayoclinic.org/diseases-conditions/hay-fever/symptoms-causes/syc-20373039
-Dust mite allergy,https://www.mayoclinic.org/diseases-conditions/dust-mites/symptoms-causes/syc-20352173
-Egg allergy,https://www.mayoclinic.org/diseases-conditions/egg-allergy/symptoms-causes/syc-20372115
-Food allergy,https://www.mayoclinic.org/diseases-conditions/food-allergy/symptoms-causes/syc-20355095
-Latex allergy,https://www.mayoclinic.org/diseases-conditions/latex-allergy/symptoms-causes/syc-20374287
-Milk allergy,https://www.mayoclinic.org/diseases-conditions/milk-allergy/symptoms-causes/syc-20375101
-Mold allergy,https://www.mayoclinic.org/diseases-conditions/mold-allergy/symptoms-causes/syc-20351519
-Nickel allergy,https://www.mayoclinic.org/diseases-conditions/nickel-allergy/symptoms-causes/syc-20351529
-Peanut allergy,https://www.mayoclinic.org/diseases-conditions/peanut-allergy/symptoms-causes/syc-20376175
-Penicillin allergy,https://www.mayoclinic.org/diseases-conditions/penicillin-allergy/symptoms-causes/syc-20376222
-Pet allergy,https://www.mayoclinic.org/diseases-conditions/pet-allergy/symptoms-causes/syc-20352192
-Shellfish allergy,https://www.mayoclinic.org/diseases-conditions/shellfish-allergy/symptoms-causes/syc-20377503
-Wheat allergy,https://www.mayoclinic.org/diseases-conditions/wheat-allergy/symptoms-causes/syc-20378897
-Hair loss,https://www.mayoclinic.org/diseases-conditions/hair-loss/symptoms-causes/syc-20372926
-Amyotrophic lateral sclerosis (ALS),https://www.mayoclinic.org/diseases-conditions/amyotrophic-lateral-sclerosis/symptoms-causes/syc-20354022
-Dry socket,https://www.mayoclinic.org/diseases-conditions/dry-socket/symptoms-causes/syc-20354376
-Atypical genitalia,https://www.mayoclinic.org/diseases-conditions/atypical-genitalia/symptoms-causes/syc-20369273
-Lazy eye (amblyopia),https://www.mayoclinic.org/diseases-conditions/lazy-eye/symptoms-causes/syc-20352391
-Chagas disease,https://www.mayoclinic.org/diseases-conditions/chagas-disease/symptoms-causes/syc-20356212
-Transient global amnesia,https://www.mayoclinic.org/diseases-conditions/transient-global-amnesia/symptoms-causes/syc-20378531
-Amnesia,https://www.mayoclinic.org/diseases-conditions/amnesia/symptoms-causes/syc-20353360
-Amyloidosis,https://www.mayoclinic.org/diseases-conditions/amyloidosis/symptoms-causes/syc-20353178
-Aplastic anemia,https://www.mayoclinic.org/diseases-conditions/aplastic-anemia/symptoms-causes/syc-20355015
-Thalassemia,https://www.mayoclinic.org/diseases-conditions/thalassemia/symptoms-causes/syc-20354995
-Iron deficiency anemia,https://www.mayoclinic.org/diseases-conditions/iron-deficiency-anemia/symptoms-causes/syc-20355034
-Thalassemia,https://www.mayoclinic.org/diseases-conditions/thalassemia/symptoms-causes/syc-20354995
-Sickle cell anemia,https://www.mayoclinic.org/diseases-conditions/sickle-cell-anemia/symptoms-causes/syc-20355876
-Vitamin deficiency anemia,https://www.mayoclinic.org/diseases-conditions/vitamin-deficiency-anemia/symptoms-causes/syc-20355025
-Abdominal aortic aneurysm,https://www.mayoclinic.org/diseases-conditions/abdominal-aortic-aneurysm/symptoms-causes/syc-20350688
-Aortic aneurysm,https://www.mayoclinic.org/diseases-conditions/aortic-aneurysm/symptoms-causes/syc-20369472
-Brain aneurysm,https://www.mayoclinic.org/diseases-conditions/brain-aneurysm/symptoms-causes/syc-20361483
-Brain aneurysm,https://www.mayoclinic.org/diseases-conditions/brain-aneurysm/symptoms-causes/syc-20361483
-Popliteal artery aneurysm,https://www.mayoclinic.org/diseases-conditions/popliteal-artery-aneurysm/symptoms-causes/syc-20355432
-Thoracic aortic aneurysm,https://www.mayoclinic.org/diseases-conditions/thoracic-aortic-aneurysm/symptoms-causes/syc-20350188
-Vasculitis,https://www.mayoclinic.org/diseases-conditions/vasculitis/symptoms-causes/syc-20363435
-Angina,https://www.mayoclinic.org/diseases-conditions/angina/symptoms-causes/syc-20369373
-Hives and angioedema,https://www.mayoclinic.org/diseases-conditions/hives-and-angioedema/symptoms-causes/syc-20354908
-Castleman disease,https://www.mayoclinic.org/diseases-conditions/castleman-disease/symptoms-causes/syc-20543017
-Broken ankle,https://www.mayoclinic.org/diseases-conditions/broken-ankle/symptoms-causes/syc-20450025
-Sprained ankle,https://www.mayoclinic.org/diseases-conditions/sprained-ankle/symptoms-causes/syc-20353225
-Tongue-tie (ankyloglossia),https://www.mayoclinic.org/diseases-conditions/tongue-tie/symptoms-causes/syc-20378452
-Anorexia nervosa,https://www.mayoclinic.org/diseases-conditions/anorexia-nervosa/symptoms-causes/syc-20353591
-ACL injury,https://www.mayoclinic.org/diseases-conditions/acl-injury/symptoms-causes/syc-20350738
-Anterior vaginal prolapse (cystocele),https://www.mayoclinic.org/diseases-conditions/cystocele/symptoms-causes/syc-20369452
-Pseudomembranous colitis,https://www.mayoclinic.org/diseases-conditions/pseudomembranous-colitis/symptoms-causes/syc-20351434
-Generalized anxiety disorder,https://www.mayoclinic.org/diseases-conditions/generalized-anxiety-disorder/symptoms-causes/syc-20360803
-Social anxiety disorder (social phobia),https://www.mayoclinic.org/diseases-conditions/social-anxiety-disorder/symptoms-causes/syc-20353561
-Abdominal aortic aneurysm,https://www.mayoclinic.org/diseases-conditions/abdominal-aortic-aneurysm/symptoms-causes/syc-20350688
-Coarctation of the aorta,https://www.mayoclinic.org/diseases-conditions/coarctation-of-the-aorta/symptoms-causes/syc-20352529
-Aortic valve regurgitation,https://www.mayoclinic.org/diseases-conditions/aortic-valve-regurgitation/symptoms-causes/syc-20353129
-Aortic valve regurgitation,https://www.mayoclinic.org/diseases-conditions/aortic-valve-regurgitation/symptoms-causes/syc-20353129
-Auditory processing disorder,https://www.mayoclinic.org/diseases-conditions/auditory-processing-disorder/symptoms-causes/syc-20555261
-Primary progressive aphasia,https://www.mayoclinic.org/diseases-conditions/primary-progressive-aphasia/symptoms-causes/syc-20350499
-Canker sore,https://www.mayoclinic.org/diseases-conditions/canker-sore/symptoms-causes/syc-20370615
-Canker sore,https://www.mayoclinic.org/diseases-conditions/canker-sore/symptoms-causes/syc-20370615
-Broken heart syndrome,https://www.mayoclinic.org/diseases-conditions/broken-heart-syndrome/symptoms-causes/syc-20354617
-Antiphospholipid syndrome,https://www.mayoclinic.org/diseases-conditions/antiphospholipid-syndrome/symptoms-causes/syc-20355831
-Viral hemorrhagic fevers,https://www.mayoclinic.org/diseases-conditions/viral-hemorrhagic-fevers/symptoms-causes/syc-20351260
-Viral hemorrhagic fevers,https://www.mayoclinic.org/diseases-conditions/viral-hemorrhagic-fevers/symptoms-causes/syc-20351260
-Broken arm,https://www.mayoclinic.org/diseases-conditions/broken-arm/symptoms-causes/syc-20353260
-Chiari malformation,https://www.mayoclinic.org/diseases-conditions/chiari-malformation/symptoms-causes/syc-20354010
-Heart arrhythmia,https://www.mayoclinic.org/diseases-conditions/heart-arrhythmia/symptoms-causes/syc-20350668
-Giant cell arteritis,https://www.mayoclinic.org/diseases-conditions/giant-cell-arteritis/symptoms-causes/syc-20372758
-Takayasu's arteritis,https://www.mayoclinic.org/diseases-conditions/takayasus-arteritis/symptoms-causes/syc-20351335
-Thumb arthritis,https://www.mayoclinic.org/diseases-conditions/thumb-arthritis/symptoms-causes/syc-20378339
-Osteoarthritis,https://www.mayoclinic.org/diseases-conditions/osteoarthritis/symptoms-causes/syc-20351925
-Gout,https://www.mayoclinic.org/diseases-conditions/gout/symptoms-causes/syc-20372897
-Septic arthritis,https://www.mayoclinic.org/diseases-conditions/bone-and-joint-infections/symptoms-causes/syc-20350755
-Juvenile idiopathic arthritis,https://www.mayoclinic.org/diseases-conditions/juvenile-idiopathic-arthritis/symptoms-causes/syc-20374082
-Osteoarthritis,https://www.mayoclinic.org/diseases-conditions/osteoarthritis/symptoms-causes/syc-20351925
-Psoriatic arthritis,https://www.mayoclinic.org/diseases-conditions/psoriatic-arthritis/symptoms-causes/syc-20354076
-Reactive arthritis,https://www.mayoclinic.org/diseases-conditions/reactive-arthritis/symptoms-causes/syc-20354838
-Rheumatoid arthritis,https://www.mayoclinic.org/diseases-conditions/rheumatoid-arthritis/symptoms-causes/syc-20353648
-Septic arthritis,https://www.mayoclinic.org/diseases-conditions/bone-and-joint-infections/symptoms-causes/syc-20350755
-Thumb arthritis,https://www.mayoclinic.org/diseases-conditions/thumb-arthritis/symptoms-causes/syc-20378339
-Atrial septal defect (ASD),https://www.mayoclinic.org/diseases-conditions/atrial-septal-defect/symptoms-causes/syc-20369715
-Avascular necrosis (osteonecrosis),https://www.mayoclinic.org/diseases-conditions/avascular-necrosis/symptoms-causes/syc-20369859
-Childhood asthma,https://www.mayoclinic.org/diseases-conditions/childhood-asthma/symptoms-causes/syc-20351507
-Exercise-induced asthma,https://www.mayoclinic.org/diseases-conditions/exercise-induced-asthma/symptoms-causes/syc-20372300
-Occupational asthma,https://www.mayoclinic.org/diseases-conditions/occupational-asthma/symptoms-causes/syc-20375772
-Atrial tachycardia,https://www.mayoclinic.org/diseases-conditions/atrial-tachycardia/symptoms-causes/syc-20573298
-Arteriosclerosis / atherosclerosis,https://www.mayoclinic.org/diseases-conditions/arteriosclerosis-atherosclerosis/symptoms-causes/syc-20350569
-Atrioventricular canal defect,https://www.mayoclinic.org/diseases-conditions/atrioventricular-canal-defect/symptoms-causes/syc-20361492
-Vaginal atrophy,https://www.mayoclinic.org/diseases-conditions/vaginal-atrophy/symptoms-causes/syc-20352288
-Reactive attachment disorder,https://www.mayoclinic.org/diseases-conditions/reactive-attachment-disorder/symptoms-causes/syc-20352939
-Adult attention-deficit/hyperactivity disorder (ADHD),https://www.mayoclinic.org/diseases-conditions/adult-adhd/symptoms-causes/syc-20350878
-Auditory processing disorder,https://www.mayoclinic.org/diseases-conditions/auditory-processing-disorder/symptoms-causes/syc-20555261
-Autoimmune epilepsy,https://www.mayoclinic.org/diseases-conditions/autoimmune-epilepsy/symptoms-causes/syc-20576892
-Autoimmune encephalitis,https://www.mayoclinic.org/diseases-conditions/autoimmune-encephalitis/symptoms-causes/syc-20576380
-Bird flu (avian influenza),https://www.mayoclinic.org/diseases-conditions/bird-flu/symptoms-causes/syc-20568390
-Avascular necrosis (osteonecrosis),https://www.mayoclinic.org/diseases-conditions/avascular-necrosis/symptoms-causes/syc-20369859
-Atrioventricular nodal reentry tachycardia (AVNRT),https://www.mayoclinic.org/diseases-conditions/avnrt/symptoms-causes/syc-20573830
-Hair loss,https://www.mayoclinic.org/diseases-conditions/hair-loss/symptoms-causes/syc-20372926
-Folliculitis,https://www.mayoclinic.org/diseases-conditions/folliculitis/symptoms-causes/syc-20361634
-Mitral valve prolapse,https://www.mayoclinic.org/diseases-conditions/mitral-valve-prolapse/symptoms-causes/syc-20355446
-Airplane ear,https://www.mayoclinic.org/diseases-conditions/airplane-ear/symptoms-causes/syc-20351701
-Airplane ear,https://www.mayoclinic.org/diseases-conditions/airplane-ear/symptoms-causes/syc-20351701
-Thumb arthritis,https://www.mayoclinic.org/diseases-conditions/thumb-arthritis/symptoms-causes/syc-20378339
-Body dysmorphic disorder,https://www.mayoclinic.org/diseases-conditions/body-dysmorphic-disorder/symptoms-causes/syc-20353938
-Geographic tongue,https://www.mayoclinic.org/diseases-conditions/geographic-tongue/symptoms-causes/syc-20354396
-Benign paroxysmal positional vertigo (BPPV),https://www.mayoclinic.org/diseases-conditions/vertigo/symptoms-causes/syc-20370055
-IgA nephropathy (Berger disease),https://www.mayoclinic.org/diseases-conditions/iga-nephropathy/symptoms-causes/syc-20352268
-Cholangiocarcinoma (bile duct cancer),https://www.mayoclinic.org/diseases-conditions/cholangiocarcinoma/symptoms-causes/syc-20352408
-Alcohol poisoning,https://www.mayoclinic.org/diseases-conditions/alcohol-poisoning/symptoms-causes/syc-20354386
-Acne,https://www.mayoclinic.org/diseases-conditions/acne/symptoms-causes/syc-20368047
-Bladder stones,https://www.mayoclinic.org/diseases-conditions/bladder-stones/symptoms-causes/syc-20354339
-Urinary incontinence,https://www.mayoclinic.org/diseases-conditions/urinary-incontinence/symptoms-causes/syc-20352808
-Cystitis,https://www.mayoclinic.org/diseases-conditions/cystitis/symptoms-causes/syc-20371306
-Interstitial cystitis,https://www.mayoclinic.org/diseases-conditions/interstitial-cystitis/symptoms-causes/syc-20354357
-Anterior vaginal prolapse (cystocele),https://www.mayoclinic.org/diseases-conditions/cystocele/symptoms-causes/syc-20369452
-Blastocystis hominis,https://www.mayoclinic.org/diseases-conditions/blastocystis-hominis-infection/symptoms-causes/syc-20351205
-Ureteral obstruction,https://www.mayoclinic.org/diseases-conditions/ureteral-obstruction/symptoms-causes/syc-20354676
-Burning mouth syndrome,https://www.mayoclinic.org/diseases-conditions/burning-mouth-syndrome/symptoms-causes/syc-20350911
-Sweating and body odor,https://www.mayoclinic.org/diseases-conditions/sweating-and-body-odor/symptoms-causes/syc-20353895
-Osteomyelitis,https://www.mayoclinic.org/diseases-conditions/osteomyelitis/symptoms-causes/syc-20375913
-Fecal incontinence,https://www.mayoclinic.org/diseases-conditions/fecal-incontinence/symptoms-causes/syc-20351397
-Intestinal obstruction,https://www.mayoclinic.org/diseases-conditions/intestinal-obstruction/symptoms-causes/syc-20351460
-Benign prostatic hyperplasia (BPH),https://www.mayoclinic.org/diseases-conditions/benign-prostatic-hyperplasia/symptoms-causes/syc-20370087
-Sick sinus syndrome,https://www.mayoclinic.org/diseases-conditions/sick-sinus-syndrome/symptoms-causes/syc-20377554
-Brain AVM (arteriovenous malformation),https://www.mayoclinic.org/diseases-conditions/brain-avm/symptoms-causes/syc-20350260
-Pediatric brain tumors,https://www.mayoclinic.org/diseases-conditions/pediatric-brain-tumor/symptoms-causes/syc-20361694
-Inflammatory breast cancer,https://www.mayoclinic.org/diseases-conditions/inflammatory-breast-cancer/symptoms-causes/syc-20355413
-Male breast cancer,https://www.mayoclinic.org/diseases-conditions/male-breast-cancer/symptoms-causes/syc-20374740
-Mastitis,https://www.mayoclinic.org/diseases-conditions/mastitis/symptoms-causes/syc-20374829
-Subconjunctival hemorrhage (broken blood vessel in eye),https://www.mayoclinic.org/diseases-conditions/subconjunctival-hemorrhage/symptoms-causes/syc-20353826
-Hip fracture,https://www.mayoclinic.org/diseases-conditions/hip-fracture/symptoms-causes/syc-20373468
-Viral hemorrhagic fevers,https://www.mayoclinic.org/diseases-conditions/viral-hemorrhagic-fevers/symptoms-causes/syc-20351260
-Burns,https://www.mayoclinic.org/diseases-conditions/burns/symptoms-causes/syc-20370539
-Meralgia paresthetica,https://www.mayoclinic.org/diseases-conditions/meralgia-paresthetica/symptoms-causes/syc-20355635
-Knee bursitis,https://www.mayoclinic.org/diseases-conditions/knee-bursitis/symptoms-causes/syc-20355501
-Pseudomembranous colitis,https://www.mayoclinic.org/diseases-conditions/pseudomembranous-colitis/symptoms-causes/syc-20351434
-Corns and calluses,https://www.mayoclinic.org/diseases-conditions/corns-and-calluses/symptoms-causes/syc-20355946
-Carcinoma of unknown primary,https://www.mayoclinic.org/diseases-conditions/carcinoma-unknown-primary/symptoms-causes/syc-20370683
-Acute lymphocytic leukemia,https://www.mayoclinic.org/diseases-conditions/acute-lymphocytic-leukemia/symptoms-causes/syc-20369077
-Anal cancer,https://www.mayoclinic.org/diseases-conditions/anal-cancer/symptoms-causes/syc-20354140
-Basal cell carcinoma,https://www.mayoclinic.org/diseases-conditions/basal-cell-carcinoma/symptoms-causes/syc-20354187
-Bladder cancer,https://www.mayoclinic.org/diseases-conditions/bladder-cancer/symptoms-causes/syc-20356104
-Bone cancer,https://www.mayoclinic.org/diseases-conditions/bone-cancer/symptoms-causes/syc-20350217
-Breast cancer,https://www.mayoclinic.org/diseases-conditions/breast-cancer/symptoms-causes/syc-20352470
-Carcinoid tumors,https://www.mayoclinic.org/diseases-conditions/carcinoid-tumors/symptoms-causes/syc-20351039
-Cervical cancer,https://www.mayoclinic.org/diseases-conditions/cervical-cancer/symptoms-causes/syc-20352501
-Chronic lymphocytic leukemia,https://www.mayoclinic.org/diseases-conditions/chronic-lymphocytic-leukemia/symptoms-causes/syc-20352428
-Chronic myelogenous leukemia,https://www.mayoclinic.org/diseases-conditions/chronic-myelogenous-leukemia/symptoms-causes/syc-20352417
-Colon cancer,https://www.mayoclinic.org/diseases-conditions/colon-cancer/symptoms-causes/syc-20353669
-Endometrial cancer,https://www.mayoclinic.org/diseases-conditions/endometrial-cancer/symptoms-causes/syc-20352461
-Esophageal cancer,https://www.mayoclinic.org/diseases-conditions/esophageal-cancer/symptoms-causes/syc-20356084
-Eye melanoma,https://www.mayoclinic.org/diseases-conditions/eye-melanoma/symptoms-causes/syc-20372371
-Floor of the mouth cancer,https://www.mayoclinic.org/diseases-conditions/floor-mouth-cancer/symptoms-causes/syc-20354179
-Gallbladder cancer,https://www.mayoclinic.org/diseases-conditions/gallbladder-cancer/symptoms-causes/syc-20353370
-Stomach cancer,https://www.mayoclinic.org/diseases-conditions/stomach-cancer/symptoms-causes/syc-20352438
-Hairy cell leukemia,https://www.mayoclinic.org/diseases-conditions/hairy-cell-leukemia/symptoms-causes/syc-20372956
-Hodgkin lymphoma (Hodgkin disease),https://www.mayoclinic.org/diseases-conditions/hodgkins-lymphoma/symptoms-causes/syc-20352646
-Hurthle cell cancer,https://www.mayoclinic.org/diseases-conditions/hurthle-cell-cancer/symptoms-causes/syc-20373572
-Inflammatory breast cancer,https://www.mayoclinic.org/diseases-conditions/inflammatory-breast-cancer/symptoms-causes/syc-20355413
-Kidney cancer,https://www.mayoclinic.org/diseases-conditions/kidney-cancer/symptoms-causes/syc-20352664
-Leukemia,https://www.mayoclinic.org/diseases-conditions/leukemia/symptoms-causes/syc-20374373
-Liver cancer,https://www.mayoclinic.org/diseases-conditions/liver-cancer/symptoms-causes/syc-20353659
-Lung cancer,https://www.mayoclinic.org/diseases-conditions/lung-cancer/symptoms-causes/syc-20374620
-Male breast cancer,https://www.mayoclinic.org/diseases-conditions/male-breast-cancer/symptoms-causes/syc-20374740
-Merkel cell carcinoma,https://www.mayoclinic.org/diseases-conditions/merkel-cell-carcinoma/symptoms-causes/syc-20351030
-Mesothelioma,https://www.mayoclinic.org/diseases-conditions/mesothelioma/symptoms-causes/syc-20375022
-Mouth cancer,https://www.mayoclinic.org/diseases-conditions/mouth-cancer/symptoms-causes/syc-20350997
-Multiple myeloma,https://www.mayoclinic.org/diseases-conditions/multiple-myeloma/symptoms-causes/syc-20353378
-Nasopharyngeal carcinoma,https://www.mayoclinic.org/diseases-conditions/nasopharyngeal-carcinoma/symptoms-causes/syc-20375529
-Neuroblastoma,https://www.mayoclinic.org/diseases-conditions/neuroblastoma/symptoms-causes/syc-20351017
-Non-Hodgkin lymphoma,https://www.mayoclinic.org/diseases-conditions/non-hodgkins-lymphoma/symptoms-causes/syc-20375680
-Mouth cancer,https://www.mayoclinic.org/diseases-conditions/mouth-cancer/symptoms-causes/syc-20350997
-Ovarian cancer,https://www.mayoclinic.org/diseases-conditions/ovarian-cancer/symptoms-causes/syc-20375941
-Pancreatic cancer,https://www.mayoclinic.org/diseases-conditions/pancreatic-cancer/symptoms-causes/syc-20355421
-Paraneoplastic syndromes of the nervous system,https://www.mayoclinic.org/diseases-conditions/paraneoplastic-syndromes/symptoms-causes/syc-20355687
-Prostate cancer,https://www.mayoclinic.org/diseases-conditions/prostate-cancer/symptoms-causes/syc-20353087
-Rectal cancer,https://www.mayoclinic.org/diseases-conditions/rectal-cancer/symptoms-causes/syc-20352884
-Retinoblastoma,https://www.mayoclinic.org/diseases-conditions/retinoblastoma/symptoms-causes/syc-20351008
-Skin cancer,https://www.mayoclinic.org/diseases-conditions/skin-cancer/symptoms-causes/syc-20377605
-Soft tissue sarcoma,https://www.mayoclinic.org/diseases-conditions/soft-tissue-sarcoma/symptoms-causes/syc-20377725
-Squamous cell carcinoma of the skin,https://www.mayoclinic.org/diseases-conditions/squamous-cell-carcinoma/symptoms-causes/syc-20352480
-Stomach cancer,https://www.mayoclinic.org/diseases-conditions/stomach-cancer/symptoms-causes/syc-20352438
-Testicular cancer,https://www.mayoclinic.org/diseases-conditions/testicular-cancer-care/symptoms-causes/syc-20352986
-Throat cancer,https://www.mayoclinic.org/diseases-conditions/throat-cancer/symptoms-causes/syc-20366462
-Thyroid cancer,https://www.mayoclinic.org/diseases-conditions/thyroid-cancer/symptoms-causes/syc-20354161
-Endometrial cancer,https://www.mayoclinic.org/diseases-conditions/endometrial-cancer/symptoms-causes/syc-20352461
-Vaginal cancer,https://www.mayoclinic.org/diseases-conditions/vaginal-cancer/symptoms-causes/syc-20352447
-Vulvar cancer,https://www.mayoclinic.org/diseases-conditions/vulvar-cancer/symptoms-causes/syc-20368051
-Wilms tumor,https://www.mayoclinic.org/diseases-conditions/wilms-tumor/symptoms-causes/syc-20352655
-Oral thrush,https://www.mayoclinic.org/diseases-conditions/oral-thrush/symptoms-causes/syc-20353533
-Yeast infection (vaginal),https://www.mayoclinic.org/diseases-conditions/yeast-infection/symptoms-causes/syc-20378999
-Boils and carbuncles,https://www.mayoclinic.org/diseases-conditions/boils-and-carbuncles/symptoms-causes/syc-20353770
-Sudden cardiac arrest,https://www.mayoclinic.org/diseases-conditions/sudden-cardiac-arrest/symptoms-causes/syc-20350634
-Myocardial ischemia,https://www.mayoclinic.org/diseases-conditions/myocardial-ischemia/symptoms-causes/syc-20375417
-Enlarged heart,https://www.mayoclinic.org/diseases-conditions/enlarged-heart/symptoms-causes/syc-20355436
-Dilated cardiomyopathy,https://www.mayoclinic.org/diseases-conditions/dilated-cardiomyopathy/symptoms-causes/syc-20353149
-Hypertrophic cardiomyopathy,https://www.mayoclinic.org/diseases-conditions/hypertrophic-cardiomyopathy/symptoms-causes/syc-20350198
-Achalasia,https://www.mayoclinic.org/diseases-conditions/achalasia/symptoms-causes/syc-20352850
-Heart disease,https://www.mayoclinic.org/diseases-conditions/heart-disease/symptoms-causes/syc-20353118
-Carotid artery disease,https://www.mayoclinic.org/diseases-conditions/carotid-artery-disease/symptoms-causes/syc-20360519
-Carotid artery disease,https://www.mayoclinic.org/diseases-conditions/carotid-artery-disease/symptoms-causes/syc-20360519
-Childhood apraxia of speech,https://www.mayoclinic.org/diseases-conditions/childhood-apraxia-of-speech/symptoms-causes/syc-20352045
-Congenital diaphragmatic hernia (CDH),https://www.mayoclinic.org/diseases-conditions/congenital-diaphragmatic-hernia/symptoms-causes/syc-20544249
-Median arcuate ligament syndrome (MALS),https://www.mayoclinic.org/diseases-conditions/median-arcuate-ligament-syndrome-mals/symptoms-causes/syc-20505001
-Median arcuate ligament syndrome (MALS),https://www.mayoclinic.org/diseases-conditions/median-arcuate-ligament-syndrome-mals/symptoms-causes/syc-20505001
-Median arcuate ligament syndrome (MALS),https://www.mayoclinic.org/diseases-conditions/median-arcuate-ligament-syndrome-mals/symptoms-causes/syc-20505001
-Median arcuate ligament syndrome (MALS),https://www.mayoclinic.org/diseases-conditions/median-arcuate-ligament-syndrome-mals/symptoms-causes/syc-20505001
-Barrett's esophagus,https://www.mayoclinic.org/diseases-conditions/barretts-esophagus/symptoms-causes/syc-20352841
-Auditory processing disorder,https://www.mayoclinic.org/diseases-conditions/auditory-processing-disorder/symptoms-causes/syc-20555261
-Swimmer's itch,https://www.mayoclinic.org/diseases-conditions/swimmers-itch/symptoms-causes/syc-20355043
-Brain aneurysm,https://www.mayoclinic.org/diseases-conditions/brain-aneurysm/symptoms-causes/syc-20361483
-CSF leak (Cerebrospinal fluid leak),https://www.mayoclinic.org/diseases-conditions/csf-leak/symptoms-causes/syc-20522246
-Stroke,https://www.mayoclinic.org/diseases-conditions/stroke/symptoms-causes/syc-20350113
-Earwax blockage,https://www.mayoclinic.org/diseases-conditions/earwax-blockage/symptoms-causes/syc-20353004
-Incompetent cervix,https://www.mayoclinic.org/diseases-conditions/incompetent-cervix/symptoms-causes/syc-20373836
-Cervical spondylosis,https://www.mayoclinic.org/diseases-conditions/cervical-spondylosis/symptoms-causes/syc-20370787
-Neck pain,https://www.mayoclinic.org/diseases-conditions/neck-pain/symptoms-causes/syc-20375581
-Cystic fibrosis,https://www.mayoclinic.org/diseases-conditions/cystic-fibrosis/symptoms-causes/syc-20353700
-Hip dysplasia,https://www.mayoclinic.org/diseases-conditions/hip-dysplasia/symptoms-causes/syc-20350209
-Drug addiction (substance use disorder),https://www.mayoclinic.org/diseases-conditions/drug-addiction/symptoms-causes/syc-20365112
-Costochondritis,https://www.mayoclinic.org/diseases-conditions/costochondritis/symptoms-causes/syc-20371175
-Child abuse,https://www.mayoclinic.org/diseases-conditions/child-abuse/symptoms-causes/syc-20370864
-Chlamydia trachomatis,https://www.mayoclinic.org/diseases-conditions/chlamydia/symptoms-causes/syc-20355349
-Primary sclerosing cholangitis,https://www.mayoclinic.org/diseases-conditions/primary-sclerosing-cholangitis/symptoms-causes/syc-20355797
-Huntington's disease,https://www.mayoclinic.org/diseases-conditions/huntingtons-disease/symptoms-causes/syc-20356117
-Addison's disease,https://www.mayoclinic.org/diseases-conditions/addisons-disease/symptoms-causes/syc-20350293
-Chronic exertional compartment syndrome,https://www.mayoclinic.org/diseases-conditions/chronic-exertional-compartment-syndrome/symptoms-causes/syc-20350830
-Myalgic encephalomyelitis/chronic fatigue syndrome (ME/CFS),https://www.mayoclinic.org/diseases-conditions/chronic-fatigue-syndrome/symptoms-causes/syc-20360490
-Chronic kidney disease,https://www.mayoclinic.org/diseases-conditions/chronic-kidney-disease/symptoms-causes/syc-20354521
-Hashimoto's disease,https://www.mayoclinic.org/diseases-conditions/hashimotos-disease/symptoms-causes/syc-20351855
-COPD,https://www.mayoclinic.org/diseases-conditions/copd/symptoms-causes/syc-20353679
-Chronic kidney disease,https://www.mayoclinic.org/diseases-conditions/chronic-kidney-disease/symptoms-causes/syc-20354521
-Chronic sinusitis,https://www.mayoclinic.org/diseases-conditions/chronic-sinusitis/symptoms-causes/syc-20351661
-Vulvodynia,https://www.mayoclinic.org/diseases-conditions/vulvodynia/symptoms-causes/syc-20353423
-Creutzfeldt-Jakob disease,https://www.mayoclinic.org/diseases-conditions/creutzfeldt-jakob-disease/symptoms-causes/syc-20371226
-Chronic kidney disease,https://www.mayoclinic.org/diseases-conditions/chronic-kidney-disease/symptoms-causes/syc-20354521
-Mitral valve prolapse,https://www.mayoclinic.org/diseases-conditions/mitral-valve-prolapse/symptoms-causes/syc-20355446
-Depression (major depressive disorder),https://www.mayoclinic.org/diseases-conditions/depression/symptoms-causes/syc-20356007
-Chronic lymphocytic leukemia,https://www.mayoclinic.org/diseases-conditions/chronic-lymphocytic-leukemia/symptoms-causes/syc-20352428
-C. difficile infection,https://www.mayoclinic.org/diseases-conditions/c-difficile/symptoms-causes/syc-20351691
-C. difficile infection,https://www.mayoclinic.org/diseases-conditions/c-difficile/symptoms-causes/syc-20351691
-Valley fever,https://www.mayoclinic.org/diseases-conditions/valley-fever/symptoms-causes/syc-20378761
-Cold urticaria,https://www.mayoclinic.org/diseases-conditions/cold-urticaria/symptoms-causes/syc-20371046
-Hypothermia,https://www.mayoclinic.org/diseases-conditions/hypothermia/symptoms-causes/syc-20352682
-Common cold,https://www.mayoclinic.org/diseases-conditions/common-cold/symptoms-causes/syc-20351605
-Ischemic colitis,https://www.mayoclinic.org/diseases-conditions/ischemic-colitis/symptoms-causes/syc-20374001
-Microscopic colitis,https://www.mayoclinic.org/diseases-conditions/microscopic-colitis/symptoms-causes/syc-20351478
-Pseudomembranous colitis,https://www.mayoclinic.org/diseases-conditions/pseudomembranous-colitis/symptoms-causes/syc-20351434
-Ulcerative colitis,https://www.mayoclinic.org/diseases-conditions/ulcerative-colitis/symptoms-causes/syc-20353326
-Pneumothorax,https://www.mayoclinic.org/diseases-conditions/pneumothorax/symptoms-causes/syc-20350367
-Atelectasis,https://www.mayoclinic.org/diseases-conditions/atelectasis/symptoms-causes/syc-20369684
-Ischemic colitis,https://www.mayoclinic.org/diseases-conditions/ischemic-colitis/symptoms-causes/syc-20374001
-Colon cancer,https://www.mayoclinic.org/diseases-conditions/colon-cancer/symptoms-causes/syc-20353669
-Barrett's esophagus,https://www.mayoclinic.org/diseases-conditions/barretts-esophagus/symptoms-causes/syc-20352841
-Complicated grief,https://www.mayoclinic.org/diseases-conditions/complicated-grief/symptoms-causes/syc-20360374
-Hoarding disorder,https://www.mayoclinic.org/diseases-conditions/hoarding-disorder/symptoms-causes/syc-20356056
-Binge-eating disorder,https://www.mayoclinic.org/diseases-conditions/binge-eating-disorder/symptoms-causes/syc-20353627
-Kleptomania,https://www.mayoclinic.org/diseases-conditions/kleptomania/symptoms-causes/syc-20364732
-Genital warts,https://www.mayoclinic.org/diseases-conditions/genital-warts/symptoms-causes/syc-20355234
-Hip dysplasia,https://www.mayoclinic.org/diseases-conditions/hip-dysplasia/symptoms-causes/syc-20350209
-Hirschsprung's disease,https://www.mayoclinic.org/diseases-conditions/hirschsprungs-disease/symptoms-causes/syc-20351556
-Craniosynostosis,https://www.mayoclinic.org/diseases-conditions/craniosynostosis/symptoms-causes/syc-20354513
-Heart failure,https://www.mayoclinic.org/diseases-conditions/heart-failure/symptoms-causes/syc-20373142
-Pink eye (conjunctivitis),https://www.mayoclinic.org/diseases-conditions/pink-eye/symptoms-causes/syc-20376355
-Functional neurologic disorder/conversion disorder,https://www.mayoclinic.org/diseases-conditions/conversion-disorder/symptoms-causes/syc-20355197
-Thalassemia,https://www.mayoclinic.org/diseases-conditions/thalassemia/symptoms-causes/syc-20354995
-Small vessel disease,https://www.mayoclinic.org/diseases-conditions/small-vessel-disease/symptoms-causes/syc-20352117
-Costochondritis,https://www.mayoclinic.org/diseases-conditions/costochondritis/symptoms-causes/syc-20371175
-Costochondritis,https://www.mayoclinic.org/diseases-conditions/costochondritis/symptoms-causes/syc-20371175
-Chronic cough,https://www.mayoclinic.org/diseases-conditions/chronic-cough/symptoms-causes/syc-20351575
-Coronavirus disease 2019 (COVID-19),https://www.mayoclinic.org/diseases-conditions/coronavirus/symptoms-causes/syc-20479963
-Multisystem inflammatory syndrome in children (MIS-C),https://www.mayoclinic.org/diseases-conditions/mis-c-in-kids-covid-19/symptoms-causes/syc-20502550
-Pubic lice (crabs),https://www.mayoclinic.org/diseases-conditions/pubic-lice-crabs/symptoms-causes/syc-20350300
-Muscle cramp,https://www.mayoclinic.org/diseases-conditions/muscle-cramp/symptoms-causes/syc-20350820
-Menstrual cramps,https://www.mayoclinic.org/diseases-conditions/menstrual-cramps/symptoms-causes/syc-20374938
-Giant cell arteritis,https://www.mayoclinic.org/diseases-conditions/giant-cell-arteritis/symptoms-causes/syc-20372758
-Sudden infant death syndrome (SIDS),https://www.mayoclinic.org/diseases-conditions/sudden-infant-death-syndrome/symptoms-causes/syc-20352800
-Complex regional pain syndrome,https://www.mayoclinic.org/diseases-conditions/crps-complex-regional-pain-syndrome/symptoms-causes/syc-20371151
-Undescended testicle,https://www.mayoclinic.org/diseases-conditions/undescended-testicle/symptoms-causes/syc-20351995
-Cutaneous T-cell lymphoma,https://www.mayoclinic.org/diseases-conditions/cutaneous-t-cell-lymphoma/symptoms-causes/syc-20351056
-Peyronie disease,https://www.mayoclinic.org/diseases-conditions/peyronies-disease/symptoms-causes/syc-20353468
-Scoliosis,https://www.mayoclinic.org/diseases-conditions/scoliosis/symptoms-causes/syc-20350716
-Self-injury/cutting,https://www.mayoclinic.org/diseases-conditions/self-injury/symptoms-causes/syc-20350950
-Stroke,https://www.mayoclinic.org/diseases-conditions/stroke/symptoms-causes/syc-20350113
-Common variable immunodeficiency,https://www.mayoclinic.org/diseases-conditions/common-variable-immunodeficiency/symptoms-causes/syc-20355821
-Cyclothymia (cyclothymic disorder),https://www.mayoclinic.org/diseases-conditions/cyclothymia/symptoms-causes/syc-20371275
-Bartholin's cyst,https://www.mayoclinic.org/diseases-conditions/bartholin-cyst/symptoms-causes/syc-20369976
-Ganglion cyst,https://www.mayoclinic.org/diseases-conditions/ganglion-cyst/symptoms-causes/syc-20351156
-Kidney cysts,https://www.mayoclinic.org/diseases-conditions/kidney-cysts/symptoms-causes/syc-20374134
-Ovarian cysts,https://www.mayoclinic.org/diseases-conditions/ovarian-cysts/symptoms-causes/syc-20353405
-Pancreatic cysts,https://www.mayoclinic.org/diseases-conditions/pancreatic-cysts/symptoms-causes/syc-20375993
-Pilonidal cyst,https://www.mayoclinic.org/diseases-conditions/pilonidal-cyst/symptoms-causes/syc-20376329
-Spermatocele,https://www.mayoclinic.org/diseases-conditions/spermatocele/symptoms-causes/syc-20377829
-Interstitial cystitis,https://www.mayoclinic.org/diseases-conditions/interstitial-cystitis/symptoms-causes/syc-20354357
-Anterior vaginal prolapse (cystocele),https://www.mayoclinic.org/diseases-conditions/cystocele/symptoms-causes/syc-20369452
-Epidermoid cysts,https://www.mayoclinic.org/diseases-conditions/epidermoid-cysts/symptoms-causes/syc-20352701
-Epidermoid cysts,https://www.mayoclinic.org/diseases-conditions/epidermoid-cysts/symptoms-causes/syc-20352701
-Cytomegalovirus (CMV) infection,https://www.mayoclinic.org/diseases-conditions/cmv/symptoms-causes/syc-20355358
-Narcolepsy,https://www.mayoclinic.org/diseases-conditions/narcolepsy/symptoms-causes/syc-20375497
-Ductal carcinoma in situ (DCIS),https://www.mayoclinic.org/diseases-conditions/dcis/symptoms-causes/syc-20371889
-Hip dysplasia,https://www.mayoclinic.org/diseases-conditions/hip-dysplasia/symptoms-causes/syc-20350209
-Dry eyes,https://www.mayoclinic.org/diseases-conditions/dry-eyes/symptoms-causes/syc-20371863
-Color blindness,https://www.mayoclinic.org/diseases-conditions/color-blindness/symptoms-causes/syc-20354988
-Osteoarthritis,https://www.mayoclinic.org/diseases-conditions/osteoarthritis/symptoms-causes/syc-20351925
-Gastroparesis,https://www.mayoclinic.org/diseases-conditions/gastroparesis/symptoms-causes/syc-20355787
-Delayed sleep phase,https://www.mayoclinic.org/diseases-conditions/delayed-sleep-phase/symptoms-causes/syc-20353340
-Delayed sleep phase,https://www.mayoclinic.org/diseases-conditions/delayed-sleep-phase/symptoms-causes/syc-20353340
-Frontotemporal dementia,https://www.mayoclinic.org/diseases-conditions/frontotemporal-dementia/symptoms-causes/syc-20354737
-Lewy body dementia,https://www.mayoclinic.org/diseases-conditions/lewy-body-dementia/symptoms-causes/syc-20352025
-Vascular dementia,https://www.mayoclinic.org/diseases-conditions/vascular-dementia/symptoms-causes/syc-20378793
-Dengue fever,https://www.mayoclinic.org/diseases-conditions/dengue-fever/symptoms-causes/syc-20353078
-Nicotine dependence,https://www.mayoclinic.org/diseases-conditions/nicotine-dependence/symptoms-causes/syc-20351584
-Postpartum depression,https://www.mayoclinic.org/diseases-conditions/postpartum-depression/symptoms-causes/syc-20376617
-Teen depression,https://www.mayoclinic.org/diseases-conditions/teen-depression/symptoms-causes/syc-20350985
-Atopic dermatitis (eczema),https://www.mayoclinic.org/diseases-conditions/atopic-dermatitis-eczema/symptoms-causes/syc-20353273
-Swimmer's itch,https://www.mayoclinic.org/diseases-conditions/swimmers-itch/symptoms-causes/syc-20355043
-Contact dermatitis,https://www.mayoclinic.org/diseases-conditions/contact-dermatitis/symptoms-causes/syc-20352742
-Neurodermatitis,https://www.mayoclinic.org/diseases-conditions/neurodermatitis/symptoms-causes/syc-20375634
-Seborrheic dermatitis,https://www.mayoclinic.org/diseases-conditions/seborrheic-dermatitis/symptoms-causes/syc-20352710
-Dermatographia (Dermatographism),https://www.mayoclinic.org/diseases-conditions/dermatographia/symptoms-causes/syc-20371411
-Athlete's foot,https://www.mayoclinic.org/diseases-conditions/athletes-foot/symptoms-causes/syc-20353841
-Retinal detachment,https://www.mayoclinic.org/diseases-conditions/retinal-detachment/symptoms-causes/syc-20351344
-Hip dysplasia,https://www.mayoclinic.org/diseases-conditions/hip-dysplasia/symptoms-causes/syc-20350209
-Neuromyelitis optica,https://www.mayoclinic.org/diseases-conditions/neuromyelitis-optica/symptoms-causes/syc-20375652
-Dermatofibrosarcoma protuberans,https://www.mayoclinic.org/diseases-conditions/dermatofibrosarcoma-protuberans/symptoms-causes/syc-20576872
-Diabetes,https://www.mayoclinic.org/diseases-conditions/diabetes/symptoms-causes/syc-20371444
-Gestational diabetes,https://www.mayoclinic.org/diseases-conditions/gestational-diabetes/symptoms-causes/syc-20355339
-Type 1 diabetes,https://www.mayoclinic.org/diseases-conditions/type-1-diabetes/symptoms-causes/syc-20353011
-Type 1 diabetes in children,https://www.mayoclinic.org/diseases-conditions/type-1-diabetes-in-children/symptoms-causes/syc-20355306
-Type 2 diabetes,https://www.mayoclinic.org/diseases-conditions/type-2-diabetes/symptoms-causes/syc-20351193
-Type 2 diabetes in children,https://www.mayoclinic.org/diseases-conditions/type-2-diabetes-in-children/symptoms-causes/syc-20355318
-Antibiotic-associated diarrhea,https://www.mayoclinic.org/diseases-conditions/antibiotic-associated-diarrhea/symptoms-causes/syc-20352231
-Traveler's diarrhea,https://www.mayoclinic.org/diseases-conditions/travelers-diarrhea/symptoms-causes/syc-20352182
-Voice disorders,https://www.mayoclinic.org/diseases-conditions/voice-disorders/symptoms-causes/syc-20353022
-Dysphagia,https://www.mayoclinic.org/diseases-conditions/dysphagia/symptoms-causes/syc-20372028
-Aortic dissection,https://www.mayoclinic.org/diseases-conditions/aortic-dissection/symptoms-causes/syc-20369496
-Foot drop,https://www.mayoclinic.org/diseases-conditions/foot-drop/symptoms-causes/syc-20372628
-Delayed sleep phase,https://www.mayoclinic.org/diseases-conditions/delayed-sleep-phase/symptoms-causes/syc-20353340
-Desmoplastic small round cell tumors,https://www.mayoclinic.org/diseases-conditions/dsrct/symptoms-causes/syc-20355405
-Delayed sleep phase,https://www.mayoclinic.org/diseases-conditions/delayed-sleep-phase/symptoms-causes/syc-20353340
-Median arcuate ligament syndrome (MALS),https://www.mayoclinic.org/diseases-conditions/median-arcuate-ligament-syndrome-mals/symptoms-causes/syc-20505001
-Deep vein thrombosis (DVT),https://www.mayoclinic.org/diseases-conditions/deep-vein-thrombosis/symptoms-causes/syc-20352557
-Menstrual cramps,https://www.mayoclinic.org/diseases-conditions/menstrual-cramps/symptoms-causes/syc-20374938
-Painful intercourse (dyspareunia),https://www.mayoclinic.org/diseases-conditions/painful-intercourse/symptoms-causes/syc-20375967
-Indigestion,https://www.mayoclinic.org/diseases-conditions/indigestion/symptoms-causes/syc-20352211
-Voice disorders,https://www.mayoclinic.org/diseases-conditions/voice-disorders/symptoms-causes/syc-20353022
-Heart arrhythmia,https://www.mayoclinic.org/diseases-conditions/heart-arrhythmia/symptoms-causes/syc-20350668
-Persistent depressive disorder,https://www.mayoclinic.org/diseases-conditions/persistent-depressive-disorder/symptoms-causes/syc-20350929
-Cervical dystonia,https://www.mayoclinic.org/diseases-conditions/cervical-dystonia/symptoms-causes/syc-20354123
-Swimmer's ear,https://www.mayoclinic.org/diseases-conditions/swimmers-ear/symptoms-causes/syc-20351682
-Ruptured eardrum (perforated eardrum),https://www.mayoclinic.org/diseases-conditions/ruptured-eardrum/symptoms-causes/syc-20351879
-Precocious puberty,https://www.mayoclinic.org/diseases-conditions/precocious-puberty/symptoms-causes/syc-20351811
-Anorexia nervosa,https://www.mayoclinic.org/diseases-conditions/anorexia-nervosa/symptoms-causes/syc-20353591
-Binge-eating disorder,https://www.mayoclinic.org/diseases-conditions/binge-eating-disorder/symptoms-causes/syc-20353627
-Bulimia nervosa,https://www.mayoclinic.org/diseases-conditions/bulimia/symptoms-causes/syc-20353615
-Premature ventricular contractions (PVCs),https://www.mayoclinic.org/diseases-conditions/premature-ventricular-contractions/symptoms-causes/syc-20376757
-Atopic dermatitis (eczema),https://www.mayoclinic.org/diseases-conditions/atopic-dermatitis-eczema/symptoms-causes/syc-20353273
-Dyshidrosis,https://www.mayoclinic.org/diseases-conditions/dyshidrosis/symptoms-causes/syc-20352342
-Erectile dysfunction,https://www.mayoclinic.org/diseases-conditions/erectile-dysfunction/symptoms-causes/syc-20355776
-Pulmonary edema,https://www.mayoclinic.org/diseases-conditions/pulmonary-edema/symptoms-causes/syc-20377009
-Pulmonary embolism,https://www.mayoclinic.org/diseases-conditions/pulmonary-embolism/symptoms-causes/syc-20354647
-End-stage renal disease,https://www.mayoclinic.org/diseases-conditions/end-stage-renal-disease/symptoms-causes/syc-20354532
-Atrioventricular canal defect,https://www.mayoclinic.org/diseases-conditions/atrioventricular-canal-defect/symptoms-causes/syc-20361492
-Uterine polyps,https://www.mayoclinic.org/diseases-conditions/uterine-polyps/symptoms-causes/syc-20378709
-Benign prostatic hyperplasia (BPH),https://www.mayoclinic.org/diseases-conditions/benign-prostatic-hyperplasia/symptoms-causes/syc-20370087
-Goiter,https://www.mayoclinic.org/diseases-conditions/goiter/symptoms-causes/syc-20351829
-Churg-Strauss syndrome,https://www.mayoclinic.org/diseases-conditions/churg-strauss-syndrome/symptoms-causes/syc-20353760
-Tennis elbow,https://www.mayoclinic.org/diseases-conditions/tennis-elbow/symptoms-causes/syc-20351987
-Frontal lobe seizures,https://www.mayoclinic.org/diseases-conditions/frontal-lobe-seizures/symptoms-causes/syc-20353958
-Parvovirus infection,https://www.mayoclinic.org/diseases-conditions/parvovirus-infection/symptoms-causes/syc-20376085
-E. coli,https://www.mayoclinic.org/diseases-conditions/e-coli/symptoms-causes/syc-20372058
-Achalasia,https://www.mayoclinic.org/diseases-conditions/achalasia/symptoms-causes/syc-20352850
-Hirsutism,https://www.mayoclinic.org/diseases-conditions/hirsutism/symptoms-causes/syc-20354935
-Acromegaly,https://www.mayoclinic.org/diseases-conditions/acromegaly/symptoms-causes/syc-20351222
-Narcolepsy,https://www.mayoclinic.org/diseases-conditions/narcolepsy/symptoms-causes/syc-20375497
-Heavy menstrual bleeding,https://www.mayoclinic.org/diseases-conditions/menorrhagia/symptoms-causes/syc-20352829
-Swimmer's ear,https://www.mayoclinic.org/diseases-conditions/swimmers-ear/symptoms-causes/syc-20351682
-Premature ventricular contractions (PVCs),https://www.mayoclinic.org/diseases-conditions/premature-ventricular-contractions/symptoms-causes/syc-20376757
-Blepharitis,https://www.mayoclinic.org/diseases-conditions/blepharitis/symptoms-causes/syc-20370141
-Hirsutism,https://www.mayoclinic.org/diseases-conditions/hirsutism/symptoms-causes/syc-20354935
-Bell's palsy,https://www.mayoclinic.org/diseases-conditions/bells-palsy/symptoms-causes/syc-20370028
-Flatfeet,https://www.mayoclinic.org/diseases-conditions/flatfeet/symptoms-causes/syc-20372604
-Tetralogy of Fallot,https://www.mayoclinic.org/diseases-conditions/tetralogy-of-fallot/symptoms-causes/syc-20353477
-Familial Mediterranean fever,https://www.mayoclinic.org/diseases-conditions/familial-mediterranean-fever/symptoms-causes/syc-20372470
-Familial adenomatous polyposis,https://www.mayoclinic.org/diseases-conditions/familial-adenomatous-polyposis/symptoms-causes/syc-20372443
-Fuchs dystrophy,https://www.mayoclinic.org/diseases-conditions/fuchs-dystrophy/symptoms-causes/syc-20352727
-Fuchs dystrophy,https://www.mayoclinic.org/diseases-conditions/fuchs-dystrophy/symptoms-causes/syc-20352727
-Cold sore,https://www.mayoclinic.org/diseases-conditions/cold-sore/symptoms-causes/syc-20371017
-Valley fever,https://www.mayoclinic.org/diseases-conditions/valley-fever/symptoms-causes/syc-20378761
-Viral hemorrhagic fevers,https://www.mayoclinic.org/diseases-conditions/viral-hemorrhagic-fevers/symptoms-causes/syc-20351260
-Familial hypercholesterolemia,https://www.mayoclinic.org/diseases-conditions/familial-hypercholesterolemia/symptoms-causes/syc-20353755
-Uterine fibroids,https://www.mayoclinic.org/diseases-conditions/uterine-fibroids/symptoms-causes/syc-20354288
-Interstitial lung disease,https://www.mayoclinic.org/diseases-conditions/interstitial-lung-disease/symptoms-causes/syc-20353108
-Pulmonary fibrosis,https://www.mayoclinic.org/diseases-conditions/pulmonary-fibrosis/symptoms-causes/syc-20353690
-Parvovirus infection,https://www.mayoclinic.org/diseases-conditions/parvovirus-infection/symptoms-causes/syc-20376085
-Viral hemorrhagic fevers,https://www.mayoclinic.org/diseases-conditions/viral-hemorrhagic-fevers/symptoms-causes/syc-20351260
-Arteriovenous fistula,https://www.mayoclinic.org/diseases-conditions/arteriovenous-fistula/symptoms-causes/syc-20369567
-Gas and gas pains,https://www.mayoclinic.org/diseases-conditions/gas-and-gas-pains/symptoms-causes/syc-20372709
-Viral hemorrhagic fevers,https://www.mayoclinic.org/diseases-conditions/viral-hemorrhagic-fevers/symptoms-causes/syc-20351260
-Eye floaters,https://www.mayoclinic.org/diseases-conditions/eye-floaters/symptoms-causes/syc-20372346
-Mitral valve prolapse,https://www.mayoclinic.org/diseases-conditions/mitral-valve-prolapse/symptoms-causes/syc-20355446
-Influenza (flu),https://www.mayoclinic.org/diseases-conditions/flu/symptoms-causes/syc-20351719
-Bird flu (avian influenza),https://www.mayoclinic.org/diseases-conditions/bird-flu/symptoms-causes/syc-20568390
-Bird flu (avian influenza),https://www.mayoclinic.org/diseases-conditions/bird-flu/symptoms-causes/syc-20568390
-H1N1 flu (swine flu),https://www.mayoclinic.org/diseases-conditions/swine-flu/symptoms-causes/syc-20378103
-Pericardial effusion,https://www.mayoclinic.org/diseases-conditions/pericardial-effusion/symptoms-causes/syc-20353720
-Functional neurologic disorder/conversion disorder,https://www.mayoclinic.org/diseases-conditions/conversion-disorder/symptoms-causes/syc-20355197
-Vitamin deficiency anemia,https://www.mayoclinic.org/diseases-conditions/vitamin-deficiency-anemia/symptoms-causes/syc-20355025
-Egg allergy,https://www.mayoclinic.org/diseases-conditions/egg-allergy/symptoms-causes/syc-20372115
-Milk allergy,https://www.mayoclinic.org/diseases-conditions/milk-allergy/symptoms-causes/syc-20375101
-Food poisoning,https://www.mayoclinic.org/diseases-conditions/food-poisoning/symptoms-causes/syc-20356230
-Broken foot,https://www.mayoclinic.org/diseases-conditions/broken-foot/symptoms-causes/syc-20355492
-Patent foramen ovale,https://www.mayoclinic.org/diseases-conditions/patent-foramen-ovale/symptoms-causes/syc-20353487
-Broken arm,https://www.mayoclinic.org/diseases-conditions/broken-arm/symptoms-causes/syc-20353260
-Growth plate fractures,https://www.mayoclinic.org/diseases-conditions/growth-plate-fractures/symptoms-causes/syc-20351979
-Hip fracture,https://www.mayoclinic.org/diseases-conditions/hip-fracture/symptoms-causes/syc-20373468
-Broken leg,https://www.mayoclinic.org/diseases-conditions/broken-leg/symptoms-causes/syc-20370412
-Stress fractures,https://www.mayoclinic.org/diseases-conditions/stress-fractures/symptoms-causes/syc-20354057
-Broken nose,https://www.mayoclinic.org/diseases-conditions/broken-nose/symptoms-causes/syc-20370439
-Broken ribs,https://www.mayoclinic.org/diseases-conditions/broken-ribs/symptoms-causes/syc-20350763
-Frontal lobe seizures,https://www.mayoclinic.org/diseases-conditions/frontal-lobe-seizures/symptoms-causes/syc-20353958
-Frontotemporal dementia,https://www.mayoclinic.org/diseases-conditions/frontotemporal-dementia/symptoms-causes/syc-20354737
-Focal segmental glomerulosclerosis (FSGS),https://www.mayoclinic.org/diseases-conditions/fsgs/symptoms-causes/syc-20354693
-Fuchs dystrophy,https://www.mayoclinic.org/diseases-conditions/fuchs-dystrophy/symptoms-causes/syc-20352727
-Fuchs dystrophy,https://www.mayoclinic.org/diseases-conditions/fuchs-dystrophy/symptoms-causes/syc-20352727
-Functional neurologic disorder/conversion disorder,https://www.mayoclinic.org/diseases-conditions/conversion-disorder/symptoms-causes/syc-20355197
-Nail fungus,https://www.mayoclinic.org/diseases-conditions/nail-fungus/symptoms-causes/syc-20353294
-Pectus excavatum,https://www.mayoclinic.org/diseases-conditions/pectus-excavatum/symptoms-causes/syc-20355483
-Generalized anxiety disorder,https://www.mayoclinic.org/diseases-conditions/generalized-anxiety-disorder/symptoms-causes/syc-20360803
-Cholecystitis,https://www.mayoclinic.org/diseases-conditions/cholecystitis/symptoms-causes/syc-20364867
-Compulsive gambling,https://www.mayoclinic.org/diseases-conditions/compulsive-gambling/symptoms-causes/syc-20355178
-Stomach cancer,https://www.mayoclinic.org/diseases-conditions/stomach-cancer/symptoms-causes/syc-20352438
-Gastroparesis,https://www.mayoclinic.org/diseases-conditions/gastroparesis/symptoms-causes/syc-20355787
-Dumping syndrome,https://www.mayoclinic.org/diseases-conditions/dumping-syndrome/symptoms-causes/syc-20371915
-Viral gastroenteritis (stomach flu),https://www.mayoclinic.org/diseases-conditions/viral-gastroenteritis/symptoms-causes/syc-20378847
-Glioblastoma,https://www.mayoclinic.org/diseases-conditions/glioblastoma/symptoms-causes/syc-20569077
-Gender dysphoria,https://www.mayoclinic.org/diseases-conditions/gender-dysphoria/symptoms-causes/syc-20475255
-Gastroesophageal reflux disease (GERD),https://www.mayoclinic.org/diseases-conditions/gerd/symptoms-causes/syc-20361940
-Rubella,https://www.mayoclinic.org/diseases-conditions/rubella/symptoms-causes/syc-20377310
-Castleman disease,https://www.mayoclinic.org/diseases-conditions/castleman-disease/symptoms-causes/syc-20543017
-Glioblastoma,https://www.mayoclinic.org/diseases-conditions/glioblastoma/symptoms-causes/syc-20569077
-Burning mouth syndrome,https://www.mayoclinic.org/diseases-conditions/burning-mouth-syndrome/symptoms-causes/syc-20350911
-Gaucher disease,https://www.mayoclinic.org/diseases-conditions/gauchers-disease/symptoms-causes/syc-20355546
-Celiac disease,https://www.mayoclinic.org/diseases-conditions/celiac-disease/symptoms-causes/syc-20352220
-Complicated grief,https://www.mayoclinic.org/diseases-conditions/complicated-grief/symptoms-causes/syc-20360374
-Blood in urine (hematuria),https://www.mayoclinic.org/diseases-conditions/blood-in-urine/symptoms-causes/syc-20353432
-Acromegaly,https://www.mayoclinic.org/diseases-conditions/acromegaly/symptoms-causes/syc-20351222
-Gingivitis,https://www.mayoclinic.org/diseases-conditions/gingivitis/symptoms-causes/syc-20354453
-Periodontitis,https://www.mayoclinic.org/diseases-conditions/periodontitis/symptoms-causes/syc-20354473
-Enlarged breasts in men (gynecomastia),https://www.mayoclinic.org/diseases-conditions/gynecomastia/symptoms-causes/syc-20351793
-Helicobacter pylori (H. pylori) infection,https://www.mayoclinic.org/diseases-conditions/h-pylori/symptoms-causes/syc-20356171
-H1N1 flu (swine flu),https://www.mayoclinic.org/diseases-conditions/swine-flu/symptoms-causes/syc-20378103
-H1N1 flu (swine flu),https://www.mayoclinic.org/diseases-conditions/swine-flu/symptoms-causes/syc-20378103
-H1N1 flu (swine flu),https://www.mayoclinic.org/diseases-conditions/swine-flu/symptoms-causes/syc-20378103
-Trichotillomania (hair-pulling disorder),https://www.mayoclinic.org/diseases-conditions/trichotillomania/symptoms-causes/syc-20355188
-Black hairy tongue,https://www.mayoclinic.org/diseases-conditions/black-hairy-tongue/symptoms-causes/syc-20356077
-Bad breath,https://www.mayoclinic.org/diseases-conditions/bad-breath/symptoms-causes/syc-20350922
-Broken hand,https://www.mayoclinic.org/diseases-conditions/broken-hand/symptoms-causes/syc-20450240
-Arteriosclerosis / atherosclerosis,https://www.mayoclinic.org/diseases-conditions/arteriosclerosis-atherosclerosis/symptoms-causes/syc-20350569
-Hepatitis A,https://www.mayoclinic.org/diseases-conditions/hepatitis-a/symptoms-causes/syc-20367007
-Hepatitis B,https://www.mayoclinic.org/diseases-conditions/hepatitis-b/symptoms-causes/syc-20366802
-Hepatocellular carcinoma,https://www.mayoclinic.org/diseases-conditions/hepatocellular-carcinoma/cdc-20354552
-Hepatitis C,https://www.mayoclinic.org/diseases-conditions/hepatitis-c/symptoms-causes/syc-20354278
-Coma,https://www.mayoclinic.org/diseases-conditions/coma/symptoms-causes/syc-20371099
-Chronic daily headaches,https://www.mayoclinic.org/diseases-conditions/chronic-daily-headaches/symptoms-causes/syc-20370891
-Cluster headache,https://www.mayoclinic.org/diseases-conditions/cluster-headache/symptoms-causes/syc-20352080
-Exercise headaches,https://www.mayoclinic.org/diseases-conditions/exercise-headaches/symptoms-causes/syc-20372276
-Migraine,https://www.mayoclinic.org/diseases-conditions/migraine-headache/symptoms-causes/syc-20360201
-Cough headaches,https://www.mayoclinic.org/diseases-conditions/primary-cough-headaches/symptoms-causes/syc-20371200
-Sex headaches,https://www.mayoclinic.org/diseases-conditions/sex-headaches/symptoms-causes/syc-20377477
-Sinus headaches,https://www.mayoclinic.org/diseases-conditions/sinus-headaches/symptoms-causes/syc-20377580
-Spinal headaches,https://www.mayoclinic.org/diseases-conditions/spinal-headaches/symptoms-causes/syc-20377913
-Tension headache,https://www.mayoclinic.org/diseases-conditions/tension-headache/symptoms-causes/syc-20353977
-Thunderclap headaches,https://www.mayoclinic.org/diseases-conditions/thunderclap-headaches/symptoms-causes/syc-20378361
-Illness anxiety disorder,https://www.mayoclinic.org/diseases-conditions/illness-anxiety-disorder/symptoms-causes/syc-20373782
-Congenital heart disease in adults,https://www.mayoclinic.org/diseases-conditions/adult-congenital-heart-disease/symptoms-causes/syc-20355456
-Plantar fasciitis,https://www.mayoclinic.org/diseases-conditions/plantar-fasciitis/symptoms-causes/syc-20354846
-Liver hemangioma,https://www.mayoclinic.org/diseases-conditions/liver-hemangioma/symptoms-causes/syc-20354234
-Intracranial hematoma,https://www.mayoclinic.org/diseases-conditions/intracranial-hematoma/symptoms-causes/syc-20356145
-Blood in urine (hematuria),https://www.mayoclinic.org/diseases-conditions/blood-in-urine/symptoms-causes/syc-20353432
-Hepatitis A,https://www.mayoclinic.org/diseases-conditions/hepatitis-a/symptoms-causes/syc-20367007
-Hepatitis B,https://www.mayoclinic.org/diseases-conditions/hepatitis-b/symptoms-causes/syc-20366802
-Hepatitis C,https://www.mayoclinic.org/diseases-conditions/hepatitis-c/symptoms-causes/syc-20354278
-Hepatitis A,https://www.mayoclinic.org/diseases-conditions/hepatitis-a/symptoms-causes/syc-20367007
-Hepatitis B,https://www.mayoclinic.org/diseases-conditions/hepatitis-b/symptoms-causes/syc-20366802
-Hepatitis C,https://www.mayoclinic.org/diseases-conditions/hepatitis-c/symptoms-causes/syc-20354278
-Autoimmune hepatitis,https://www.mayoclinic.org/diseases-conditions/autoimmune-hepatitis/symptoms-causes/syc-20352153
-Toxic hepatitis,https://www.mayoclinic.org/diseases-conditions/toxic-hepatitis/symptoms-causes/syc-20352202
-Wilson's disease,https://www.mayoclinic.org/diseases-conditions/wilsons-disease/symptoms-causes/syc-20353251
-Enlarged liver,https://www.mayoclinic.org/diseases-conditions/enlarged-liver/symptoms-causes/syc-20372167
-Hemochromatosis,https://www.mayoclinic.org/diseases-conditions/hemochromatosis/symptoms-causes/syc-20351443
-Charcot-Marie-Tooth disease,https://www.mayoclinic.org/diseases-conditions/charcot-marie-tooth-disease/symptoms-causes/syc-20350517
-Lynch syndrome,https://www.mayoclinic.org/diseases-conditions/lynch-syndrome/symptoms-causes/syc-20374714
-Hiatal hernia,https://www.mayoclinic.org/diseases-conditions/hiatal-hernia/symptoms-causes/syc-20373379
-Inguinal hernia,https://www.mayoclinic.org/diseases-conditions/inguinal-hernia/symptoms-causes/syc-20351547
-Umbilical hernia,https://www.mayoclinic.org/diseases-conditions/umbilical-hernia/symptoms-causes/syc-20378685
-Shingles,https://www.mayoclinic.org/diseases-conditions/shingles/symptoms-causes/syc-20353054
-Ramsay Hunt syndrome,https://www.mayoclinic.org/diseases-conditions/ramsay-hunt-syndrome/symptoms-causes/syc-20351783
-Genital herpes,https://www.mayoclinic.org/diseases-conditions/genital-herpes/symptoms-causes/syc-20356161
-Secondary hypertension,https://www.mayoclinic.org/diseases-conditions/secondary-hypertension/symptoms-causes/syc-20350679
-Priapism,https://www.mayoclinic.org/diseases-conditions/priapism/symptoms-causes/syc-20352005
-Chronic hives,https://www.mayoclinic.org/diseases-conditions/chronic-hives/symptoms-causes/syc-20352719
-Laryngitis,https://www.mayoclinic.org/diseases-conditions/laryngitis/symptoms-causes/syc-20374262
-Hodgkin lymphoma (Hodgkin disease),https://www.mayoclinic.org/diseases-conditions/hodgkins-lymphoma/symptoms-causes/syc-20352646
-Stye (sty),https://www.mayoclinic.org/diseases-conditions/sty/symptoms-causes/syc-20378017
-Horner syndrome,https://www.mayoclinic.org/diseases-conditions/horner-syndrome/symptoms-causes/syc-20373547
-HIV/AIDS,https://www.mayoclinic.org/diseases-conditions/hiv-aids/symptoms-causes/syc-20373524
-HPV infection,https://www.mayoclinic.org/diseases-conditions/hpv-infection/symptoms-causes/syc-20351596
-Kyphosis,https://www.mayoclinic.org/diseases-conditions/kyphosis/symptoms-causes/syc-20374205
-Ramsay Hunt syndrome,https://www.mayoclinic.org/diseases-conditions/ramsay-hunt-syndrome/symptoms-causes/syc-20351783
-Progeria,https://www.mayoclinic.org/diseases-conditions/progeria/symptoms-causes/syc-20356038
-High cholesterol,https://www.mayoclinic.org/diseases-conditions/high-blood-cholesterol/symptoms-causes/syc-20350800
-Familial hypercholesterolemia,https://www.mayoclinic.org/diseases-conditions/familial-hypercholesterolemia/symptoms-causes/syc-20353755
-Cushing syndrome,https://www.mayoclinic.org/diseases-conditions/cushing-syndrome/symptoms-causes/syc-20351310
-Heavy menstrual bleeding,https://www.mayoclinic.org/diseases-conditions/menorrhagia/symptoms-causes/syc-20352829
-Farsightedness,https://www.mayoclinic.org/diseases-conditions/farsightedness/symptoms-causes/syc-20372495
-Compulsive sexual behavior,https://www.mayoclinic.org/diseases-conditions/compulsive-sexual-behavior/symptoms-causes/syc-20360434
-High blood pressure (hypertension),https://www.mayoclinic.org/diseases-conditions/high-blood-pressure/symptoms-causes/syc-20373410
-Preeclampsia,https://www.mayoclinic.org/diseases-conditions/preeclampsia/symptoms-causes/syc-20355745
-Pulmonary hypertension,https://www.mayoclinic.org/diseases-conditions/pulmonary-hypertension/symptoms-causes/syc-20350697
-Low sex drive in women,https://www.mayoclinic.org/diseases-conditions/low-sex-drive-in-women/symptoms-causes/syc-20374554
-Illness anxiety disorder,https://www.mayoclinic.org/diseases-conditions/illness-anxiety-disorder/symptoms-causes/syc-20373782
-Diabetic hypoglycemia,https://www.mayoclinic.org/diseases-conditions/diabetic-hypoglycemia/symptoms-causes/syc-20371525
-Dehydration,https://www.mayoclinic.org/diseases-conditions/dehydration/symptoms-causes/syc-20354086
-Low blood pressure (hypotension),https://www.mayoclinic.org/diseases-conditions/low-blood-pressure/symptoms-causes/syc-20355465
-Inflammatory bowel disease (IBD),https://www.mayoclinic.org/diseases-conditions/inflammatory-bowel-disease/symptoms-causes/syc-20353315
-Irritable bowel syndrome,https://www.mayoclinic.org/diseases-conditions/irritable-bowel-syndrome/symptoms-causes/syc-20360016
-Pseudotumor cerebri (idiopathic intracranial hypertension),https://www.mayoclinic.org/diseases-conditions/pseudotumor-cerebri/symptoms-causes/syc-20354031
-Myelofibrosis,https://www.mayoclinic.org/diseases-conditions/myelofibrosis/symptoms-causes/syc-20355057
-Immune thrombocytopenia (ITP),https://www.mayoclinic.org/diseases-conditions/idiopathic-thrombocytopenic-purpura/symptoms-causes/syc-20352325
-Toe walking in children,https://www.mayoclinic.org/diseases-conditions/toe-walking/symptoms-causes/syc-20378410
-Henoch-Schonlein purpura,https://www.mayoclinic.org/diseases-conditions/henoch-schonlein-purpura/symptoms-causes/syc-20354040
-Pseudotumor cerebri (idiopathic intracranial hypertension),https://www.mayoclinic.org/diseases-conditions/pseudotumor-cerebri/symptoms-causes/syc-20354031
-Immune thrombocytopenia (ITP),https://www.mayoclinic.org/diseases-conditions/idiopathic-thrombocytopenic-purpura/symptoms-causes/syc-20352325
-Prediabetes,https://www.mayoclinic.org/diseases-conditions/prediabetes/symptoms-causes/syc-20355278
-Erectile dysfunction,https://www.mayoclinic.org/diseases-conditions/erectile-dysfunction/symptoms-causes/syc-20355776
-Inherited metabolic disorders,https://www.mayoclinic.org/diseases-conditions/inherited-metabolic-disorders/symptoms-causes/syc-20352590
-Fecal incontinence,https://www.mayoclinic.org/diseases-conditions/fecal-incontinence/symptoms-causes/syc-20351397
-Fecal incontinence,https://www.mayoclinic.org/diseases-conditions/fecal-incontinence/symptoms-causes/syc-20351397
-Bed-wetting,https://www.mayoclinic.org/diseases-conditions/bed-wetting/symptoms-causes/syc-20366685
-Urinary incontinence,https://www.mayoclinic.org/diseases-conditions/urinary-incontinence/symptoms-causes/syc-20352808
-Hemangioma,https://www.mayoclinic.org/diseases-conditions/hemangioma/symptoms-causes/syc-20352334
-Septic arthritis,https://www.mayoclinic.org/diseases-conditions/bone-and-joint-infections/symptoms-causes/syc-20350755
-Female infertility,https://www.mayoclinic.org/diseases-conditions/female-infertility/symptoms-causes/syc-20354308
-Male infertility,https://www.mayoclinic.org/diseases-conditions/male-infertility/symptoms-causes/syc-20374773
-Cholecystitis,https://www.mayoclinic.org/diseases-conditions/cholecystitis/symptoms-causes/syc-20364867
-Pancreatitis,https://www.mayoclinic.org/diseases-conditions/pancreatitis/symptoms-causes/syc-20360227
-Pericarditis,https://www.mayoclinic.org/diseases-conditions/pericarditis/symptoms-causes/syc-20352510
-Bird flu (avian influenza),https://www.mayoclinic.org/diseases-conditions/bird-flu/symptoms-causes/syc-20568390
-H1N1 flu (swine flu),https://www.mayoclinic.org/diseases-conditions/swine-flu/symptoms-causes/syc-20378103
-H1N1 flu (swine flu),https://www.mayoclinic.org/diseases-conditions/swine-flu/symptoms-causes/syc-20378103
-Metabolic syndrome,https://www.mayoclinic.org/diseases-conditions/metabolic-syndrome/symptoms-causes/syc-20351916
-Claudication,https://www.mayoclinic.org/diseases-conditions/claudication/symptoms-causes/syc-20370952
-Whipple's disease,https://www.mayoclinic.org/diseases-conditions/whipples-disease/symptoms-causes/syc-20378946
-Ductal carcinoma in situ (DCIS),https://www.mayoclinic.org/diseases-conditions/dcis/symptoms-causes/syc-20371889
-Cholestasis of pregnancy,https://www.mayoclinic.org/diseases-conditions/cholestasis-of-pregnancy/symptoms-causes/syc-20363257
-Hemochromatosis,https://www.mayoclinic.org/diseases-conditions/hemochromatosis/symptoms-causes/syc-20351443
-Intestinal ischemia,https://www.mayoclinic.org/diseases-conditions/intestinal-ischemia/symptoms-causes/syc-20373946
-Avascular necrosis (osteonecrosis),https://www.mayoclinic.org/diseases-conditions/avascular-necrosis/symptoms-causes/syc-20369859
-Priapism,https://www.mayoclinic.org/diseases-conditions/priapism/symptoms-causes/syc-20352005
-Pancreatic neuroendocrine tumors,https://www.mayoclinic.org/diseases-conditions/pancreatic-neuroendocrine-tumors/symptoms-causes/syc-20352489
-Immune thrombocytopenia (ITP),https://www.mayoclinic.org/diseases-conditions/idiopathic-thrombocytopenic-purpura/symptoms-causes/syc-20352325
-Patellar tendinitis,https://www.mayoclinic.org/diseases-conditions/patellar-tendinitis/symptoms-causes/syc-20376113
-Juvenile idiopathic arthritis,https://www.mayoclinic.org/diseases-conditions/juvenile-idiopathic-arthritis/symptoms-causes/syc-20374082
-Childhood schizophrenia,https://www.mayoclinic.org/diseases-conditions/childhood-schizophrenia/symptoms-causes/syc-20354483
-Dry eyes,https://www.mayoclinic.org/diseases-conditions/dry-eyes/symptoms-causes/syc-20371863
-Actinic keratosis,https://www.mayoclinic.org/diseases-conditions/actinic-keratosis/symptoms-causes/syc-20354969
-Seborrheic keratosis,https://www.mayoclinic.org/diseases-conditions/seborrheic-keratosis/symptoms-causes/syc-20353878
-Diabetic ketoacidosis,https://www.mayoclinic.org/diseases-conditions/diabetic-ketoacidosis/symptoms-causes/syc-20371551
-Chronic kidney disease,https://www.mayoclinic.org/diseases-conditions/chronic-kidney-disease/symptoms-causes/syc-20354521
-Chronic kidney disease,https://www.mayoclinic.org/diseases-conditions/chronic-kidney-disease/symptoms-causes/syc-20354521
-Mononucleosis,https://www.mayoclinic.org/diseases-conditions/mononucleosis/symptoms-causes/syc-20350328
-Hilar cholangiocarcinoma,https://www.mayoclinic.org/diseases-conditions/hilar-cholangiocarcinoma/cdc-20354548
-Keratosis pilaris,https://www.mayoclinic.org/diseases-conditions/keratosis-pilaris/symptoms-causes/syc-20351149
-Lactose intolerance,https://www.mayoclinic.org/diseases-conditions/lactose-intolerance/symptoms-causes/syc-20374232
-Mastitis,https://www.mayoclinic.org/diseases-conditions/mastitis/symptoms-causes/syc-20374829
-Viral hemorrhagic fevers,https://www.mayoclinic.org/diseases-conditions/viral-hemorrhagic-fevers/symptoms-causes/syc-20351260
-Tennis elbow,https://www.mayoclinic.org/diseases-conditions/tennis-elbow/symptoms-causes/syc-20351987
-Tennis elbow,https://www.mayoclinic.org/diseases-conditions/tennis-elbow/symptoms-causes/syc-20351987
-Tennis elbow,https://www.mayoclinic.org/diseases-conditions/tennis-elbow/symptoms-causes/syc-20351987
-Lobular carcinoma in situ (LCIS),https://www.mayoclinic.org/diseases-conditions/lobular-carcinoma-in-situ/symptoms-causes/syc-20374529
-Broken leg,https://www.mayoclinic.org/diseases-conditions/broken-leg/symptoms-causes/syc-20370412
-Legionnaires' disease,https://www.mayoclinic.org/diseases-conditions/legionnaires-disease/symptoms-causes/syc-20351747
-Age spots (liver spots),https://www.mayoclinic.org/diseases-conditions/age-spots/symptoms-causes/syc-20355859
-Acute lymphocytic leukemia,https://www.mayoclinic.org/diseases-conditions/acute-lymphocytic-leukemia/symptoms-causes/syc-20369077
-Acute myelogenous leukemia,https://www.mayoclinic.org/diseases-conditions/acute-myelogenous-leukemia/symptoms-causes/syc-20369109
-Chronic lymphocytic leukemia,https://www.mayoclinic.org/diseases-conditions/chronic-lymphocytic-leukemia/symptoms-causes/syc-20352428
-Chronic myelogenous leukemia,https://www.mayoclinic.org/diseases-conditions/chronic-myelogenous-leukemia/symptoms-causes/syc-20352417
-Leukemia,https://www.mayoclinic.org/diseases-conditions/leukemia/symptoms-causes/syc-20374373
-Hairy cell leukemia,https://www.mayoclinic.org/diseases-conditions/hairy-cell-leukemia/symptoms-causes/syc-20372956
-Body lice,https://www.mayoclinic.org/diseases-conditions/body-lice/symptoms-causes/syc-20350310
-Oral lichen planus,https://www.mayoclinic.org/diseases-conditions/oral-lichen-planus/symptoms-causes/syc-20350869
-Neurodermatitis,https://www.mayoclinic.org/diseases-conditions/neurodermatitis/symptoms-causes/syc-20375634
-Whipple's disease,https://www.mayoclinic.org/diseases-conditions/whipples-disease/symptoms-causes/syc-20378946
-Listeria infection,https://www.mayoclinic.org/diseases-conditions/listeria-infection/symptoms-causes/syc-20355269
-Acute liver failure,https://www.mayoclinic.org/diseases-conditions/acute-liver-failure/symptoms-causes/syc-20352863
-Age spots (liver spots),https://www.mayoclinic.org/diseases-conditions/age-spots/symptoms-causes/syc-20355859
-Enlarged liver,https://www.mayoclinic.org/diseases-conditions/enlarged-liver/symptoms-causes/syc-20372167
-Morphea,https://www.mayoclinic.org/diseases-conditions/morphea/symptoms-causes/syc-20375283
-Tetanus,https://www.mayoclinic.org/diseases-conditions/tetanus/symptoms-causes/syc-20351625
-Urinary incontinence,https://www.mayoclinic.org/diseases-conditions/urinary-incontinence/symptoms-causes/syc-20352808
-Amyotrophic lateral sclerosis (ALS),https://www.mayoclinic.org/diseases-conditions/amyotrophic-lateral-sclerosis/symptoms-causes/syc-20354022
-Hypoglycemia,https://www.mayoclinic.org/diseases-conditions/hypoglycemia/symptoms-causes/syc-20373685
-Hypothermia,https://www.mayoclinic.org/diseases-conditions/hypothermia/symptoms-causes/syc-20352682
-Thrombocytopenia,https://www.mayoclinic.org/diseases-conditions/thrombocytopenia/symptoms-causes/syc-20378293
-Male hypogonadism,https://www.mayoclinic.org/diseases-conditions/male-hypogonadism/symptoms-causes/syc-20354881
-Priapism,https://www.mayoclinic.org/diseases-conditions/priapism/symptoms-causes/syc-20352005
-Pneumothorax,https://www.mayoclinic.org/diseases-conditions/pneumothorax/symptoms-causes/syc-20350367
-Atelectasis,https://www.mayoclinic.org/diseases-conditions/atelectasis/symptoms-causes/syc-20369684
-Interstitial lung disease,https://www.mayoclinic.org/diseases-conditions/interstitial-lung-disease/symptoms-causes/syc-20353108
-Swollen lymph nodes,https://www.mayoclinic.org/diseases-conditions/swollen-lymph-nodes/symptoms-causes/syc-20353902
-Swollen lymph nodes,https://www.mayoclinic.org/diseases-conditions/swollen-lymph-nodes/symptoms-causes/syc-20353902
-Mesenteric lymphadenitis,https://www.mayoclinic.org/diseases-conditions/mesenteric-lymphadenitis/symptoms-causes/syc-20353799
-Hodgkin lymphoma (Hodgkin disease),https://www.mayoclinic.org/diseases-conditions/hodgkins-lymphoma/symptoms-causes/syc-20352646
-Non-Hodgkin lymphoma,https://www.mayoclinic.org/diseases-conditions/non-hodgkins-lymphoma/symptoms-causes/syc-20375680
-Waldenstrom macroglobulinemia,https://www.mayoclinic.org/diseases-conditions/waldenstrom-macroglobulinemia/symptoms-causes/syc-20359967
-Dry macular degeneration,https://www.mayoclinic.org/diseases-conditions/dry-macular-degeneration/symptoms-causes/syc-20350375
-Creutzfeldt-Jakob disease,https://www.mayoclinic.org/diseases-conditions/creutzfeldt-jakob-disease/symptoms-causes/syc-20371226
-Depression (major depressive disorder),https://www.mayoclinic.org/diseases-conditions/depression/symptoms-causes/syc-20356007
-Undifferentiated pleomorphic sarcoma,https://www.mayoclinic.org/diseases-conditions/undifferentiated-pleomorphic-sarcoma/symptoms-causes/syc-20389554
-Mesothelioma,https://www.mayoclinic.org/diseases-conditions/mesothelioma/symptoms-causes/syc-20375022
-Hammertoe and mallet toe,https://www.mayoclinic.org/diseases-conditions/hammertoe-and-mallet-toe/symptoms-causes/syc-20350839
-Median arcuate ligament syndrome (MALS),https://www.mayoclinic.org/diseases-conditions/median-arcuate-ligament-syndrome-mals/symptoms-causes/syc-20505001
-Bipolar disorder,https://www.mayoclinic.org/diseases-conditions/bipolar-disorder/symptoms-causes/syc-20355955
-Nonalcoholic fatty liver disease,https://www.mayoclinic.org/diseases-conditions/nonalcoholic-fatty-liver-disease/symptoms-causes/syc-20354567
-Nonalcoholic fatty liver disease,https://www.mayoclinic.org/diseases-conditions/nonalcoholic-fatty-liver-disease/symptoms-causes/syc-20354567
-Breast pain,https://www.mayoclinic.org/diseases-conditions/breast-pain/symptoms-causes/syc-20350423
-Muscular dystrophy,https://www.mayoclinic.org/diseases-conditions/muscular-dystrophy/symptoms-causes/syc-20375388
-Myelodysplastic syndromes,https://www.mayoclinic.org/diseases-conditions/myelodysplastic-syndrome/symptoms-causes/syc-20366977
-Myalgic encephalomyelitis/chronic fatigue syndrome (ME/CFS),https://www.mayoclinic.org/diseases-conditions/chronic-fatigue-syndrome/symptoms-causes/syc-20360490
-Rubella,https://www.mayoclinic.org/diseases-conditions/rubella/symptoms-causes/syc-20377310
-Golfer's elbow,https://www.mayoclinic.org/diseases-conditions/golfers-elbow/symptoms-causes/syc-20372868
-Shin splints,https://www.mayoclinic.org/diseases-conditions/shin-splints/symptoms-causes/syc-20354105
-Thalassemia,https://www.mayoclinic.org/diseases-conditions/thalassemia/symptoms-causes/syc-20354995
-Hirschsprung's disease,https://www.mayoclinic.org/diseases-conditions/hirschsprungs-disease/symptoms-causes/syc-20351556
-Vitamin deficiency anemia,https://www.mayoclinic.org/diseases-conditions/vitamin-deficiency-anemia/symptoms-causes/syc-20355025
-Eye melanoma,https://www.mayoclinic.org/diseases-conditions/eye-melanoma/symptoms-causes/syc-20372371
-"Multiple endocrine neoplasia, type 2 (MEN 2)",https://www.mayoclinic.org/diseases-conditions/men-2/symptoms-causes/syc-20540486
-Torn meniscus,https://www.mayoclinic.org/diseases-conditions/torn-meniscus/symptoms-causes/syc-20354818
-Heavy menstrual bleeding,https://www.mayoclinic.org/diseases-conditions/menorrhagia/symptoms-causes/syc-20352829
-Nonalcoholic fatty liver disease,https://www.mayoclinic.org/diseases-conditions/nonalcoholic-fatty-liver-disease/symptoms-causes/syc-20354567
-Nonalcoholic fatty liver disease,https://www.mayoclinic.org/diseases-conditions/nonalcoholic-fatty-liver-disease/symptoms-causes/syc-20354567
-MRSA infection,https://www.mayoclinic.org/diseases-conditions/mrsa/symptoms-causes/syc-20375336
-Myxofibrosarcoma,https://www.mayoclinic.org/diseases-conditions/myxofibrosarcoma/symptoms-causes/syc-20577507
-Myasthenia gravis,https://www.mayoclinic.org/diseases-conditions/myasthenia-gravis/symptoms-causes/syc-20352036
-Monoclonal gammopathy of undetermined significance (MGUS),https://www.mayoclinic.org/diseases-conditions/mgus/symptoms-causes/syc-20352362
-Blood in urine (hematuria),https://www.mayoclinic.org/diseases-conditions/blood-in-urine/symptoms-causes/syc-20353432
-Heat rash,https://www.mayoclinic.org/diseases-conditions/heat-rash/symptoms-causes/syc-20373276
-Lactose intolerance,https://www.mayoclinic.org/diseases-conditions/lactose-intolerance/symptoms-causes/syc-20374232
-Myelin oligodendrocyte glycoprotein antibody-associated disease (MOGAD),https://www.mayoclinic.org/diseases-conditions/mogad/symptoms-causes/syc-20560476
-Myelin oligodendrocyte glycoprotein antibody-associated disease (MOGAD),https://www.mayoclinic.org/diseases-conditions/mogad/symptoms-causes/syc-20560476
-Mononucleosis,https://www.mayoclinic.org/diseases-conditions/mononucleosis/symptoms-causes/syc-20350328
-Multiple sclerosis,https://www.mayoclinic.org/diseases-conditions/multiple-sclerosis/symptoms-causes/syc-20350269
-Multiple system atrophy,https://www.mayoclinic.org/diseases-conditions/multiple-system-atrophy/symptoms-causes/syc-20356153
-Kawasaki disease,https://www.mayoclinic.org/diseases-conditions/kawasaki-disease/symptoms-causes/syc-20354598
-"Multiple endocrine neoplasia, type 1 (MEN 1)",https://www.mayoclinic.org/diseases-conditions/men-1/symptoms-causes/syc-20353064
-Myelodysplastic syndromes,https://www.mayoclinic.org/diseases-conditions/myelodysplastic-syndrome/symptoms-causes/syc-20366977
-Heart attack,https://www.mayoclinic.org/diseases-conditions/heart-attack/symptoms-causes/syc-20373106
-Nearsightedness,https://www.mayoclinic.org/diseases-conditions/nearsightedness/symptoms-causes/syc-20375556
-Nonalcoholic fatty liver disease,https://www.mayoclinic.org/diseases-conditions/nonalcoholic-fatty-liver-disease/symptoms-causes/syc-20354567
-Wilms tumor,https://www.mayoclinic.org/diseases-conditions/wilms-tumor/symptoms-causes/syc-20352655
-Postherpetic neuralgia,https://www.mayoclinic.org/diseases-conditions/postherpetic-neuralgia/symptoms-causes/syc-20376588
-Trigeminal neuralgia,https://www.mayoclinic.org/diseases-conditions/trigeminal-neuralgia/symptoms-causes/syc-20353344
-Schwannoma,https://www.mayoclinic.org/diseases-conditions/schwannoma/cdc-20352974
-Schwannomatosis,https://www.mayoclinic.org/diseases-conditions/schwannomatosis/symptoms-causes/syc-20567542
-Vasovagal syncope,https://www.mayoclinic.org/diseases-conditions/vasovagal-syncope/symptoms-causes/syc-20350527
-Merkel cell carcinoma,https://www.mayoclinic.org/diseases-conditions/merkel-cell-carcinoma/symptoms-causes/syc-20351030
-Neurofibromatosis type 1,https://www.mayoclinic.org/diseases-conditions/neurofibromatosis-type-1/symptoms-causes/syc-20350490
-Malignant peripheral nerve sheath tumors,https://www.mayoclinic.org/diseases-conditions/malignant-peripheral-nerve-sheath-tumors/symptoms-causes/syc-20362603
-Acoustic neuroma,https://www.mayoclinic.org/diseases-conditions/acoustic-neuroma/symptoms-causes/syc-20356127
-Morton's neuroma,https://www.mayoclinic.org/diseases-conditions/mortons-neuroma/symptoms-causes/syc-20351935
-Morton's neuroma,https://www.mayoclinic.org/diseases-conditions/mortons-neuroma/symptoms-causes/syc-20351935
-Neuromyelitis optica,https://www.mayoclinic.org/diseases-conditions/neuromyelitis-optica/symptoms-causes/syc-20375652
-Autonomic neuropathy,https://www.mayoclinic.org/diseases-conditions/autonomic-neuropathy/symptoms-causes/syc-20369829
-Diabetic neuropathy,https://www.mayoclinic.org/diseases-conditions/diabetic-neuropathy/symptoms-causes/syc-20371580
-Charcot-Marie-Tooth disease,https://www.mayoclinic.org/diseases-conditions/charcot-marie-tooth-disease/symptoms-causes/syc-20350517
-Peripheral neuropathy,https://www.mayoclinic.org/diseases-conditions/peripheral-neuropathy/symptoms-causes/syc-20352061
-Moles,https://www.mayoclinic.org/diseases-conditions/moles/symptoms-causes/syc-20375200
-Neurofibromatosis type 1,https://www.mayoclinic.org/diseases-conditions/neurofibromatosis-type-1/symptoms-causes/syc-20350490
-Nicotine dependence,https://www.mayoclinic.org/diseases-conditions/nicotine-dependence/symptoms-causes/syc-20351584
-Sleep terrors (night terrors),https://www.mayoclinic.org/diseases-conditions/sleep-terrors/symptoms-causes/syc-20353524
-Bed-wetting,https://www.mayoclinic.org/diseases-conditions/bed-wetting/symptoms-causes/syc-20366685
-Neuromyelitis optica,https://www.mayoclinic.org/diseases-conditions/neuromyelitis-optica/symptoms-causes/syc-20375652
-Neuromyelitis optica,https://www.mayoclinic.org/diseases-conditions/neuromyelitis-optica/symptoms-causes/syc-20375652
-Bed-wetting,https://www.mayoclinic.org/diseases-conditions/bed-wetting/symptoms-causes/syc-20366685
-Hearing loss,https://www.mayoclinic.org/diseases-conditions/hearing-loss/symptoms-causes/syc-20373072
-Priapism,https://www.mayoclinic.org/diseases-conditions/priapism/symptoms-causes/syc-20352005
-Celiac disease,https://www.mayoclinic.org/diseases-conditions/celiac-disease/symptoms-causes/syc-20352220
-Functional dyspepsia,https://www.mayoclinic.org/diseases-conditions/functional-dyspepsia/symptoms-causes/syc-20375709
-Functional dyspepsia,https://www.mayoclinic.org/diseases-conditions/functional-dyspepsia/symptoms-causes/syc-20375709
-Broken nose,https://www.mayoclinic.org/diseases-conditions/broken-nose/symptoms-causes/syc-20370439
-Compulsive sexual behavior,https://www.mayoclinic.org/diseases-conditions/compulsive-sexual-behavior/symptoms-causes/syc-20360434
-Overactive bladder,https://www.mayoclinic.org/diseases-conditions/overactive-bladder/symptoms-causes/syc-20355715
-Childhood obesity,https://www.mayoclinic.org/diseases-conditions/childhood-obesity/symptoms-causes/syc-20354827
-Cholestasis of pregnancy,https://www.mayoclinic.org/diseases-conditions/cholestasis-of-pregnancy/symptoms-causes/syc-20363257
-Pediatric obstructive sleep apnea,https://www.mayoclinic.org/diseases-conditions/pediatric-sleep-apnea/symptoms-causes/syc-20376196
-Carcinoma of unknown primary,https://www.mayoclinic.org/diseases-conditions/carcinoma-unknown-primary/symptoms-causes/syc-20370683
-Obsessive-compulsive disorder (OCD),https://www.mayoclinic.org/diseases-conditions/obsessive-compulsive-disorder/symptoms-causes/syc-20354432
-Albinism,https://www.mayoclinic.org/diseases-conditions/albinism/symptoms-causes/syc-20369184
-Albinism,https://www.mayoclinic.org/diseases-conditions/albinism/symptoms-causes/syc-20369184
-Horner syndrome,https://www.mayoclinic.org/diseases-conditions/horner-syndrome/symptoms-causes/syc-20373547
-Oppositional defiant disorder (ODD),https://www.mayoclinic.org/diseases-conditions/oppositional-defiant-disorder/symptoms-causes/syc-20375831
-Jaw tumors and cysts,https://www.mayoclinic.org/diseases-conditions/jaw-tumors-cysts/symptoms-causes/syc-20350973
-Ovarian hyperstimulation syndrome,https://www.mayoclinic.org/diseases-conditions/ovarian-hyperstimulation-syndrome-ohss/symptoms-causes/syc-20354697
-Esthesioneuroblastoma,https://www.mayoclinic.org/diseases-conditions/esthesioneuroblastoma/symptoms-causes/syc-20351075
-Nail fungus,https://www.mayoclinic.org/diseases-conditions/nail-fungus/symptoms-causes/syc-20353294
-Mouth cancer,https://www.mayoclinic.org/diseases-conditions/mouth-cancer/symptoms-causes/syc-20350997
-Oral thrush,https://www.mayoclinic.org/diseases-conditions/oral-thrush/symptoms-causes/syc-20353533
-Cervical spondylosis,https://www.mayoclinic.org/diseases-conditions/cervical-spondylosis/symptoms-causes/syc-20370787
-Osteosarcoma,https://www.mayoclinic.org/diseases-conditions/osteosarcoma/symptoms-causes/syc-20351052
-Avascular necrosis (osteonecrosis),https://www.mayoclinic.org/diseases-conditions/avascular-necrosis/symptoms-causes/syc-20369859
-Bone spurs,https://www.mayoclinic.org/diseases-conditions/bone-spurs/symptoms-causes/syc-20370212
-Swimmer's ear,https://www.mayoclinic.org/diseases-conditions/swimmers-ear/symptoms-causes/syc-20351682
-Ear infection (middle ear),https://www.mayoclinic.org/diseases-conditions/ear-infections/symptoms-causes/syc-20351616
-Swimmer's ear,https://www.mayoclinic.org/diseases-conditions/swimmers-ear/symptoms-causes/syc-20351682
-Hyperthyroidism (overactive thyroid),https://www.mayoclinic.org/diseases-conditions/hyperthyroidism/symptoms-causes/syc-20373659
-Hurthle cell cancer,https://www.mayoclinic.org/diseases-conditions/hurthle-cell-cancer/symptoms-causes/syc-20373572
-Peripheral artery disease (PAD),https://www.mayoclinic.org/diseases-conditions/peripheral-artery-disease/symptoms-causes/syc-20350557
-Popliteal artery entrapment,https://www.mayoclinic.org/diseases-conditions/popliteal-artery-entrapment/symptoms-causes/syc-20465211
-Back pain,https://www.mayoclinic.org/diseases-conditions/back-pain/symptoms-causes/syc-20369906
-Breast pain,https://www.mayoclinic.org/diseases-conditions/breast-pain/symptoms-causes/syc-20350423
-Chest pain,https://www.mayoclinic.org/diseases-conditions/chest-pain/symptoms-causes/syc-20370838
-Knee pain,https://www.mayoclinic.org/diseases-conditions/knee-pain/symptoms-causes/syc-20350849
-Neck pain,https://www.mayoclinic.org/diseases-conditions/neck-pain/symptoms-causes/syc-20375581
-Wrist pain,https://www.mayoclinic.org/diseases-conditions/wrist-pain/symptoms-causes/syc-20366213
-Interstitial cystitis,https://www.mayoclinic.org/diseases-conditions/interstitial-cystitis/symptoms-causes/syc-20354357
-Menstrual cramps,https://www.mayoclinic.org/diseases-conditions/menstrual-cramps/symptoms-causes/syc-20374938
-Bell's palsy,https://www.mayoclinic.org/diseases-conditions/bells-palsy/symptoms-causes/syc-20370028
-Cerebral palsy,https://www.mayoclinic.org/diseases-conditions/cerebral-palsy/symptoms-causes/syc-20353999
-Bell's palsy,https://www.mayoclinic.org/diseases-conditions/bells-palsy/symptoms-causes/syc-20370028
-Pancreatitis,https://www.mayoclinic.org/diseases-conditions/pancreatitis/symptoms-causes/syc-20360227
-Partial anomalous pulmonary venous return,https://www.mayoclinic.org/diseases-conditions/partial-anomalous-pulmonary-venous-return/cdc-20385691
-Paraneoplastic syndromes of the nervous system,https://www.mayoclinic.org/diseases-conditions/paraneoplastic-syndromes/symptoms-causes/syc-20355687
-Paraneoplastic syndromes of the nervous system,https://www.mayoclinic.org/diseases-conditions/paraneoplastic-syndromes/symptoms-causes/syc-20355687
-Partial anomalous pulmonary venous return,https://www.mayoclinic.org/diseases-conditions/partial-anomalous-pulmonary-venous-return/cdc-20385691
-Compulsive gambling,https://www.mayoclinic.org/diseases-conditions/compulsive-gambling/symptoms-causes/syc-20355178
-Pseudobulbar affect,https://www.mayoclinic.org/diseases-conditions/pseudobulbar-affect/symptoms-causes/syc-20353737
-Kleptomania,https://www.mayoclinic.org/diseases-conditions/kleptomania/symptoms-causes/syc-20364732
-Pseudobulbar affect,https://www.mayoclinic.org/diseases-conditions/pseudobulbar-affect/symptoms-causes/syc-20353737
-Polycystic ovary syndrome (PCOS),https://www.mayoclinic.org/diseases-conditions/pcos/symptoms-causes/syc-20353439
-Patent ductus arteriosus (PDA),https://www.mayoclinic.org/diseases-conditions/patent-ductus-arteriosus/symptoms-causes/syc-20376145
-Head lice,https://www.mayoclinic.org/diseases-conditions/head-lice/symptoms-causes/syc-20356180
-Chronic pelvic pain,https://www.mayoclinic.org/diseases-conditions/chronic-pelvic-pain/symptoms-causes/syc-20354368
-Uterine prolapse,https://www.mayoclinic.org/diseases-conditions/uterine-prolapse/symptoms-causes/syc-20353458
-Ruptured eardrum (perforated eardrum),https://www.mayoclinic.org/diseases-conditions/ruptured-eardrum/symptoms-causes/syc-20351879
-Pericarditis,https://www.mayoclinic.org/diseases-conditions/pericarditis/symptoms-causes/syc-20352510
-Gingivitis,https://www.mayoclinic.org/diseases-conditions/gingivitis/symptoms-causes/syc-20354453
-Periodontitis,https://www.mayoclinic.org/diseases-conditions/periodontitis/symptoms-causes/syc-20354473
-Neurofibromatosis type 1,https://www.mayoclinic.org/diseases-conditions/neurofibromatosis-type-1/symptoms-causes/syc-20350490
-Peripheral artery disease (PAD),https://www.mayoclinic.org/diseases-conditions/peripheral-artery-disease/symptoms-causes/syc-20350557
-Vitamin deficiency anemia,https://www.mayoclinic.org/diseases-conditions/vitamin-deficiency-anemia/symptoms-causes/syc-20355025
-Chilblains,https://www.mayoclinic.org/diseases-conditions/chilblains/symptoms-causes/syc-20351097
-Charcot-Marie-Tooth disease,https://www.mayoclinic.org/diseases-conditions/charcot-marie-tooth-disease/symptoms-causes/syc-20350517
-Antisocial personality disorder,https://www.mayoclinic.org/diseases-conditions/antisocial-personality-disorder/symptoms-causes/syc-20353928
-Borderline personality disorder,https://www.mayoclinic.org/diseases-conditions/borderline-personality-disorder/symptoms-causes/syc-20370237
-Narcissistic personality disorder,https://www.mayoclinic.org/diseases-conditions/narcissistic-personality-disorder/symptoms-causes/syc-20366662
-Schizoid personality disorder,https://www.mayoclinic.org/diseases-conditions/schizoid-personality-disorder/symptoms-causes/syc-20354414
-Schizotypal personality disorder,https://www.mayoclinic.org/diseases-conditions/schizotypal-personality-disorder/symptoms-causes/syc-20353919
-Whooping cough,https://www.mayoclinic.org/diseases-conditions/whooping-cough/symptoms-causes/syc-20378973
-Flatfeet,https://www.mayoclinic.org/diseases-conditions/flatfeet/symptoms-causes/syc-20372604
-Absence seizure,https://www.mayoclinic.org/diseases-conditions/petit-mal-seizure/symptoms-causes/syc-20359683
-Sore throat,https://www.mayoclinic.org/diseases-conditions/sore-throat/symptoms-causes/syc-20351635
-Thrombophlebitis,https://www.mayoclinic.org/diseases-conditions/thrombophlebitis/symptoms-causes/syc-20354607
-Social anxiety disorder (social phobia),https://www.mayoclinic.org/diseases-conditions/social-anxiety-disorder/symptoms-causes/syc-20353561
-Frontotemporal dementia,https://www.mayoclinic.org/diseases-conditions/frontotemporal-dementia/symptoms-causes/syc-20354737
-Pelvic inflammatory disease (PID),https://www.mayoclinic.org/diseases-conditions/pelvic-inflammatory-disease/symptoms-causes/syc-20352594
-Hemorrhoids,https://www.mayoclinic.org/diseases-conditions/hemorrhoids/symptoms-causes/syc-20360268
-Sacral dimple,https://www.mayoclinic.org/diseases-conditions/sacral-dimple/symptoms-causes/syc-20377353
-Acne,https://www.mayoclinic.org/diseases-conditions/acne/symptoms-causes/syc-20368047
-Pituitary tumors,https://www.mayoclinic.org/diseases-conditions/pituitary-tumors/symptoms-causes/syc-20350548
-Hypopituitarism,https://www.mayoclinic.org/diseases-conditions/hypopituitarism/symptoms-causes/syc-20351645
-Tinea versicolor,https://www.mayoclinic.org/diseases-conditions/tinea-versicolor/symptoms-causes/syc-20378385
-Polycystic kidney disease,https://www.mayoclinic.org/diseases-conditions/polycystic-kidney-disease/symptoms-causes/syc-20352820
-Phenylketonuria (PKU),https://www.mayoclinic.org/diseases-conditions/phenylketonuria/symptoms-causes/syc-20376302
-Morton's neuroma,https://www.mayoclinic.org/diseases-conditions/mortons-neuroma/symptoms-causes/syc-20351935
-Pleurisy,https://www.mayoclinic.org/diseases-conditions/pleurisy/symptoms-causes/syc-20351863
-Primary lateral sclerosis (PLS),https://www.mayoclinic.org/diseases-conditions/primary-lateral-sclerosis/symptoms-causes/syc-20353968
-Colon polyps,https://www.mayoclinic.org/diseases-conditions/colon-polyps/symptoms-causes/syc-20352875
-Uterine polyps,https://www.mayoclinic.org/diseases-conditions/uterine-polyps/symptoms-causes/syc-20378709
-Nasal polyps,https://www.mayoclinic.org/diseases-conditions/nasal-polyps/symptoms-causes/syc-20351888
-Stomach polyps,https://www.mayoclinic.org/diseases-conditions/stomach-polyps/symptoms-causes/syc-20377992
-Uterine polyps,https://www.mayoclinic.org/diseases-conditions/uterine-polyps/symptoms-causes/syc-20378709
-Dyshidrosis,https://www.mayoclinic.org/diseases-conditions/dyshidrosis/symptoms-causes/syc-20352342
-Color blindness,https://www.mayoclinic.org/diseases-conditions/color-blindness/symptoms-causes/syc-20354988
-Baker cyst,https://www.mayoclinic.org/diseases-conditions/bakers-cyst/symptoms-causes/syc-20369950
-Dressler syndrome,https://www.mayoclinic.org/diseases-conditions/dresslers-syndrome/symptoms-causes/syc-20371811
-Chemo brain,https://www.mayoclinic.org/diseases-conditions/chemo-brain/symptoms-causes/syc-20351060
-Persistent post-concussive symptoms (Post-concussion syndrome),https://www.mayoclinic.org/diseases-conditions/post-concussion-syndrome/symptoms-causes/syc-20353352
-Posterior vaginal prolapse (rectocele),https://www.mayoclinic.org/diseases-conditions/rectocele/symptoms-causes/syc-20353414
-Dressler syndrome,https://www.mayoclinic.org/diseases-conditions/dresslers-syndrome/symptoms-causes/syc-20371811
-Orthostatic hypotension (postural hypotension),https://www.mayoclinic.org/diseases-conditions/orthostatic-hypotension/symptoms-causes/syc-20352548
-Prader-Willi syndrome,https://www.mayoclinic.org/diseases-conditions/prader-willi-syndrome/symptoms-causes/syc-20355997
-Wolff-Parkinson-White (WPW) syndrome,https://www.mayoclinic.org/diseases-conditions/wolff-parkinson-white-syndrome/symptoms-causes/syc-20354626
-Preeclampsia,https://www.mayoclinic.org/diseases-conditions/preeclampsia/symptoms-causes/syc-20355745
-Primary ovarian insufficiency,https://www.mayoclinic.org/diseases-conditions/premature-ovarian-failure/symptoms-causes/syc-20354683
-Primary ovarian insufficiency,https://www.mayoclinic.org/diseases-conditions/premature-ovarian-failure/symptoms-causes/syc-20354683
-Precocious puberty,https://www.mayoclinic.org/diseases-conditions/precocious-puberty/symptoms-causes/syc-20351811
-Premenstrual syndrome (PMS),https://www.mayoclinic.org/diseases-conditions/premenstrual-syndrome/symptoms-causes/syc-20376780
-Hearing loss,https://www.mayoclinic.org/diseases-conditions/hearing-loss/symptoms-causes/syc-20373072
-Bedsores (pressure ulcers),https://www.mayoclinic.org/diseases-conditions/bed-sores/symptoms-causes/syc-20355893
-Bedsores (pressure ulcers),https://www.mayoclinic.org/diseases-conditions/bed-sores/symptoms-causes/syc-20355893
-Heat rash,https://www.mayoclinic.org/diseases-conditions/heat-rash/symptoms-causes/syc-20373276
-Addison's disease,https://www.mayoclinic.org/diseases-conditions/addisons-disease/symptoms-causes/syc-20350293
-Primary biliary cholangitis,https://www.mayoclinic.org/diseases-conditions/primary-biliary-cholangitis/symptoms-causes/syc-20376874
-Polycythemia vera,https://www.mayoclinic.org/diseases-conditions/polycythemia-vera/symptoms-causes/syc-20355850
-Mitral valve prolapse,https://www.mayoclinic.org/diseases-conditions/mitral-valve-prolapse/symptoms-causes/syc-20355446
-Anterior vaginal prolapse (cystocele),https://www.mayoclinic.org/diseases-conditions/cystocele/symptoms-causes/syc-20369452
-Uterine prolapse,https://www.mayoclinic.org/diseases-conditions/uterine-prolapse/symptoms-causes/syc-20353458
-Benign prostatic hyperplasia (BPH),https://www.mayoclinic.org/diseases-conditions/benign-prostatic-hyperplasia/symptoms-causes/syc-20370087
-Anal itching,https://www.mayoclinic.org/diseases-conditions/anal-itching/symptoms-causes/syc-20369345
-Itchy skin (pruritus),https://www.mayoclinic.org/diseases-conditions/itchy-skin/symptoms-causes/syc-20355006
-Post-traumatic stress disorder (PTSD),https://www.mayoclinic.org/diseases-conditions/post-traumatic-stress-disorder/symptoms-causes/syc-20355967
-Bags under eyes,https://www.mayoclinic.org/diseases-conditions/bags-under-eyes/symptoms-causes/syc-20369927
-Premature ventricular contractions (PVCs),https://www.mayoclinic.org/diseases-conditions/premature-ventricular-contractions/symptoms-causes/syc-20376757
-Peripheral artery disease (PAD),https://www.mayoclinic.org/diseases-conditions/peripheral-artery-disease/symptoms-causes/syc-20350557
-Post-vasectomy pain syndrome,https://www.mayoclinic.org/diseases-conditions/post-vasectomy-pain-syndrome/symptoms-causes/syc-20527047
-Kidney infection,https://www.mayoclinic.org/diseases-conditions/kidney-infection/symptoms-causes/syc-20353387
-Rheumatoid arthritis,https://www.mayoclinic.org/diseases-conditions/rheumatoid-arthritis/symptoms-causes/syc-20353648
-REM sleep behavior disorder,https://www.mayoclinic.org/diseases-conditions/rem-sleep-behavior-disorder/symptoms-causes/syc-20352920
-Dumping syndrome,https://www.mayoclinic.org/diseases-conditions/dumping-syndrome/symptoms-causes/syc-20371915
-Tachycardia,https://www.mayoclinic.org/diseases-conditions/tachycardia/symptoms-causes/syc-20355127
-Poison ivy rash,https://www.mayoclinic.org/diseases-conditions/poison-ivy/symptoms-causes/syc-20376485
-Dyslexia,https://www.mayoclinic.org/diseases-conditions/dyslexia/symptoms-causes/syc-20353552
-Medication overuse headaches,https://www.mayoclinic.org/diseases-conditions/medication-overuse-headache/symptoms-causes/syc-20377083
-Proctitis,https://www.mayoclinic.org/diseases-conditions/proctitis/symptoms-causes/syc-20376933
-Anal itching,https://www.mayoclinic.org/diseases-conditions/anal-itching/symptoms-causes/syc-20369345
-Solitary rectal ulcer syndrome,https://www.mayoclinic.org/diseases-conditions/rectal-ulcer/symptoms-causes/syc-20377749
-Canker sore,https://www.mayoclinic.org/diseases-conditions/canker-sore/symptoms-causes/syc-20370615
-Subconjunctival hemorrhage (broken blood vessel in eye),https://www.mayoclinic.org/diseases-conditions/subconjunctival-hemorrhage/symptoms-causes/syc-20353826
-Bile reflux,https://www.mayoclinic.org/diseases-conditions/bile-reflux/symptoms-causes/syc-20370115
-Vesicoureteral reflux,https://www.mayoclinic.org/diseases-conditions/vesicoureteral-reflux/symptoms-causes/syc-20378819
-Aortic valve regurgitation,https://www.mayoclinic.org/diseases-conditions/aortic-valve-regurgitation/symptoms-causes/syc-20353129
-Mitral valve regurgitation,https://www.mayoclinic.org/diseases-conditions/mitral-valve-regurgitation/symptoms-causes/syc-20350178
-Reactive arthritis,https://www.mayoclinic.org/diseases-conditions/reactive-arthritis/symptoms-causes/syc-20354838
-Kidney cancer,https://www.mayoclinic.org/diseases-conditions/kidney-cancer/symptoms-causes/syc-20352664
-Kidney stones,https://www.mayoclinic.org/diseases-conditions/kidney-stones/symptoms-causes/syc-20355755
-Diabetic retinopathy,https://www.mayoclinic.org/diseases-conditions/diabetic-retinopathy/symptoms-causes/syc-20371611
-Hay fever,https://www.mayoclinic.org/diseases-conditions/hay-fever/symptoms-causes/syc-20373039
-Nonallergic rhinitis,https://www.mayoclinic.org/diseases-conditions/nonallergic-rhinitis/symptoms-causes/syc-20351229
-Nonallergic rhinitis,https://www.mayoclinic.org/diseases-conditions/nonallergic-rhinitis/symptoms-causes/syc-20351229
-Broken ribs,https://www.mayoclinic.org/diseases-conditions/broken-ribs/symptoms-causes/syc-20350763
-Viral hemorrhagic fevers,https://www.mayoclinic.org/diseases-conditions/viral-hemorrhagic-fevers/symptoms-causes/syc-20351260
-Tinnitus,https://www.mayoclinic.org/diseases-conditions/tinnitus/symptoms-causes/syc-20350156
-Athlete's foot,https://www.mayoclinic.org/diseases-conditions/athletes-foot/symptoms-causes/syc-20353841
-Restless legs syndrome,https://www.mayoclinic.org/diseases-conditions/restless-legs-syndrome/symptoms-causes/syc-20377168
-Intermittent explosive disorder,https://www.mayoclinic.org/diseases-conditions/intermittent-explosive-disorder/symptoms-causes/syc-20373921
-Kyphosis,https://www.mayoclinic.org/diseases-conditions/kyphosis/symptoms-causes/syc-20374205
-Respiratory syncytial virus (RSV),https://www.mayoclinic.org/diseases-conditions/respiratory-syncytial-virus/symptoms-causes/syc-20353098
-Measles,https://www.mayoclinic.org/diseases-conditions/measles/symptoms-causes/syc-20374857
-Patellofemoral pain syndrome,https://www.mayoclinic.org/diseases-conditions/patellofemoral-pain-syndrome/symptoms-causes/syc-20350792
-Herniated disk,https://www.mayoclinic.org/diseases-conditions/herniated-disk/symptoms-causes/syc-20354095
-Seasonal affective disorder (SAD),https://www.mayoclinic.org/diseases-conditions/seasonal-affective-disorder/symptoms-causes/syc-20364651
-Salmonella infection,https://www.mayoclinic.org/diseases-conditions/salmonella/symptoms-causes/syc-20355329
-Bone cancer,https://www.mayoclinic.org/diseases-conditions/bone-cancer/symptoms-causes/syc-20350217
-Soft tissue sarcoma,https://www.mayoclinic.org/diseases-conditions/soft-tissue-sarcoma/symptoms-causes/syc-20377725
-Small intestinal bacterial overgrowth (SIBO),https://www.mayoclinic.org/diseases-conditions/small-intestinal-bacterial-overgrowth/symptoms-causes/syc-20370168
-Spontaneous coronary artery dissection (SCAD),https://www.mayoclinic.org/diseases-conditions/spontaneous-coronary-artery-dissection/symptoms-causes/syc-20353711
-Burning mouth syndrome,https://www.mayoclinic.org/diseases-conditions/burning-mouth-syndrome/symptoms-causes/syc-20350911
-Scarlet fever,https://www.mayoclinic.org/diseases-conditions/scarlet-fever/symptoms-causes/syc-20377406
-Childhood schizophrenia,https://www.mayoclinic.org/diseases-conditions/childhood-schizophrenia/symptoms-causes/syc-20354483
-Childhood schizophrenia,https://www.mayoclinic.org/diseases-conditions/childhood-schizophrenia/symptoms-causes/syc-20354483
-Childhood schizophrenia,https://www.mayoclinic.org/diseases-conditions/childhood-schizophrenia/symptoms-causes/syc-20354483
-Spinal cord injury,https://www.mayoclinic.org/diseases-conditions/spinal-cord-injury/symptoms-causes/syc-20377890
-Primary sclerosing cholangitis,https://www.mayoclinic.org/diseases-conditions/primary-sclerosing-cholangitis/symptoms-causes/syc-20355797
-Multiple sclerosis,https://www.mayoclinic.org/diseases-conditions/multiple-sclerosis/symptoms-causes/syc-20350269
-Scleroderma,https://www.mayoclinic.org/diseases-conditions/scleroderma/symptoms-causes/syc-20351952
-Hay fever,https://www.mayoclinic.org/diseases-conditions/hay-fever/symptoms-causes/syc-20373039
-Epidermoid cysts,https://www.mayoclinic.org/diseases-conditions/epidermoid-cysts/symptoms-causes/syc-20352701
-Brain metastases,https://www.mayoclinic.org/diseases-conditions/brain-metastases/symptoms-causes/syc-20350136
-Myalgic encephalomyelitis/chronic fatigue syndrome (ME/CFS),https://www.mayoclinic.org/diseases-conditions/chronic-fatigue-syndrome/symptoms-causes/syc-20360490
-Epilepsy,https://www.mayoclinic.org/diseases-conditions/epilepsy/symptoms-causes/syc-20350093
-Absence seizure,https://www.mayoclinic.org/diseases-conditions/petit-mal-seizure/symptoms-causes/syc-20359683
-Febrile seizure,https://www.mayoclinic.org/diseases-conditions/febrile-seizure/symptoms-causes/syc-20372522
-Tonic-clonic (grand mal) seizure,https://www.mayoclinic.org/diseases-conditions/grand-mal-seizure/symptoms-causes/syc-20363458
-Absence seizure,https://www.mayoclinic.org/diseases-conditions/petit-mal-seizure/symptoms-causes/syc-20359683
-Temporal lobe seizure,https://www.mayoclinic.org/diseases-conditions/temporal-lobe-seizure/symptoms-causes/syc-20378214
-Self-injury/cutting,https://www.mayoclinic.org/diseases-conditions/self-injury/symptoms-causes/syc-20350950
-Atrial septal defect (ASD),https://www.mayoclinic.org/diseases-conditions/atrial-septal-defect/symptoms-causes/syc-20369715
-Atrioventricular canal defect,https://www.mayoclinic.org/diseases-conditions/atrioventricular-canal-defect/symptoms-causes/syc-20361492
-Ventricular septal defect (VSD),https://www.mayoclinic.org/diseases-conditions/ventricular-septal-defect/symptoms-causes/syc-20353495
-Severe acute respiratory syndrome (SARS),https://www.mayoclinic.org/diseases-conditions/sars/symptoms-causes/syc-20351765
-Coma,https://www.mayoclinic.org/diseases-conditions/coma/symptoms-causes/syc-20371099
-Female sexual dysfunction,https://www.mayoclinic.org/diseases-conditions/female-sexual-dysfunction/symptoms-causes/syc-20372549
-Compulsive sexual behavior,https://www.mayoclinic.org/diseases-conditions/compulsive-sexual-behavior/symptoms-causes/syc-20360434
-Dislocated shoulder,https://www.mayoclinic.org/diseases-conditions/dislocated-shoulder/symptoms-causes/syc-20371715
-Multiple system atrophy,https://www.mayoclinic.org/diseases-conditions/multiple-system-atrophy/symptoms-causes/syc-20356153
-Small intestinal bacterial overgrowth (SIBO),https://www.mayoclinic.org/diseases-conditions/small-intestinal-bacterial-overgrowth/symptoms-causes/syc-20370168
-Sudden infant death syndrome (SIDS),https://www.mayoclinic.org/diseases-conditions/sudden-infant-death-syndrome/symptoms-causes/syc-20352800
-Hantavirus pulmonary syndrome,https://www.mayoclinic.org/diseases-conditions/hantavirus-pulmonary-syndrome/symptoms-causes/syc-20351838
-Acute sinusitis,https://www.mayoclinic.org/diseases-conditions/acute-sinusitis/symptoms-causes/syc-20351671
-Chronic sinusitis,https://www.mayoclinic.org/diseases-conditions/chronic-sinusitis/symptoms-causes/syc-20351661
-Stevens-Johnson syndrome,https://www.mayoclinic.org/diseases-conditions/stevens-johnson-syndrome/symptoms-causes/syc-20355936
-Melanoma,https://www.mayoclinic.org/diseases-conditions/melanoma/symptoms-causes/syc-20374884
-Dermatographia (Dermatographism),https://www.mayoclinic.org/diseases-conditions/dermatographia/symptoms-causes/syc-20371411
-Itchy skin (pruritus),https://www.mayoclinic.org/diseases-conditions/itchy-skin/symptoms-causes/syc-20355006
-Heart palpitations,https://www.mayoclinic.org/diseases-conditions/heart-palpitations/symptoms-causes/syc-20373196
-Parvovirus infection,https://www.mayoclinic.org/diseases-conditions/parvovirus-infection/symptoms-causes/syc-20376085
-Pediatric obstructive sleep apnea,https://www.mayoclinic.org/diseases-conditions/pediatric-sleep-apnea/symptoms-causes/syc-20376196
-Central sleep apnea,https://www.mayoclinic.org/diseases-conditions/central-sleep-apnea/symptoms-causes/syc-20352109
-Obstructive sleep apnea,https://www.mayoclinic.org/diseases-conditions/obstructive-sleep-apnea/symptoms-causes/syc-20352090
-Narcolepsy,https://www.mayoclinic.org/diseases-conditions/narcolepsy/symptoms-causes/syc-20375497
-Insomnia,https://www.mayoclinic.org/diseases-conditions/insomnia/symptoms-causes/syc-20355167
-Herniated disk,https://www.mayoclinic.org/diseases-conditions/herniated-disk/symptoms-causes/syc-20354095
-Bradycardia,https://www.mayoclinic.org/diseases-conditions/bradycardia/symptoms-causes/syc-20355474
-Small intestinal bacterial overgrowth (SIBO),https://www.mayoclinic.org/diseases-conditions/small-intestinal-bacterial-overgrowth/symptoms-causes/syc-20370168
-Small bowel prolapse (enterocele),https://www.mayoclinic.org/diseases-conditions/enterocele/symptoms-causes/syc-20377661
-Small bowel prolapse (enterocele),https://www.mayoclinic.org/diseases-conditions/enterocele/symptoms-causes/syc-20377661
-Actinic keratosis,https://www.mayoclinic.org/diseases-conditions/actinic-keratosis/symptoms-causes/syc-20354969
-Age spots (liver spots),https://www.mayoclinic.org/diseases-conditions/age-spots/symptoms-causes/syc-20355859
-Sleepwalking,https://www.mayoclinic.org/diseases-conditions/sleepwalking/symptoms-causes/syc-20353506
-Cervical dystonia,https://www.mayoclinic.org/diseases-conditions/cervical-dystonia/symptoms-causes/syc-20354123
-Dyslexia,https://www.mayoclinic.org/diseases-conditions/dyslexia/symptoms-causes/syc-20353552
-Scoliosis,https://www.mayoclinic.org/diseases-conditions/scoliosis/symptoms-causes/syc-20350716
-Enlarged spleen (splenomegaly),https://www.mayoclinic.org/diseases-conditions/enlarged-spleen/symptoms-causes/syc-20354326
-Cervical spondylosis,https://www.mayoclinic.org/diseases-conditions/cervical-spondylosis/symptoms-causes/syc-20370787
-Metastatic prostate cancer,https://www.mayoclinic.org/diseases-conditions/metastatic-prostate-cancer/symptoms-causes/syc-20377966
-Stuttering,https://www.mayoclinic.org/diseases-conditions/stuttering/symptoms-causes/syc-20353572
-Sexually transmitted diseases (STDs),https://www.mayoclinic.org/diseases-conditions/sexually-transmitted-diseases-stds/symptoms-causes/syc-20351240
-Progressive supranuclear palsy,https://www.mayoclinic.org/diseases-conditions/progressive-supranuclear-palsy/symptoms-causes/syc-20355659
-Polycystic ovary syndrome (PCOS),https://www.mayoclinic.org/diseases-conditions/pcos/symptoms-causes/syc-20353439
-Trigger finger,https://www.mayoclinic.org/diseases-conditions/trigger-finger/symptoms-causes/syc-20365100
-Aortic valve stenosis,https://www.mayoclinic.org/diseases-conditions/aortic-stenosis/symptoms-causes/syc-20353139
-Mitral valve stenosis,https://www.mayoclinic.org/diseases-conditions/mitral-valve-stenosis/symptoms-causes/syc-20353159
-Pulmonary valve stenosis,https://www.mayoclinic.org/diseases-conditions/pulmonary-valve-stenosis/symptoms-causes/syc-20377034
-Pyloric stenosis,https://www.mayoclinic.org/diseases-conditions/pyloric-stenosis/symptoms-causes/syc-20351416
-Spinal stenosis,https://www.mayoclinic.org/diseases-conditions/spinal-stenosis/symptoms-causes/syc-20352961
-Bee sting,https://www.mayoclinic.org/diseases-conditions/bee-stings/symptoms-causes/syc-20353869
-Jellyfish stings,https://www.mayoclinic.org/diseases-conditions/jellyfish-stings/symptoms-causes/syc-20353284
-Scorpion sting,https://www.mayoclinic.org/diseases-conditions/scorpion-stings/symptoms-causes/syc-20353859
-Viral gastroenteritis (stomach flu),https://www.mayoclinic.org/diseases-conditions/viral-gastroenteritis/symptoms-causes/syc-20378847
-Burning mouth syndrome,https://www.mayoclinic.org/diseases-conditions/burning-mouth-syndrome/symptoms-causes/syc-20350911
-Encopresis,https://www.mayoclinic.org/diseases-conditions/encopresis/symptoms-causes/syc-20354494
-Hemangioma,https://www.mayoclinic.org/diseases-conditions/hemangioma/symptoms-causes/syc-20352334
-Broken heart syndrome,https://www.mayoclinic.org/diseases-conditions/broken-heart-syndrome/symptoms-causes/syc-20354617
-Residual limb pain,https://www.mayoclinic.org/diseases-conditions/residual-limb-pain/symptoms-causes/syc-20541403
-Infertility,https://www.mayoclinic.org/diseases-conditions/infertility/symptoms-causes/syc-20354317
-Drug addiction (substance use disorder),https://www.mayoclinic.org/diseases-conditions/drug-addiction/symptoms-causes/syc-20365112
-Drug addiction (substance use disorder),https://www.mayoclinic.org/diseases-conditions/drug-addiction/symptoms-causes/syc-20365112
-Suicide and suicidal thoughts,https://www.mayoclinic.org/diseases-conditions/suicide/symptoms-causes/syc-20378048
-Polymorphous light eruption,https://www.mayoclinic.org/diseases-conditions/polymorphous-light-eruption/symptoms-causes/syc-20355868
-Pectus excavatum,https://www.mayoclinic.org/diseases-conditions/pectus-excavatum/symptoms-causes/syc-20355483
-Progressive supranuclear palsy,https://www.mayoclinic.org/diseases-conditions/progressive-supranuclear-palsy/symptoms-causes/syc-20355659
-Supraventricular tachycardia,https://www.mayoclinic.org/diseases-conditions/supraventricular-tachycardia/symptoms-causes/syc-20355243
-Hyperhidrosis,https://www.mayoclinic.org/diseases-conditions/hyperhidrosis/symptoms-causes/syc-20367152
-Edema,https://www.mayoclinic.org/diseases-conditions/edema/symptoms-causes/syc-20366493
-Metabolic syndrome,https://www.mayoclinic.org/diseases-conditions/metabolic-syndrome/symptoms-causes/syc-20351916
-Craniosynostosis,https://www.mayoclinic.org/diseases-conditions/craniosynostosis/symptoms-causes/syc-20354513
-Myalgic encephalomyelitis/chronic fatigue syndrome (ME/CFS),https://www.mayoclinic.org/diseases-conditions/chronic-fatigue-syndrome/symptoms-causes/syc-20360490
-Lupus,https://www.mayoclinic.org/diseases-conditions/lupus/symptoms-causes/syc-20365789
-Scleroderma,https://www.mayoclinic.org/diseases-conditions/scleroderma/symptoms-causes/syc-20351952
-Broken heart syndrome,https://www.mayoclinic.org/diseases-conditions/broken-heart-syndrome/symptoms-causes/syc-20354617
-Total anomalous pulmonary venous return (TAPVR),https://www.mayoclinic.org/diseases-conditions/total-anomalous-pulmonary-venous-return/cdc-20385613
-Tuberculosis,https://www.mayoclinic.org/diseases-conditions/tuberculosis/symptoms-causes/syc-20351250
-Traumatic brain injury,https://www.mayoclinic.org/diseases-conditions/traumatic-brain-injury/symptoms-causes/syc-20378557
-Dry eyes,https://www.mayoclinic.org/diseases-conditions/dry-eyes/symptoms-causes/syc-20371863
-Teeth grinding (bruxism),https://www.mayoclinic.org/diseases-conditions/bruxism/symptoms-causes/syc-20356095
-Giant cell arteritis,https://www.mayoclinic.org/diseases-conditions/giant-cell-arteritis/symptoms-causes/syc-20372758
-TMJ disorders,https://www.mayoclinic.org/diseases-conditions/tmj/symptoms-causes/syc-20350941
-TMJ disorders,https://www.mayoclinic.org/diseases-conditions/tmj/symptoms-causes/syc-20350941
-Achilles tendinitis,https://www.mayoclinic.org/diseases-conditions/achilles-tendinitis/symptoms-causes/syc-20369020
-Patellar tendinitis,https://www.mayoclinic.org/diseases-conditions/patellar-tendinitis/symptoms-causes/syc-20376113
-De Quervain tenosynovitis,https://www.mayoclinic.org/diseases-conditions/de-quervain-tenosynovitis/symptoms-causes/syc-20371332
-Retractile testicle,https://www.mayoclinic.org/diseases-conditions/retractile-testicle/symptoms-causes/syc-20377197
-Undescended testicle,https://www.mayoclinic.org/diseases-conditions/undescended-testicle/symptoms-causes/syc-20351995
-Male hypogonadism,https://www.mayoclinic.org/diseases-conditions/male-hypogonadism/symptoms-causes/syc-20354881
-Transient global amnesia,https://www.mayoclinic.org/diseases-conditions/transient-global-amnesia/symptoms-causes/syc-20378531
-Rubella,https://www.mayoclinic.org/diseases-conditions/rubella/symptoms-causes/syc-20377310
-Buerger disease,https://www.mayoclinic.org/diseases-conditions/buergers-disease/symptoms-causes/syc-20350658
-Oral thrush,https://www.mayoclinic.org/diseases-conditions/oral-thrush/symptoms-causes/syc-20353533
-Goiter,https://www.mayoclinic.org/diseases-conditions/goiter/symptoms-causes/syc-20351829
-Hyperthyroidism (overactive thyroid),https://www.mayoclinic.org/diseases-conditions/hyperthyroidism/symptoms-causes/syc-20373659
-Hashimoto's disease,https://www.mayoclinic.org/diseases-conditions/hashimotos-disease/symptoms-causes/syc-20351855
-Transient ischemic attack (TIA),https://www.mayoclinic.org/diseases-conditions/transient-ischemic-attack/symptoms-causes/syc-20355679
-Trigeminal neuralgia,https://www.mayoclinic.org/diseases-conditions/trigeminal-neuralgia/symptoms-causes/syc-20353344
-Folliculitis,https://www.mayoclinic.org/diseases-conditions/folliculitis/symptoms-causes/syc-20361634
-Ringworm (scalp),https://www.mayoclinic.org/diseases-conditions/ringworm-scalp/symptoms-causes/syc-20354918
-Ringworm (body),https://www.mayoclinic.org/diseases-conditions/ringworm-body/symptoms-causes/syc-20353780
-Jock itch,https://www.mayoclinic.org/diseases-conditions/jock-itch/symptoms-causes/syc-20353807
-Athlete's foot,https://www.mayoclinic.org/diseases-conditions/athletes-foot/symptoms-causes/syc-20353841
-TMJ disorders,https://www.mayoclinic.org/diseases-conditions/tmj/symptoms-causes/syc-20350941
-Nail fungus,https://www.mayoclinic.org/diseases-conditions/nail-fungus/symptoms-causes/syc-20353294
-Tongue-tie (ankyloglossia),https://www.mayoclinic.org/diseases-conditions/tongue-tie/symptoms-causes/syc-20378452
-Tonic-clonic (grand mal) seizure,https://www.mayoclinic.org/diseases-conditions/grand-mal-seizure/symptoms-causes/syc-20363458
-Cavities and tooth decay,https://www.mayoclinic.org/diseases-conditions/cavities/symptoms-causes/syc-20352892
-Testicular torsion,https://www.mayoclinic.org/diseases-conditions/testicular-torsion/symptoms-causes/syc-20378270
-Cervical dystonia,https://www.mayoclinic.org/diseases-conditions/cervical-dystonia/symptoms-causes/syc-20354123
-Total anomalous pulmonary venous return (TAPVR),https://www.mayoclinic.org/diseases-conditions/total-anomalous-pulmonary-venous-return/cdc-20385613
-Preeclampsia,https://www.mayoclinic.org/diseases-conditions/preeclampsia/symptoms-causes/syc-20355745
-TEN,https://www.mayoclinic.org/diseases-conditions/toxic-epidermal-necrolysis/symptoms-causes/syc-20491903
-Transposition of the great arteries,https://www.mayoclinic.org/diseases-conditions/transposition-of-the-great-arteries/symptoms-causes/syc-20350589
-Complicated grief,https://www.mayoclinic.org/diseases-conditions/complicated-grief/symptoms-causes/syc-20360374
-Down syndrome,https://www.mayoclinic.org/diseases-conditions/down-syndrome/symptoms-causes/syc-20355977
-Triple X syndrome,https://www.mayoclinic.org/diseases-conditions/triple-x-syndrome/symptoms-causes/syc-20350977
-Dysphagia,https://www.mayoclinic.org/diseases-conditions/dysphagia/symptoms-causes/syc-20372028
-Chagas disease,https://www.mayoclinic.org/diseases-conditions/chagas-disease/symptoms-causes/syc-20356212
-Salivary gland tumors,https://www.mayoclinic.org/diseases-conditions/salivary-gland-cancer/symptoms-causes/syc-20354151
-Ruptured eardrum (perforated eardrum),https://www.mayoclinic.org/diseases-conditions/ruptured-eardrum/symptoms-causes/syc-20351879
-Canker sore,https://www.mayoclinic.org/diseases-conditions/canker-sore/symptoms-causes/syc-20370615
-Peptic ulcer,https://www.mayoclinic.org/diseases-conditions/peptic-ulcer/symptoms-causes/syc-20354223
-Solitary rectal ulcer syndrome,https://www.mayoclinic.org/diseases-conditions/rectal-ulcer/symptoms-causes/syc-20377749
-Ulnar wrist pain,https://www.mayoclinic.org/diseases-conditions/ulnar-wrist-pain/symptoms-causes/syc-20355510
-Pseudobulbar affect,https://www.mayoclinic.org/diseases-conditions/pseudobulbar-affect/symptoms-causes/syc-20353737
-Hypothyroidism (underactive thyroid),https://www.mayoclinic.org/diseases-conditions/hypothyroidism/symptoms-causes/syc-20350284
-Bags under eyes,https://www.mayoclinic.org/diseases-conditions/bags-under-eyes/symptoms-causes/syc-20369927
-Indigestion,https://www.mayoclinic.org/diseases-conditions/indigestion/symptoms-causes/syc-20352211
-Blood in urine (hematuria),https://www.mayoclinic.org/diseases-conditions/blood-in-urine/symptoms-causes/syc-20353432
-Hives and angioedema,https://www.mayoclinic.org/diseases-conditions/hives-and-angioedema/symptoms-causes/syc-20354908
-Chronic hives,https://www.mayoclinic.org/diseases-conditions/chronic-hives/symptoms-causes/syc-20352719
-Endometrial cancer,https://www.mayoclinic.org/diseases-conditions/endometrial-cancer/symptoms-causes/syc-20352461
-Uterine fibroids,https://www.mayoclinic.org/diseases-conditions/uterine-fibroids/symptoms-causes/syc-20354288
-Uterine fibroids,https://www.mayoclinic.org/diseases-conditions/uterine-fibroids/symptoms-causes/syc-20354288
-Double uterus,https://www.mayoclinic.org/diseases-conditions/double-uterus/symptoms-causes/syc-20352261
-Urinary tract infection (UTI),https://www.mayoclinic.org/diseases-conditions/urinary-tract-infection/symptoms-causes/syc-20353447
-Yeast infection (vaginal),https://www.mayoclinic.org/diseases-conditions/yeast-infection/symptoms-causes/syc-20378999
-Posterior vaginal prolapse (rectocele),https://www.mayoclinic.org/diseases-conditions/rectocele/symptoms-causes/syc-20353414
-Heart valve disease,https://www.mayoclinic.org/diseases-conditions/heart-valve-disease/symptoms-causes/syc-20353727
-Creutzfeldt-Jakob disease,https://www.mayoclinic.org/diseases-conditions/creutzfeldt-jakob-disease/symptoms-causes/syc-20371226
-Chickenpox,https://www.mayoclinic.org/diseases-conditions/chickenpox/symptoms-causes/syc-20351282
-Esophageal varices,https://www.mayoclinic.org/diseases-conditions/esophageal-varices/symptoms-causes/syc-20351538
-Smallpox,https://www.mayoclinic.org/diseases-conditions/smallpox/symptoms-causes/syc-20353027
-Claudication,https://www.mayoclinic.org/diseases-conditions/claudication/symptoms-causes/syc-20370952
-Nonallergic rhinitis,https://www.mayoclinic.org/diseases-conditions/nonallergic-rhinitis/symptoms-causes/syc-20351229
-Creutzfeldt-Jakob disease,https://www.mayoclinic.org/diseases-conditions/creutzfeldt-jakob-disease/symptoms-causes/syc-20371226
-DiGeorge syndrome (22q11.2 deletion syndrome),https://www.mayoclinic.org/diseases-conditions/digeorge-syndrome/symptoms-causes/syc-20353543
-Genital warts,https://www.mayoclinic.org/diseases-conditions/genital-warts/symptoms-causes/syc-20355234
-Premature ventricular contractions (PVCs),https://www.mayoclinic.org/diseases-conditions/premature-ventricular-contractions/symptoms-causes/syc-20376757
-Acoustic neuroma,https://www.mayoclinic.org/diseases-conditions/acoustic-neuroma/symptoms-causes/syc-20356127
-Ventricular fibrillation,https://www.mayoclinic.org/diseases-conditions/ventricular-fibrillation/symptoms-causes/syc-20364523
-Vocal cord paralysis,https://www.mayoclinic.org/diseases-conditions/vocal-cord-paralysis/symptoms-causes/syc-20378873
-Neurofibromatosis type 1,https://www.mayoclinic.org/diseases-conditions/neurofibromatosis-type-1/symptoms-causes/syc-20350490
-Neurofibromatosis type 1,https://www.mayoclinic.org/diseases-conditions/neurofibromatosis-type-1/symptoms-causes/syc-20350490
-Neurofibromatosis type 1,https://www.mayoclinic.org/diseases-conditions/neurofibromatosis-type-1/symptoms-causes/syc-20350490
-Premature ventricular contractions (PVCs),https://www.mayoclinic.org/diseases-conditions/premature-ventricular-contractions/symptoms-causes/syc-20376757
-Common warts,https://www.mayoclinic.org/diseases-conditions/common-warts/symptoms-causes/syc-20371125
-Genital warts,https://www.mayoclinic.org/diseases-conditions/genital-warts/symptoms-causes/syc-20355234
-Plantar warts,https://www.mayoclinic.org/diseases-conditions/plantar-warts/symptoms-causes/syc-20352691
-Genital warts,https://www.mayoclinic.org/diseases-conditions/genital-warts/symptoms-causes/syc-20355234
-Swollen knee,https://www.mayoclinic.org/diseases-conditions/swollen-knee/symptoms-causes/syc-20378129
-Granulomatosis with polyangiitis,https://www.mayoclinic.org/diseases-conditions/granulomatosis-with-polyangiitis/symptoms-causes/syc-20351088
-"Multiple endocrine neoplasia, type 1 (MEN 1)",https://www.mayoclinic.org/diseases-conditions/men-1/symptoms-causes/syc-20353064
-"Multiple endocrine neoplasia, type 1 (MEN 1)",https://www.mayoclinic.org/diseases-conditions/men-1/symptoms-causes/syc-20353064
-Pediatric white blood cell disorders,https://www.mayoclinic.org/diseases-conditions/pediatric-white-blood-cell-disorders/symptoms-causes/syc-20352674
-Acne,https://www.mayoclinic.org/diseases-conditions/acne/symptoms-causes/syc-20368047
-Impacted wisdom teeth,https://www.mayoclinic.org/diseases-conditions/wisdom-teeth/symptoms-causes/syc-20373808
-Wolff-Parkinson-White (WPW) syndrome,https://www.mayoclinic.org/diseases-conditions/wolff-parkinson-white-syndrome/symptoms-causes/syc-20354626
-Broken wrist,https://www.mayoclinic.org/diseases-conditions/broken-wrist/symptoms-causes/syc-20353169
-Dry skin,https://www.mayoclinic.org/diseases-conditions/dry-skin/symptoms-causes/syc-20353885
-Dry mouth,https://www.mayoclinic.org/diseases-conditions/dry-mouth/symptoms-causes/syc-20356048
-Triple X syndrome,https://www.mayoclinic.org/diseases-conditions/triple-x-syndrome/symptoms-causes/syc-20350977
-Plague,https://www.mayoclinic.org/diseases-conditions/plague/symptoms-causes/syc-20351291
-Shingles,https://www.mayoclinic.org/diseases-conditions/shingles/symptoms-causes/syc-20353054
+Atrial fibrillation,https://www.mayoclinic.org/diseases-conditions/atrial-fibrillation/symptoms-causes/syc-20350624,https://www.mayoclinic.org/diseases-conditions/atrial-fibrillation/diagnosis-treatment/drc-20350630,https://www.mayoclinic.org/diseases-conditions/atrial-fibrillation/doctors-departments/ddc-20350632
+Hyperhidrosis,https://www.mayoclinic.org/diseases-conditions/hyperhidrosis/symptoms-causes/syc-20367152,https://www.mayoclinic.org/diseases-conditions/hyperhidrosis/diagnosis-treatment/drc-20367173,https://www.mayoclinic.org/diseases-conditions/hyperhidrosis/doctors-departments/ddc-20367288
+Bartholin's cyst,https://www.mayoclinic.org/diseases-conditions/bartholin-cyst/symptoms-causes/syc-20369976,,
+Gastroesophageal reflux disease (GERD),https://www.mayoclinic.org/diseases-conditions/gerd/symptoms-causes/syc-20361940,https://www.mayoclinic.org/diseases-conditions/gerd/diagnosis-treatment/drc-20361959,https://www.mayoclinic.org/diseases-conditions/gerd/doctors-departments/ddc-20362108
+Infant reflux,https://www.mayoclinic.org/diseases-conditions/infant-acid-reflux/symptoms-causes/syc-20351408,https://www.mayoclinic.org/diseases-conditions/infant-acid-reflux/diagnosis-treatment/drc-20351412,
+Hidradenitis suppurativa,https://www.mayoclinic.org/diseases-conditions/hidradenitis-suppurativa/symptoms-causes/syc-20352306,https://www.mayoclinic.org/diseases-conditions/hidradenitis-suppurativa/diagnosis-treatment/drc-20352311,https://www.mayoclinic.org/diseases-conditions/hidradenitis-suppurativa/doctors-departments/ddc-20352315
+HIV/AIDS,https://www.mayoclinic.org/diseases-conditions/hiv-aids/symptoms-causes/syc-20373524,https://www.mayoclinic.org/diseases-conditions/hiv-aids/diagnosis-treatment/drc-20373531,https://www.mayoclinic.org/diseases-conditions/hiv-aids/doctors-departments/ddc-20373532
+Acute myelogenous leukemia,https://www.mayoclinic.org/diseases-conditions/acute-myelogenous-leukemia/symptoms-causes/syc-20369109,https://www.mayoclinic.org/diseases-conditions/acute-myelogenous-leukemia/diagnosis-treatment/drc-20369115,https://www.mayoclinic.org/diseases-conditions/acute-myelogenous-leukemia/doctors-departments/ddc-20369117
+Guillain-Barre syndrome,https://www.mayoclinic.org/diseases-conditions/guillain-barre-syndrome/symptoms-causes/syc-20362793,https://www.mayoclinic.org/diseases-conditions/guillain-barre-syndrome/diagnosis-treatment/drc-20363006,https://www.mayoclinic.org/diseases-conditions/guillain-barre-syndrome/doctors-departments/ddc-20363037
+Acute kidney injury,https://www.mayoclinic.org/diseases-conditions/kidney-failure/symptoms-causes/syc-20369048,https://www.mayoclinic.org/diseases-conditions/kidney-failure/diagnosis-treatment/drc-20369053,https://www.mayoclinic.org/diseases-conditions/kidney-failure/doctors-departments/ddc-20369054
+Acute lymphocytic leukemia,https://www.mayoclinic.org/diseases-conditions/acute-lymphocytic-leukemia/symptoms-causes/syc-20369077,https://www.mayoclinic.org/diseases-conditions/acute-lymphocytic-leukemia/diagnosis-treatment/drc-20369083,https://www.mayoclinic.org/diseases-conditions/acute-lymphocytic-leukemia/doctors-departments/ddc-20369085
+Acute lymphocytic leukemia,https://www.mayoclinic.org/diseases-conditions/acute-lymphocytic-leukemia/symptoms-causes/syc-20369077,https://www.mayoclinic.org/diseases-conditions/acute-lymphocytic-leukemia/diagnosis-treatment/drc-20369083,https://www.mayoclinic.org/diseases-conditions/acute-lymphocytic-leukemia/doctors-departments/ddc-20369085
+Acute myelogenous leukemia,https://www.mayoclinic.org/diseases-conditions/acute-myelogenous-leukemia/symptoms-causes/syc-20369109,https://www.mayoclinic.org/diseases-conditions/acute-myelogenous-leukemia/diagnosis-treatment/drc-20369115,https://www.mayoclinic.org/diseases-conditions/acute-myelogenous-leukemia/doctors-departments/ddc-20369117
+Acute myelogenous leukemia,https://www.mayoclinic.org/diseases-conditions/acute-myelogenous-leukemia/symptoms-causes/syc-20369109,https://www.mayoclinic.org/diseases-conditions/acute-myelogenous-leukemia/diagnosis-treatment/drc-20369115,https://www.mayoclinic.org/diseases-conditions/acute-myelogenous-leukemia/doctors-departments/ddc-20369117
+Acute myelogenous leukemia,https://www.mayoclinic.org/diseases-conditions/acute-myelogenous-leukemia/symptoms-causes/syc-20369109,https://www.mayoclinic.org/diseases-conditions/acute-myelogenous-leukemia/diagnosis-treatment/drc-20369115,https://www.mayoclinic.org/diseases-conditions/acute-myelogenous-leukemia/doctors-departments/ddc-20369117
+Radiation sickness,https://www.mayoclinic.org/diseases-conditions/radiation-sickness/symptoms-causes/syc-20377058,https://www.mayoclinic.org/diseases-conditions/radiation-sickness/diagnosis-treatment/drc-20377061,
+Radiation sickness,https://www.mayoclinic.org/diseases-conditions/radiation-sickness/symptoms-causes/syc-20377058,https://www.mayoclinic.org/diseases-conditions/radiation-sickness/diagnosis-treatment/drc-20377061,
+Acute kidney injury,https://www.mayoclinic.org/diseases-conditions/kidney-failure/symptoms-causes/syc-20369048,https://www.mayoclinic.org/diseases-conditions/kidney-failure/diagnosis-treatment/drc-20369053,https://www.mayoclinic.org/diseases-conditions/kidney-failure/doctors-departments/ddc-20369054
+ARDS,https://www.mayoclinic.org/diseases-conditions/ards/symptoms-causes/syc-20355576,https://www.mayoclinic.org/diseases-conditions/ards/diagnosis-treatment/drc-20355581,https://www.mayoclinic.org/diseases-conditions/ards/doctors-departments/ddc-20355584
+Acute sinusitis,https://www.mayoclinic.org/diseases-conditions/acute-sinusitis/symptoms-causes/syc-20351671,https://www.mayoclinic.org/diseases-conditions/acute-sinusitis/diagnosis-treatment/drc-20351677,https://www.mayoclinic.org/diseases-conditions/acute-sinusitis/doctors-departments/ddc-20351680
+Autoimmune epilepsy,https://www.mayoclinic.org/diseases-conditions/autoimmune-epilepsy/symptoms-causes/syc-20576892,https://www.mayoclinic.org/diseases-conditions/autoimmune-epilepsy/diagnosis-treatment/drc-20576912,https://www.mayoclinic.org/diseases-conditions/autoimmune-epilepsy/doctors-departments/ddc-20576934
+Alcohol use disorder,https://www.mayoclinic.org/diseases-conditions/alcohol-use-disorder/symptoms-causes/syc-20369243,https://www.mayoclinic.org/diseases-conditions/alcohol-use-disorder/diagnosis-treatment/drc-20369250,https://www.mayoclinic.org/diseases-conditions/alcohol-use-disorder/doctors-departments/ddc-20369252
+Compulsive gambling,https://www.mayoclinic.org/diseases-conditions/compulsive-gambling/symptoms-causes/syc-20355178,,
+Nicotine dependence,https://www.mayoclinic.org/diseases-conditions/nicotine-dependence/symptoms-causes/syc-20351584,https://www.mayoclinic.org/diseases-conditions/nicotine-dependence/diagnosis-treatment/drc-20351590,https://www.mayoclinic.org/diseases-conditions/nicotine-dependence/doctors-departments/ddc-20351594
+Mesenteric lymphadenitis,https://www.mayoclinic.org/diseases-conditions/mesenteric-lymphadenitis/symptoms-causes/syc-20353799,https://www.mayoclinic.org/diseases-conditions/mesenteric-lymphadenitis/diagnosis-treatment/drc-20353803,
+Attention-deficit/hyperactivity disorder (ADHD) in children,https://www.mayoclinic.org/diseases-conditions/adhd/symptoms-causes/syc-20350889,https://www.mayoclinic.org/diseases-conditions/adhd/diagnosis-treatment/drc-20350895,https://www.mayoclinic.org/diseases-conditions/adhd/doctors-departments/ddc-20350899
+Adult attention-deficit/hyperactivity disorder (ADHD),https://www.mayoclinic.org/diseases-conditions/adult-adhd/symptoms-causes/syc-20350878,https://www.mayoclinic.org/diseases-conditions/adult-adhd/diagnosis-treatment/drc-20350883,
+Frozen shoulder,https://www.mayoclinic.org/diseases-conditions/frozen-shoulder/symptoms-causes/syc-20372684,https://www.mayoclinic.org/diseases-conditions/frozen-shoulder/diagnosis-treatment/drc-20372690,https://www.mayoclinic.org/diseases-conditions/frozen-shoulder/doctors-departments/ddc-20372691
+Childhood schizophrenia,https://www.mayoclinic.org/diseases-conditions/childhood-schizophrenia/symptoms-causes/syc-20354483,https://www.mayoclinic.org/diseases-conditions/childhood-schizophrenia/diagnosis-treatment/drc-20354489,
+Benign adrenal tumors,https://www.mayoclinic.org/diseases-conditions/benign-adrenal-tumors/symptoms-causes/syc-20356190,https://www.mayoclinic.org/diseases-conditions/benign-adrenal-tumors/diagnosis-treatment/drc-20567035,https://www.mayoclinic.org/diseases-conditions/benign-adrenal-tumors/doctors-departments/ddc-20356192
+Autoimmune encephalitis,https://www.mayoclinic.org/diseases-conditions/autoimmune-encephalitis/symptoms-causes/syc-20576380,https://www.mayoclinic.org/diseases-conditions/autoimmune-encephalitis/diagnosis-treatment/drc-20576406,https://www.mayoclinic.org/diseases-conditions/autoimmune-encephalitis/doctors-departments/ddc-20576425
+Acute flaccid myelitis (AFM),https://www.mayoclinic.org/diseases-conditions/acute-flaccid-myelitis/symptoms-causes/syc-20493046,,
+Dry macular degeneration,https://www.mayoclinic.org/diseases-conditions/dry-macular-degeneration/symptoms-causes/syc-20350375,https://www.mayoclinic.org/diseases-conditions/dry-macular-degeneration/diagnosis-treatment/drc-20350381,https://www.mayoclinic.org/diseases-conditions/dry-macular-degeneration/doctors-departments/ddc-20350384
+"Macular degeneration, wet",https://www.mayoclinic.org/diseases-conditions/wet-macular-degeneration/symptoms-causes/syc-20351107,https://www.mayoclinic.org/diseases-conditions/wet-macular-degeneration/diagnosis-treatment/drc-20351113,https://www.mayoclinic.org/diseases-conditions/wet-macular-degeneration/doctors-departments/ddc-20351115
+Myelofibrosis,https://www.mayoclinic.org/diseases-conditions/myelofibrosis/symptoms-causes/syc-20355057,https://www.mayoclinic.org/diseases-conditions/myelofibrosis/diagnosis-treatment/drc-20355062,https://www.mayoclinic.org/diseases-conditions/myelofibrosis/doctors-departments/ddc-20355064
+Guillain-Barre syndrome,https://www.mayoclinic.org/diseases-conditions/guillain-barre-syndrome/symptoms-causes/syc-20362793,https://www.mayoclinic.org/diseases-conditions/guillain-barre-syndrome/diagnosis-treatment/drc-20363006,https://www.mayoclinic.org/diseases-conditions/guillain-barre-syndrome/doctors-departments/ddc-20363037
+HIV/AIDS,https://www.mayoclinic.org/diseases-conditions/hiv-aids/symptoms-causes/syc-20373524,https://www.mayoclinic.org/diseases-conditions/hiv-aids/diagnosis-treatment/drc-20373531,https://www.mayoclinic.org/diseases-conditions/hiv-aids/doctors-departments/ddc-20373532
+Alcohol use disorder,https://www.mayoclinic.org/diseases-conditions/alcohol-use-disorder/symptoms-causes/syc-20369243,https://www.mayoclinic.org/diseases-conditions/alcohol-use-disorder/diagnosis-treatment/drc-20369250,https://www.mayoclinic.org/diseases-conditions/alcohol-use-disorder/doctors-departments/ddc-20369252
+Alcoholic hepatitis,https://www.mayoclinic.org/diseases-conditions/alcoholic-hepatitis/symptoms-causes/syc-20351388,https://www.mayoclinic.org/diseases-conditions/alcoholic-hepatitis/diagnosis-treatment/drc-20351394,https://www.mayoclinic.org/diseases-conditions/alcoholic-hepatitis/doctors-departments/ddc-20351395
+Churg-Strauss syndrome,https://www.mayoclinic.org/diseases-conditions/churg-strauss-syndrome/symptoms-causes/syc-20353760,,
+Churg-Strauss syndrome,https://www.mayoclinic.org/diseases-conditions/churg-strauss-syndrome/symptoms-causes/syc-20353760,,
+Hay fever,https://www.mayoclinic.org/diseases-conditions/hay-fever/symptoms-causes/syc-20373039,https://www.mayoclinic.org/diseases-conditions/hay-fever/diagnosis-treatment/drc-20373045,https://www.mayoclinic.org/diseases-conditions/hay-fever/doctors-departments/ddc-20373046
+Dust mite allergy,https://www.mayoclinic.org/diseases-conditions/dust-mites/symptoms-causes/syc-20352173,,
+Egg allergy,https://www.mayoclinic.org/diseases-conditions/egg-allergy/symptoms-causes/syc-20372115,,
+Food allergy,https://www.mayoclinic.org/diseases-conditions/food-allergy/symptoms-causes/syc-20355095,https://www.mayoclinic.org/diseases-conditions/food-allergy/diagnosis-treatment/drc-20355101,https://www.mayoclinic.org/diseases-conditions/food-allergy/doctors-departments/ddc-20355105
+Latex allergy,https://www.mayoclinic.org/diseases-conditions/latex-allergy/symptoms-causes/syc-20374287,https://www.mayoclinic.org/diseases-conditions/latex-allergy/diagnosis-treatment/drc-20374291,https://www.mayoclinic.org/diseases-conditions/latex-allergy/doctors-departments/ddc-20374292
+Milk allergy,https://www.mayoclinic.org/diseases-conditions/milk-allergy/symptoms-causes/syc-20375101,,
+Mold allergy,https://www.mayoclinic.org/diseases-conditions/mold-allergy/symptoms-causes/syc-20351519,,
+Nickel allergy,https://www.mayoclinic.org/diseases-conditions/nickel-allergy/symptoms-causes/syc-20351529,,
+Peanut allergy,https://www.mayoclinic.org/diseases-conditions/peanut-allergy/symptoms-causes/syc-20376175,https://www.mayoclinic.org/diseases-conditions/peanut-allergy/diagnosis-treatment/drc-20376181,https://www.mayoclinic.org/diseases-conditions/peanut-allergy/doctors-departments/ddc-20376182
+Penicillin allergy,https://www.mayoclinic.org/diseases-conditions/penicillin-allergy/symptoms-causes/syc-20376222,,
+Pet allergy,https://www.mayoclinic.org/diseases-conditions/pet-allergy/symptoms-causes/syc-20352192,,
+Shellfish allergy,https://www.mayoclinic.org/diseases-conditions/shellfish-allergy/symptoms-causes/syc-20377503,https://www.mayoclinic.org/diseases-conditions/shellfish-allergy/diagnosis-treatment/drc-20377507,https://www.mayoclinic.org/diseases-conditions/shellfish-allergy/doctors-departments/ddc-20377508
+Wheat allergy,https://www.mayoclinic.org/diseases-conditions/wheat-allergy/symptoms-causes/syc-20378897,,
+Hair loss,https://www.mayoclinic.org/diseases-conditions/hair-loss/symptoms-causes/syc-20372926,https://www.mayoclinic.org/diseases-conditions/hair-loss/diagnosis-treatment/drc-20372932,https://www.mayoclinic.org/diseases-conditions/hair-loss/doctors-departments/ddc-20372934
+Amyotrophic lateral sclerosis (ALS),https://www.mayoclinic.org/diseases-conditions/amyotrophic-lateral-sclerosis/symptoms-causes/syc-20354022,https://www.mayoclinic.org/diseases-conditions/amyotrophic-lateral-sclerosis/diagnosis-treatment/drc-20354027,https://www.mayoclinic.org/diseases-conditions/amyotrophic-lateral-sclerosis/doctors-departments/ddc-20354029
+Dry socket,https://www.mayoclinic.org/diseases-conditions/dry-socket/symptoms-causes/syc-20354376,https://www.mayoclinic.org/diseases-conditions/dry-socket/diagnosis-treatment/drc-20354382,
+Atypical genitalia,https://www.mayoclinic.org/diseases-conditions/atypical-genitalia/symptoms-causes/syc-20369273,https://www.mayoclinic.org/diseases-conditions/atypical-genitalia/diagnosis-treatment/drc-20369278,
+Lazy eye (amblyopia),https://www.mayoclinic.org/diseases-conditions/lazy-eye/symptoms-causes/syc-20352391,,
+Chagas disease,https://www.mayoclinic.org/diseases-conditions/chagas-disease/symptoms-causes/syc-20356212,,
+Transient global amnesia,https://www.mayoclinic.org/diseases-conditions/transient-global-amnesia/symptoms-causes/syc-20378531,,
+Amnesia,https://www.mayoclinic.org/diseases-conditions/amnesia/symptoms-causes/syc-20353360,https://www.mayoclinic.org/diseases-conditions/amnesia/diagnosis-treatment/drc-20353366,
+Amyloidosis,https://www.mayoclinic.org/diseases-conditions/amyloidosis/symptoms-causes/syc-20353178,https://www.mayoclinic.org/diseases-conditions/amyloidosis/diagnosis-treatment/drc-20353183,https://www.mayoclinic.org/diseases-conditions/amyloidosis/doctors-departments/ddc-20353186
+Aplastic anemia,https://www.mayoclinic.org/diseases-conditions/aplastic-anemia/symptoms-causes/syc-20355015,,
+Thalassemia,https://www.mayoclinic.org/diseases-conditions/thalassemia/symptoms-causes/syc-20354995,,
+Iron deficiency anemia,https://www.mayoclinic.org/diseases-conditions/iron-deficiency-anemia/symptoms-causes/syc-20355034,,
+Thalassemia,https://www.mayoclinic.org/diseases-conditions/thalassemia/symptoms-causes/syc-20354995,,
+Sickle cell anemia,https://www.mayoclinic.org/diseases-conditions/sickle-cell-anemia/symptoms-causes/syc-20355876,,
+Vitamin deficiency anemia,https://www.mayoclinic.org/diseases-conditions/vitamin-deficiency-anemia/symptoms-causes/syc-20355025,,
+Abdominal aortic aneurysm,https://www.mayoclinic.org/diseases-conditions/abdominal-aortic-aneurysm/symptoms-causes/syc-20350688,https://www.mayoclinic.org/diseases-conditions/abdominal-aortic-aneurysm/diagnosis-treatment/drc-20350693,https://www.mayoclinic.org/diseases-conditions/abdominal-aortic-aneurysm/doctors-departments/ddc-20350695
+Aortic aneurysm,https://www.mayoclinic.org/diseases-conditions/aortic-aneurysm/symptoms-causes/syc-20369472,,https://www.mayoclinic.org/diseases-conditions/aortic-aneurysm/doctors-departments/ddc-20369475
+Brain aneurysm,https://www.mayoclinic.org/diseases-conditions/brain-aneurysm/symptoms-causes/syc-20361483,https://www.mayoclinic.org/diseases-conditions/brain-aneurysm/diagnosis-treatment/drc-20361595,https://www.mayoclinic.org/diseases-conditions/brain-aneurysm/doctors-departments/ddc-20361659
+Brain aneurysm,https://www.mayoclinic.org/diseases-conditions/brain-aneurysm/symptoms-causes/syc-20361483,https://www.mayoclinic.org/diseases-conditions/brain-aneurysm/diagnosis-treatment/drc-20361595,https://www.mayoclinic.org/diseases-conditions/brain-aneurysm/doctors-departments/ddc-20361659
+Popliteal artery aneurysm,https://www.mayoclinic.org/diseases-conditions/popliteal-artery-aneurysm/symptoms-causes/syc-20355432,https://www.mayoclinic.org/diseases-conditions/popliteal-artery-aneurysm/diagnosis-treatment/drc-20528724,https://www.mayoclinic.org/diseases-conditions/popliteal-artery-aneurysm/doctors-departments/ddc-20355434
+Thoracic aortic aneurysm,https://www.mayoclinic.org/diseases-conditions/thoracic-aortic-aneurysm/symptoms-causes/syc-20350188,https://www.mayoclinic.org/diseases-conditions/thoracic-aortic-aneurysm/diagnosis-treatment/drc-20350193,https://www.mayoclinic.org/diseases-conditions/thoracic-aortic-aneurysm/doctors-departments/ddc-20350196
+Vasculitis,https://www.mayoclinic.org/diseases-conditions/vasculitis/symptoms-causes/syc-20363435,https://www.mayoclinic.org/diseases-conditions/vasculitis/diagnosis-treatment/drc-20363485,https://www.mayoclinic.org/diseases-conditions/vasculitis/doctors-departments/ddc-20363525
+Angina,https://www.mayoclinic.org/diseases-conditions/angina/symptoms-causes/syc-20369373,https://www.mayoclinic.org/diseases-conditions/angina/diagnosis-treatment/drc-20369378,https://www.mayoclinic.org/diseases-conditions/angina/doctors-departments/ddc-20369379
+Hives and angioedema,https://www.mayoclinic.org/diseases-conditions/hives-and-angioedema/symptoms-causes/syc-20354908,https://www.mayoclinic.org/diseases-conditions/hives-and-angioedema/diagnosis-treatment/drc-20354914,https://www.mayoclinic.org/diseases-conditions/hives-and-angioedema/doctors-departments/ddc-20354916
+Castleman disease,https://www.mayoclinic.org/diseases-conditions/castleman-disease/symptoms-causes/syc-20543017,https://www.mayoclinic.org/diseases-conditions/castleman-disease/diagnosis-treatment/drc-20543055,https://www.mayoclinic.org/diseases-conditions/castleman-disease/doctors-departments/ddc-20543066
+Broken ankle,https://www.mayoclinic.org/diseases-conditions/broken-ankle/symptoms-causes/syc-20450025,,
+Sprained ankle,https://www.mayoclinic.org/diseases-conditions/sprained-ankle/symptoms-causes/syc-20353225,https://www.mayoclinic.org/diseases-conditions/sprained-ankle/diagnosis-treatment/drc-20353231,https://www.mayoclinic.org/diseases-conditions/sprained-ankle/doctors-departments/ddc-20353232
+Tongue-tie (ankyloglossia),https://www.mayoclinic.org/diseases-conditions/tongue-tie/symptoms-causes/syc-20378452,https://www.mayoclinic.org/diseases-conditions/tongue-tie/diagnosis-treatment/drc-20378456,https://www.mayoclinic.org/diseases-conditions/tongue-tie/doctors-departments/ddc-20378457
+Anorexia nervosa,https://www.mayoclinic.org/diseases-conditions/anorexia-nervosa/symptoms-causes/syc-20353591,https://www.mayoclinic.org/diseases-conditions/anorexia-nervosa/diagnosis-treatment/drc-20353597,https://www.mayoclinic.org/diseases-conditions/anorexia-nervosa/doctors-departments/ddc-20353601
+ACL injury,https://www.mayoclinic.org/diseases-conditions/acl-injury/symptoms-causes/syc-20350738,https://www.mayoclinic.org/diseases-conditions/acl-injury/diagnosis-treatment/drc-20350744,https://www.mayoclinic.org/diseases-conditions/acl-injury/doctors-departments/ddc-20350745
+Anterior vaginal prolapse (cystocele),https://www.mayoclinic.org/diseases-conditions/cystocele/symptoms-causes/syc-20369452,https://www.mayoclinic.org/diseases-conditions/cystocele/diagnosis-treatment/drc-20369457,https://www.mayoclinic.org/diseases-conditions/cystocele/doctors-departments/ddc-20369459
+Pseudomembranous colitis,https://www.mayoclinic.org/diseases-conditions/pseudomembranous-colitis/symptoms-causes/syc-20351434,,
+Generalized anxiety disorder,https://www.mayoclinic.org/diseases-conditions/generalized-anxiety-disorder/symptoms-causes/syc-20360803,https://www.mayoclinic.org/diseases-conditions/generalized-anxiety-disorder/diagnosis-treatment/drc-20361045,https://www.mayoclinic.org/diseases-conditions/generalized-anxiety-disorder/doctors-departments/ddc-20361094
+Social anxiety disorder (social phobia),https://www.mayoclinic.org/diseases-conditions/social-anxiety-disorder/symptoms-causes/syc-20353561,https://www.mayoclinic.org/diseases-conditions/social-anxiety-disorder/diagnosis-treatment/drc-20353567,https://www.mayoclinic.org/diseases-conditions/social-anxiety-disorder/doctors-departments/ddc-20353570
+Abdominal aortic aneurysm,https://www.mayoclinic.org/diseases-conditions/abdominal-aortic-aneurysm/symptoms-causes/syc-20350688,https://www.mayoclinic.org/diseases-conditions/abdominal-aortic-aneurysm/diagnosis-treatment/drc-20350693,https://www.mayoclinic.org/diseases-conditions/abdominal-aortic-aneurysm/doctors-departments/ddc-20350695
+Coarctation of the aorta,https://www.mayoclinic.org/diseases-conditions/coarctation-of-the-aorta/symptoms-causes/syc-20352529,https://www.mayoclinic.org/diseases-conditions/coarctation-of-the-aorta/diagnosis-treatment/drc-20352535,https://www.mayoclinic.org/diseases-conditions/coarctation-of-the-aorta/doctors-departments/ddc-20352537
+Aortic valve regurgitation,https://www.mayoclinic.org/diseases-conditions/aortic-valve-regurgitation/symptoms-causes/syc-20353129,https://www.mayoclinic.org/diseases-conditions/aortic-valve-regurgitation/diagnosis-treatment/drc-20353135,https://www.mayoclinic.org/diseases-conditions/aortic-valve-regurgitation/doctors-departments/ddc-20353137
+Aortic valve regurgitation,https://www.mayoclinic.org/diseases-conditions/aortic-valve-regurgitation/symptoms-causes/syc-20353129,https://www.mayoclinic.org/diseases-conditions/aortic-valve-regurgitation/diagnosis-treatment/drc-20353135,https://www.mayoclinic.org/diseases-conditions/aortic-valve-regurgitation/doctors-departments/ddc-20353137
+Auditory processing disorder,https://www.mayoclinic.org/diseases-conditions/auditory-processing-disorder/symptoms-causes/syc-20555261,https://www.mayoclinic.org/diseases-conditions/auditory-processing-disorder/diagnosis-treatment/drc-20555277,https://www.mayoclinic.org/diseases-conditions/auditory-processing-disorder/doctors-departments/ddc-20555296
+Primary progressive aphasia,https://www.mayoclinic.org/diseases-conditions/primary-progressive-aphasia/symptoms-causes/syc-20350499,https://www.mayoclinic.org/diseases-conditions/primary-progressive-aphasia/diagnosis-treatment/drc-20350504,https://www.mayoclinic.org/diseases-conditions/primary-progressive-aphasia/doctors-departments/ddc-20350506
+Canker sore,https://www.mayoclinic.org/diseases-conditions/canker-sore/symptoms-causes/syc-20370615,https://www.mayoclinic.org/diseases-conditions/canker-sore/diagnosis-treatment/drc-20370620,https://www.mayoclinic.org/diseases-conditions/canker-sore/doctors-departments/ddc-20370621
+Canker sore,https://www.mayoclinic.org/diseases-conditions/canker-sore/symptoms-causes/syc-20370615,https://www.mayoclinic.org/diseases-conditions/canker-sore/diagnosis-treatment/drc-20370620,https://www.mayoclinic.org/diseases-conditions/canker-sore/doctors-departments/ddc-20370621
+Broken heart syndrome,https://www.mayoclinic.org/diseases-conditions/broken-heart-syndrome/symptoms-causes/syc-20354617,https://www.mayoclinic.org/diseases-conditions/broken-heart-syndrome/diagnosis-treatment/drc-20354623,https://www.mayoclinic.org/diseases-conditions/broken-heart-syndrome/doctors-departments/ddc-20354624
+Antiphospholipid syndrome,https://www.mayoclinic.org/diseases-conditions/antiphospholipid-syndrome/symptoms-causes/syc-20355831,,
+Viral hemorrhagic fevers,https://www.mayoclinic.org/diseases-conditions/viral-hemorrhagic-fevers/symptoms-causes/syc-20351260,https://www.mayoclinic.org/diseases-conditions/viral-hemorrhagic-fevers/diagnosis-treatment/drc-20351266,
+Viral hemorrhagic fevers,https://www.mayoclinic.org/diseases-conditions/viral-hemorrhagic-fevers/symptoms-causes/syc-20351260,https://www.mayoclinic.org/diseases-conditions/viral-hemorrhagic-fevers/diagnosis-treatment/drc-20351266,
+Broken arm,https://www.mayoclinic.org/diseases-conditions/broken-arm/symptoms-causes/syc-20353260,https://www.mayoclinic.org/diseases-conditions/broken-arm/diagnosis-treatment/drc-20353266,https://www.mayoclinic.org/diseases-conditions/broken-arm/doctors-departments/ddc-20353267
+Chiari malformation,https://www.mayoclinic.org/diseases-conditions/chiari-malformation/symptoms-causes/syc-20354010,https://www.mayoclinic.org/diseases-conditions/chiari-malformation/diagnosis-treatment/drc-20354015,https://www.mayoclinic.org/diseases-conditions/chiari-malformation/doctors-departments/ddc-20354016
+Heart arrhythmia,https://www.mayoclinic.org/diseases-conditions/heart-arrhythmia/symptoms-causes/syc-20350668,https://www.mayoclinic.org/diseases-conditions/heart-arrhythmia/diagnosis-treatment/drc-20350674,https://www.mayoclinic.org/diseases-conditions/heart-arrhythmia/doctors-departments/ddc-20350677
+Giant cell arteritis,https://www.mayoclinic.org/diseases-conditions/giant-cell-arteritis/symptoms-causes/syc-20372758,https://www.mayoclinic.org/diseases-conditions/giant-cell-arteritis/diagnosis-treatment/drc-20372764,https://www.mayoclinic.org/diseases-conditions/giant-cell-arteritis/doctors-departments/ddc-20372765
+Takayasu's arteritis,https://www.mayoclinic.org/diseases-conditions/takayasus-arteritis/symptoms-causes/syc-20351335,,
+Thumb arthritis,https://www.mayoclinic.org/diseases-conditions/thumb-arthritis/symptoms-causes/syc-20378339,https://www.mayoclinic.org/diseases-conditions/thumb-arthritis/diagnosis-treatment/drc-20378344,https://www.mayoclinic.org/diseases-conditions/thumb-arthritis/doctors-departments/ddc-20378345
+Osteoarthritis,https://www.mayoclinic.org/diseases-conditions/osteoarthritis/symptoms-causes/syc-20351925,,
+Gout,https://www.mayoclinic.org/diseases-conditions/gout/symptoms-causes/syc-20372897,https://www.mayoclinic.org/diseases-conditions/gout/diagnosis-treatment/drc-20372903,https://www.mayoclinic.org/diseases-conditions/gout/doctors-departments/ddc-20372904
+Septic arthritis,https://www.mayoclinic.org/diseases-conditions/bone-and-joint-infections/symptoms-causes/syc-20350755,,
+Juvenile idiopathic arthritis,https://www.mayoclinic.org/diseases-conditions/juvenile-idiopathic-arthritis/symptoms-causes/syc-20374082,https://www.mayoclinic.org/diseases-conditions/juvenile-idiopathic-arthritis/diagnosis-treatment/drc-20374088,https://www.mayoclinic.org/diseases-conditions/juvenile-idiopathic-arthritis/doctors-departments/ddc-20374089
+Osteoarthritis,https://www.mayoclinic.org/diseases-conditions/osteoarthritis/symptoms-causes/syc-20351925,,
+Psoriatic arthritis,https://www.mayoclinic.org/diseases-conditions/psoriatic-arthritis/symptoms-causes/syc-20354076,,
+Reactive arthritis,https://www.mayoclinic.org/diseases-conditions/reactive-arthritis/symptoms-causes/syc-20354838,,
+Rheumatoid arthritis,https://www.mayoclinic.org/diseases-conditions/rheumatoid-arthritis/symptoms-causes/syc-20353648,https://www.mayoclinic.org/diseases-conditions/rheumatoid-arthritis/diagnosis-treatment/drc-20353653,https://www.mayoclinic.org/diseases-conditions/rheumatoid-arthritis/doctors-departments/ddc-20353657
+Septic arthritis,https://www.mayoclinic.org/diseases-conditions/bone-and-joint-infections/symptoms-causes/syc-20350755,,
+Thumb arthritis,https://www.mayoclinic.org/diseases-conditions/thumb-arthritis/symptoms-causes/syc-20378339,https://www.mayoclinic.org/diseases-conditions/thumb-arthritis/diagnosis-treatment/drc-20378344,https://www.mayoclinic.org/diseases-conditions/thumb-arthritis/doctors-departments/ddc-20378345
+Atrial septal defect (ASD),https://www.mayoclinic.org/diseases-conditions/atrial-septal-defect/symptoms-causes/syc-20369715,https://www.mayoclinic.org/diseases-conditions/atrial-septal-defect/diagnosis-treatment/drc-20369720,https://www.mayoclinic.org/diseases-conditions/atrial-septal-defect/doctors-departments/ddc-20369722
+Avascular necrosis (osteonecrosis),https://www.mayoclinic.org/diseases-conditions/avascular-necrosis/symptoms-causes/syc-20369859,,
+Childhood asthma,https://www.mayoclinic.org/diseases-conditions/childhood-asthma/symptoms-causes/syc-20351507,,
+Exercise-induced asthma,https://www.mayoclinic.org/diseases-conditions/exercise-induced-asthma/symptoms-causes/syc-20372300,,
+Occupational asthma,https://www.mayoclinic.org/diseases-conditions/occupational-asthma/symptoms-causes/syc-20375772,https://www.mayoclinic.org/diseases-conditions/occupational-asthma/diagnosis-treatment/drc-20375777,https://www.mayoclinic.org/diseases-conditions/occupational-asthma/doctors-departments/ddc-20375778
+Atrial tachycardia,https://www.mayoclinic.org/diseases-conditions/atrial-tachycardia/symptoms-causes/syc-20573298,https://www.mayoclinic.org/diseases-conditions/atrial-tachycardia/diagnosis-treatment/drc-20573299,https://www.mayoclinic.org/diseases-conditions/atrial-tachycardia/doctors-departments/ddc-20573300
+Arteriosclerosis / atherosclerosis,https://www.mayoclinic.org/diseases-conditions/arteriosclerosis-atherosclerosis/symptoms-causes/syc-20350569,https://www.mayoclinic.org/diseases-conditions/arteriosclerosis-atherosclerosis/diagnosis-treatment/drc-20350575,https://www.mayoclinic.org/diseases-conditions/arteriosclerosis-atherosclerosis/doctors-departments/ddc-20350578
+Atrioventricular canal defect,https://www.mayoclinic.org/diseases-conditions/atrioventricular-canal-defect/symptoms-causes/syc-20361492,,
+Vaginal atrophy,https://www.mayoclinic.org/diseases-conditions/vaginal-atrophy/symptoms-causes/syc-20352288,,
+Reactive attachment disorder,https://www.mayoclinic.org/diseases-conditions/reactive-attachment-disorder/symptoms-causes/syc-20352939,,
+Adult attention-deficit/hyperactivity disorder (ADHD),https://www.mayoclinic.org/diseases-conditions/adult-adhd/symptoms-causes/syc-20350878,https://www.mayoclinic.org/diseases-conditions/adult-adhd/diagnosis-treatment/drc-20350883,
+Auditory processing disorder,https://www.mayoclinic.org/diseases-conditions/auditory-processing-disorder/symptoms-causes/syc-20555261,https://www.mayoclinic.org/diseases-conditions/auditory-processing-disorder/diagnosis-treatment/drc-20555277,https://www.mayoclinic.org/diseases-conditions/auditory-processing-disorder/doctors-departments/ddc-20555296
+Autoimmune epilepsy,https://www.mayoclinic.org/diseases-conditions/autoimmune-epilepsy/symptoms-causes/syc-20576892,https://www.mayoclinic.org/diseases-conditions/autoimmune-epilepsy/diagnosis-treatment/drc-20576912,https://www.mayoclinic.org/diseases-conditions/autoimmune-epilepsy/doctors-departments/ddc-20576934
+Autoimmune encephalitis,https://www.mayoclinic.org/diseases-conditions/autoimmune-encephalitis/symptoms-causes/syc-20576380,https://www.mayoclinic.org/diseases-conditions/autoimmune-encephalitis/diagnosis-treatment/drc-20576406,https://www.mayoclinic.org/diseases-conditions/autoimmune-encephalitis/doctors-departments/ddc-20576425
+Bird flu (avian influenza),https://www.mayoclinic.org/diseases-conditions/bird-flu/symptoms-causes/syc-20568390,https://www.mayoclinic.org/diseases-conditions/bird-flu/diagnosis-treatment/drc-20568430,
+Avascular necrosis (osteonecrosis),https://www.mayoclinic.org/diseases-conditions/avascular-necrosis/symptoms-causes/syc-20369859,,
+Atrioventricular nodal reentry tachycardia (AVNRT),https://www.mayoclinic.org/diseases-conditions/avnrt/symptoms-causes/syc-20573830,https://www.mayoclinic.org/diseases-conditions/avnrt/diagnosis-treatment/drc-20573853,
