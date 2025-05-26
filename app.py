@@ -1,36 +1,51 @@
 import streamlit as st
-import time
+from PIL import Image
+import numpy as np
+import tensorflow as tf
+from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
 
-# Custom Styling
-st.markdown(
-    """
-    <style>
-        body {background-color: #f4f4f4;}
-        .main {background: white; padding: 2rem; border-radius: 15px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);}
-        h1 {color: #ff4c4c; text-align: center;}
-        .stTextInput {border-radius: 10px;}
-        .stButton>button {background-color: #ff4c4c; color: white; padding: 10px 20px; border-radius: 10px; font-size: 16px;}
-        .stButton>button:hover {background-color: #ff3333;}
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+# Load model only once
+@st.cache_resource
+def load_model():
+    return tf.keras.models.load_model('skin_disease_model_8_classes.h5')
 
-# Streamlit UI
-st.markdown("<div class='main'>", unsafe_allow_html=True)
-st.title("🩺 Disease & Symptom Chatbot")
-st.write("💡 Ask me about symptoms and diseases!")
+model = load_model()
 
-# User input
-user_input = st.text_input("🔍 Enter your symptoms:", placeholder="e.g., fever, cough, headache...")
+# Your class labels in the same order as training
+CLASS_NAMES = [
+    "BA-cellulitis",
+    "BA-impetigo",
+    "FU-athlete-foot",
+    "FU-nail-fungus",
+    "FU-ringworm",
+    "PA-cutaneous-larva-migrans",
+    "VI-chickenpox",
+    "VI-shingles"
+]
 
-if st.button("🔎 Get Diagnosis"):
-    with st.spinner("🤖 Processing your symptoms..."):
-        time.sleep(2)  # Simulate processing time
-        response = "⚠️ This is a placeholder response. The actual model will provide answers here."
-    st.success("✅ Chatbot Response:")
-    st.write(response)
+def preprocess_image_pil(pil_img):
+    pil_img = pil_img.resize((224, 224))
+    img_array = np.array(pil_img)
+    if img_array.shape[-1] == 4:  # Handle PNG with alpha
+        img_array = img_array[..., :3]
+    img_array = np.expand_dims(img_array, axis=0)
+    img_array = preprocess_input(img_array)
+    return img_array
 
-st.markdown("</div>", unsafe_allow_html=True)
+st.title("Skin Disease Detection")
 
-# Run this with: streamlit run app.py
+uploaded_file = st.file_uploader("Upload a skin image", type=["jpg", "jpeg", "png"])
+
+if uploaded_file is not None:
+    image_pil = Image.open(uploaded_file)
+    st.image(image_pil, caption='Uploaded Image', use_container_width=True)
+    st.write("")
+
+    st.write("Classifying...")
+    img_array = preprocess_image_pil(image_pil)
+    preds = model.predict(img_array)
+    predicted_class = CLASS_NAMES[np.argmax(preds)]
+    confidence = np.max(preds)
+
+    st.write(f"### Prediction: **{predicted_class}**")
+    st.write(f"Confidence: {confidence*100:.2f}%")
