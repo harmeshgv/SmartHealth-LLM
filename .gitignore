@@ -3,6 +3,8 @@
 .env
 
 #i have create an myenv python env foldernow how to gitignore it ?
+__pycache__/
+*.py[cod]
 
 
 myenv/
