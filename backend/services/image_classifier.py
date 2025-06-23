@@ -1,7 +1,7 @@
 import tensorflow as tf
 import json
 import numpy as np
-from utils.image_preprocessing import PreProcessor
+from backend.utils.image_preprocessing import PreProcessor
 
 class Classify_Diseases:
     def __init__(self, model_path = "backend/models/skin_disease_model.h5", labels_path = "backend/data/labels.json"):
@@ -25,5 +25,4 @@ class Classify_Diseases:
         predicted_label = self.classnames[predicted_index]
         confidence = float(np.max(preds))
         return predicted_label, confidence
-    
     
