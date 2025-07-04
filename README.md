@@ -1,155 +1,195 @@
-# Smart Health: Skin Diseases Classification & Symptom-based Disease Prediction LLM Chatbot
+# 🧠 Smart Health: AI-Powered Skin Disease Classifier & Symptom Checker
 
-## Overview
+## 🚀 Overview
 
-**Smart Health** is an integrated AI-driven platform designed to assist users in early detection and understanding of skin diseases. The project leverages deep learning for skin disease image classification and a Large Language Model (LLM) chatbot for symptom-based disease prediction and Q&A. This dual approach empowers users with both image-based diagnostics and conversational health support.
+**Smart Health** is a dual-module AI health assistant combining:
 
----
+* 🖼️ **Skin image classification** using deep learning, and
+* 💬 **Symptom-based disease prediction** using an LLM and FAISS-based vector similarity search.
 
-## Features
-
-- 🖼️ **Skin Disease Image Classification**
-
-  - Upload skin images to get instant predictions of possible skin conditions.
-  - Uses state-of-the-art deep learning (e.g., MobileNetV2, EfficientNet) trained on 8+ skin disease classes.
-  - Provides confidence scores for predictions.
-
-- 💬 **Symptom-based Disease Prediction Chatbot**
-
-  - Enter symptoms in natural language to receive possible disease matches.
-  - Powered by a Large Language Model (LLM) fine-tuned for medical Q&A.
-  - Provides additional information: causes, prevention, risk factors, complications, and when to see a doctor.
-
-- 🏥 **Conversational Health Guidance**
-
-  - Offers explanations of diseases, symptoms, and next steps.
-  - Extracts trusted information from sources like Mayo Clinic using web scraping.
-
-- 📊 **Analytics & Explainability**
-  - Displays prediction confidence and highlights most probable conditions.
-  - Visualizes key symptom-disease relationships.
+It allows users to upload skin images for instant disease classification or chat naturally by describing symptoms to get possible disease predictions.
 
 ---
 
-## Model Performance
+## 🌟 Features
 
-### Skin Disease Image Classifier Results
+### 🖼️ Skin Disease Image Classification
 
-- **MobileNetV2**
+* Upload an image of a skin condition to get:
 
-  - **Best Validation Accuracy:** 92.70%
-  - **Final Epochs:**
-    - Epoch 10/10:
-      - Training Accuracy: 97.69%
-      - Validation Accuracy: 90.99%
-      - Training Loss: 0.0764
-      - Validation Loss: 0.2751
+  * Predicted disease class (e.g., eczema, psoriasis)
+  * Model confidence score
+* Models used:
 
-- **EfficientNet-B0**
-  - **Test Accuracy:** 93.16%
-  - **Final Loss:** 0.0872
+  * `MobileNetV2`, `EfficientNet-B0` trained on 8 skin disease categories
 
-_Both models were trained and validated on 8 skin disease classes using transfer learning and data augmentation._
+### 💬 Symptom-Based LLM Chatbot
+
+* Enter symptoms (e.g., *"rash and itching behind knees"*) in natural language
+* Backend cleans and filters symptoms using:
+
+  * Custom NER (`biomedical-ner-all`)
+  * Text preprocessing pipeline
+* Matches symptoms against diseases using **FAISS + Sentence Transformers**
+* Returns:
+
+  * Top 3 closest matching diseases
+  * Key symptoms & confidence scores
+
+### 🏥 Disease Info & Q\&A
+
+* Backend integrates with LLM to generate:
+
+  * Explanation of the disease
+  * Causes, complications, prevention
+  * When to see a doctor
 
 ---
 
-## Tech Stack
+## 📈 Model Performance
 
-- **Backend:** Python, TensorFlow/Keras, PyTorch, FastAPI/Flask (for serving models), BeautifulSoup (for scraping)
-- **Frontend:** Streamlit (for web UI)
-- **LLM:** HuggingFace Transformers, or similar
-- **Data:** Custom-labeled skin disease images, Mayo Clinic, and other reputable medical sources
+### MobileNetV2
+
+* ✅ Validation Accuracy: 92.7%
+* ✅ Test Accuracy: \~90.99%
+
+### EfficientNet-B0
+
+* ✅ Test Accuracy: 93.16%
+* ✅ Final Loss: 0.0872
 
 ---
 
-## Setup & Installation
+## 🧰 Tech Stack
 
-### 1. Clone the Repository
+| Layer                   | Tools                                  |
+| ----------------------- | -------------------------------------- |
+| **Frontend**            | HTML form + Streamlit (for testing)    |
+| **Backend**             | FastAPI, TensorFlow/Keras, PyTorch     |
+| **Embeddings**          | `all-MiniLM-L6-v2` via HuggingFace     |
+| **Vector Store**        | FAISS (Symptom-to-Disease Matching)    |
+| **NER & Text Cleaning** | Biomedical NER + Custom pipeline       |
+| **Web Scraping**        | BeautifulSoup (Mayo Clinic extraction) |
+
+---
+
+## 🛠️ Setup & Installation
+
+### 1. Clone the Repo
 
 ```bash
-git clone https://github.com/yourusername/smart-health-skin-diseases.git
-cd smart-health-skin-diseases
+git clone https://github.com/yourusername/SmartHealth-LLM.git
+cd SmartHealth-LLM
 ```
 
-### 2. Install Requirements
+### 2. Install Python Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3. Download/Train Models
+### 3. Download Models
 
-- **Image Classifier:** Download the pre-trained model (`skin_disease_model_8_classes.h5` or `skin_disease_efficientnet8.pth`) and place it in the project root.
-- **LLM Model:** Configure your API key or download the local LLM checkpoint as required.
+* Place the skin classification `.h5` or `.pth` model in `backend/models/`
+* Ensure the FAISS index exists at:
 
-### 4. Run the Streamlit App
+  ```
+  backend/Vector/symptom_faiss_db/index.faiss
+  ```
+
+> 🔁 If not available, run a script to generate it from your CSV or dataset.
+
+### 4. Run the FastAPI Backend
 
 ```bash
-streamlit run app.py
+uvicorn backend.main:app --reload
 ```
+
+### 5. Open in Browser
+
+Go to [http://127.0.0.1:8000](http://127.0.0.1:8000)
 
 ---
 
-## Usage
+## ✨ Usage
 
-### Skin Disease Detection
+### 🖼️ Image Upload
 
-1. Open the web app.
-2. Upload a clear image of the skin condition.
-3. Get instant prediction and confidence score.
+* Upload a skin image
+* Receive predicted disease and confidence
 
-### Symptom Chatbot
+### 💬 Symptom Checker Chat
 
-1. Enter your symptoms or health query in the chatbot.
-2. Get disease suggestions, explanations, and next steps.
+* Type symptoms in the text box (e.g., *"painful rash on arms"*)
+* System processes symptoms, matches with FAISS DB, and returns:
+
+  * Top 3 matching diseases
+  * Key symptoms
+  * Similarity confidence
 
 ---
 
-<!--
-## File Structure
+## 📁 Project Structure
 
 ```
-.
-├── app.py                              # Streamlit frontend
-├── skin_disease_predictor.py           # Image preprocessing & prediction backend
-├── chatbot_backend.py                  # LLM-based QA and symptom prediction
-├── extract_mayo_sections_flexible.py   # Mayo Clinic web scraping utility
+SmartHealth-LLM/
+├── backend/
+│   ├── api/
+│   │   └── upload.py
+│   ├── models/
+│   │   └── skin_disease_model.h5
+│   ├── services/
+│   │   ├── image_classifier.py
+│   │   └── symptom_to_disease.py
+│   ├── utils/
+│   │   ├── text_cleaning.py
+│   │   └── filtering_with_ner.py
+│   ├── Vector/
+│   │   └── symptom_faiss_db/
+│   │       └── index.faiss
+│   └── main.py
+├── templates/
+│   └── index.html
 ├── requirements.txt
-├── README.md
-└── models/
-    ├── skin_disease_model_8_classes.h5
-    └── (other model files)
+└── README.md
 ```
--->
 
 ---
 
-## Data Sources
+## 📚 Data Sources
 
-- [Mayo Clinic](https://www.mayoclinic.org/)
-- Public skin disease datasets (e.g., ISIC, DermNet)
-- Symptom-disease mappings curated from medical literature
-
----
-
-## Disclaimer
-
-This tool is for educational and preliminary informational purposes only. It **does not provide medical advice**. Always consult a healthcare professional for diagnosis and treatment.
+* [Mayo Clinic](https://www.mayoclinic.org/)
+* Public datasets (ISIC, DermNet)
+* Medical papers for symptom-disease mappings
 
 ---
 
-## Contributing
+## ⚠️ Disclaimer
 
-Contributions are welcome! Please open an issue or submit a pull request.
-
----
-
-## License
-
-[MIT License](LICENSE)
+> This tool is **not a substitute for professional medical advice**. It is intended for educational and research use only. Always consult a licensed physician for diagnosis and treatment.
 
 ---
 
-## Contact
+## 🤝 Contributing
 
-For questions or collaborations, contact [harmeshgopinathan@gmail.com](harmeshgopinathan@gmail.com)
+Pull requests, issues, and feature requests are welcome!
+Start by forking and submitting a PR or open an issue.
+
+---
+
+## 📜 License
+
+MIT License – see [LICENSE](LICENSE) file for details.
+
+---
+
+## 📬 Contact
+
+**Harmesh G V**
+✉️ [harmeshgopinathan@gmail.com](mailto:harmeshgopinathan@gmail.com)
+🔗 [LinkedIn](https://linkedin.com/in/harmeshgv)
+🔗 [GitHub](https://github.com/harmeshgv)
+
+---
+
+
