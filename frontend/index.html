@@ -2,8 +2,37 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Smart Health LLM</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+      }
+
+      .chat-box {
+        border: 1px solid #ccc;
+        padding: 15px;
+        height: 300px;
+        overflow-y: auto;
+        background-color: #f9f9f9;
+        margin-bottom: 10px;
+      }
+
+      .message {
+        margin: 10px 0;
+      }
+
+      .user {
+        text-align: right;
+        color: blue;
+      }
+
+      .bot {
+        text-align: left;
+        color: green;
+      }
+    </style>
   </head>
   <body>
     <h2>Upload an image</h2>
@@ -14,8 +43,30 @@
     </form>
 
     {% if result %}
-    <h3>Prediction: {{ result }}</h3>
-    <p>Confidence: {{ confidence }}</p>
+      <h3>Prediction: {{ result }}</h3>
+      <p>Confidence: {{ confidence }}</p>
     {% endif %}
+
+    <hr />
+    <h2>Describe your symptoms</h2>
+
+    <div class="chat-box">
+{% for chat in chat_history %}
+  <div class="message user"><strong>You:</strong> {{ chat.user }}</div>
+  <div class="message bot"><strong>Bot:</strong> {{ chat.bot.replace('\n', '<br>') | safe }}</div>
+{% endfor %}
+
+    </div>
+
+    <form action="/chat/" method="post">
+      <input
+        type="text"
+        name="user_input"
+        placeholder="Describe your symptoms here..."
+        style="width: 80%; padding: 8px;"
+        required
+      />
+      <input type="submit" value="Send" />
+    </form>
   </body>
 </html>
