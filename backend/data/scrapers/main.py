@@ -1,0 +1,109 @@
+
+def data_extractor(base_url, retries=3, delay=5):
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8"
+    }
+
+    diagnosis_treatment_link = ""
+    doctors_departments_link = ""
+
+    for attempt in range(retries):
+        try:
+            response = requests.get(base_url, headers=headers, timeout=20)
+            response.raise_for_status()
+            soup = BeautifulSoup(response.text, "html.parser")
+
+            # Extract Diagnosis & Treatment link
+            content1 = soup.find('a', id="et_genericNavigation_diagnosis-treatment")
+            if not content1:
+                # fallback: search by link text containing both words
+                for a in soup.find_all('a'):
+                    link_text = a.get_text(separator=' ').strip().lower()
+                    if "diagnosis" in link_text and "treatment" in link_text:
+                        content1 = a
+                        break
+            if content1:
+                href1 = content1.get('href')
+                diagnosis_treatment_link = f"https://www.mayoclinic.org{href1}" if href1 and href1.startswith("/") else href1
+
+            # Extract Doctors & Departments link
+            content2 = soup.find('a', id="et_genericNavigation_doctors-departments")
+            if not content2:
+                # fallback: search by link text containing both words
+                for a in soup.find_all('a'):
+                    link_text = a.get_text(separator=' ').strip().lower()
+                    if "doctors" in link_text and "departments" in link_text:
+                        content2 = a
+                        break
+            if content2:
+                href2 = content2.get('href')
+                doctors_departments_link = f"https://www.mayoclinic.org{href2}" if href2 and href2.startswith("/") else href2
+
+            break  # success, exit retry loop
+
+        except requests.exceptions.RequestException as e:
+            print(f"[Attempt {attempt + 1}] Error fetching {base_url}: {e}")
+            if attempt < retries - 1:
+                time.sleep(delay)
+
+    return diagnosis_treatment_link, doctors_departments_link
+
+def web_scraping(base_url):
+    # Define the expected headers in order
+    expected_headers = ["disease", "main_link", "Diagnosis_treatment_link", "Doctors_departments_link"]
+    
+    # Check if file exists and read existing headers if it does
+    file_exists = os.path.isfile("mayo_diseases.csv")
+    existing_headers = []
+    
+    if file_exists:
+        with open("mayo_diseases.csv", "r", encoding="utf-8") as file:
+            reader = csv.reader(file)
+            existing_headers = next(reader, [])
+    
+    # Determine if we need to write headers
+    write_headers = not file_exists or existing_headers != expected_headers
+    
+    # Get the webpage content
+    response = requests.get(base_url)
+    if response.status_code != 200:
+        print("Failed to retrieve page")
+        exit()
+
+    soup = BeautifulSoup(response.text, "html.parser")
+    items = soup.select(".cmp-results-with-primary-name__see-link, .cmp-results-with-primary-name a")
+
+    with open("mayo_diseases.csv", "a", newline="", encoding="utf-8") as file:
+        writer = csv.writer(file)
+        
+        # Write headers if needed
+        if write_headers:
+            writer.writerow(expected_headers)
+        
+        for item in tqdm(items, desc="Scraping Diseases"):
+            disease_name = item.text.strip()
+            main_link = f"https://www.mayoclinic.org{item['href']}" if item['href'].startswith("/") else item['href']
+
+            link1, link2 = data_extractor(main_link)
+            
+            # Create a row with all expected columns
+            row_data = {
+                "disease": disease_name,
+                "main_link": main_link,
+                "Diagnosis_treatment_link": link1,
+                "Doctors_departments_link": link2
+            }
+            
+            # If appending to existing file with different headers, align data with existing headers
+            if file_exists and existing_headers:
+                row = [row_data.get(header, "") for header in existing_headers]
+            else:
+                row = [row_data[header] for header in expected_headers]
+            
+            writer.writerow(row)
+
+    print("Scraping Completed! Data Saved")
+
+# Example usage:
+# web_scraping("https://www.mayoclinic.org/diseases-conditions")
