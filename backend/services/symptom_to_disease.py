@@ -2,7 +2,7 @@ import os
 import sys
 from typing import List, Tuple
 
-# Allow importing from parent folders
+# Ensure project root is on the path
 sys.path.append(os.path.abspath(os.path.join(os.getcwd(), "..")))
 
 from backend.utils.text_cleaning import Text_Preprocessing
@@ -12,14 +12,18 @@ from langchain_community.embeddings import HuggingFaceEmbeddings
 
 
 class DiseaseMatcher:
-    def __init__(self, vectorstore_path = "Vector/symptom_faiss_db"):
+    def __init__(self, vectorstore_path="Vector/symptom_faiss_db"):
         """
-        Initialize the DiseaseMatcher.
+        Initialize the DiseaseMatcher and load the FAISS vectorstore.
+        """
+        # Convert relative path to absolute path
+        self.vectorstore_path = os.path.abspath(vectorstore_path)
 
-        Args:
-            vectorstore_path (str): Path to the saved FAISS vectorstore directory.
-        """
-        self.vectorstore_path = vectorstore_path
+        # Validate vectorstore existence
+        index_file = os.path.join(self.vectorstore_path, "index.faiss")
+        if not os.path.exists(index_file):
+            raise FileNotFoundError(f"❌ FAISS index not found at: {index_file}")
+
         self.text_cleaner = Text_Preprocessing()
         self.ner_filter = RemoveUselessWords()
         self.embedding_model = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
@@ -32,12 +36,12 @@ class DiseaseMatcher:
         return FAISS.load_local(
             folder_path=self.vectorstore_path,
             embeddings=self.embedding_model,
-            allow_dangerous_deserialization=True  # Trust your own FAISS DB
+            allow_dangerous_deserialization=True  # Only if you trust the DB
         )
 
     def _preprocess_text(self, user_input: str) -> str:
         """
-        Clean and filter the user symptom input.
+        Clean and filter the user symptom input using NER and custom text cleaning.
         """
         cleaned = self.text_cleaner.go_on(user_input)
         filtered = self.ner_filter.process_entities(cleaned)
@@ -45,10 +49,10 @@ class DiseaseMatcher:
 
     def match(self, user_input: str, top_k: int = 3) -> List[Tuple[str, float, str]]:
         """
-        Find top-k matching diseases for given symptom input.
+        Find top-k matching diseases for the given symptom input.
 
         Returns:
-            List of tuples: (disease_name, confidence_score, key_symptom_text)
+            List of (disease_name, similarity_score, matching_text)
         """
         processed_input = self._preprocess_text(user_input)
         results = self.vectorstore.similarity_search_with_score(processed_input, k=top_k)
