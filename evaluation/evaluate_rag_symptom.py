@@ -3,14 +3,15 @@ import sys
 import pandas as pd
 from tqdm import tqdm
 from sklearn.metrics import accuracy_score, classification_report
+from backend.config import TEST_CASES_CSV, VECTOR_DIR
 
 # Allow importing from parent folders
 sys.path.append(os.path.abspath(os.path.join(os.getcwd(), "..")))
 
 from backend.services.symptom_to_disease import DiseaseMatcher
 class RagEvaluator:
-    def __init__(self, csv_path="backend/data/test_symptom_cases.csv"):
-        self.matcher = DiseaseMatcher(vectorstore_path="backend/Vector/symptom_faiss_db")
+    def __init__(self, csv_path=TEST_CASES_CSV):
+        self.matcher = DiseaseMatcher(vectorstore_path=VECTOR_DIR)
         self.df = pd.read_csv(csv_path)
         self.y_true = []
         self.y_pred = []
