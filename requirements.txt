@@ -1,3 +1,16 @@
 tensorflow==2.19.0
 numpy==1.26.4
 pillow==11.0.0
+fastapi
+uvicorn
+jinja2
+pandas
+tqdm
+scikit-learn
+langchain-community
+faiss-cpu
+sentence-transformers
+transformers
+spacy
+
+
