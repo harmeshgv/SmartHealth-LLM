@@ -1,57 +1,63 @@
 import os
-import sys
+import sys  
+
+# Add project root to sys.path BEFORE any other imports
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
 import pandas as pd
+import argparse
+
 from tqdm import tqdm
 from sklearn.metrics import accuracy_score, classification_report
 from backend.config import TEST_CASES_CSV, VECTOR_DIR
-
-# Allow importing from parent folders
-sys.path.append(os.path.abspath(os.path.join(os.getcwd(), "..")))
-
 from backend.services.symptom_to_disease import DiseaseMatcher
-class RagEvaluator:
-    def __init__(self, csv_path=TEST_CASES_CSV):
+
+
+class TopKEvaluator:
+    def __init__(self, k=3, csv_path=TEST_CASES_CSV):
+        self.k = k
         self.matcher = DiseaseMatcher(vectorstore_path=VECTOR_DIR)
         self.df = pd.read_csv(csv_path)
         self.y_true = []
-        self.y_pred = []
+        self.y_pred_topk = []
 
     def process(self):
-        print("🔍 Matching symptoms to diseases...")
+        print(f"🔍 Matching symptoms to top-{self.k} diseases...")
         for _, row in tqdm(self.df.iterrows(), total=len(self.df), desc="Processing"):
-            symptom_text = row["symptoms"]
+            symptoms = row["symptoms"]
             expected = row["expected_disease"]
 
-            # Get top-1 prediction from vectorstore
-            matches = self.matcher.match(symptom_text, top_k=1)
-            predicted = matches[0][0] if matches else "Unknown"
+            matches = self.matcher.match(symptoms, top_k=self.k)
+            predicted = [match[0] for match in matches] if matches else []
 
             self.y_true.append(expected)
-            self.y_pred.append(predicted)
+            self.y_pred_topk.append(predicted)
 
     def evaluate(self):
-        correct = 0
+        correct_topk = 0
         total = len(self.y_true)
 
-        for true, pred in zip(self.y_true, self.y_pred):
-            if true.strip().lower() == pred.strip().lower():
-                correct += 1
+        for true, pred_list in zip(self.y_true, self.y_pred_topk):
+            true_lower = true.strip().lower()
+            pred_list_lower = [p.strip().lower() for p in pred_list]
 
-        accuracy = correct / total if total > 0 else 0
+            if true_lower in pred_list_lower:
+                correct_topk += 1
 
-        print("\n✅ Evaluation Results:")
-        print(f"✔️ Total: {total}")
-        print(f"🎯 Correct: {correct}")
-        print(f"📊 Accuracy: {accuracy:.2f}")
+        accuracy = correct_topk / total if total > 0 else 0
 
-    # Optional: save to file
-        with open("evaluation/rag_model_score.txt", "w") as f:
-            f.write(f"Total: {total}\n")
-            f.write(f"Correct: {correct}\n")
-            f.write(f"Accuracy: {accuracy:.2f}\n")
+        print(f"\n🎯 Top-{self.k} Evaluation Results:")
+        print(f"✔️ Total cases: {total}")
+        print(f"✅ Correct within Top-{self.k}: {correct_topk}")
+        print(f"📊 Top-{self.k} Accuracy: {accuracy:.2f}")
+
 
 
 if __name__ == "__main__":
-    evaluator = RagEvaluator()
+    parser = argparse.ArgumentParser(description="Evaluate Top-K Accuracy")
+    parser.add_argument("k", type=int, nargs="?", default=3, help="Top-K value to evaluate (default=3)")
+    args = parser.parse_args()
+
+    evaluator = TopKEvaluator(k=args.k)
     evaluator.process()
     evaluator.evaluate()
