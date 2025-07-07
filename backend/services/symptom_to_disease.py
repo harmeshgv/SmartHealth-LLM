@@ -10,9 +10,10 @@ from backend.utils.filtering_with_ner import RemoveUselessWords
 from langchain_community.vectorstores import FAISS
 from langchain_community.embeddings import HuggingFaceEmbeddings
 
+from backend.config import VECTOR_DIR
 
 class DiseaseMatcher:
-    def __init__(self, vectorstore_path="Vector/symptom_faiss_db"):
+    def __init__(self, vectorstore_path=VECTOR_DIR):
         """
         Initialize the DiseaseMatcher and load the FAISS vectorstore.
         """

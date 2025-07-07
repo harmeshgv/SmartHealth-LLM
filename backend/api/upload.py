@@ -3,11 +3,11 @@ from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from backend.services.image_classifier import Classify_Diseases
 from backend.services.symptom_to_disease import DiseaseMatcher
-
+from backend.config import VECTOR_DIR   
 router = APIRouter()
 
 classification = Classify_Diseases()
-matcher = DiseaseMatcher(vectorstore_path="backend/Vector/symptom_faiss_db")
+matcher = DiseaseMatcher(vectorstore_path=VECTOR_DIR)
 
 
 templates = Jinja2Templates(directory="frontend")
