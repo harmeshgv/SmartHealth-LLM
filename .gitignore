@@ -1,7 +1,7 @@
 # Auto detect text files and perform LF normalization
 * text=auto
 .env
-
+mayo_diseases.csv
 #i have create an myenv python env foldernow how to gitignore it ?
 __pycache__/
 *.py[cod]
