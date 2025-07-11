@@ -5,6 +5,8 @@ import os
 import csv
 from tqdm import tqdm
 import sys
+import string
+from IPython.display import clear_output
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..','..')))
 
@@ -97,7 +99,7 @@ class main:
         # Write headers if needed
             if write_headers:
                 writer.writerow(expected_headers)
-        
+            
             for item in tqdm(items, desc="Scraping Diseases"):
                 disease_name = item.text.strip()
                 main_link = f"https://www.mayoclinic.org{item['href']}" if item['href'].startswith("/") else item['href']
@@ -124,7 +126,11 @@ class main:
         
 if __name__ == "__main__":
     scrapper = main()
-    scrapper.web_scraping("https://www.mayoclinic.org/diseases-conditions/index?letter=A")
+    for letter in string.ascii_uppercase:
+        print(f"working on this letter {letter} ")
+        scrapper.web_scraping(f"https://www.mayoclinic.org/diseases-conditions/index?letter={letter}")
+        clear_output(True)
+        
 
 # Example usage:
 # web_scraping("https://www.mayoclinic.org/diseases-conditions")
