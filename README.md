@@ -1,8 +1,5 @@
 
-
-
-
-![Logo](20250712_2103_Smart Health Logo_simple_compose_01jzzm7wtpe3qsfvddraaqtjnx.png)
+![Logo](https://github.com/your-username/your-repo-name/blob/main/logo.png?raw=true)
 
 
 # Smart Health LLm
