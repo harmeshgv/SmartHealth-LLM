@@ -1,5 +1,5 @@
 
-![Logo](https://github.com/your-username/your-repo-name/blob/main/logo.png?raw=true)
+![Logo](https://github.com/harmeshgv/SmartHealth-LLM/blob/main/logo.png?raw=true)
 
 
 # Smart Health LLm
