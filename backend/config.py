@@ -12,4 +12,7 @@ LABELS_JSON = os.path.join(RAW_DIR, "labels.json")
 MAYO_CSV = os.path.join(BASE_DIR, "data","mayo_diseases.csv")  # since this is in notebook/
 FAISS_INDEX = os.path.join(VECTOR_DIR, "index.faiss")
 FAISS_META = os.path.join(VECTOR_DIR, "index.pkl")
+
+SKIN_TRAIN = os.path.join(BASE_DIR,"skin-disease-datasaet","train_set")
+SKIN_TEST = os.path.join(BASE_DIR,"skin-disease-datasaet","test_set")
     
