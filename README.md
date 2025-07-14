@@ -23,7 +23,7 @@ Add badges from somewhere like: [shields.io](https://shields.io/)
 
 ## Authors
 
-- [@octokatherine](https://www.github.com/octokatherine)
+- [Harmesh G V](https://www.github.com/harmeshgv)
 
 ---
 
@@ -146,8 +146,8 @@ pip install -r requirements.txt
 
 ---
 
-## Directory Structure
-
+<pre>## Directory Structure
+```
 SmartHealth-LLM/
 ├── .gitattributes
 ├── .gitignore
@@ -194,8 +194,7 @@ SmartHealth-LLM/
 │       ├── main.py
 │       ├── web_scraper2.py
 │       └── web_scrapers.py
-
-
+``` </pre>
 
 ---
 
@@ -217,7 +216,25 @@ SmartHealth-LLM/
 
 ## Lessons Learned
 
-What did you learn while building this project? What challenges did you face and how did you overcome them?
+Building SmartHealth-LLM gave me hands-on experience in combining deep learning and LLM-based reasoning for real-world healthcare use cases. Some key lessons and challenges:
+
+* **RAG & Retrieval Design:**
+  Learned how to build a symptom-based semantic search system using FAISS and MiniLM, and integrate it with a language model for accurate, context-aware responses.
+
+* **Model Integration & Performance:**
+  Faced challenges integrating image-based CNN models (EfficientNet-B0) with real-time web applications. Solved it using model caching and optimizing inference with CUDA.
+
+* **LLM Prompt Tuning:**
+  Realized the importance of prompt clarity and context when working with LLMs to ensure medical suggestions were structured, useful, and safe.
+
+* **Handling Noisy Medical Data:**
+  Built text cleaning and NER filters to extract relevant keywords and symptoms from unstructured input.
+
+* **Frontend-Backend Sync:**
+  Gained experience managing interactions between a Streamlit frontend and a FastAPI backend — handling JSON inputs, form validation, and async inference calls.
+
+* **Trade-offs in Real-Time AI Apps:**
+  Learned to balance model accuracy with responsiveness and resource usage, especially in a setup where both image and text processing are involved.
 
 ---
 
@@ -253,7 +270,7 @@ For support, email fake@fake.com or join our Slack channel.
 
 ## Feedback
 
-If you have any feedback, please reach out to us at fake@fake.com
+If you have any feedback or suggestions, feel free to reach out at **harmeshgopinathan@gmail.com**
 
 ---
 
@@ -263,23 +280,33 @@ If you have any feedback, please reach out to us at fake@fake.com
  - [Awesome README](https://github.com/matiassingers/awesome-readme)
  - [How to write a Good readme](https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project)
 
+---
 
 ## FAQ
 
-#### Question 1
+#### How does SmartHealth predict skin diseases?
 
-Answer 1
+ It uses a pre-trained EfficientNet-B0 deep learning model to classify uploaded skin images.
 
-#### Question 2
+#### What happens when I enter my symptoms?
 
-Answer 2
+The system uses semantic search (FAISS + MiniLM) to find relevant diseases and then uses an LLM to generate detailed responses.
 
+####  Is my data stored?
+
+Currently, the app does not store any user data. All predictions happen in-memory for privacy.
+
+#### Can I use this without a GPU?
+
+Yes, but the training will be slower. CUDA acceleration is used only if available.
+
+---
 
 ## Related
 
 Here are some related projects
 
-[Awesome README](https://github.com/matiassingers/awesome-readme)
+[CSV RAG](https://github.com/harmeshgv/RAG-Enhanced-NLP-QueryEngine.git)
 
 
 # Hi, I'm Katherine! 👋
@@ -312,7 +339,7 @@ Javascript, HTML, CSS...
 
 
 ## 🔗 Links
-[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://katherineoelsner.com/)
-[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/)
-[![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/)
+[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://harmeshgv.github.io/portfolio/)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](www.linkedin.com/in/harmeshgv)
+[![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://x.com/Harmesh950)
 
