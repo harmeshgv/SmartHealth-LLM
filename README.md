@@ -4,7 +4,12 @@
 
 # Smart Health LLm
 
-A brief description of what this project does and who it's for
+**Smart Health** is a dual-module AI health assistant combining:
+
+* 🖼️ **Skin image classification** using deep learning, and
+* 💬 **Symptom-based disease prediction** using an LLM and FAISS-based vector similarity search.
+
+It allows users to upload skin images for instant disease classification or chat naturally by describing symptoms to get possible disease predictions.
 
 
 ## Badges
@@ -12,8 +17,7 @@ A brief description of what this project does and who it's for
 Add badges from somewhere like: [shields.io](https://shields.io/)
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
-[![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
-[![AGPL License](https://img.shields.io/badge/license-AGPL-blue.svg)](http://www.gnu.org/licenses/agpl-3.0)
+
 
 
 ## Authors
@@ -38,17 +42,39 @@ Insert gif or link to demo
 
 ## Tech Stack
 
-**Client:** React, Redux, TailwindCSS
+### Frontend
 
-**Server:** Node, Express
+* **Streamlit** – Fast and interactive frontend for ML web apps
+
+### Backend
+
+* **Python** – Backend logic and ML integration
+* **FastAPI** – High-performance web framework for serving APIs
+
+### AI/ML
+
+* **EfficientNet-B0** – Lightweight and accurate CNN for skin disease prediction
+* **all-MiniLM** – Embedding model for semantic search & LLM tasks
+* **RAG (Retrieval-Augmented Generation)** – Combines LLM with medical context for better answers
+* **FAISS DB** – Fast similarity search for symptom/disease retrieval
+* **CUDA** – GPU acceleration for faster training and inference
+
+### DevOps / Deployment
+
+* *(Coming Soon)* – Docker, CI/CD, and cloud deployment tools
 
 
 ## Features
 
-- Light/dark mode toggle
-- Live previews
-- Fullscreen mode
-- Cross platform
+- AI-Powered Diagnosis – Predicts skin diseases using EfficientNet-B0
+- Symptom-based Chat – Interact with a medical assistant powered by LLM & RAG
+- Fast Performance – Optimized with CUDA for GPU-based inference
+- Smart Suggestions – Recommends possible causes, treatments, and follow-up questions
+- Semantic Search – Finds the most relevant diseases using FAISS & MiniLM embeddings
+
+Perfect! Based on your format, here’s a customized and **structured README scaffold** for your **Smart Health - LLM** project, where sections you haven’t implemented yet are **left empty**, and the rest are customized to fit your Python + Streamlit + FastAPI + ML/LLM stack:
+
+---
 
 
 ## Run Locally
@@ -56,73 +82,132 @@ Insert gif or link to demo
 Clone the project
 
 ```bash
-  git clone https://link-to-project
+git clone https://github.com/harmeshgv/SmartHealth-LLM.git
 ```
 
 Go to the project directory
 
 ```bash
-  cd my-project
+cd SmartHealth-LLM
+```
+
+Create and activate a virtual environment
+
+```bash
+python -m venv venv
+venv\Scripts\activate  # For Windows
+# or
+source venv/bin/activate  # For Linux/macOS
 ```
 
 Install dependencies
 
 ```bash
-  npm install
+pip install -r requirements.txt
 ```
 
-Start the server
+Run backend server (FastAPI)
 
 ```bash
-  npm run start
+cd backend
+uvicorn main:app --reload
 ```
 
+Run frontend (Streamlit)
+
+```bash
+cd frontend
+streamlit run app.py
+```
+
+---
 
 ## Installation
 
-Install my-project with npm
-
 ```bash
-  npm install my-project
-  cd my-project
+pip install -r requirements.txt
 ```
-    
+
+---
+
 ## Environment Variables
 
-To run this project, you will need to add the following environment variables to your .env file
 
-`API_KEY`
-
-`ANOTHER_API_KEY`
-
+---
 
 ## Deployment
 
-To deploy this project run
+> *Not yet implemented*
 
-```bash
-  npm run deploy
-```
-
-
-## Usage/Examples
-
-```javascript
-import Component from 'my-project'
-
-function App() {
-  return <Component />
-}
-```
-
+---
 
 ## Running Tests
 
-To run tests, run the following command
+> *Not yet implemented*
 
-```bash
-  npm run test
-```
+---
+
+## Usage/Examples
+
+> *Not yet implemented*
+
+---
+
+## API Reference
+
+> *Not yet added*
+
+---
+
+## Directory Structure
+
+📄 .gitattributes
+📄 .gitignore
+📄 LICENSE
+📄 README (3).md
+📄 README.md
+📁 backend
+    📁 api
+        📄 upload.py
+    📄 config.py
+    📄 main.py
+    📁 models
+        📄 skin_disease_model.h5
+    📁 services
+        📄 image_classifier.py
+        📄 symptom_to_disease.py
+    📁 utils
+        📄 filtering_with_ner.py
+        📄 image_preprocessing.py
+        📄 text_cleaning.py
+📁 data
+    📁 Vector
+        📁 symptom_faiss_db
+            📄 index.faiss
+            📄 index.pkl
+    📄 labels.json
+    📄 mayo_diseases.csv
+    📄 test_symptom_cases.csv
+📁 evaluation
+    📄 evaluate_rag_symptom.py
+📁 frontend
+    📄 index.html
+📄 logo.png
+📁 notebook
+    📄 llm.ipynb
+    📄 skin_disease_prediction.ipynb
+    📄 web_scrapping.ipynb
+📄 requirements.txt
+📁 scripts
+    📄 model.py
+    📁 scrapers
+        📄 main.py
+        📄 web_scraper2.py
+        📄 web_scrapers.py
+    📄 symptoms_to_vectordb.py
+📄 transfaer.ipynb
+
+---
 
 
 ## Documentation
@@ -159,7 +244,11 @@ Takes two numbers and returns the sum.
 
 ## Optimizations
 
-What optimizations did you make in your code? E.g. refactors, performance improvements, accessibility
+ Model Caching – Loaded EfficientNet-B0 and LLM components once during startup to avoid reloading on each request
+
+ CUDA Acceleration – Enabled GPU usage for faster model inference and reduced latency in skin disease prediction
+
+ Efficient Embeddings – Used all-MiniLM to generate lightweight yet accurate embeddings for semantic search
 
 
 ## Lessons Learned
@@ -191,14 +280,6 @@ Please adhere to this project's `code of conduct`.
 ## Support
 
 For support, email fake@fake.com or join our Slack channel.
-
-
-## Used By
-
-This project is used by the following companies:
-
-- Company 1
-- Company 2
 
 
 ## Feedback
@@ -264,13 +345,4 @@ Javascript, HTML, CSS...
 [![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://katherineoelsner.com/)
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/)
 [![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/)
-
-## Color Reference
-
-| Color             | Hex                                                                |
-| ----------------- | ------------------------------------------------------------------ |
-| Example Color | ![#0a192f](https://via.placeholder.com/10/0a192f?text=+) #0a192f |
-| Example Color | ![#f8f8f8](https://via.placeholder.com/10/f8f8f8?text=+) #f8f8f8 |
-| Example Color | ![#00b48a](https://via.placeholder.com/10/00b48a?text=+) #00b48a |
-| Example Color | ![#00d1a0](https://via.placeholder.com/10/00b48a?text=+) #00d1a0 |
 
