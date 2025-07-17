@@ -15,8 +15,6 @@ It allows users to upload skin images for instant disease classification or chat
 
 ## Badges
 
-Add badges from somewhere like: [shields.io](https://shields.io/)
-
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
 
 ---
@@ -302,40 +300,15 @@ Yes, but the training will be slower. CUDA acceleration is used only if availabl
 
 ---
 
-## Related
+## Related Projects
 
-Here are some related projects
+[CSV RAG](https://github.com/harmeshgv/RAG-Enhanced-NLP-QueryEngine.git) - A Retrieval Augmented Generation (RAG)-based NLP query engine for DataFrames, designed for efficient querying of large datasets. It uses semantic embeddings and FAISS indexing to retrieve relevant data segments, enabling accurate natural language queries while overcoming language model input size limitations.
 
-[CSV RAG](https://github.com/harmeshgv/RAG-Enhanced-NLP-QueryEngine.git)
-
-
-# Hi, I'm Katherine! 👋
-
+---
 
 ## 🚀 About Me
-I'm a full stack developer...
-
-
-## 🛠 Skills
-Javascript, HTML, CSS...
-
-
-## Other Common Github Profile Sections
-👩‍💻 I'm currently working on...
-
-🧠 I'm currently learning...
-
-👯‍♀️ I'm looking to collaborate on...
-
-🤔 I'm looking for help with...
-
-💬 Ask me about...
-
-📫 How to reach me...
-
-😄 Pronouns...
-
-⚡️ Fun fact...
+Hi, I'm **Harmesh G V** – a B.Tech CSE student passionate about building AI-powered applications.  
+This project is part of my exploration into combining computer vision and LLMs for practical healthcare use cases.
 
 
 ## 🔗 Links
