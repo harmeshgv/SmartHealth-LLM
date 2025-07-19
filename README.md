@@ -19,7 +19,7 @@ It allows users to upload skin images for instant disease classification or chat
 
 ---
 
-## Authors
+## Author
 
 - [Harmesh G V](https://www.github.com/harmeshgv)
 
