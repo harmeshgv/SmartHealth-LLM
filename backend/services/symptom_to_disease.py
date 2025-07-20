@@ -1,12 +1,16 @@
 import os
 import sys
 from typing import List, Tuple
+from collections import defaultdict
+from statistics import mean
+from langchain_core.documents import Document
 
 # Ensure project root is on the path
 sys.path.append(os.path.abspath(os.path.join(os.getcwd(), "..")))
 
 from backend.utils.text_cleaning import Text_Preprocessing
 from backend.utils.filtering_with_ner import RemoveUselessWords
+from backend.utils.ner import NER
 from langchain_community.vectorstores import FAISS
 from langchain_community.embeddings import HuggingFaceEmbeddings
 
@@ -29,6 +33,7 @@ class DiseaseMatcher:
         self.ner_filter = RemoveUselessWords()
         self.embedding_model = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
         self.vectorstore = self._load_vectorstore()
+        self.ner = NER()
 
     def _load_vectorstore(self) -> FAISS:
         """
@@ -44,25 +49,44 @@ class DiseaseMatcher:
         """
         Clean and filter the user symptom input using NER and custom text cleaning.
         """
-        cleaned = self.text_cleaner.go_on(user_input)
-        filtered = self.ner_filter.process_entities(cleaned)
+        #cleaned = self.text_cleaner.go_on(user_input)
+        #filtered = self.ner_filter.process_entities(cleaned)
+        #return " ".join(filtered)
+        filtered = self.ner.extract_entities(user_input)
         return " ".join(filtered)
 
-    def match(self, user_input: str, top_k: int = 3) -> List[Tuple[str, float, str]]:
+    def match(self, user_input: str, top_k: int = 3) -> List[Tuple[str, float, List[str]]]:
         """
-        Find top-k matching diseases for the given symptom input.
+        Match individual symptoms to diseases, aggregate by disease,
+        and return top-k diseases based on number of matches and average similarity.
 
         Returns:
-            List of (disease_name, similarity_score, matching_text)
+            List of tuples: (disease_name, average_score, list_of_matched_symptoms)
         """
         processed_input = self._preprocess_text(user_input)
-        results = self.vectorstore.similarity_search_with_score(processed_input, k=top_k)
+        input_symptoms = processed_input.split()  # Assuming symptoms are space-separated
 
-        return [
-            (
-                doc.metadata.get("disease", "Unknown"),
-                score,
-                doc.page_content
-            )
-            for doc, score in results
-        ]
+        disease_scores = defaultdict(list)
+        disease_symptoms = defaultdict(set)
+
+        for symptom in input_symptoms:
+            results = self.vectorstore.similarity_search_with_score(symptom, k=5)
+
+            for doc, score in results:
+                disease = doc.metadata.get("disease", "Unknown")
+                matched_symptom = doc.page_content.strip()
+                disease_scores[disease].append(score)
+                disease_symptoms[disease].add(matched_symptom)
+
+        # Sort by number of matched symptoms (desc), then average score (asc)
+        ranked = sorted(
+            disease_scores.items(),
+            key=lambda x: (-len(disease_symptoms[x[0]]), mean(x[1]))
+        )
+
+        top_diseases = []
+        for disease, scores in ranked[:top_k]:
+            top_diseases.append((disease, mean(scores), list(disease_symptoms[disease])))
+
+        return top_diseases
+

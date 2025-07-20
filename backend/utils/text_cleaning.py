@@ -6,7 +6,7 @@ class Text_Preprocessing:
         self.nlp = spacy.load("en_core_web_sm")
 
     def work_with_extras(self, text: str) -> list:
-        text = re.sub(r"[\n.,:]", " ", text)
+        text = re.sub(r"[.,:]", " ", text)
         return text.split()
 
     def work_with_spaces(self, tokens: list) -> list:
