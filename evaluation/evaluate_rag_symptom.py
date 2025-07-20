@@ -24,8 +24,8 @@ class TopKEvaluator:
     def process(self):
         print(f"🔍 Matching symptoms to top-{self.k} diseases...")
         for _, row in tqdm(self.df.iterrows(), total=len(self.df), desc="Processing"):
-            symptoms = row["User_Query"]
-            expected = row["Disease"]
+            symptoms = row["Symptoms"]
+            expected = row["disease"]
 
             matches = self.matcher.match(symptoms, top_k=self.k)
             predicted = [match[0] for match in matches] if matches else []
