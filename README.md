@@ -75,7 +75,9 @@ Insert gif or link to demo
 - Fast Performance – Optimized with CUDA for GPU-based inference
 - Smart Suggestions – Recommends possible causes, treatments, and follow-up questions
 - Semantic Search – Finds the most relevant diseases using FAISS & MiniLM embeddings
-
+<!--start-->
+project_name = Yes i am a punrocker yes i am
+<!--stop-->
 ---
 
 
