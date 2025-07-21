@@ -1,0 +1,1 @@
+normal = 30 percent  -> 36 word to word  - > 47 word to word with ner

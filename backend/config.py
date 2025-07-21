@@ -16,3 +16,5 @@ FAISS_META = os.path.join(VECTOR_DIR, "index.pkl")
 SKIN_TRAIN = os.path.join(BASE_DIR,"skin-disease-datasaet","train_set")
 SKIN_TEST = os.path.join(BASE_DIR,"skin-disease-datasaet","test_set")
     
+TEST_SCORES_JSON = os.path.join(BASE_DIR,"data","test.json")
+README_PATH = os.path.join(BASE_DIR, "README.md")
