@@ -2,6 +2,9 @@ name: Update Accuracy
 
 on: [push, pull_request]
 
+permissions:
+  contents: write  # <-- Add this line
+
 jobs:
   update_readme:
     runs-on: ubuntu-latest
