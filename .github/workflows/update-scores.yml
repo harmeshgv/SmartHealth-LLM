@@ -14,9 +14,6 @@ jobs:
         with:
           python-version: 3.9
 
-      - name: Install Dependencies
-        run: pip install -r workflow-requirements.txt
-
       - name: Update Readme File
         run: python scripts/update_readme.py
 
