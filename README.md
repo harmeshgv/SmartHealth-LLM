@@ -76,6 +76,7 @@ Insert gif or link to demo
 - Smart Suggestions – Recommends possible causes, treatments, and follow-up questions
 - Semantic Search – Finds the most relevant diseases using FAISS & MiniLM embeddings
 <!--start-->
+project_name = Yes i am a punrocker yes i am, score = 100%
 <!--stop-->
 ---
 
