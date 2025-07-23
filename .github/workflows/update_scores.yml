@@ -1,0 +1,29 @@
+name: Update Accuracy
+
+on: [push, pull_request]
+
+jobs:
+  update_readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.9
+
+      - name: Install Dependencies
+        run: pip install -r workflow-requirements.txt
+
+      - name: Update Readme File
+        run: python scripts/update_readme.py
+
+      - name: Commit Readme Changes
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add README.md
+          git commit -m "Update README with model results" || echo "No changes to commit"
+          git push

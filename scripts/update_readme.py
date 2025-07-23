@@ -15,7 +15,7 @@ with open(TEST_SCORES_JSON, 'r', encoding='utf-8') as f:
     data = json.load(f)
 
 # Correctly access the nested 'project_name' value
-stats_text = f"project_name = {data['data']['project_name']}"
+stats_text = f"project_name = {data['data']['project_name']}, score = {data['data']['score']}%"
 
 # Read the entire content of the README file using UTF-8
 with open(README_PATH, 'r', encoding='utf-8') as f:
