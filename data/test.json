@@ -6,15 +6,17 @@
       "Description": "Used NER (en_ner_bc5cdr_md) to extract symptoms, MiniLM embeddings word-by-word, FAISS DB with cosine similarity for top‑K matching.",
       "Top-1 Accuracy": 8,
       "Top-3 Accuracy": 15,
-      "Top-5 Accuracy": 18
+      "Top-5 Accuracy": 18,
+      "Speed": 0
     },
     {
       "Model Name": "Enhanced Symptom Preprocessing FAISS Retrieval",
       "Version": "v2",
-      "Description": "added advanced text preprocessing and biomedical NER filtering (biomedical-ner-all) before embedding. Symptoms are cleaned, lemmatized, filtered for medical relevance, and embedded using MiniLM. Stored in FAISS for similarity search with multi-symptom weighted matching for more accurate disease retrieval.",
+      "Description": "Added biomedical NER filtering (biomedical-ner-all) with advanced text cleaning, lemmatization, and medical relevance filtering. MiniLM embeddings stored in FAISS with weighted multi-symptom cosine similarity for improved top‑K disease matching.",
       "Top-1 Accuracy": 16.45,
       "Top-3 Accuracy": 26.35,
-      "Top-5 Accuracy": 30.71
+      "Top-5 Accuracy": 30.71,
+      "Speed": 321.18
     }
   ]
 }
