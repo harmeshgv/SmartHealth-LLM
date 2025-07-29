@@ -11,6 +11,7 @@ langchain-community
 faiss-cpu
 sentence-transformers
 transformers
-spacy
+spacy   
+
 
 
