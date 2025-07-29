@@ -49,7 +49,7 @@ class TopKEvaluator:
         print(f"\n🎯 Top-{self.k} Evaluation Results:")
         print(f"✔️ Total cases: {total}")
         print(f"✅ Correct within Top-{self.k}: {correct_topk}")
-        print(f"📊 Top-{self.k} Accuracy: {accuracy:.2f}")
+        print(f"📊 Top-{self.k} Accuracy: {accuracy * 100:.8f} %")
 
 
 

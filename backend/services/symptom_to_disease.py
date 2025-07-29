@@ -49,44 +49,41 @@ class DiseaseMatcher:
         """
         Clean and filter the user symptom input using NER and custom text cleaning.
         """
-        #cleaned = self.text_cleaner.go_on(user_input)
-        #filtered = self.ner_filter.process_entities(cleaned)
-        #return " ".join(filtered)
-        filtered = self.ner.extract_entities(user_input)
+        cleaned = self.text_cleaner.go_on(user_input)
+        filtered = self.ner_filter.process_entities(cleaned)
         return " ".join(filtered)
+        #filtered = self.ner.extract_entities(user_input)
+        #return " ".join(filtered)
 
-    def match(self, user_input: str, top_k: int = 3) -> List[Tuple[str, float, List[str]]]:
-        """
-        Match individual symptoms to diseases, aggregate by disease,
-        and return top-k diseases based on number of matches and average similarity.
-
-        Returns:
-            List of tuples: (disease_name, average_score, list_of_matched_symptoms)
-        """
+    def match(self, user_input: str, top_k: int = 3, similarity_threshold: float = 0.7):
         processed_input = self._preprocess_text(user_input)
-        input_symptoms = processed_input.split()  # Assuming symptoms are space-separated
+        input_symptoms = processed_input.split()  # each word embedded separately
 
         disease_scores = defaultdict(list)
         disease_symptoms = defaultdict(set)
 
         for symptom in input_symptoms:
-            results = self.vectorstore.similarity_search_with_score(symptom, k=5)
+            results = self.vectorstore.similarity_search_with_score(symptom, k=10)
 
             for doc, score in results:
+                if score < similarity_threshold:
+                    continue  # Ignore weak matches
+                
                 disease = doc.metadata.get("disease", "Unknown")
                 matched_symptom = doc.page_content.strip()
                 disease_scores[disease].append(score)
                 disease_symptoms[disease].add(matched_symptom)
 
-        # Sort by number of matched symptoms (desc), then average score (asc)
         ranked = sorted(
             disease_scores.items(),
-            key=lambda x: (-len(disease_symptoms[x[0]]), mean(x[1]))
+            key=lambda x: (-len(disease_symptoms[x[0]]), -mean(x[1]))
         )
 
-        top_diseases = []
-        for disease, scores in ranked[:top_k]:
-            top_diseases.append((disease, mean(scores), list(disease_symptoms[disease])))
+        top_diseases = [
+            (disease, mean(scores), list(disease_symptoms[disease]))
+            for disease, scores in ranked[:top_k]
+        ]
 
         return top_diseases
+
 

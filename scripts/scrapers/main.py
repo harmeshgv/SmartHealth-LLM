@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import time
 import os
 import csv
+import pandas as pd
 from tqdm import tqdm
 import sys
 import string
@@ -130,7 +131,9 @@ if __name__ == "__main__":
         print(f"working on this letter {letter} ")
         scrapper.web_scraping(f"https://www.mayoclinic.org/diseases-conditions/index?letter={letter}")
         clear_output(True)
-        
-
+    
+    df = pd.read_csv(MAYO_CSV)
+    df = df.drop_duplicates(subset=["disease"])
+    df.to_csv(MAYO_CSV)
 # Example usage:
 # web_scraping("https://www.mayoclinic.org/diseases-conditions")

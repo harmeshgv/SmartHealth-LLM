@@ -1,6 +1,20 @@
 {
-    "data":{
-        "project_name":"Yes i am a punrocker yes i am",
-        "score": 100
+  "models": [
+    {
+      "Model Name": "Symptom-based FAISS Disease Retrieval",
+      "Version": "v1",
+      "Description": "Used NER (en_ner_bc5cdr_md) to extract symptoms, MiniLM embeddings word-by-word, FAISS DB with cosine similarity for top‑K matching.",
+      "Top-1 Accuracy": 8,
+      "Top-3 Accuracy": 15,
+      "Top-5 Accuracy": 18
+    },
+    {
+      "Model Name": "Enhanced Symptom Preprocessing FAISS Retrieval",
+      "Version": "v2",
+      "Description": "added advanced text preprocessing and biomedical NER filtering (biomedical-ner-all) before embedding. Symptoms are cleaned, lemmatized, filtered for medical relevance, and embedded using MiniLM. Stored in FAISS for similarity search with multi-symptom weighted matching for more accurate disease retrieval.",
+      "Top-1 Accuracy": 16.45,
+      "Top-3 Accuracy": 26.35,
+      "Top-5 Accuracy": 30.71
     }
+  ]
 }

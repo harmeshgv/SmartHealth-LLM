@@ -2,6 +2,7 @@ import csv
 from bs4 import BeautifulSoup
 import requests
 import os
+import pandas as pd
 import sys
 from tqdm import tqdm
 
@@ -114,3 +115,6 @@ class main_link_extraction:
 if __name__ == "__main__":
     main = main_link_extraction()
     main.update_csv_with_sections("csv")
+    df = pd.read_csv(MAYO_CSV)
+    df = df.dropna(subset=["Symptoms"])
+    df.to_csv(MAYO_CSV)
