@@ -19,18 +19,6 @@ It allows users to upload skin images for instant disease classification or chat
 
 ---
 
-## Author
-
-- [Harmesh G V](https://www.github.com/harmeshgv)
-
----
-
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
-
----
-
 ## Screenshots
 
 ![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
@@ -75,9 +63,14 @@ Insert gif or link to demo
 - Fast Performance – Optimized with CUDA for GPU-based inference
 - Smart Suggestions – Recommends possible causes, treatments, and follow-up questions
 - Semantic Search – Finds the most relevant diseases using FAISS & MiniLM embeddings
+
 <!--start-->
-project_name = Yes i am a punrocker yes i am, score = 100%
+| Version   | Model Name                                     | Description                                                                                                                                                                                                                                                                                                        | Top-1   | Top-3   | Top-5   |
+|-----------|------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|---------|---------|
+| v1        | Symptom-based FAISS Disease Retrieval          | Used NER (en_ner_bc5cdr_md) to extract symptoms, MiniLM embeddings word-by-word, FAISS DB with cosine similarity for top‑K matching.                                                                                                                                                                               | 8%      | 15%     | 18%     |
+| v2        | Enhanced Symptom Preprocessing FAISS Retrieval | added advanced text preprocessing and biomedical NER filtering (biomedical-ner-all) before embedding. Symptoms are cleaned, lemmatized, filtered for medical relevance, and embedded using MiniLM. Stored in FAISS for similarity search with multi-symptom weighted matching for more accurate disease retrieval. | 16.45%  | 26.35%  | 30.71%  |
 <!--stop-->
+
 ---
 
 
