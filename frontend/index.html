@@ -32,6 +32,14 @@
         text-align: left;
         color: green;
       }
+
+      .orb-container {
+        position: relative;
+        z-index: 0;
+        width: 300px;
+        height: 300px;
+        margin: 20px auto;
+      }
     </style>
   </head>
   <body>
@@ -50,12 +58,14 @@
     <hr />
     <h2>Describe your symptoms</h2>
 
-    <div class="chat-box">
-{% for chat in chat_history %}
-  <div class="message user"><strong>You:</strong> {{ chat.user }}</div>
-  <div class="message bot"><strong>Bot:</strong> {{ chat.bot.replace('\n', '<br>') | safe }}</div>
-{% endfor %}
+    <!-- Orb Visualization -->
+    <div id="orb-container" class="orb-container"></div>
 
+    <div class="chat-box">
+      {% for chat in chat_history %}
+        <div class="message user"><strong>You:</strong> {{ chat.user }}</div>
+        <div class="message bot"><strong>Bot:</strong> {{ chat.bot.replace('\n', '<br>') | safe }}</div>
+      {% endfor %}
     </div>
 
     <form action="/chat/" method="post">
@@ -68,5 +78,7 @@
       />
       <input type="submit" value="Send" />
     </form>
+
+    <script type="module" src="/static/Orb.js"></script>
   </body>
 </html>

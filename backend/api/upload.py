@@ -7,7 +7,7 @@ from backend.config import VECTOR_DIR
 router = APIRouter()
 
 classification = Classify_Diseases()
-matcher = DiseaseMatcher(vectorstore_path=VECTOR_DIR)
+matcher = DiseaseMatcher()
 
 
 templates = Jinja2Templates(directory="frontend")
