@@ -1,6 +1,13 @@
 name: Update Accuracy
 
-on: [push, pull_request]
+on:
+  push:
+    paths:
+      - "data/test.json"
+
+  pull_request:
+    paths:
+      - "data/test.json"
 
 permissions:
   contents: write  # <-- Add this line
