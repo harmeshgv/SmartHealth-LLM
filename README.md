@@ -6,30 +6,25 @@
 
 **Smart Health** is a dual-module AI health assistant combining:
 
-* 🖼️ **Skin image classification** using deep learning, and
-* 💬 **Symptom-based disease prediction** using an LLM and FAISS-based vector similarity search.
+**Skin image classification** using deep learning, and **Symptom-based disease prediction** using an LLM and FAISS-based vector similarity search.
 
 It allows users to upload skin images for instant disease classification or chat naturally by describing symptoms to get possible disease predictions.
 
----
+<br/>
 
-## Badges
 
-[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
-
----
 
 ## Screenshots
 
 ![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
 
----
+<br/>
 
 ## Demo
 
 Insert gif or link to demo
 
----
+<br/>
 
 ## Tech Stack
 
@@ -54,7 +49,15 @@ Insert gif or link to demo
 
 * *(Coming Soon)* – Docker, CI/CD, and cloud deployment tools
 
----
+<br/>
+
+
+## System  Design Diagram
+
+<img src="image.png" alt="alt text" style="transform: rotate(deg);" />
+
+<br/>
+
 
 ## Features
 
@@ -64,6 +67,8 @@ Insert gif or link to demo
 - Smart Suggestions – Recommends possible causes, treatments, and follow-up questions
 - Semantic Search – Finds the most relevant diseases using FAISS & MiniLM embeddings
 
+<br/>
+
 <!--start-->
 | Version   | Model Name                                     | Description                                                                                                                                                                                                                                           | Top-1   | Top-3   | Top-5   |
 |-----------|------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|---------|---------|
@@ -71,7 +76,7 @@ Insert gif or link to demo
 | v2        | Enhanced Symptom Preprocessing FAISS Retrieval | Added biomedical NER filtering (biomedical-ner-all) with advanced text cleaning, lemmatization, and medical relevance filtering. MiniLM embeddings stored in FAISS with weighted multi-symptom cosine similarity for improved top‑K disease matching. | 16.45%  | 26.35%  | 30.71%  |
 <!--stop-->
 
----
+<br/>
 
 
 ## Run Locally
@@ -117,7 +122,7 @@ cd frontend
 streamlit run app.py
 ```
 
----
+<br/>
 
 ## Installation
 
@@ -125,77 +130,62 @@ streamlit run app.py
 pip install -r requirements.txt
 ```
 
----
+<br/>
 
 ## Running Tests
 
 > *Not yet implemented*
 
----
+<br/>
 
 ## API Reference
 
 > *Not yet added*
 
----
+<br/>
 
-<pre>## Directory Structure
-```
+## Directory Structure
+
+<pre>
 SmartHealth-LLM/
-├── .gitattributes
-├── .gitignore
-├── LICENSE
-├── README (3).md
 ├── README.md
 ├── requirements.txt
+├── LICENSE
 ├── logo.png
-├── transfaer.ipynb
+
 ├── backend/
 │   ├── main.py
 │   ├── config.py
 │   ├── api/
-│   │   └── upload.py
-│   ├── models/
-│   │   └── skin_disease_model.h5
 │   ├── services/
-│   │   ├── image_classifier.py
-│   │   └── symptom_to_disease.py
+│   ├── models/
 │   └── utils/
-│       ├── filtering_with_ner.py
-│       ├── image_preprocessing.py
-│       └── text_cleaning.py
+
+├── frontend/
+│   └── app.py
+
 ├── data/
-│   ├── labels.json
 │   ├── mayo_diseases.csv
-│   ├── test_symptom_cases.csv
 │   └── Vector/
-│       └── symptom_faiss_db/
-│           ├── index.faiss
-│           └── index.pkl
+
+├── notebooks/
+│   ├── skin_disease_prediction.ipynb
+│   └── symptom_rag_pipeline.ipynb
+
 ├── evaluation/
 │   └── evaluate_rag_symptom.py
-├── frontend/
-│   └── index.html
-├── notebook/
-│   ├── llm.ipynb
-│   ├── skin_disease_prediction.ipynb
-│   └── web_scrapping.ipynb
-├── scripts/
-│   ├── model.py
-│   ├── symptoms_to_vectordb.py
-│   └── scrapers/
-│       ├── main.py
-│       ├── web_scraper2.py
-│       └── web_scrapers.py
-``` </pre>
 
----
+├── scripts/
+│   └── build_vectordb.py
+</pre>
+
+<br/>
 
 ## Documentation
 
 [Documentation](https://linktodocumentation)
 
----
+<br/>
 
 ## Optimizations
 
@@ -205,7 +195,7 @@ SmartHealth-LLM/
 
  Efficient Embeddings – Used all-MiniLM to generate lightweight yet accurate embeddings for semantic search
 
----
+<br/>
 
 ## Lessons Learned
 
@@ -229,7 +219,7 @@ Building SmartHealth-LLM gave me hands-on experience in combining deep learning 
 * **Trade-offs in Real-Time AI Apps:**
   Learned to balance model accuracy with responsiveness and resource usage, especially in a setup where both image and text processing are involved.
 
----
+<br/>
 
 ## Roadmap
 
@@ -237,13 +227,13 @@ Building SmartHealth-LLM gave me hands-on experience in combining deep learning 
 
 - Add more integrations
 
----
+<br/>
 
 ## Appendix
 
 Any additional information goes here
 
----
+<br/>
 
 ## Contributing
 
@@ -253,19 +243,19 @@ See `contributing.md` for ways to get started.
 
 Please adhere to this project's `code of conduct`.
 
----
+<br/>
 
 ## Support
 
 For support, email fake@fake.com or join our Slack channel.
 
----
+<br/>
 
 ## Feedback
 
 If you have any feedback or suggestions, feel free to reach out at **harmeshgopinathan@gmail.com**
 
----
+<br/>
 
 ## Acknowledgements
 
@@ -273,7 +263,7 @@ If you have any feedback or suggestions, feel free to reach out at **harmeshgopi
  - [Awesome README](https://github.com/matiassingers/awesome-readme)
  - [How to write a Good readme](https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project)
 
----
+<br/>
 
 ## FAQ
 
@@ -293,21 +283,27 @@ Currently, the app does not store any user data. All predictions happen in-memor
 
 Yes, but the training will be slower. CUDA acceleration is used only if available.
 
----
+<br/>
 
 ## Related Projects
 
 [CSV RAG](https://github.com/harmeshgv/RAG-Enhanced-NLP-QueryEngine.git) - A Retrieval Augmented Generation (RAG)-based NLP query engine for DataFrames, designed for efficient querying of large datasets. It uses semantic embeddings and FAISS indexing to retrieve relevant data segments, enabling accurate natural language queries while overcoming language model input size limitations.
 
----
+<br/>
 
 ## 🚀 About Me
 Hi, I'm **Harmesh G V** – a B.Tech CSE student passionate about building AI-powered applications.  
 This project is part of my exploration into combining computer vision and LLMs for practical healthcare use cases.
 
+<br/>
 
 ## 🔗 Links
 [![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://harmeshgv.github.io/portfolio/)
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](www.linkedin.com/in/harmeshgv)
 [![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://x.com/Harmesh950)
+
+
+
+
+
 
