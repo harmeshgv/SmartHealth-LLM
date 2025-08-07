@@ -2,22 +2,23 @@ import os
 import sys  
 import time
 import numpy as np
-# Add project root to sys.path BEFORE any other imports
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-
 import pandas as pd
 import argparse
 
 from tqdm import tqdm
 from sklearn.metrics import accuracy_score, classification_report
-from backend.config import TEST_CASES_CSV, VECTOR_DIR
-from backend.services.symptom_to_disease import DiseaseMatcher
+
+# Add project root to sys.path BEFORE any other imports
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
+from backend.config import TEST_CASES_CSV
+from backend.utils.DIseaseMatcherAgent import DiseaseMatcherAgent
 
 
 class TopKEvaluator:
     def __init__(self, k=3, csv_path=TEST_CASES_CSV):
         self.k = k
-        self.matcher = DiseaseMatcher(vectorstore_path=VECTOR_DIR)
+        self.matcher = DiseaseMatcherAgent()  # Replacing Pipeline with your NER+Embedder agent
         self.df = pd.read_csv(csv_path)
         self.y_true = []
         self.y_pred_topk = []
@@ -29,8 +30,10 @@ class TopKEvaluator:
             symptoms = row["Symptoms"]
             expected = row["disease"]
             start_time = time.time()
+            
             matches = self.matcher.match(symptoms, top_k=self.k)
             predicted = [match[0] for match in matches] if matches else []
+
             end_time = time.time()
             self.response_times.append((end_time - start_time) * 1000)
 
@@ -55,22 +58,20 @@ class TopKEvaluator:
         print(f"✔️ Total cases: {total}")
         print(f"✅ Correct within Top-{self.k}: {correct_topk}")
         print(f"📊 Top-{self.k} Accuracy: {accuracy * 100:.8f} %")
-        print(f"Speed accuracy response time : {average_response_time}" )    
-    
+        print(f"⚡ Avg Response Time: {average_response_time:.2f} ms")    
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Evaluate Top-K Accuracy")
     parser.add_argument("k", type=int, nargs="?",  help="Top-K value to evaluate (leave empty for full evaluation 1, 3, 5)")
     args = parser.parse_args()
-    if args.k == None:
-        for i in range(1,6,2):
-                evaluator = TopKEvaluator(k=i)
-                evaluator.process()
-                evaluator.evaluate()
-                print("-" * 40)
 
-            
+    if args.k is None:
+        for i in range(1, 6, 2):  # k = 1, 3, 5
+            evaluator = TopKEvaluator(k=i)
+            evaluator.process()
+            evaluator.evaluate()
+            print("-" * 40)
     else:
         evaluator = TopKEvaluator(k=args.k)
         evaluator.process()

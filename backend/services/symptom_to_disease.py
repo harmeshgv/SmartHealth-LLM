@@ -8,19 +8,19 @@ from langchain_core.documents import Document
 # Ensure project root is on the path
 sys.path.append(os.path.abspath(os.path.join(os.getcwd(), "..")))
 
-from backend.utils.data_preprocessing import DataPreprocessing
-from backend.utils.matcher import DiseaseMatcher
+from backend.utils.DIseaseMatcherAgent import DiseaseMatcherAgent
 
 
 class Pipeline:   
     def __init__(self):
-        self.preprocessor = DataPreprocessing()
-        self.matcher =  DiseaseMatcher()
+        self.matcher = DiseaseMatcherAgent()
+
 
     def Stem(self, query : str):
-        tokens = self.preprocessor.preprocess(query)
+        matches = self.matcher.match(query, top_k=3)
 
-        return self.matcher.match(tokens)
+
+        return matches
 
      
 
