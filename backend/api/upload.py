@@ -2,12 +2,12 @@ from fastapi import APIRouter, UploadFile, File, Request, Form, HTTPException
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from backend.services.image_classifier import Classify_Diseases
-from backend.services.symptom_to_disease import DiseaseMatcher
+from backend.services.symptom_to_disease import Pipeline
 from backend.config import VECTOR_DIR   
 router = APIRouter()
 
 classification = Classify_Diseases()
-matcher = DiseaseMatcher()
+matcher = Pipeline()
 
 
 templates = Jinja2Templates(directory="frontend")
@@ -37,7 +37,7 @@ async def predict(request: Request, file: UploadFile = File(...)):
 @router.post("/chat/", response_class=HTMLResponse)
 async def chat(request: Request, user_input: str = Form(...)):
     try:
-        matches = matcher.match(user_input, top_k=3)
+        matches = matcher.Stem(user_input)
         if not matches:
             bot_response = "Sorry, I couldn't match any disease to your symptoms."
         else:

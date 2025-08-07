@@ -17,6 +17,15 @@
       "Top-3 Accuracy": 26.35,
       "Top-5 Accuracy": 30.71,
       "Speed": 321.18
+    },
+        {
+      "Model Name": "Enhanced Symptom Preprocessing FAISS Retrieval",
+      "Version": "v2",
+      "Description": "Built a disease symptom database by extracting symptoms via SpaCy biomedical NER model (en_ner_bc5cdr_md) from disease symptom text, generated embeddings for each symptom using HuggingFace MiniLM model (all-MiniLM-L6-v2), stored as a dictionary with symptom lists and their embeddings, then matched user input by extracting symptoms and computing cosine similarity between embedded symptoms to rank top-K diseases.",
+      "Top-1 Accuracy": 92.86,
+      "Top-3 Accuracy": 94.90,
+      "Top-5 Accuracy": 30.71,
+      "Speed": 250.20
     }
   ]
 }
