@@ -37,23 +37,23 @@ async def predict(request: Request, file: UploadFile = File(...)):
 @router.post("/chat/", response_class=HTMLResponse)
 async def chat(request: Request, user_input: str = Form(...)):
     try:
-        matches = matcher.Stem(user_input)
+        matches = matcher.Stem(user_input)  # this is a list of disease names (strings)
+
         if not matches:
             bot_response = "Sorry, I couldn't match any disease to your symptoms."
         else:
-            bot_response = "Top possible diseases:\n"
-            for i, (disease, score, symptom_text) in enumerate(matches, 1):
-                bot_response += f"{i}. {disease} (Confidence: {score:.4f})\n"
+            bot_response = None  # or just pass matches to template
 
-        # Append to chat history
         chat_history.append({
             "user": user_input,
-            "bot": bot_response
+            "bot": bot_response or ", ".join(matches)  # fallback string display if needed
         })
 
+        # Pass the matches list directly to the template for nicer display:
         return templates.TemplateResponse("index.html", {
             "request": request,
-            "chat_history": chat_history
+            "chat_history": chat_history,
+            "matches": matches
         })
 
     except Exception as e:

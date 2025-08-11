@@ -259,9 +259,9 @@ If you have any feedback or suggestions, feel free to reach out at **harmeshgopi
 
 ## Acknowledgements
 
- - [Awesome Readme Templates](https://awesomeopensource.com/project/elangosundar/awesome-README-templates)
- - [Awesome README](https://github.com/matiassingers/awesome-readme)
- - [How to write a Good readme](https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project)
+ - [Image preprocessing](https://medium.com/@maahip1304/the-complete-guide-to-image-preprocessing-techniques-in-python-dca30804550c)
+
+ - [IMage processing] (https://www.kaggle.com/code/rimmelasghar/getting-started-with-image-preprocessing-in-python)
 
 <br/>
 
