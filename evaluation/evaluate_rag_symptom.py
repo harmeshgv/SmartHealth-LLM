@@ -6,7 +6,6 @@ import pandas as pd
 import argparse
 
 from tqdm import tqdm
-from sklearn.metrics import accuracy_score, classification_report
 
 # Add project root to sys.path BEFORE any other imports
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
@@ -18,7 +17,7 @@ from backend.utils.DIseaseMatcherAgent import DiseaseMatcherAgent
 class TopKEvaluator:
     def __init__(self, k=3, csv_path=TEST_CASES_CSV):
         self.k = k
-        self.matcher = DiseaseMatcherAgent()  # Replacing Pipeline with your NER+Embedder agent
+        self.matcher = DiseaseMatcherAgent(top_k=self.k)  # pass k on init for default retriever top_k
         self.df = pd.read_csv(csv_path)
         self.y_true = []
         self.y_pred_topk = []
@@ -31,11 +30,13 @@ class TopKEvaluator:
             expected = row["disease"]
             start_time = time.time()
             
-            matches = self.matcher.match(symptoms, top_k=self.k)
-            predicted = [match[0] for match in matches] if matches else []
+            # Get top-k matches (list of disease strings)
+            predicted = self.matcher.match(symptoms, top_k=self.k)
+            if predicted is None:
+                predicted = []
 
             end_time = time.time()
-            self.response_times.append((end_time - start_time) * 1000)
+            self.response_times.append((end_time - start_time) * 1000)  # ms
 
             self.y_true.append(expected)
             self.y_pred_topk.append(predicted)
@@ -45,8 +46,8 @@ class TopKEvaluator:
         total = len(self.y_true)
 
         for true, pred_list in zip(self.y_true, self.y_pred_topk):
-            true_lower = true.strip().lower()
-            pred_list_lower = [p.strip().lower() for p in pred_list]
+            true_lower = str(true).strip().lower()
+            pred_list_lower = [str(p).strip().lower() for p in pred_list]
 
             if true_lower in pred_list_lower:
                 correct_topk += 1
@@ -57,13 +58,13 @@ class TopKEvaluator:
         print(f"\n🎯 Top-{self.k} Evaluation Results:")
         print(f"✔️ Total cases: {total}")
         print(f"✅ Correct within Top-{self.k}: {correct_topk}")
-        print(f"📊 Top-{self.k} Accuracy: {accuracy * 100:.8f} %")
+        print(f"📊 Top-{self.k} Accuracy: {accuracy * 100:.4f} %")
         print(f"⚡ Avg Response Time: {average_response_time:.2f} ms")    
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Evaluate Top-K Accuracy")
-    parser.add_argument("k", type=int, nargs="?",  help="Top-K value to evaluate (leave empty for full evaluation 1, 3, 5)")
+    parser.add_argument("k", type=int, nargs="?",  help="Top-K value to evaluate; if omitted, runs k=1,3,5")
     args = parser.parse_args()
 
     if args.k is None:
@@ -74,5 +75,4 @@ if __name__ == "__main__":
             print("-" * 40)
     else:
         evaluator = TopKEvaluator(k=args.k)
-        evaluator.process()
-        evaluator.evaluate()
+        evaluator.proc
