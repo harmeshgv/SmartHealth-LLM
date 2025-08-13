@@ -2,27 +2,102 @@
 ![Logo](https://github.com/harmeshgv/SmartHealth-LLM/blob/main/logo.png?raw=true)
 
 
-# Smart Health LLm
+## Smart Health LLM 
 
-**Smart Health** is a dual-module AI health assistant combining:
+**Smart Health** is designed as a modular, scalable, and interactive AI health assistant. It integrates **deep learning**, **large language models (LLMs)**, **vector similarity search**, and **modern web technologies** to provide both **image-based** and **text-based** health assessments. The system follows a **multi-agent architecture** to ensure separation of concerns, maintainability, and high performance.
 
-**Skin image classification** using deep learning, and **Symptom-based disease prediction** using an LLM and FAISS-based vector similarity search.
+### 1. System Architecture Overview
 
-It allows users to upload skin images for instant disease classification or chat naturally by describing symptoms to get possible disease predictions.
+The system can be broadly divided into **three layers**:
+
+1. **Frontend Layer**
+
+   * Built using **HTML, CSS, and JavaScript**, creating a responsive and modern user interface.
+   * Supports **image uploads**, **real-time chat**, and **interactive displays** like confidence bars and animated orbs.
+   * Handles client-side validations, file preview, and dynamic updates for user interactions without page reloads.
+   * Communicates with the backend using **HTTP POST requests** for image analysis and chat inputs.
+
+2. **Backend Layer**
+
+   * Developed using **Python** with frameworks like **FastAPI** for asynchronous, high-performance APIs.
+   * Orchestrates the **multi-agent system**, routing requests to the appropriate agent (image, symptom, chat, or verification).
+   * Handles **file uploads, preprocessing, model inference**, and response formatting.
+   * Manages **chat history** and session state to ensure context-aware conversations.
+   * Returns structured data to the frontend for rendering dynamic visualizations and chat responses.
+
+3. **AI & ML Layer**
+
+   * **Image Classification Module:**
+
+     * Utilizes a **deep learning CNN (e.g., EfficientNet)** for classifying skin diseases.
+     * Preprocessing includes resizing, normalization, and augmentation to improve model accuracy.
+     * Provides **predictions with confidence scores**, which are rendered in the frontend.
+
+   * **Symptom Analysis Module:**
+
+     * Uses a **Large Language Model (LLM)** to understand and process natural language inputs.
+     * Incorporates **FAISS-based vector similarity search** to match extracted symptoms against structured disease data.
+     * Returns **top-k possible diseases** with relevant details like overview, causes, treatment, and preventive tips.
+
+   * **Verification & Recommendation Module:**
+
+     * Optionally cross-checks predictions against external datasets or trusted medical sources.
+     * Generates **personalized recommendations** and next steps for the user.
+
+### 2. Multi-Agent System Design
+
+The system follows a **multi-agent approach** to separate responsibilities, improve scalability, and reduce coupling:
+
+* **Image Classification Agent:** Handles image uploads, preprocessing, and deep learning inference.
+* **Symptom Analysis Agent:** Manages natural language symptom input, LLM reasoning, and vector similarity matching.
+* **Chat & Interaction Agent:** Maintains the chat interface, conversation context, and real-time updates.
+* **Verification & Recommendation Agent:** Validates predictions and provides actionable guidance.
+
+**Benefits:**
+
+* Parallel processing allows multiple agents to work simultaneously.
+* Each agent is modular, making it easy to maintain and extend.
+* Specialized agents increase accuracy and reliability for both image-based and text-based predictions.
+
+### 3. Data Flow & Communication
+
+1. **Image Flow:**
+
+   * User uploads an image → Frontend sends it to backend → Image Classification Agent preprocesses it → Model predicts disease → Backend sends response → Frontend displays prediction with confidence bar.
+
+2. **Symptom Flow:**
+
+   * User types symptoms → Frontend sends input → Symptom Analysis Agent processes via LLM → Symptoms converted to embeddings → FAISS matches similar diseases → Backend formats top results → Frontend shows structured chat response.
+
+3. **Chat Flow:**
+
+   * Chat & Interaction Agent updates conversation in real-time.
+   * Maintains context for follow-up questions.
+   * Verification agent optionally validates predictions before sending back to user.
+
+### 4. Technology Stack
+
+* **Frontend:** HTML, CSS, JavaScript
+* **Backend:** Python, FastAPI, Uvicorn
+* **AI/ML:** TensorFlow/PyTorch for CNN, HuggingFace LLM for text, FAISS for vector similarity
+* **Utilities:** PIL for image preprocessing, NumPy/Pandas for data handling
+* **Deployment:** Can be containerized using Docker for portability and scalability
+
+### 5. Key Advantages
+
+* **Dual-Module Health Assessment:** Supports both image-based and symptom-based analysis.
+* **Interactive User Experience:** Modern UI with responsive design, animations, and real-time chat.
+* **High Scalability:** Modular multi-agent design allows addition of new agents without affecting existing functionality.
+* **Accuracy & Reliability:** Combines deep learning, LLM reasoning, and vector similarity search for robust predictions.
+* **Future Extensibility:** New features like lifestyle advice, drug recommendations, or telemedicine integration can be added seamlessly.
 
 <br/>
-
-
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+<img src="skin.png" alt="alt text"  />
+<img src="chatbot.png" alt="alt text"  />
 
-<br/>
-
-## Demo
-
-Insert gif or link to demo
 
 <br/>
 
@@ -30,7 +105,9 @@ Insert gif or link to demo
 
 ### Frontend
 
-* **Streamlit** – Fast and interactive frontend for ML web apps
+* **HTML** – Structured the frontend for ML web apps, enabling image uploads and symptom-based chat interfaces.
+* **CSS** – Styled the app with modern gradients, cards, animations, and responsive layouts for better user experience.
+* **JavaScript** – Added interactivity with real-time chat updates, dynamic prediction displays, file upload feedback, and smooth UI interactions.
 
 ### Backend
 
@@ -134,18 +211,6 @@ pip install -r requirements.txt
 
 <br/>
 
-## Running Tests
-
-> *Not yet implemented*
-
-<br/>
-
-## API Reference
-
-> *Not yet added*
-
-<br/>
-
 ## Directory Structure
 
 <pre>
@@ -183,12 +248,6 @@ SmartHealth-LLM/
 
 <br/>
 
-## Documentation
-
-[Documentation](https://linktodocumentation)
-
-<br/>
-
 ## Optimizations
 
  Model Caching – Loaded EfficientNet-B0 and LLM components once during startup to avoid reloading on each request
@@ -223,20 +282,6 @@ Building SmartHealth-LLM gave me hands-on experience in combining deep learning 
 
 <br/>
 
-## Roadmap
-
-- Additional browser support
-
-- Add more integrations
-
-<br/>
-
-## Appendix
-
-Any additional information goes here
-
-<br/>
-
 ## Contributing
 
 Contributions are always welcome!
@@ -247,23 +292,9 @@ Please adhere to this project's `code of conduct`.
 
 <br/>
 
-## Support
-
-For support, email fake@fake.com or join our Slack channel.
-
-<br/>
-
 ## Feedback
 
 If you have any feedback or suggestions, feel free to reach out at **harmeshgopinathan@gmail.com**
-
-<br/>
-
-## Acknowledgements
-
- - [Image preprocessing](https://medium.com/@maahip1304/the-complete-guide-to-image-preprocessing-techniques-in-python-dca30804550c)
-
- - [IMage processing] (https://www.kaggle.com/code/rimmelasghar/getting-started-with-image-preprocessing-in-python)
 
 <br/>
 
