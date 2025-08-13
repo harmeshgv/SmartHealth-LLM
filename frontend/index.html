@@ -5,79 +5,451 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Smart Health LLM</title>
     <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
       body {
-        font-family: Arial, sans-serif;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        color: #333;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
         padding: 20px;
       }
 
-      .chat-box {
-        border: 1px solid #ccc;
-        padding: 15px;
-        height: 300px;
-        overflow-y: auto;
-        background-color: #f9f9f9;
+      .header {
+        text-align: center;
+        margin-bottom: 40px;
+        color: white;
+      }
+
+      .header h1 {
+        font-size: 2.5rem;
+        font-weight: 300;
         margin-bottom: 10px;
       }
 
+      .header p {
+        font-size: 1.2rem;
+        opacity: 0.9;
+      }
+
+      .card {
+        background: white;
+        border-radius: 20px;
+        padding: 30px;
+        margin-bottom: 30px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10px);
+      }
+
+      .upload-section h2 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+        color: #4a5568;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .upload-form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .file-input-wrapper {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+      }
+
+      .file-input {
+        display: none;
+      }
+
+      .file-input-label {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding: 20px;
+        border: 2px dashed #667eea;
+        border-radius: 12px;
+        background: #f8fafc;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 1rem;
+        color: #667eea;
+      }
+
+      .file-input-label:hover {
+        background: #667eea;
+        color: white;
+        transform: translateY(-2px);
+      }
+
+      .submit-btn {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border: none;
+        padding: 15px 30px;
+        border-radius: 50px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+      }
+
+      .submit-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+      }
+
+      .result-section {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        color: white;
+        border-radius: 15px;
+        padding: 20px;
+        margin: 20px 0;
+      }
+
+      .result-section h3 {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+      }
+
+      .confidence-bar {
+        background: rgba(255, 255, 255, 0.3);
+        height: 8px;
+        border-radius: 4px;
+        overflow: hidden;
+        margin-top: 10px;
+      }
+
+      .confidence-fill {
+        background: white;
+        height: 100%;
+        border-radius: 4px;
+        transition: width 0.3s ease;
+      }
+
+      .chat-section {
+        display: grid;
+        grid-template-columns: 1fr 300px;
+        gap: 30px;
+        align-items: start;
+      }
+
+      .orb-container {
+        width: 280px;
+        height: 280px;
+        margin: 0 auto;
+        background: radial-gradient(circle, #667eea, #764ba2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+      }
+
+      .orb-inner {
+        width: 80%;
+        height: 80%;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        color: white;
+        text-align: center;
+      }
+
+      .chat-container {
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .chat-header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .chat-box {
+        height: 350px;
+        overflow-y: auto;
+        padding: 20px;
+        background: #f8fafc;
+        display: flex;
+        flex-direction: column;
+        scroll-behavior: smooth;
+      }
+
       .message {
-        margin: 10px 0;
+        margin: 15px 0;
+        animation: fadeIn 0.3s ease;
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
       }
 
       .user {
         text-align: right;
-        color: blue;
+      }
+
+      .user .message-bubble {
+        display: inline-block;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 12px 18px;
+        border-radius: 18px 18px 5px 18px;
+        max-width: 80%;
       }
 
       .bot {
         text-align: left;
-        color: green;
       }
 
-      .orb-container {
-        position: relative;
-        z-index: 0;
-        width: 300px;
-        height: 300px;
-        margin: 20px auto;
+      .bot .message-bubble {
+        display: inline-block;
+        background: white;
+        color: #333;
+        padding: 12px 18px;
+        border-radius: 18px 18px 18px 5px;
+        max-width: 80%;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .chat-input-form {
+        padding: 20px;
+        background: white;
+        display: flex;
+        gap: 10px;
+      }
+
+      .chat-input {
+        flex: 1;
+        padding: 15px 20px;
+        border: 2px solid #e2e8f0;
+        border-radius: 50px;
+        font-size: 1rem;
+        outline: none;
+        transition: border-color 0.3s ease;
+      }
+
+      .chat-input:focus {
+        border-color: #667eea;
+      }
+
+      .chat-submit {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border: none;
+        padding: 15px 25px;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .chat-submit:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+      }
+
+      .divider {
+        height: 1px;
+        background: linear-gradient(to right, transparent, #667eea, transparent);
+        margin: 40px 0;
+      }
+
+      /* This ensures new messages appear at the bottom */
+      .chat-box::after {
+        content: '';
+        margin-top: auto;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 15px;
+        }
+        
+        .header h1 {
+          font-size: 2rem;
+        }
+        
+        .chat-section {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+        
+        .orb-container {
+          width: 200px;
+          height: 200px;
+        }
+        
+        .card {
+          padding: 20px;
+        }
+      }
+
+      /* Custom scrollbar */
+      .chat-box::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      .chat-box::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+
+      .chat-box::-webkit-scrollbar-thumb {
+        background: #667eea;
+        border-radius: 3px;
       }
     </style>
   </head>
   <body>
-    <h2>Upload an image</h2>
-    <form action="/predict/" method="post" enctype="multipart/form-data">
-      <input type="file" name="file" accept="image/*" required />
-      <br /><br />
-      <input type="submit" value="Upload Image" />
-    </form>
+    <div class="container">
+      <div class="header">
+        <h1>🩺 Smart Health LLM</h1>
+        <p>AI-Powered Health Assessment & Consultation</p>
+      </div>
 
-    {% if result %}
-      <h3>Prediction: {{ result }}</h3>
-      <p>Confidence: {{ confidence }}</p>
-    {% endif %}
+      <div class="card upload-section">
+        <h2>📸 Upload Medical Image</h2>
+        <form action="/predict/" method="post" enctype="multipart/form-data" class="upload-form">
+          <div class="file-input-wrapper">
+            <input type="file" name="file" accept="image/*" required class="file-input" id="file-input" />
+            <label for="file-input" class="file-input-label">
+              📁 Choose an image file or drag & drop here
+            </label>
+          </div>
+          <input type="submit" value="Analyze Image" class="submit-btn" />
+        </form>
 
-    <hr />
-    <h2>Describe your symptoms</h2>
+        {% if result %}
+          <div class="result-section">
+            <h3>🔍 Analysis Result: {{ result }}</h3>
+            <p>Confidence Level: {{ confidence }}%</p>
+            <div class="confidence-bar">
+              <div class="confidence-fill" style="width: {{ confidence }}%"></div>
+            </div>
+          </div>
+        {% endif %}
+      </div>
 
-    <!-- Orb Visualization -->
-    <div id="orb-container" class="orb-container"></div>
+      <div class="divider"></div>
 
-    <div class="chat-box">
-      {% for chat in chat_history %}
-        <div class="message user"><strong>You:</strong> {{ chat.user }}</div>
-        <div class="message bot"><strong>Bot:</strong> {{ chat.bot.replace('\n', '<br>') | safe }}</div>
-      {% endfor %}
+      <div class="card">
+        <div class="chat-section">
+          <div class="chat-container">
+            <div class="chat-header">
+              <h2>💬 Symptom Consultation</h2>
+              <p>Describe your symptoms for personalized health insights</p>
+            </div>
+            
+            <div class="chat-box" id="chat-box">
+              {% for chat in chat_history %}
+                <div class="message user">
+                  <div class="message-bubble">{{ chat.user }}</div>
+                </div>
+                <div class="message bot">
+                  <div class="message-bubble">{{ chat.bot.replace('\n', '<br>') | safe }}</div>
+                </div>
+              {% endfor %}
+            </div>
+
+            <form action="/chat/" method="post" class="chat-input-form">
+              <input
+                type="text"
+                name="user_input"
+                placeholder="Describe your symptoms here..."
+                class="chat-input"
+                required
+              />
+              <input type="submit" value="Send" class="chat-submit" />
+            </form>
+          </div>
+
+          <div class="orb-container">
+            <div class="orb-inner">
+              <div>🤖<br>AI Health<br>Assistant</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <form action="/chat/" method="post">
-      <input
-        type="text"
-        name="user_input"
-        placeholder="Describe your symptoms here..."
-        style="width: 80%; padding: 8px;"
-        required
-      />
-      <input type="submit" value="Send" />
-    </form>
+    <script>
+      // Function to scroll chat to bottom
+      function scrollChatToBottom() {
+        const chatBox = document.getElementById('chat-box');
+        if (chatBox) {
+          chatBox.scrollTop = chatBox.scrollHeight;
+        }
+      }
 
+      // Auto-scroll chat to bottom when page loads
+      window.addEventListener('load', function() {
+        setTimeout(scrollChatToBottom, 100); // Small delay to ensure content is rendered
+      });
+
+      // Also scroll when DOM is ready (backup)
+      document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(scrollChatToBottom, 100);
+      });
+
+      // File input enhancement
+      const fileInput = document.getElementById('file-input');
+      const fileLabel = document.querySelector('.file-input-label');
+      
+      if (fileInput && fileLabel) {
+        fileInput.addEventListener('change', function() {
+          if (this.files && this.files.length > 0) {
+            fileLabel.textContent = `📁 Selected: ${this.files[0].name}`;
+            fileLabel.style.background = '#667eea';
+            fileLabel.style.color = 'white';
+          }
+        });
+      }
+
+      // Optional: Add smooth scrolling behavior to chat box
+      const chatBox = document.getElementById('chat-box');
+      if (chatBox) {
+        chatBox.style.scrollBehavior = 'smooth';
+      }
+    </script>
+
+    {% if chat_history %}
+    <script>
+      // Ensure scroll after template renders
+      setTimeout(function() {
+        const chatBox = document.getElementById('chat-box');
+        if (chatBox) {
+          chatBox.scrollTop = chatBox.scrollHeight;
+        }
+      }, 50);
+    </script>
+    {% endif %}
   </body>
 </html>
