@@ -4,7 +4,6 @@ from backend.api import upload
 
 app = FastAPI()
 
-# Serve static Orb files
-
 # Include your routes
 app.include_router(upload.router)
+    
