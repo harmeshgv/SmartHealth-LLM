@@ -1,9 +1,15 @@
 from fastapi import FastAPI
-from fastapi.staticfiles import StaticFiles
-from backend.api import upload
+from pydantic import BaseModel
+from backend.agents.decider_agent import DECIDERAGENT
 
 app = FastAPI()
+DC = DECIDERAGENT()
 
-# Include your routes
-app.include_router(upload.router)
-    
+class Query(BaseModel):
+    query: str
+
+@app.post("/ask")
+def ask(query: Query):
+    # Replace with your actual LLM/agent logic
+    answer = DC.main(query.query)
+    return {"answer": answer}

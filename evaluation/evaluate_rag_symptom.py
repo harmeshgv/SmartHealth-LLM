@@ -11,7 +11,7 @@ from tqdm import tqdm
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from backend.config import TEST_CASES_CSV
-from backend.utils.DIseaseMatcherAgent import DiseaseMatcherAgent
+from backend.utils.symtom_checker import DiseaseMatcherAgent
 
 
 class TopKEvaluator:
