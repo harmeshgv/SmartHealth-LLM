@@ -1,0 +1,369 @@
+Metadata-Version: 2.4
+Name: gravixlayer
+Version: 0.0.25
+Summary: GravixLayer Python SDK - OpenAI Compatible
+Home-page: https://github.com/sukrithpvs/gravixlayer-python
+Author: Sukrith
+Author-email: Sukrith <sukrithpvs@gmail.com>
+License: MIT
+Project-URL: Homepage, https://github.com/sukrithpvs/gravixlayer-python
+Project-URL: Repository, https://github.com/sukrithpvs/gravixlayer-python
+Project-URL: Issues, https://github.com/sukrithpvs/gravixlayer-python/issues
+Keywords: gravixlayer,openai,llm,ai,api,sdk
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests>=2.25.0
+Requires-Dist: python-dotenv>=0.19.0
+Dynamic: author
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-python
+
+
+[![PyPI version](https://badge.fury.io/py/gravixlayer.svg)](https://badge.fury.io/py/gravixlayer)
+[![Python 3.7+](https://img.shields.io/badge/python-3.7+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+The official Python SDK for the [GravixLayer API](https://gravixlayer.com). This library provides convenient access to the GravixLayer REST API from any Python 3.7+ application. The library includes type definitions for all request params and response fields, and offers both synchronous and asynchronous clients powered by [httpx](https://github.com/encode/httpx).
+
+
+## Installation
+
+### PyPI
+
+```bash
+pip install gravixlayer
+```
+
+### Development Installation
+
+For development or to use the latest features:
+
+```bash
+git clone https://github.com/sukrithpvs/gravixlayer-python.git
+cd gravixlayer-python
+pip install -e .
+```
+
+This installs the package in editable mode and makes the `gravixlayer` CLI command available globally.
+
+## Quick Start
+
+The GravixLayer Python SDK is designed to be compatible with OpenAI's interface, making it easy to switch between providers.
+
+### Synchronous Usage
+
+```python
+import os
+from gravixlayer import GravixLayer
+
+client = GravixLayer(api_key=os.environ.get("GRAVIXLAYER_API_KEY"))
+
+completion = client.chat.completions.create(
+    model="mistralai/mistral-nemo-instruct-2407",
+    messages=[
+        {"role": "system", "content": "You are a helpful assistant."},
+        {"role": "user", "content": "What are the three most popular programming languages?"}
+    ]
+)
+
+print(completion.choices[0].message.content)
+```
+
+### Asynchronous Usage
+
+```python
+import asyncio
+import os
+from gravixlayer import AsyncGravixLayer
+
+async def main():
+    client = AsyncGravixLayer(api_key=os.environ.get("GRAVIXLAYER_API_KEY"))
+    
+    completion = await client.chat.completions.create(
+        model="mistralai/mistral-nemo-instruct-2407",
+        messages=[
+            {"role": "system", "content": "You are a helpful assistant."},
+            {"role": "user", "content": "What's the capital of France?"}
+        ]
+    )
+    
+    print(completion.choices[0].message.content)
+
+asyncio.run(main())
+```
+
+## API Reference
+
+### Chat Completions
+
+Create chat completions with various models available on GravixLayer.
+
+```python
+completion = client.chat.completions.create(
+    model="mistralai/mistral-nemo-instruct-2407",
+    messages=[
+        {"role": "system", "content": "You are a helpful assistant."},
+        {"role": "user", "content": "Tell me a fun fact about space"}
+    ],
+    temperature=0.7,
+    max_tokens=150,
+    top_p=1.0,
+    frequency_penalty=0,
+    presence_penalty=0,
+    stop=None,
+    stream=False
+)
+
+print(completion.choices[0].message.content)
+```
+
+#### Available Parameters
+
+| Parameter           | Type               | Description                          |
+| ------------------- | ------------------ | ------------------------------------ |
+| `model`             | `str`              | Model to use for completion          |
+| `messages`          | `List[Dict]`       | List of messages in the conversation |
+| `temperature`       | `float`            | Controls randomness (0.0 to 2.0)     |
+| `max_tokens`        | `int`              | Maximum number of tokens to generate |
+| `top_p`             | `float`            | Nucleus sampling parameter           |
+| `frequency_penalty` | `float`            | Penalty for frequent tokens          |
+| `presence_penalty`  | `float`            | Penalty for present tokens           |
+| `stop`              | `str \| List[str]` | Stop sequences                       |
+| `stream`            | `bool`             | Enable streaming responses           |
+
+### Streaming Responses
+
+Stream responses in real-time for a better user experience:
+
+```python
+stream = client.chat.completions.create(
+    model="mistralai/mistral-nemo-instruct-2407",
+    messages=[
+        {"role": "user", "content": "Tell me about the Eiffel Tower"}
+    ],
+    stream=True
+)
+
+for chunk in stream:
+    if chunk.choices[0].delta.content is not None:
+        print(chunk.choices[0].delta.content, end="", flush=True)
+```
+
+#### Async Streaming
+
+```python
+async def stream_chat():
+    client = AsyncGravixLayer(api_key="your_api_key")
+    
+    stream = client.chat.completions.create(
+        model="mistralai/mistral-nemo-instruct-2407",
+        messages=[{"role": "user", "content": "Tell me about Python"}],
+        stream=True
+    )
+    
+    async for chunk in stream:
+        if chunk.choices[0].delta.content:
+            print(chunk.choices[0].delta.content, end="", flush=True)
+```
+
+### Error Handling
+
+The SDK includes comprehensive error handling:
+
+```python
+from gravixlayer import GravixLayer
+from gravixlayer.types.exceptions import (
+    GravixLayerError,
+    GravixLayerAuthenticationError,
+    GravixLayerRateLimitError,
+    GravixLayerBadRequestError
+)
+
+client = GravixLayer(api_key="your_api_key")
+
+try:
+    completion = client.chat.completions.create(
+        model="mistralai/mistral-nemo-instruct-2407",
+        messages=[{"role": "user", "content": "Hello!"}]
+    )
+except GravixLayerAuthenticationError:
+    print("Invalid API key")
+except GravixLayerRateLimitError:
+    print("Rate limit exceeded")
+except GravixLayerBadRequestError as e:
+    print(f"Bad request: {e}")
+except GravixLayerError as e:
+    print(f"API error: {e}")
+```
+
+### Text Completions
+
+Create text completions using the completions endpoint:
+
+```python
+completion = client.completions.create(
+    model="mistralai/mistral-nemo-instruct-2407",
+    prompt="What are the three most popular programming languages?",
+    max_tokens=150,
+    temperature=0.7,
+    top_p=1.0,
+    frequency_penalty=0,
+    presence_penalty=0,
+    stop=None
+)
+
+print(completion.choices[0].text)
+```
+
+#### Streaming Text Completions
+
+```python
+stream = client.completions.create(
+    model="mistralai/mistral-nemo-instruct-2407",
+    prompt="Write a short story about a robot",
+    max_tokens=200,
+    temperature=0.8,
+    stream=True
+)
+
+for chunk in stream:
+    if chunk.choices[0].text:
+        print(chunk.choices[0].text, end="", flush=True)
+```
+
+#### Available Parameters for Completions
+
+| Parameter           | Type               | Description                               |
+| ------------------- | ------------------ | ----------------------------------------- |
+| `model`             | `str`              | Model to use for completion               |
+| `prompt`            | `str \| List[str]` | The prompt(s) to generate completions for |
+| `max_tokens`        | `int`              | Maximum number of tokens to generate      |
+| `temperature`       | `float`            | Controls randomness (0.0 to 2.0)          |
+| `top_p`             | `float`            | Nucleus sampling parameter                |
+| `n`                 | `int`              | Number of completions to generate         |
+| `stream`            | `bool`             | Enable streaming responses                |
+| `logprobs`          | `int`              | Include log probabilities                 |
+| `echo`              | `bool`             | Echo back the prompt                      |
+| `stop`              | `str \| List[str]` | Stop sequences                            |
+| `presence_penalty`  | `float`            | Penalty for present tokens                |
+| `frequency_penalty` | `float`            | Penalty for frequent tokens               |
+
+
+
+
+### Command Line Interface
+
+The SDK includes a CLI for quick testing:
+
+```bash
+# Basic chat completion
+# Basic chat completion
+gravixlayer --model "mistralai/mistral-nemo-instruct-2407" --user "Hello, how are you?"
+
+# Streaming chat response
+gravixlayer --model "mistralai/mistral-nemo-instruct-2407" --user "Tell me a story" --stream
+
+# Text completion mode
+gravixlayer --mode completions --model "meta-llama/llama-3.1-8b-instruct" --prompt "The future of AI is"
+
+# Streaming text completion
+gravixlayer --mode completions --model "meta-llama/llama-3.1-8b-instruct" --prompt "Write a poem about" --stream
+
+# With system message
+gravixlayer --model "mistralai/mistral-nemo-instruct-2407" --system "You are a poet" --user "Write a haiku"
+```
+
+### Deployment Management
+
+The CLI supports deployment management using the `deployments` command:
+
+```bash
+# Create a deployment with all parameters
+gravixlayer deployments create --deployment_name "qwen3-1-7b-9951bf" --hw_type "dedicated" --hardware "nvidia-t4-16gb-pcie_1" --min_replicas 1 --model_name "qwen3-1.7b"
+
+
+# List all deployments
+gravixlayer deployments list
+
+
+
+# Delete a deployment
+gravixlayer deployments delete <deployment_id>
+
+# List available GPUs/hardware
+gravixlayer deployments gpu --list
+
+# List available hardware (same as gpu)
+gravixlayer deployments hardware --list
+
+# List GPUs as JSON
+gravixlayer deployments gpu --list --json
+```
+
+#### GPU/Hardware Listing
+
+You can list all available GPUs and hardware configurations:
+
+```bash
+# List available GPUs in table format
+gravixlayer deployments gpu --list
+
+# List available hardware (alias for gpu)
+gravixlayer deployments hardware --list
+
+# Get detailed information in JSON format
+gravixlayer deployments gpu --list --json
+```
+
+The output shows:
+- **GPU Type**: Short identifier (e.g., t4, h100)
+- **Hardware String**: Full specification string for deployment creation
+- **Memory**: GPU memory capacity
+- **Use Case**: Recommended usage scenario
+- **Status**: Availability status
+- **Pricing**: Cost per hour
+
+## Configuration
+
+### API Key
+
+Set your API key using environment variables:
+
+#### Set API key (Linux/macOS)
+```bash
+export GRAVIXLAYER_API_KEY="your_api_key_here"
+```
+
+or 
+
+#### Set API key (Windows PowerShell)
+```bash
+$env:GRAVIXLAYER_API_KEY="your_api_key_here"
+```
+
+Or pass it directly when initializing the client:
+
+```python
+client = GravixLayer(api_key="your_api_key_here")
+```
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md) for a detailed history of changes.
+

@@ -3,10 +3,9 @@ import sys
 import json
 from gravixlayer import GravixLayer
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
-from backend.utils.llm import LLM
-from backend.agents.symptom_agent import DiseaseMatcher
-from backend.agents.disease_info_gent import DISEASEINFOAGENT
+from utils.llm import LLM
+from agents.symptom_agent import DiseaseMatcher
+from agents.disease_info_gent import DISEASEINFOAGENT
 
 
 class DECIDERAGENT:

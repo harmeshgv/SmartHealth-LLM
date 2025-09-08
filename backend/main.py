@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-from backend.agents.decider_agent import DECIDERAGENT
+from agents.decider_agent import DECIDERAGENT
 
 app = FastAPI()
 DC = DECIDERAGENT()
