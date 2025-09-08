@@ -8,6 +8,10 @@ DC = DECIDERAGENT()
 class Query(BaseModel):
     query: str
 
+@app.get("/")
+def health():
+    return {"status":"ok"}
+
 @app.post("/ask")
 def ask(query: Query):
     # Replace with your actual LLM/agent logic
