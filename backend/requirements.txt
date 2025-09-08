@@ -80,3 +80,4 @@ uvicorn      # latest stable
 yarl
 zipp
 zstandard
+langchain-huggingface
