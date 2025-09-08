@@ -1,6 +1,7 @@
 import os
 
-BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__)))
+print(BASE_DIR)
 
 DATA_DIR = os.path.join(BASE_DIR, "data")
 RAW_DIR = DATA_DIR  # because your labels.json and test_symptom_cases.csv are directly inside data/
