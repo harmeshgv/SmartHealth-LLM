@@ -1,5 +1,5 @@
 
-![Logo](https://github.com/harmeshgv/SmartHealth-LLM/blob/main/logo.png?raw=true)
+![Logo](./docs/assets/logo.png)
 
 
 ## Smart Health LLM 
@@ -95,8 +95,8 @@ The system follows a **multi-agent approach** to separate responsibilities, impr
 
 ## Screenshots
 
-<img src="skin.png" alt="alt text"  />
-<img src="chatbot.png" alt="alt text"  />
+![skin](./docs/assets/skin.png)
+![Chatbot](./docs/assets/chatbot.png)
 
 
 <br/>
@@ -131,7 +131,7 @@ The system follows a **multi-agent approach** to separate responsibilities, impr
 
 ## System  Design Diagram
 
-<img src="image.png" alt="alt text" style="transform: rotate(deg);" />
+![image](./docs/assets/image.png)
 
 <br/>
 
