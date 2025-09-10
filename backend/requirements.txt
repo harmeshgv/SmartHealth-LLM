@@ -155,3 +155,4 @@ yarl==1.20.1
 zstandard==0.24.0
 gravixlayer
 streamlit
+faiss-cpu
