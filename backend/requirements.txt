@@ -152,3 +152,5 @@ wheel==0.45.1
 wrapt==1.17.3
 yarl==1.20.1
 zstandard==0.24.0
+gravixlayer
+streamlit
