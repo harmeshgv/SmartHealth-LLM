@@ -2,11 +2,11 @@ import sys
 import os
 import pandas as pd
 from tqdm import tqdm
-from langchain.vectorstores import FAISS
-from langchain.embeddings import HuggingFaceEmbeddings
+from langchain_community.vectorstores import FAISS
+from langchain_huggingface import HuggingFaceEmbeddings
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from backend.config import MAYO_CSV, FAISS_INDEX
+from backend.config import MAYO_CSV, SYMPTOM_FAISS_DB
 
 # Example data
 disease_symptoms = {}
@@ -28,4 +28,5 @@ embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-
 
 # Build FAISS vector store
 vectorstore = FAISS.from_texts(texts, embeddings, metadatas=metadatas)
-vectorstore.save_local(FAISS_INDEX)
+vectorstore.save_local(SYMPTOM_FAISS_DB)
+print(f"FAISS DB saved at {SYMPTOM_FAISS_DB}")

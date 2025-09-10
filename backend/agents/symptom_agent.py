@@ -5,7 +5,7 @@ from langchain_community.vectorstores import FAISS
 from langchain_huggingface import HuggingFaceEmbeddings
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
-from backend.config import FAISS_INDEX
+from backend.config import SYMPTOM_FAISS_DB
 from backend.utils.embeddings import get_embeddings
 
 # Load embedding model
@@ -16,7 +16,7 @@ class DiseaseMatcher:
         self.embeddings = get_embeddings()
 
 
-        self.vectorstore = FAISS.load_local(FAISS_INDEX, self.embeddings, allow_dangerous_deserialization=True)
+        self.vectorstore = FAISS.load_local(SYMPTOM_FAISS_DB, self.embeddings, allow_dangerous_deserialization=True)
 
     def match(self, query):
         query = ",".join(query)

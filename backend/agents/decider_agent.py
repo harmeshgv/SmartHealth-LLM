@@ -4,15 +4,17 @@ import json
 from gravixlayer import GravixLayer
 
 from utils.llm import LLM
-from agents.symptom_agent import DiseaseMatcher
-from agents.disease_info_gent import DISEASEINFOAGENT
+from .symptom_agent import DiseaseMatcher
+from .disease_info_gent import DISEASEINFOAGENT
 
 
 class DECIDERAGENT:
-    def __init__(self, model="meta-llama/llama-3.1-8b-instruct"):
-        self.llm = LLM()
+    def __init__(self, api_key=None):
+        self.llm = LLM(api_key=api_key)
         self.diseaseinfoagent = DISEASEINFOAGENT()
         self.symtomtodiseaseagent = DiseaseMatcher()
+        # tools and tool_descriptions stay same
+
         self.tools = [
             {
                 "name": "symptom_to_disease",
