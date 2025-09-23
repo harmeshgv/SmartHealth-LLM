@@ -20,9 +20,7 @@ dependencies = [
     "python-dotenv>=1.1.1",
     "sentence-transformers>=5.1.1",
     "setuptools>=80.9.0",
-    "spacy>=3.8.7",
     "streamlit>=1.49.1",
-    "wheel>=0.45.1",
 ]
 [tool.setuptools.packages.find]
 where = ["."]
