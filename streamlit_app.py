@@ -2,7 +2,7 @@ import streamlit as st
 from backend.agents.decider_agent import DECIDERAGENT
 from backend.agents.disease_info_gent import DISEASEINFOAGENT
 from backend.agents.symptom_agent import SYMPTOMTODISEASEAGENT
-from utils.llm import set_llm
+from backend.utils.llm import set_llm
 
 st.set_page_config(page_title="Smart Health LLM", page_icon="🩺", layout="centered")
 
