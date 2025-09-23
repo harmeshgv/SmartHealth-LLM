@@ -37,4 +37,7 @@ jobs:
           TEST_API_KEY: ${{ secrets.TEST_API_KEY }}
           TEST_API_BASE: ${{ secrets.TEST_API_BASE }}
           TEST_MODEL: ${{ secrets.TEST_MODEL }}
-        run: python -m pytest -v
+          PYTHONPATH: ${{ github.workspace }}
+
+        run: python -m pytest -v --tb=short
+
