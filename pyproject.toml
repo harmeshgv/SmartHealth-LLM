@@ -24,3 +24,6 @@ dependencies = [
     "streamlit>=1.49.1",
     "wheel>=0.45.1",
 ]
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["backend", "frontend", "notebook", "evaluation"]
