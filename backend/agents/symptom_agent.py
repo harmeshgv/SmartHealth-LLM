@@ -1,36 +1,41 @@
-import pandas as pd
+from backend.tools.disease_matcher_tool import match_disease_info
+from langchain.prompts import ChatPromptTemplate
+from langchain_core.runnables.base import RunnableSerializable
 import os
-import sys
-from langchain_community.vectorstores import FAISS
-from langchain_huggingface import HuggingFaceEmbeddings
-
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
-from backend.config import SYMPTOM_FAISS_DB
-from backend.utils.embeddings import get_embeddings
-
-# Load embedding model
-
-class DiseaseMatcher:
-    def __init__(self):
-        
-        self.embeddings = get_embeddings()
+from backend.utils.llm import set_llm
+from langchain.agents import initialize_agent
+from dotenv import load_dotenv
 
 
-        self.vectorstore = FAISS.load_local(SYMPTOM_FAISS_DB, self.embeddings, allow_dangerous_deserialization=True)
+class SYMPTOMTODISEASEAGENT:
+    def __init__(self, llm):
+        self.llm = llm
+        self.system_prompt = """
+        You're a helpful assistant. When you get a query, you should be able to find the disease
+        which the symptoms are apped to using the tools.
+        """
+        self.prompt_template = ChatPromptTemplate.from_messages(
+            [("system", self.system_prompt), ("human", "{query}")]
+        )
 
-    def match(self, query):
-        query = ",".join(query)
-        results = self.vectorstore.similarity_search(query, k=3)
-        final = "symptom matched disease: "
-        for r in results:
-            print(f"Disease: {r.metadata['disease']}, Text: {r.page_content}")
-            final+= f"{r.metadata['disease']},"
-        return final
+        self.agent = initialize_agent(
+            tools=[match_disease_info],
+            llm=self.llm,
+            agent="chat-conversational-react-description",
+            verbose=True,
+        )
+
+    def invoke(self, query):
+        response_str = self.agent.invoke({"input": query, "chat_history": []})
+        return response_str["output"]
 
 
+if __name__ == "__main__":
+    load_dotenv()
 
+    llm_instane = set_llm(
+        os.getenv("GROQ_API_KEY"), os.getenv("TEST_API_BASE"), os.getenv("TEST_MODEL")
+    )
 
-
-
-
-
+    D = SYMPTOMTODISEASEAGENT(llm_instane)
+    print(D.invoke("cough, cold , throat pain, tirdness"))

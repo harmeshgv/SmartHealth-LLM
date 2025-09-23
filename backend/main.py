@@ -23,9 +23,11 @@ app.add_middleware(
 class Query(BaseModel):
     query: str
 
+
 @app.get("/")
 def health():
-    return {"status":"ok"}
+    return {"status": "ok"}
+
 
 @app.post("/ask")
 def ask(query: Query):

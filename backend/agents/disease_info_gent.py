@@ -1,64 +1,44 @@
-import pandas as pd
-import os
-import sys
 from langchain_community.vectorstores import FAISS
-from langchain_huggingface import HuggingFaceEmbeddings
+from backend.tools.disease_info_retriever import match_disease_info
+from backend.tools.google_search import google_search
+from langchain_core.prompts import ChatPromptTemplate
+from langchain.agents import initialize_agent
+from backend.utils.llm import set_llm
+import os
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
-from backend.config import DISEASE_INFO_FAISS_DB, MAYO_CSV
-from backend.utils.embeddings import get_embeddings
-
-# Load embedding model
 
 class DISEASEINFOAGENT:
-    def __init__(self):
-        self.embeddings = get_embeddings()
-        self.df = pd.read_csv(MAYO_CSV)
+    def __init__(self, llm):
+        self.system_prompt = """
+        You're a helpful assistant. When you get a query, you should be able to extract
+        disease info using any of the tools given.
+        """
 
-        self.vectorstore = FAISS.load_local(DISEASE_INFO_FAISS_DB, self.embeddings, allow_dangerous_deserialization=True)
+        self.llm = llm
 
-    def match(self, query):
-        results = self.vectorstore.similarity_search(query, k=3)
-        result = ""
-        for r in results:
-            print(f"Disease: {r.metadata['disease']}, Text: {r.page_content}")
-            overview = self.df.loc[self.df["disease"] == r.metadata['disease'], "Overview"].values[0]
-            result += f"disease name: {r.metadata['disease']}, disease overview: {overview} \n\n"
+        # create the prompt template
+        self.prompt_template = ChatPromptTemplate.from_messages(
+            [("system", self.system_prompt), ("human", "{query}")]
+        )
 
+        # create the agent once
+        self.agent = initialize_agent(
+            tools=[match_disease_info, google_search],
+            llm=self.llm,
+            agent="chat-conversational-react-description",
+            verbose=True,
+        )
 
-        disease_info = result
-        return disease_info
-    
-
-
-
-
-
-
-
-
+    def invoke(self, query):
+        response = self.agent.invoke({"input": query, "chat_history": []})
+        return response["output"]
 
 
+if __name__ == "__main__":
 
+    llm_instane = set_llm(
+        os.getenv("GROQ_API_KEY"), os.getenv("TEST_API_BASE"), os.getenv("TEST_MODEL")
+    )
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    D = DISEASEINFOAGENT(llm_instane)
+    print(D.invoke("common cold"))

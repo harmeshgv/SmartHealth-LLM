@@ -1,23 +1,18 @@
-class LLM:  
-    def __init__(self, api_key=None):
-        if api_key:
-            self.api_key = api_key
-        else:
-            from dotenv import load_dotenv
-            import os
-            load_dotenv()
-            self.api_key = os.getenv("GRAVIXLAYER_API_KEY")
+from langchain_openai import ChatOpenAI
 
-        if not self.api_key:
-            raise ValueError("⚠️ GRAVIXLAYER_API_KEY not provided!")
 
-        from gravixlayer import GravixLayer
-        self.client = GravixLayer(api_key=self.api_key)  # pass key to client
-        self.model = "meta-llama/llama-3.1-8b-instruct"
+def set_llm(api_key=None, api_key_base=None, model="gpt-3.5-turbo"):
+    """
+    Initialize LLM and store it in st.session_state.llm_instance.
+    Returns True if successful.
+    """
+    if not api_key:
+        raise ValueError("⚠️ API key not provided!")
 
-    def talk(self, prompt: str):
-        response = self.client.chat.completions.create(
-            model=self.model,
-            messages=[{"role": "user", "content": prompt}]
-        )
-        return response.choices[0].message.content
+    # Initialize LLM and store in session
+    return ChatOpenAI(
+        model_name=model,
+        temperature=0,
+        openai_api_key=api_key,
+        openai_api_base=api_key_base,
+    )

@@ -1,97 +1,34 @@
-import os
-import sys
-import json
-from gravixlayer import GravixLayer
-
-from utils.llm import LLM
-from .symptom_agent import DiseaseMatcher
-from .disease_info_gent import DISEASEINFOAGENT
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.runnables.base import RunnableSerializable
+from langchain.agents import initialize_agent
 
 
 class DECIDERAGENT:
-    def __init__(self, api_key=None):
-        self.llm = LLM(api_key=api_key)
-        self.diseaseinfoagent = DISEASEINFOAGENT()
-        self.symtomtodiseaseagent = DiseaseMatcher()
-        # tools and tool_descriptions stay same
+    def __init__(self, llm):
+        self.llm = llm
 
-        self.tools = [
-            {
-                "name": "symptom_to_disease",
-                "description": "Takes a list of symptoms and returns the most likely disease.",
-                "parameters": {
-                    "symptoms": "list of symptoms (strings)"
-                }
-            },
-            {
-                "name": "disease_info",
-                "description": "Takes a disease name and returns information about it.",
-                "parameters": {
-                    "disease_name": "string"
-                }
-            }
-        ]
+        self.system_prompt = """
+You are a decision-making agent.
+Tools available:
+- symptom_to_disease: Takes a list of symptoms and returns the most likely disease.
+- disease_info: Takes a disease name and returns information about it.
 
-        self.tool_descriptions = "\n".join(
-            [f"- {t['name']}: {t['description']}" for t in self.tools]
+Decide the BEST tool to use and extract the parameters.
+Examples:
+User: I have fever and cough
+Agent: symptom_to_disease
+User: Tell me about diabetes
+Agent: disease_info
+
+Return STRICTLY the agent name as a string, nothing else.
+"""
+        self.prompt_template = ChatPromptTemplate.from_messages(
+            [("system", self.system_prompt), ("human", "{query}")]
         )
 
-    def build_prompt(self, query):
-        return f"""
-        You are a decision-making agent.
-        Tools available:
-        {self.tool_descriptions}
+        # Just chain the prompt to the LLM
+        self.agent: RunnableSerializable = self.prompt_template | self.llm
 
-        User query: "{query}"
-
-        Decide the BEST tool to use and extract the parameters.
-
-        Return STRICTLY in this JSON format (no extra text!):
-        {{
-            "agent": "tool_name",
-            "parameters": {{
-                "param1": "value",
-                "param2": ["value1", "value2"]
-            }}
-        }}
-
-        Example 1:
-        User query: "I have fever and cough"
-        {{
-            "agent": "symptom_to_disease",
-            "parameters": {{
-                "symptoms": ["fever", "cough"]
-            }}
-        }}
-
-        Example 2:
-        User query: "Tell me about diabetes"
-        {{
-            "agent": "disease_info",
-            "parameters": {{
-                "disease_name": "diabetes"
-            }}
-        }}
-        """
-    
-    def build_final_prompt(self, info, query):
-        return f"""
-        You are medical info to human type langage convertor.
-        So with this info you have {info} answer the following query {query}"""
-
-    def main(self, query):
-        prompt = self.build_prompt(query)
-        decision = self.llm.talk(prompt)
-        decision = json.loads(decision)
-        if decision['agent'] == "disease_info":
-            info = self.diseaseinfoagent.match(decision['parameters']['disease_name'])
-        else:
-            info = self.symtomtodiseaseagent.match(decision['parameters']['symptoms'])
-        
-
-        final = self.llm.talk(self.build_final_prompt(info, query))
-        print(final)
-        return final
-
-
-
+    def invoke(self, query: str) -> str:
+        response = self.agent.invoke({"query": query})
+        return response
