@@ -21,6 +21,7 @@ dependencies = [
     "setuptools>=80.9.0",
     "streamlit>=1.49.1",
 ]
+
 [tool.setuptools.packages.find]
 where = ["."]
 include = ["backend", "frontend", "notebook", "evaluation"]
