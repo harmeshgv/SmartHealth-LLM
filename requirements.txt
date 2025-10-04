@@ -1,3 +1,11 @@
 langchain_openai
 streamlit
+langchain_core
+langchain
+langchain_community
+langchain_huggingface
 python-dotenv
+sentence-transformers
+faiss-cpu
+langgraph
+

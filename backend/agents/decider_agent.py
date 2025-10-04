@@ -1,34 +1,39 @@
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables.base import RunnableSerializable
-from langchain.agents import initialize_agent
 
 
-class DECIDERAGENT:
+class DeciderAgent:
     def __init__(self, llm):
         self.llm = llm
 
         self.system_prompt = """
-You are a decision-making agent.
-Tools available:
-- symptom_to_disease: Takes a list of symptoms and returns the most likely disease.
-- disease_info: Takes a disease name and returns information about it.
+            You are a decision-making agent for a medical assistant system.
 
-Decide the BEST tool to use and extract the parameters.
-Examples:
-User: I have fever and cough
-Agent: symptom_to_disease
-User: Tell me about diabetes
-Agent: disease_info
+            Analyze the user's query and decide which agent should handle it:
 
-Return STRICTLY the agent name as a string, nothing else.
-"""
+            - Use "symptom_to_disease" if the user describes symptoms and wants to know what disease they might have.
+            - Use "disease_info" if the user asks for information about a specific disease.
+
+            Return ONLY one of these two strings: "symptom_to_disease" or "disease_info"
+
+            Examples:
+            User: "I have fever and cough" → "symptom_to_disease"
+            User: "Tell me about diabetes" → "disease_info"
+            User: "What are the symptoms of COVID?" → "disease_info"
+            User: "I'm experiencing headache and nausea" → "symptom_to_disease"
+            """
         self.prompt_template = ChatPromptTemplate.from_messages(
             [("system", self.system_prompt), ("human", "{query}")]
         )
 
-        # Just chain the prompt to the LLM
         self.agent: RunnableSerializable = self.prompt_template | self.llm
 
     def invoke(self, query: str) -> str:
         response = self.agent.invoke({"query": query})
-        return response
+        decision = response.content.strip().lower()
+
+        # Normalize the response
+        if "symptom" in decision:
+            return "symptom_to_disease"
+        else:
+            return "disease_info"

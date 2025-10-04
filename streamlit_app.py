@@ -1,8 +1,6 @@
 import streamlit as st
-from backend.agents.decider_agent import DECIDERAGENT
-from backend.agents.disease_info_gent import DISEASEINFOAGENT
-from backend.agents.symptom_agent import SYMPTOMTODISEASEAGENT
 from backend.utils.llm import set_llm
+from backend.agent_orchestrator import AgentOrchestration
 
 st.set_page_config(page_title="Smart Health LLM", page_icon="🩺", layout="centered")
 
@@ -11,12 +9,10 @@ if "messages" not in st.session_state:
     st.session_state.messages = []
 if "api_key" not in st.session_state:
     st.session_state.api_key = ""
-if "agent" not in st.session_state:
-    st.session_state.agent = None
+if "agent_orchestrator" not in st.session_state:
+    st.session_state.agent_orchestrator = None
 
-# Sidebar: API key & clear chat
-# Sidebar: API key input and submit
-
+# Sidebar: API key & settings
 cloud_provider_link_dict = {
     "Groq": "https://api.groq.com/openai/v1",
     "GravixLayer": "https://api.gravixlayer.com/v1/inference",
@@ -25,13 +21,12 @@ cloud_provider_link_dict = {
 with st.sidebar:
     st.header("⚙️ Settings")
 
-    # 1️⃣ Cloud provider selection
+    # Cloud provider
     api_cloud_provider_input = st.selectbox(
-        "Which cloud provider you want?", ("Groq", "GravixLayer")
+        "Which cloud provider do you want?", ("Groq", "GravixLayer")
     )
-    st.write("You selected:", api_cloud_provider_input)
 
-    # 2️⃣ Model selection based on provider
+    # Models per provider
     default_models = {
         "Groq": [
             "openai/gpt-oss-120b",
@@ -42,22 +37,21 @@ with st.sidebar:
             "meta-llama/llama-3.1-8b-instant",
         ],
         "GravixLayer": [
-            "mistralai/mistral-nemo-instruct-2407",  # most used
+            "mistralai/mistral-nemo-instruct-2407",
             "meta-llama/llama-3.2-3b-instruct",
             "meta-llama/llama-3.1-8b-instruct",
             "deepseek-ai/deepseek-r1-0528-qwen3-8b",
             "meta-llama/llama-3.2-1b-instruct",
             "microsoft/phi-4",
-            "mistralai/mistral-nemo-instruct-2407",  # least used
         ],
     }
     selected_model = st.selectbox(
         "Select model",
         default_models[api_cloud_provider_input],
-        index=0,  # default first model
+        index=0,
     )
 
-    # 3️⃣ API key input
+    # API key input
     api_key_input = st.text_input(
         "Enter your API key",
         type="password",
@@ -65,39 +59,30 @@ with st.sidebar:
         key="api_key_input",
     )
 
-    # 4️⃣ Submit button
+    # Submit API key
     if st.button("🔑 Submit API Key"):
         if not api_key_input:
             st.error("⚠️ Please enter a valid API key!")
         else:
-            st.session_state.api_key = api_key_input
+            # Pick API base
+            api_base = cloud_provider_link_dict[api_cloud_provider_input]
 
-            # Initialize LLM instance dynamically
-            # Determine API base dynamically
-            api_base = None
-            if api_cloud_provider_input == "Groq":
-                api_base = cloud_provider_link_dict["Groq"]
-            elif api_cloud_provider_input == "GravixLayer":
-                api_base = cloud_provider_link_dict["GravixLayer"]
+            # Initialize LLM + orchestrator
+            try:
+                llm = set_llm(
+                    api_key=api_key_input, model=selected_model, api_key_base=api_base
+                )
+                st.session_state.agent_orchestrator = AgentOrchestration(llm)
+                st.session_state.api_key = api_key_input
+                st.session_state.messages = []  # reset chat
+                st.success(f"✅ API key submitted! Using model: {selected_model}")
+            except Exception as e:
+                st.error(f"❌ Error initializing agent: {str(e)}")
 
-            # Initialize LLM instance
-            st.session_state.llm = set_llm(
-                api_key=api_key_input, model=selected_model, api_key_base=api_base
-            )
-            st.session_state.decider_agent = DECIDERAGENT(st.session_state.llm)
-            st.session_state.symptom_agent = SYMPTOMTODISEASEAGENT(st.session_state.llm)
-            st.session_state.disease_info_agent = DISEASEINFOAGENT(st.session_state.llm)
-
-            # Inject LLM into DECIDERAGENT
-            st.session_state.messages = []  # reset chat
-            if "llm" in st.session_state:
-                st.success(f"API key submitted! Using model: {selected_model}")
-            st.rerun()
-
-    # 5️⃣ Clear chat
+    # Clear chat
     if st.button("🗑️ Clear Chat"):
         st.session_state.messages = []
-        st.experimental_rerun()
+        st.rerun()
 
 
 # Title
@@ -112,7 +97,7 @@ for msg in st.session_state.messages:
     with st.chat_message(msg["role"]):
         st.markdown(msg["content"])
 
-# Chat input (fixed at bottom)
+# Chat input
 if prompt := st.chat_input("Type your symptoms or questions..."):
     if not st.session_state.api_key:
         st.error("⚠️ Please enter your API key in the sidebar to continue.")
@@ -126,29 +111,27 @@ if prompt := st.chat_input("Type your symptoms or questions..."):
         with st.chat_message("assistant"):
             with st.spinner("⏳ Thinking..."):
                 try:
-                    print("done")
-                    # Step 1: Get decider agent decision
-                    decider_output = st.session_state.decider_agent.invoke(prompt)
-                    agent_name = decider_output.content
-                    print(agent_name)
+                    orchestrator = st.session_state.agent_orchestrator
 
-                    # Step 2: Call the chosen agent
-                    if agent_name == "symptom_to_disease":
-                        answer1 = st.session_state.symptom_agent.invoke(prompt)
-                        # If you want to enrich with disease info:
-                        disease_name = answer1.split(",")[0]  # first disease
-                        answer2 = st.session_state.disease_info_agent.invoke(
-                            disease_name
-                        )
-                        answer = answer1 + "\n\n" + answer2
-                    elif agent_name == "disease_info":
-                        answer = st.session_state.disease_info_agent.invoke(prompt)
-                        print(answer)
-                    else:
-                        answer = "❌ Could not determine which agent to use."
+                    # FIX: The main() method returns the formatted result directly
+                    answer = orchestrator.main(prompt)
+
+                    # If we get a dictionary (old behavior), extract the result
+                    if isinstance(answer, dict):
+                        if "formatted_result" in answer:
+                            answer = answer["formatted_result"]
+                        elif "result" in answer:
+                            answer = answer["result"]
+                        else:
+                            answer = str(answer)
+
+                    # If empty response, provide fallback
+                    if not answer or len(answer.strip()) < 10:
+                        answer = "I apologize, but I couldn't generate a proper response. Please try rephrasing your question or check your API configuration."
 
                 except Exception as e:
-                    answer = f"❌ Error: {str(e)}"
+                    st.error(f"Error details: {str(e)}")
+                    answer = f"❌ Sorry, I encountered an error while processing your request. Please try again or check the console for details. Error: {str(e)}"
 
                 st.markdown(answer)
 
