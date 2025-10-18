@@ -105,7 +105,7 @@
   align-items: center;
   gap: 12px;
   background: #28292d;
-  padding: 10px 22px; 
+  padding: 10px 22px;
   border-radius: 28px;
   margin-bottom: 36px;
   box-shadow: 0 2px 20px #0002;
@@ -155,5 +155,90 @@
 .chat-input-bar.disabled input,
 .chat-input-bar.disabled button {
   opacity: 0.7;
+  pointer-events: none;
+}
+.chat-page-container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: "Inter", sans-serif;
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+}
+
+.chat-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.chat-list {
+  flex-grow: 1;
+  overflow-y: auto;
+  background: #f7f8fa;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+.chat-bubble {
+  max-width: 80%;
+  padding: 10px 14px;
+  border-radius: 12px;
+  margin: 8px 0;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+.left-bubble {
+  background: #ffffff;
+  border: 1px solid #e3e3e3;
+  align-self: flex-start;
+}
+
+.right-bubble {
+  background: #0078ff;
+  color: white;
+  align-self: flex-end;
+}
+
+.markdown-content h2,
+.markdown-content h3 {
+  margin: 10px 0;
+}
+
+.markdown-content table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.markdown-content th,
+.markdown-content td {
+  border: 1px solid #ccc;
+  padding: 6px 10px;
+}
+
+.chat-input-bar {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.chat-input-bar input {
+  flex: 1;
+  padding: 10px;
+  margin: 0 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.disabled {
+  opacity: 0.6;
   pointer-events: none;
 }

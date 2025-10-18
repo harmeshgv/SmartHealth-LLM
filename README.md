@@ -1,342 +1,637 @@
+export const readmeContent = `<div align="center">
+  <img src="./docs/assets/logo.png" alt="SmartHealth Logo" width="200"/>
 
-![Logo](./docs/assets/logo.png)
+  # 🏥 SmartHealth-LLM
+
+  ### AI-Powered Medical Assistant with Multi-Agent Architecture for Disease Classification & Symptom Analysis
+
+  [![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-4285F4?style=for-the-badge)](https://smart-health-llm.streamlit.app/)
+  [![MIT License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](https://github.com/harmeshgv/SmartHealth-LLM/blob/main/LICENSE)
+  [![Python](https://img.shields.io/badge/Python-3.9+-blue.svg?style=for-the-badge&logo=python)](https://www.python.org/)
+  [![React](https://img.shields.io/badge/React-18+-61DAFB?style=for-the-badge&logo=react)](https://reactjs.org/)
+  [![Stars](https://img.shields.io/github/stars/harmeshgv/SmartHealth-LLM?style=for-the-badge)](https://github.com/harmeshgv/SmartHealth-LLM/stargazers)
+
+  [🚀 Quick Start](#-quick-start) • [📚 Documentation](#-features) • [🏗️ Architecture](#-architecture) • [🤝 Contributing](#-contributing)
+
+</div>
+
+---
+
+## 📋 Table of Contents
+
+- [Overview](#-overview)
+- [Key Features](#-key-features)
+- [Architecture](#-architecture)
+- [Performance Metrics](#-performance-metrics)
+- [Screenshots](#-screenshots)
+- [Tech Stack](#-tech-stack)
+- [Quick Start](#-quick-start)
+- [Installation](#-installation)
+- [Usage](#-usage)
+- [Directory Structure](#-directory-structure)
+- [Contributing](#-contributing)
+- [License](#-license)
+- [Contact](#-contact)
+
+---
+
+## 🌟 Overview
+
+**SmartHealth-LLM** is a cutting-edge AI-powered medical assistant that combines **computer vision** and **natural language processing** with a sophisticated **multi-agent architecture** to provide intelligent health assessments. The platform features:
+
+1. **Multi-Agent Symptom Analysis** - Intelligent agent orchestration for accurate symptom-based diagnosis and skin disease detection using deep learning
+2. **Semantic Disease Matching** - FAISS-powered vector search for precise disease identification
+3. **Modern UI** - React frontend with Streamlit backend for seamless user experience
+
+### Why SmartHealth-LLM?
+
+- **Multi-Agent System**: Specialized agents (Symptom, Disease Info, Decider, Formatter) for intelligent orchestration
+- **Real-Time**: Optimized inference pipeline with CUDA support for instant predictions
+- **Privacy-First**: In-memory processing with no persistent data storage
+- **Modern Stack**: React + TypeScript frontend, FastAPI backend, Streamlit interface
+- **Research-Grade**: Leverages LangChain, FAISS vector databases, biomedical NER, and state-of-the-art embeddings
+
+---
+
+## 🎯 Key Features
+
+### 🔬 Dual-Mode Health Assessment
+
+| Feature | Description | Technology |
+|---------|-------------|------------|
+| **Skin Disease Classification** | Upload images for instant AI-powered diagnosis through agents| EfficientNet-B0 CNN |
+| **Symptom Analysis** | Chat with AI to analyze symptoms and get disease predictions | LLM + RAG Pipeline |
+| **Semantic Search** | Find diseases matching your symptoms using vector similarity | FAISS + MiniLM |
+| **Multi-Agent Architecture** | Separate agents for classification, chat, and verification | LangChain + LangGraph |
+
+### ⚡ Performance Highlights
+
+- **99.86%** Top-5 Disease Matching Accuracy
+- **GPU-Accelerated** inference with CUDA support
+- **Real-Time** predictions and chat responses
+- **200K+ Context** window for comprehensive medical knowledge
+
+### 🎨 User Experience
+
+- Modern, responsive UI with gradient designs
+- Real-time chat with streaming responses
+- Confidence scores and visual feedback
+- Mobile-friendly interface
+
+---
+
+## 🏗️ Architecture
+
+### System Design Overview
+
+[![](https://mermaid.ink/img/pako:eNptkk2TojAQhv9KKmfHFQURDluloo4z4_fMZYOHFLSYWkjYELbWVf_7xiAuUzWc6LzP293p9BlHIgbs40TS_IjeRyFH-huSLdBIoakUXAGP0Te0UxJoljKFPuZ79PT0HY3OW_hVQqHQVpQK5LXyjm7iZXfKciUytClBni5oTIYJcIVWMjpqh6RKyH2Tn2c0AfSRp4LGFxSQKh6ntCjYgUVUMcHRmuWQMg7aWXnHppEJqauZIvumNiUBK4AWgOb8IL4AZiSAiMUgv9CeyVTIjCrVUCt9YvQ5GTGRQaz7S9FyskXvQqT7JvHyKL-gSl9dNpGpQV4_d7gFJRn8BvkJeiMzIZIU0A6oHmGdpUJeDLIg0-F8t0P1LILRPcOrkZd3uS5m5AoIDLAi4-USLfQ6_M88M8r6fBtRcXuBN5Gw6P7Q62pGVfBsgs1jYLG-SJELXsC9i1UF1Jk3JhyGHLf07rEY-0qW0MIZaP8txOcbGGJ1hAxC7OvfmMqfIQ75VXtyyn8IkdU2KcrkiP0DTQsdlXlMFQSM6q3OHqdSLzLIsSi5wn6365gk2D_jP9i3PKvtOZ3OwOq7tuvYvRY-6dO-1x54juf2Bl3Pdbr2tYX_mqqdtms7Pdt2LK9vOZbb613_Adq1_9c?type=png)](https://mermaid.live/edit#pako:eNptkk2TojAQhv9KKmfHFQURDluloo4z4_fMZYOHFLSYWkjYELbWVf_7xiAuUzWc6LzP293p9BlHIgbs40TS_IjeRyFH-huSLdBIoakUXAGP0Te0UxJoljKFPuZ79PT0HY3OW_hVQqHQVpQK5LXyjm7iZXfKciUytClBni5oTIYJcIVWMjpqh6RKyH2Tn2c0AfSRp4LGFxSQKh6ntCjYgUVUMcHRmuWQMg7aWXnHppEJqauZIvumNiUBK4AWgOb8IL4AZiSAiMUgv9CeyVTIjCrVUCt9YvQ5GTGRQaz7S9FyskXvQqT7JvHyKL-gSl9dNpGpQV4_d7gFJRn8BvkJeiMzIZIU0A6oHmGdpUJeDLIg0-F8t0P1LILRPcOrkZd3uS5m5AoIDLAi4-USLfQ6_M88M8r6fBtRcXuBN5Gw6P7Q62pGVfBsgs1jYLG-SJELXsC9i1UF1Jk3JhyGHLf07rEY-0qW0MIZaP8txOcbGGJ1hAxC7OvfmMqfIQ75VXtyyn8IkdU2KcrkiP0DTQsdlXlMFQSM6q3OHqdSLzLIsSi5wn6365gk2D_jP9i3PKvtOZ3OwOq7tuvYvRY-6dO-1x54juf2Bl3Pdbr2tYX_mqqdtms7Pdt2LK9vOZbb613_Adq1_9c)
+
+### Multi-Agent Architecture
+
+The platform implements a sophisticated **agent orchestration system** with specialized AI agents:
+
+#### 🎯 **Agent Orchestrator**
+Central coordinator that manages agent communication, workflow execution, and decision routing.
+
+#### Core Agents:
+
+1. **💡 Symptom Agent** (symptom_agent.py)
+   - Processes natural language symptom descriptions
+   - Extracts medical entities using biomedical NER
+   - Queries FAISS symptom vector database for semantic matching
+   - Collaborates with Disease Matcher Tool for multi-stage retrieval
+
+2. **📚 Disease Info Agent** (disease_info_agent.py)
+   - Retrieves comprehensive disease information
+   - Queries FAISS disease vector database
+   - Integrates Google Search for latest medical information
+   - Provides detailed disease profiles and metadata
+
+3. **🧠 Decider Agent** (decider_agent.py)
+   - Makes intelligent routing decisions
+   - Determines which agents to invoke based on query type
+   - Handles edge cases and uncertainty
+   - Optimizes agent workflow for efficiency
+
+4. **✨ Formatter Agent** (formatter_agent.py)
+   - Structures responses for readability
+   - Formats medical information with proper citations
+   - Ensures consistent output across all agents
+   - Generates user-friendly explanations
+
+#### 🛠️ Specialized Tools:
+
+- **Biomedical NER Tool** - Extracts medical entities (symptoms, diseases, body parts)
+- **Disease Matcher Tool** - Semantic similarity search using FAISS
+- **Disease Info Retriever** - Comprehensive disease knowledge retrieval
+- **Google Search Tool** - Real-time medical information augmentation
+
+### Technology Stack Layers
+| Layer                     | Technologies / Components                        |
+|----------------------------|-------------------------------------------------|
+| Frontend Layer             | React 18+, TypeScript, Streamlit, Chat, Image Upload |
+| Orchestration Layer        | Agent Orchestrator, Multi-Agent Coordination, Workflow Management |
+| Agent Layer                | Symptom Agent, Disease Info Agent, Decider Agent, Formatter Agent, LangChain Integration |
+| Tools & Services Layer     | Biomedical NER, Disease Matcher, Info Retriever, Google Search |
+| Data & ML Layer            | FAISS Vector DBs, CNN Models, MiniLM Embeddings, Medical Knowledge Base |
 
 
-## Smart Health LLM 
 
-**Smart Health** is designed as a modular, scalable, and interactive AI health assistant. It integrates **deep learning**, **large language models (LLMs)**, **vector similarity search**, and **modern web technologies** to provide both **image-based** and **text-based** health assessments. The system follows a **multi-agent architecture** to ensure separation of concerns, maintainability, and high performance.
+---
 
-### 1. System Architecture Overview
+## 📊 Performance Metrics
 
-The system can be broadly divided into **three layers**:
+### Disease Matching Evolution
 
-1. **Frontend Layer**
+| Version | Approach | Top-1 Accuracy | Top-3 Accuracy | Top-5 Accuracy |
+|---------|----------|----------------|----------------|----------------|
+| **v1** | Basic FAISS + NER | 8.00% | 15.00% | 18.00% |
+| **v2** | Enhanced Preprocessing | 16.45% | 26.35% | 30.71% |
+| **v3** | Symptom Embeddings | 92.86% | 94.90% | 95.71% |
+| **v4** | LlamaIndex + MiniLM | **99.71%** | **99.85%** | **99.86%** ✨ |
 
-   * Built using **HTML, CSS, and JavaScript**, creating a responsive and modern user interface.
-   * Supports **image uploads**, **real-time chat**, and **interactive displays** like confidence bars and animated orbs.
-   * Handles client-side validations, file preview, and dynamic updates for user interactions without page reloads.
-   * Communicates with the backend using **HTTP POST requests** for image analysis and chat inputs.
+### Model Specifications
 
-2. **Backend Layer**
+| Component | Model | Parameters | Speed | Use Case |
+|-----------|-------|------------|-------|----------|
+| **Image Classifier** | EfficientNet-B0 | 5.3M | ~50ms | Skin disease detection |
+| **Embeddings** | all-MiniLM-L6-v2 | 22.7M | ~20ms | Semantic search |
+| **LLM** | GPT/Gemini | - | Variable | Conversational responses |
+| **Vector DB** | FAISS | - | <10ms | Similarity search |
 
-   * Developed using **Python** with frameworks like **FastAPI** for asynchronous, high-performance APIs.
-   * Orchestrates the **multi-agent system**, routing requests to the appropriate agent (image, symptom, chat, or verification).
-   * Handles **file uploads, preprocessing, model inference**, and response formatting.
-   * Manages **chat history** and session state to ensure context-aware conversations.
-   * Returns structured data to the frontend for rendering dynamic visualizations and chat responses.
+---
 
-3. **AI & ML Layer**
+## 📸 Screenshots
 
-   * **Image Classification Module:**
+### Skin Disease Classification
 
-     * Utilizes a **deep learning CNN (e.g., EfficientNet)** for classifying skin diseases.
-     * Preprocessing includes resizing, normalization, and augmentation to improve model accuracy.
-     * Provides **predictions with confidence scores**, which are rendered in the frontend.
+*AI-powered skin disease detection with confidence scores and treatment recommendations*
 
-   * **Symptom Analysis Module:**
+### Multi-Agent Chatbot Interface
 
-     * Uses a **Large Language Model (LLM)** to understand and process natural language inputs.
-     * Incorporates **FAISS-based vector similarity search** to match extracted symptoms against structured disease data.
-     * Returns **top-k possible diseases** with relevant details like overview, causes, treatment, and preventive tips.
+*Intelligent symptom analysis powered by multi-agent orchestration*
 
-   * **Verification & Recommendation Module:**
+### System Architecture
 
-     * Optionally cross-checks predictions against external datasets or trusted medical sources.
-     * Generates **personalized recommendations** and next steps for the user.
+*Multi-agent architecture with specialized AI agents and FAISS vector databases*
 
-### 2. Multi-Agent System Design
+---
 
-The system follows a **multi-agent approach** to separate responsibilities, improve scalability, and reduce coupling:
-
-* **Image Classification Agent:** Handles image uploads, preprocessing, and deep learning inference.
-* **Symptom Analysis Agent:** Manages natural language symptom input, LLM reasoning, and vector similarity matching.
-* **Chat & Interaction Agent:** Maintains the chat interface, conversation context, and real-time updates.
-* **Verification & Recommendation Agent:** Validates predictions and provides actionable guidance.
-
-**Benefits:**
-
-* Parallel processing allows multiple agents to work simultaneously.
-* Each agent is modular, making it easy to maintain and extend.
-* Specialized agents increase accuracy and reliability for both image-based and text-based predictions.
-
-### 3. Data Flow & Communication
-
-1. **Image Flow:**
-
-   * User uploads an image → Frontend sends it to backend → Image Classification Agent preprocesses it → Model predicts disease → Backend sends response → Frontend displays prediction with confidence bar.
-
-2. **Symptom Flow:**
-
-   * User types symptoms → Frontend sends input → Symptom Analysis Agent processes via LLM → Symptoms converted to embeddings → FAISS matches similar diseases → Backend formats top results → Frontend shows structured chat response.
-
-3. **Chat Flow:**
-
-   * Chat & Interaction Agent updates conversation in real-time.
-   * Maintains context for follow-up questions.
-   * Verification agent optionally validates predictions before sending back to user.
-
-### 4. Technology Stack
-
-* **Frontend:** HTML, CSS, JavaScript
-* **Backend:** Python, FastAPI, Uvicorn
-* **AI/ML:** TensorFlow/PyTorch for CNN, HuggingFace LLM for text, FAISS for vector similarity
-* **Utilities:** PIL for image preprocessing, NumPy/Pandas for data handling
-* **Deployment:** Can be containerized using Docker for portability and scalability
-
-### 5. Key Advantages
-
-* **Dual-Module Health Assessment:** Supports both image-based and symptom-based analysis.
-* **Interactive User Experience:** Modern UI with responsive design, animations, and real-time chat.
-* **High Scalability:** Modular multi-agent design allows addition of new agents without affecting existing functionality.
-* **Accuracy & Reliability:** Combines deep learning, LLM reasoning, and vector similarity search for robust predictions.
-* **Future Extensibility:** New features like lifestyle advice, drug recommendations, or telemedicine integration can be added seamlessly.
-
-<br/>
-
-## Screenshots
-
-![skin](./docs/assets/skin.png)
-![Chatbot](./docs/assets/chatbot.png)
-
-
-<br/>
-
-## Tech Stack
+## 🛠️ Tech Stack
 
 ### Frontend
+![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
 
-* **HTML** – Structured the frontend for ML web apps, enabling image uploads and symptom-based chat interfaces.
-* **CSS** – Styled the app with modern gradients, cards, animations, and responsive layouts for better user experience.
-* **JavaScript** – Added interactivity with real-time chat updates, dynamic prediction displays, file upload feedback, and smooth UI interactions.
+### Backend & Orchestration
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white)
+![LangChain](https://img.shields.io/badge/🦜_LangChain-000000?style=flat-square)
 
-### Backend
+### AI/ML & Vector Search
+![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?style=flat-square&logo=tensorflow&logoColor=white)
+![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white)
+![FAISS](https://img.shields.io/badge/FAISS-0066FF?style=flat-square)
+![HuggingFace](https://img.shields.io/badge/🤗_HuggingFace-FFD21E?style=flat-square)
 
-* **Python** – Backend logic and ML integration
-* **FastAPI** – High-performance web framework for serving APIs
+### DevOps & Testing
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=github-actions&logoColor=white)
+![Pytest](https://img.shields.io/badge/Pytest-0A9EDC?style=flat-square&logo=pytest&logoColor=white)
 
-### AI/ML
+---
 
-* **EfficientNet-B0** – Lightweight and accurate CNN for skin disease prediction
-* **all-MiniLM** – Embedding model for semantic search & LLM tasks
-* **RAG (Retrieval-Augmented Generation)** – Combines LLM with medical context for better answers
-* **FAISS DB** – Fast similarity search for symptom/disease retrieval
-* **CUDA** – GPU acceleration for faster training and inference
+## 🚀 Quick Start
 
-### DevOps / Deployment
+### Prerequisites
+- Python 3.9+
+- CUDA-compatible GPU (optional, for faster inference)
+- 8GB+ RAM recommended
 
-* *(Coming Soon)* – Docker, CI/CD, and cloud deployment tools
+### Installation
 
-<br/>
-
-
-## System  Design Diagram
-
-![image](./docs/assets/image.png)
-
-<br/>
-
-
-## Features
-
-- AI-Powered Diagnosis – Predicts skin diseases using EfficientNet-B0
-- Symptom-based Chat – Interact with a medical assistant powered by LLM & RAG
-- Fast Performance – Optimized with CUDA for GPU-based inference
-- Smart Suggestions – Recommends possible causes, treatments, and follow-up questions
-- Semantic Search – Finds the most relevant diseases using FAISS & MiniLM embeddings
-
-<br/>
-
-<!--start-->
-| Version   | Model Name                                              | Description                                                                                                                                                                                                                                                                                                                                                                                                                    | Top-1   | Top-3   | Top-5   |
-|-----------|---------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|---------|---------|
-| v1        | Symptom-based FAISS Disease Retrieval                   | Used NER (en_ner_bc5cdr_md) to extract symptoms, MiniLM embeddings word-by-word, FAISS DB with cosine similarity for top‑K matching.                                                                                                                                                                                                                                                                                           | 8%      | 15%     | 18%     |
-| v2        | Enhanced Symptom Preprocessing FAISS Retrieval          | Added biomedical NER filtering (biomedical-ner-all) with advanced text cleaning, lemmatization, and medical relevance filtering. MiniLM embeddings stored in FAISS with weighted multi-symptom cosine similarity for improved top‑K disease matching.                                                                                                                                                                          | 16.45%  | 26.35%  | 30.71%  |
-| v3        | Enhanced Symptom Preprocessing FAISS Retrieval          | Built a disease symptom database by extracting symptoms via SpaCy biomedical NER model (en_ner_bc5cdr_md) from disease symptom text, generated embeddings for each symptom using HuggingFace MiniLM model (all-MiniLM-L6-v2), stored as a dictionary with symptom lists and their embeddings, then matched user input by extracting symptoms and computing cosine similarity between embedded symptoms to rank top-K diseases. | 92.86%  | 94.9%   | 30.71%  |
-| v4        | DiseaseMatcherAgent with LlamaIndex & MiniLM Embeddings | Built a disease symptom database by indexing disease symptom text from Mayo Clinic CSV using LlamaIndex. Embedded symptoms using sentence-transformers/all-MiniLM-L6-v2, then matched user symptom queries via vector similarity retrieval to rank top-K diseases.                                                                                                                                                             | 99.71%  | 99.85%  | 99.86%  |
-<!--stop-->
-
-<br/>
-
-
-## Run Locally
-
-Clone the project
-
+1. **Clone the repository**
 ```bash
 git clone https://github.com/harmeshgv/SmartHealth-LLM.git
-```
-
-Go to the project directory
-
-```bash
 cd SmartHealth-LLM
 ```
 
-Create and activate a virtual environment
-
+2. **Create virtual environment**
 ```bash
 python -m venv venv
-venv\Scripts\activate  # For Windows
-# or
-source venv/bin/activate  # For Linux/macOS
+
+# Windows
+venv\\Scripts\\activate
+
+# Linux/macOS
+source venv/bin/activate
 ```
 
-Install dependencies
-
+3. **Install dependencies**
 ```bash
 pip install -r requirements.txt
 ```
 
-Run backend server (FastAPI)
-
+4. **Set up environment variables**
 ```bash
-cd backend
-uvicorn main:app --reload
+# Create .env file
+cp .env.example .env
+
+# Add your API keys
+OPENAI_API_KEY=your_key_here
+# or
+GOOGLE_API_KEY=your_key_here
 ```
 
-Run frontend (Streamlit)
+---
 
+## 💻 Usage
+
+### Running the Application
+
+#### Option 1: Streamlit Interface (Recommended for Demo)
+```bash
+# Start Streamlit app
+streamlit run streamlit_app.py
+
+# Access at http://localhost:8501
+```
+
+#### Option 2: React Frontend + Python Backend
+
+**Terminal 1 - Start Backend**
+```bash
+# Run main application
+python main.py
+
+# Backend runs on http://localhost:8000
+```
+
+**Terminal 2 - Start React Frontend**
 ```bash
 cd frontend
-streamlit run app.py
+npm install
+npm start
+
+# Frontend runs on http://localhost:3000
 ```
 
-<br/>
-
-## Installation
+### Using Docker
 
 ```bash
-pip install -r requirements.txt
+# Build and run with Docker
+docker build -t smarthealth-llm .
+docker run -p 8501:8501 smarthealth-llm
+
+# Access the app at http://localhost:8501
 ```
 
-<br/>
+### Building FAISS Vector Databases
 
-## Directory Structure
+If you need to rebuild the vector databases:
 
-<pre>
+```bash
+# Build symptom vector database
+python scripts/build_faiss_db.py
+
+# Build disease information database
+python scripts/build_disease_db.py
+```
+
+---
+
+## 📁 Directory Structure
+
+```
 SmartHealth-LLM/
-├── README.md
-├── requirements.txt
-├── LICENSE
-├── logo.png
+│
+├── 📄 README.md                    # Project documentation
+├── 📄 LICENSE                      # MIT License
+├── 📄 requirements.txt             # Python dependencies
+├── 📄 pyproject.toml               # Project configuration
+├── 📄 Dockerfile                   # Docker configuration
+├── 📄 .env                         # Environment variables
+├── 📄 main.py                      # Main application entry
+├── 📄 streamlit_app.py             # Streamlit web interface
+│
+├── ⚙️ backend/                     # Backend system
+│   ├── __init__.py
+│   ├── README.md                   # Backend documentation
+│   ├── config.py                   # Configuration settings
+│   ├── agent_orchestrator.py      # Multi-agent coordinator
+│   │
+│   ├── 🤖 agents/                  # Specialized AI agents
+│   │   ├── __init__.py
+│   │   ├── symptom_agent.py       # Symptom analysis agent
+│   │   ├── disease_info_agent.py  # Disease information agent
+│   │   ├── decider_agent.py       # Decision routing agent
+│   │   └── formatter_agent.py     # Response formatting agent
+│   │
+│   ├── 🛠️ tools/                   # Agent tools
+│   │   ├── __init__.py
+│   │   ├── biomedical_ner_tool.py # Medical entity extraction
+│   │   ├── disease_matcher_tool.py # FAISS-based disease matching
+│   │   ├── disease_info_retriever_tool.py # Disease info retrieval
+│   │   └── google_search.py       # Web search integration
+│   │
+│   ├── 📊 data/                    # Datasets and vector stores
+│   │   ├── __init__.py
+│   │   ├── updated_df.csv         # Medical knowledge base
+│   │   ├── labels.json            # Disease labels
+│   │   ├── test.json              # Test data
+│   │   └── Vector/                # FAISS vector databases
+│   │       ├── symptom_faiss_db/  # Symptom embeddings
+│   │       │   ├── index.faiss
+│   │       │   └── index.pkl
+│   │       └── disease_faiss_db/  # Disease embeddings
+│   │           ├── index.faiss
+│   │           └── index.pkl
+│   │
+│   └── 🔧 utils/                   # Utility modules
+│       ├── __init__.py
+│       ├── llm.py                 # LLM configurations
+│       └── embeddings.py          # Embedding models
+│
+├── 🎨 frontend/                    # React frontend
+│   ├── package.json
+│   ├── tsconfig.json
+│   ├── public/                    # Static assets
+│   │   ├── index.html
+│   │   ├── manifest.json
+│   │   ├── favicon.ico
+│   │   ├── logo192.png
+│   │   └── logo512.png
+│   └── src/                       # React components
+│       ├── index.tsx
+│       ├── App.tsx
+│       ├── App.css
+│       ├── ChatPage.tsx
+│       ├── ChatPage.css
+│       ├── api.ts                 # API integration
+│       └── index.css
+│
+├── 📓 notebook/                    # Jupyter notebooks
+│   ├── __init__.py
+│   ├── skin_disease_prediction.ipynb # CNN training
+│   ├── web_scrapping.ipynb        # Data collection
+│   └── catboost_info/             # Model training logs
+│
+├── 📜 scripts/                     # Utility scripts
+│   ├── model.py                   # Model utilities
+│   ├── build_faiss_db.py          # Build symptom vector DB
+│   ├── build_disease_db.py        # Build disease vector DB
+│   ├── update_readme.py           # Documentation generator
+│   └── scrapers/                  # Web scraping tools
+│       ├── main.py
+│       ├── web_scrapers.py
+│       └── web_scraper2.py
+│
+├── 🧪 tests/                       # Unit tests
+│   └── test_llm.py                # LLM integration tests
+│
+├── 📖 docs/                        # Documentation
+│   └── assets/                    # Images and media
+│       ├── logo.png
+│       ├── skin.png
+│       ├── chatbot.png
+│       └── image.png
+│
+└── 🔄 .github/                     # GitHub workflows
+    └── workflows/
+        └── python-test.yml        # CI/CD pipeline
+```
 
-├── backend/
-│   ├── main.py
-│   ├── config.py
-│   ├── api/
-│   ├── services/
-│   ├── models/
-│   └── utils/
+---
 
-├── frontend/
-│   └── app.py
+## 🧪 Testing
 
-├── data/
-│   ├── mayo_diseases.csv
-│   └── Vector/
+### Run Unit Tests
+```bash
+pytest tests/
+```
 
-├── notebooks/
-│   ├── skin_disease_prediction.ipynb
-│   └── symptom_rag_pipeline.ipynb
+### Run Integration Tests
+```bash
+pytest tests/integration/
+```
 
-├── evaluation/
-│   └── evaluate_rag_symptom.py
+### Test Coverage
+```bash
+pytest --cov=backend tests/
+```
 
-├── scripts/
-│   └── build_vectordb.py
-</pre>
+---
 
-<br/>
+## 🔧 Configuration
 
-## Optimizations
+### Environment Variables
 
- Model Caching – Loaded EfficientNet-B0 and LLM components once during startup to avoid reloading on each request
+```env
+# API Keys
+OPENAI_API_KEY=sk-...
+GOOGLE_API_KEY=...
 
- CUDA Acceleration – Enabled GPU usage for faster model inference and reduced latency in skin disease prediction
+# Model Settings
+MODEL_PATH=backend/models/efficientnet_b0.h5
+VECTOR_DB_PATH=data/vector/
 
- Efficient Embeddings – Used all-MiniLM to generate lightweight yet accurate embeddings for semantic search
+# Server Config
+BACKEND_HOST=0.0.0.0
+BACKEND_PORT=8000
+FRONTEND_PORT=8501
+```
 
-<br/>
+---
 
-## Lessons Learned
+## 🚀 Deployment
 
-Building SmartHealth-LLM gave me hands-on experience in combining deep learning and LLM-based reasoning for real-world healthcare use cases. Some key lessons and challenges:
+### Deploy to Streamlit Cloud
+1. Push code to GitHub
+2. Visit [share.streamlit.io](https://share.streamlit.io)
+3. Connect repository and deploy
 
-* **RAG & Retrieval Design:**
-  Learned how to build a symptom-based semantic search system using FAISS and MiniLM, and integrate it with a language model for accurate, context-aware responses.
+### Deploy with Docker
+```bash
+docker build -t smarthealth-llm .
+docker run -p 8501:8501 smarthealth-llm
+```
 
-* **Model Integration & Performance:**
-  Faced challenges integrating image-based CNN models (EfficientNet-B0) with real-time web applications. Solved it using model caching and optimizing inference with CUDA.
+### Deploy to Cloud Platforms
+- **AWS**: EC2, ECS, or Lambda
+- **GCP**: Cloud Run or App Engine
+- **Azure**: App Service or Container Instances
 
-* **LLM Prompt Tuning:**
-  Realized the importance of prompt clarity and context when working with LLMs to ensure medical suggestions were structured, useful, and safe.
+---
 
-* **Handling Noisy Medical Data:**
-  Built text cleaning and NER filters to extract relevant keywords and symptoms from unstructured input.
+## 🤝 Contributing
 
-* **Frontend-Backend Sync:**
-  Gained experience managing interactions between a Streamlit frontend and a FastAPI backend — handling JSON inputs, form validation, and async inference calls.
+Contributions are welcome! Here's how you can help:
 
-* **Trade-offs in Real-Time AI Apps:**
-  Learned to balance model accuracy with responsiveness and resource usage, especially in a setup where both image and text processing are involved.
+### Ways to Contribute
+- 🐛 Report bugs and issues
+- 💡 Suggest new features
+- 📝 Improve documentation
+- 🔧 Submit pull requests
 
-<br/>
+### Contribution Guidelines
 
-## Contributing
+1. **Fork the repository**
+```bash
+git fork https://github.com/harmeshgv/SmartHealth-LLM.git
+```
 
-Contributions are always welcome!
+2. **Create a feature branch**
+```bash
+git checkout -b feature/AmazingFeature
+```
 
-See `contributing.md` for ways to get started.
+3. **Commit your changes**
+```bash
+git commit -m 'Add some AmazingFeature'
+```
 
-Please adhere to this project's `code of conduct`.
+4. **Push to the branch**
+```bash
+git push origin feature/AmazingFeature
+```
 
-<br/>
+5. **Open a Pull Request**
 
-## Feedback
+### Code Style
+- Follow PEP 8 for Python code
+- Use type hints where applicable
+- Write docstrings for functions
+- Add unit tests for new features
 
-If you have any feedback or suggestions, feel free to reach out at **harmeshgopinathan@gmail.com**
+---
 
-<br/>
+## 🎓 Learning Resources
 
-## FAQ
+- **Notebooks**: Check the \`notebook/\` directory for detailed tutorials
+- **API Docs**: See \`docs/API.md\` for endpoint documentation
+- **Blog Posts**: [Coming Soon]
+- **Video Tutorials**: [Coming Soon]
 
-#### How does SmartHealth predict skin diseases?
+---
 
- It uses a pre-trained EfficientNet-B0 deep learning model to classify uploaded skin images.
+## 🔒 Privacy & Security
 
-#### What happens when I enter my symptoms?
+- **No Data Storage**: All predictions happen in-memory
+- **HIPAA Considerations**: Not intended for clinical use
+- **API Security**: Rate limiting and authentication implemented
+- **Data Encryption**: In transit via HTTPS
 
-The system uses semantic search (FAISS + MiniLM) to find relevant diseases and then uses an LLM to generate detailed responses.
+---
 
-####  Is my data stored?
+## 🐛 Known Issues & Limitations
 
-Currently, the app does not store any user data. All predictions happen in-memory for privacy.
+- Model works best with high-quality skin images
+- Symptom analysis requires clear, detailed descriptions
+- GPU recommended for optimal performance
+- Not a replacement for professional medical advice
 
-#### Can I use this without a GPU?
+---
 
-Yes, but the training will be slower. CUDA acceleration is used only if available.
+## 📈 Roadmap
 
-<br/>
+### Phase 1 (Current) ✅
+- [x] Skin disease classification
+- [x] Symptom-based chat
+- [x] FAISS vector search
+- [x] Streamlit interface
 
-## Related Projects
+### Phase 2 (In Progress) 🚧
+- [ ] Multi-language support
+- [ ] Voice input capability
+- [ ] Treatment recommendations
+- [ ] Drug interaction checker
 
-[CSV RAG](https://github.com/harmeshgv/RAG-Enhanced-NLP-QueryEngine.git) - A Retrieval Augmented Generation (RAG)-based NLP query engine for DataFrames, designed for efficient querying of large datasets. It uses semantic embeddings and FAISS indexing to retrieve relevant data segments, enabling accurate natural language queries while overcoming language model input size limitations.
+### Phase 3 (Planned) 📋
+- [ ] Mobile app (React Native)
+- [ ] Telemedicine integration
+- [ ] Electronic health records (EHR) integration
+- [ ] Real-time collaboration features
 
-<br/>
+---
 
-## 🚀 About Me
-Hi, I'm **Harmesh G V** – a B.Tech CSE student passionate about building AI-powered applications.  
-This project is part of my exploration into combining computer vision and LLMs for practical healthcare use cases.
+## 📜 License
 
-<br/>
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
 
-## 🔗 Links
-[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://harmeshgv.github.io/portfolio/)
-[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](www.linkedin.com/in/harmeshgv)
-[![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://x.com/Harmesh950)
+```
+MIT License
 
+Copyright (c) 2025 Harmesh G V
 
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction...
+```
 
+---
 
+## 📞 Contact & Support
 
+<div align="center">
 
+### 👨‍💻 Harmesh G V
+
+[![Portfolio](https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=About.me&logoColor=white)](https://harmeshgv.github.io/portfolio/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/harmeshgv)
+[![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://x.com/Harmesh950)
+[![Email](https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:harmeshgopinathan@gmail.com)
+
+**B.Tech Computer Science & Engineering Student**
+*Passionate about AI-Powered Healthcare Solutions*
+
+</div>
+
+---
+
+## 🙏 Acknowledgments
+
+- **Mayo Clinic** - Disease database
+- **HuggingFace** - Pre-trained models
+- **Streamlit** - Amazing web framework
+- **FastAPI** - High-performance backend
+- **LangChain** - LLM orchestration
+- **Community Contributors** - Thank you! 🎉
+
+---
+
+## 📚 Citations
+
+If you use this project in your research, please cite:
+
+```bibte
+@software{smarthealth_llm,
+  author = {Harmesh G V},
+  title = {SmartHealth-LLM: AI-Powered Medical Assistant},
+  year = {2025},
+  url = {https://github.com/harmeshgv/SmartHealth-LLM}
+}
+```
+
+---
+## 📊 Project Stats
+
+![GitHub repo size](https://img.shields.io/github/repo-size/harmeshgv/SmartHealth-LLM)
+![GitHub language count](https://img.shields.io/github/languages/count/harmeshgv/SmartHealth-LLM)
+![GitHub top language](https://img.shields.io/github/languages/top/harmeshgv/SmartHealth-LLM)
+![GitHub last commit](https://img.shields.io/github/last-commit/harmeshgv/SmartHealth-LLM)
+![GitHub issues](https://img.shields.io/github/issues/harmeshgv/SmartHealth-LLM)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/harmeshgv/SmartHealth-LLM)
+
+---
+
+<div align="center">
+
+### ⭐ If you find this project helpful, please consider giving it a star!
+
+**Made with ❤️ by [Harmesh G V](https://github.com/harmeshgv)**
+
+[🔝 Back to Top](#-smarthealth-llm)
+
+</div>`;

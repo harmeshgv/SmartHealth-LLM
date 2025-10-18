@@ -1,9 +1,9 @@
 from langgraph.graph import StateGraph, END
-from backend.agents.decider_agent import DeciderAgent
-from backend.agents.disease_info_agent import DiseaseInfoAgent
-from backend.agents.symptom_agent import SymptomToDiseaseAgent
-from backend.agents.formatter_agent import FormatterAgent
-from backend.utils.llm import set_llm
+from agents.decider_agent import DeciderAgent
+from agents.disease_info_agent import DiseaseInfoAgent
+from agents.symptom_agent import SymptomToDiseaseAgent
+from agents.formatter_agent import FormatterAgent
+from utils.llm import set_llm
 from dotenv import load_dotenv
 from typing import TypedDict
 

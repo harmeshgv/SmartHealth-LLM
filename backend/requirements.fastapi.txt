@@ -8,4 +8,6 @@ python-dotenv
 sentence-transformers
 faiss-cpu
 langgraph
-
+uvicorn
+pydantic
+fastapi
