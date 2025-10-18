@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/harmehgv.github.io/SmartHealth-LLM/static/css/main.3f31cc1d.css",
+    "main.js": "/harmehgv.github.io/SmartHealth-LLM/static/js/main.23f3891f.js",
+    "static/js/453.670e15c7.chunk.js": "/harmehgv.github.io/SmartHealth-LLM/static/js/453.670e15c7.chunk.js",
+    "index.html": "/harmehgv.github.io/SmartHealth-LLM/index.html",
+    "main.3f31cc1d.css.map": "/harmehgv.github.io/SmartHealth-LLM/static/css/main.3f31cc1d.css.map",
+    "main.23f3891f.js.map": "/harmehgv.github.io/SmartHealth-LLM/static/js/main.23f3891f.js.map",
+    "453.670e15c7.chunk.js.map": "/harmehgv.github.io/SmartHealth-LLM/static/js/453.670e15c7.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3f31cc1d.css",
+    "static/js/main.23f3891f.js"
+  ]
+}
