@@ -11,3 +11,4 @@ langgraph
 uvicorn
 pydantic
 fastapi
+rapidfuzz

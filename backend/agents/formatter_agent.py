@@ -1,75 +1,76 @@
 from langchain_core.prompts import ChatPromptTemplate
 
 
+# Update your FormatterAgent class to accept the decision parameter
 class FormatterAgent:
     def __init__(self, llm):
         self.llm = llm
         self.system_prompt = """
-        You are a medical response formatter. Your task is to format the raw medical information into a clean, user-friendly response.
+        You are a medical response formatter. Your task is to transform complex medical information into short, easy-to-understand, point-wise responses.
 
-        You receive:
-        - Original user query
-        - Disease name (if available)
-        - Raw medical information
-        - Decision type (symptom_to_disease or disease_info)
+        RULES:
+        1. KEEP IT SHORT & SIMPLE - Maximum 8-10 key points total
+        2. USE EMOJIS for visual appeal
+        3. USE PLAIN LANGUAGE - explain medical terms in simple words
+        4. POINT-WISE FORMAT - no long paragraphs
+        5. FOCUS ON KEY INFORMATION - skip minor details
+        6. FRIENDLY & REASSURING tone
 
-        Formatting Rules:
-        1. For symptom queries (symptom_to_disease):
-           - Start with: "Based on your symptoms, you might have: [Disease Name]"
-           - Then provide the information in a structured way
-           - Use clear sections like: Symptoms, Causes, Treatment, Prevention
-           - Make it empathetic and easy to understand
+        FORMATTING GUIDELINES:
 
-        2. For direct disease queries (disease_info):
-           - Start with: "Here's information about [Disease Name]:"
-           - Organize the information based on what the user asked for
-           - If user asked for specific info (like symptoms/treatment), focus on that
-           - Use clear headings and bullet points
+        For symptom queries (symptom_to_disease):
+        🔍 Based on your symptoms, this could be: [Disease Name]
 
-        3. Always include:
-           - Clear section headings
-           - Easy-to-read format
-           - Professional but friendly tone
-           - Important warnings if any (like "Consult a doctor for proper diagnosis")
+        📋 Main Symptoms:
+        • [Symptom 1] - in simple terms
+        • [Symptom 2] - in simple terms
 
-        Example Input:
-        Query: "I have fever and cough"
-        Disease Name: "Influenza"
-        Raw Result: "Symptoms: Fever, cough, body aches... Causes: Viral infection..."
-        Decision: "symptom_to_disease"
+        💡 What to know:
+        • [Key fact 1]
+        • [Key fact 2]
 
-        Example Output:
-        "Based on your symptoms, you might have: Influenza
+        🏥 Next steps:
+        • [Action 1]
+        • [Action 2]
 
-        🤒 Symptoms:
-        • Fever
-        • Cough
-        • Body aches
-        • Fatigue
+        For disease queries (disease_info):
+        📖 About [Disease Name]:
 
-        🦠 Causes:
-        • Viral infection
+        🔍 What it is:
+        • [Simple explanation]
 
-        💊 Treatment:
-        • Rest
-        • Plenty of fluids
-        • Over-the-counter fever reducers
+        📋 Common signs:
+        • [Symptom 1]
+        • [Symptom 2]
 
-        ⚠️ Please consult a healthcare professional for proper diagnosis and treatment."
+        💊 Management:
+        • [Treatment 1]
+        • [Treatment 2]
+
+        🛡️ Prevention:
+        • [Prevention tip 1]
+
+        FINAL REQUIREMENTS:
+        - MAX 10 bullet points total
+        - Simple language a 12-year-old can understand
+        - Use emojis to make it friendly
+        - Skip complex medical jargon
+        - Include "Consult a doctor for proper care" at the end
         """
+
         self.prompt_template = ChatPromptTemplate.from_messages(
             [
                 ("system", self.system_prompt),
                 (
                     "human",
                     """
-            Original Query: {query}
-            Disease Name: {disease_name}
-            Raw Medical Information: {raw_result}
-            Decision Type: {decision}
+**User Question:** {query}
+**Condition:** {disease_name}
+**Medical Info:** {raw_result}
+**Query Type:** {decision}
 
-            Please format this into a clean, user-friendly response:
-            """,
+Please create a short, easy-to-understand response:
+""",
                 ),
             ]
         )
@@ -80,15 +81,15 @@ class FormatterAgent:
         query: str,
         disease_name: str = "",
         raw_result: str = "",
-        decision: str = "",
+        decision: str = "",  # Add this parameter
     ) -> str:
-        """Format all the accumulated information into a clean response"""
+        """Format medical information into short, simple points"""
         response = self.chain.invoke(
             {
                 "query": query,
                 "disease_name": disease_name,
                 "raw_result": raw_result,
-                "decision": decision,
+                "decision": decision,  # Include decision in the prompt
             }
         )
         return response.content.strip()

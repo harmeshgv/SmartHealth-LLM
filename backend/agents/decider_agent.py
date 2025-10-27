@@ -37,3 +37,22 @@ class DeciderAgent:
             return "symptom_to_disease"
         else:
             return "disease_info"
+
+
+if __name__ == "__main__":
+    from dotenv import load_dotenv
+    import os
+    from backend.utils.llm import set_llm
+
+    load_dotenv()
+    llm_instance = set_llm(
+        os.getenv("TEST_API_KEY"),
+        os.getenv("TEST_API_BASE"),
+        os.getenv("TEST_MODEL"),
+    )
+    DI = DeciderAgent(llm_instance)
+    print(
+        DI.invoke(
+            "I am having pain un  my legs. I got into a small accident a car crash can u tell me what ch=ould have happened?"
+        )
+    )
