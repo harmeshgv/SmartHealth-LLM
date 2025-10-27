@@ -21,7 +21,7 @@ export default function ChatPage({ onBack }: ChatPageProps) {
   const [query, setQuery] = useState("");
   const [messages, setMessages] = useState<Message[]>([]);
   const [loading, setLoading] = useState(false);
-  const [showUpload, setShowUpload] = useState(false);
+  const [_showUpload, setShowUpload] = useState(false);
   const [userId] = useState<string>(() => {
     return `user_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
   });
