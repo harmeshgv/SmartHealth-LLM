@@ -1,7 +1,7 @@
 // api.ts
 import axios from "axios";
 
-const API_URL = "http://localhost:8000"; // Remove the trailing slash
+const API_URL = "https://harmesh95-smart-health-llm.hf.space"; // Remove the trailing slash
 
 // ---- Health check (auto run once) ----
 let backendHealthy = false;
