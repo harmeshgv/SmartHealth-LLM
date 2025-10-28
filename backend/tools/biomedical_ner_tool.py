@@ -1,8 +1,19 @@
 # backend/tools/biomedical_ner_tool.py
+import os
+
+# use temp directory for cache (always writable on Spaces)
+cache_dir = "/tmp/hf_cache"
+os.environ["HF_HOME"] = cache_dir
+os.environ["TRANSFORMERS_CACHE"] = cache_dir
+os.makedirs(cache_dir, exist_ok=True)
+
+print(f"Hugging Face cache directory set to: {cache_dir}")
+
+
 from transformers import AutoTokenizer, AutoModelForTokenClassification, pipeline
 from typing import List, Dict
-
 import numpy as np
+
 
 
 class BiomedicalNER:

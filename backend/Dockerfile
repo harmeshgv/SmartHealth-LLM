@@ -32,7 +32,10 @@ RUN pip install --upgrade pip setuptools wheel && \
     pip install --prefer-binary -r requirements.fastapi.txt
 
 # ---------- Expose Port ----------
-EXPOSE 7860
+EXPOSE 8000
+# ---------- Hugging Face Cache Fix ----------
+ENV HF_HOME=/tmp/hf_cache
+ENV TRANSFORMERS_CACHE=/tmp/hf_cache
 
 # ---------- Run FastAPI ----------
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "7860"]

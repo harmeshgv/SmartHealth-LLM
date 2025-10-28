@@ -29,6 +29,7 @@ llm_instance = set_llm(
     os.getenv("TEST_API_BASE"),
     os.getenv("TEST_MODEL"),
 )
+logger.info("LLM initialized")
 
 # Initialize FastAPI app
 app = FastAPI(title="Smart Health LLM API")
@@ -69,7 +70,10 @@ def ask(request: ChatRequest):
     if request.user_id not in user_orchestrations:
         try:
             user_orchestrations[request.user_id] = AgentOrchestration(llm_instance)
+            logging.info("Initialized AI agent")
         except Exception as e:
+            logging.error(f"Failed to initialize AI agent: {str(e)}")
+
             return {"error": f"Failed to initialize AI agent: {str(e)}"}
 
     orchestrator_instance = user_orchestrations[request.user_id]
@@ -81,14 +85,18 @@ def ask(request: ChatRequest):
             header, base64_data = request.image.split(",", 1)
             image_bytes = base64.b64decode(base64_data)
             image = Image.open(BytesIO(image_bytes)).convert("RGB")
+            logging.info("Processed image")
         except Exception as e:
+            logging.error(f"Failed to process image: {str(e)}")
             return {"error": f"Failed to process image: {str(e)}"}
 
     # Invoke orchestrator
     try:
         response = orchestrator_instance.invoke(user_query=request.message, image=image)
+        logging.info("Response Generated Successfully")
         return {"answer": response}
     except Exception as e:
+        logging.error(f"Internal server error: {str(e)}")
         return {"error": f"Internal server error: {str(e)}"}
 
 
