@@ -82,6 +82,7 @@ Key Highlights:
 
 ### System Design Overview
 
+
 [![](https://mermaid.ink/img/pako:eNptkk2TojAQhv9KKmfHFQURDluloo4z4_fMZYOHFLSYWkjYELbWVf_7xiAuUzWc6LzP293p9BlHIgbs40TS_IjeRyFH-huSLdBIoakUXAGP0Te0UxJoljKFPuZ79PT0HY3OW_hVQqHQVpQK5LXyjm7iZXfKciUytClBni5oTIYJcIVWMjpqh6RKyH2Tn2c0AfSRp4LGFxSQKh6ntCjYgUVUMcHRmuWQMg7aWXnHppEJqauZIvumNiUBK4AWgOb8IL4AZiSAiMUgv9CeyVTIjCrVUCt9YvQ5GTGRQaz7S9FyskXvQqT7JvHyKL-gSl9dNpGpQV4_d7gFJRn8BvkJeiMzIZIU0A6oHmGdpUJeDLIg0-F8t0P1LILRPcOrkZd3uS5m5AoIDLAi4-USLfQ6_M88M8r6fBtRcXuBN5Gw6P7Q62pGVfBsgs1jYLG-SJELXsC9i1UF1Jk3JhyGHLf07rEY-0qW0MIZaP8txOcbGGJ1hAxC7OvfmMqfIQ75VXtyyn8IkdU2KcrkiP0DTQsdlXlMFQSM6q3OHqdSLzLIsSi5wn6365gk2D_jP9i3PKvtOZ3OwOq7tuvYvRY-6dO-1x54juf2Bl3Pdbr2tYX_mqqdtms7Pdt2LK9vOZbb613_Adq1_9c?type=png)](https://mermaid.live/edit#pako:eNptkk2TojAQhv9KKmfHFQURDluloo4z4_fMZYOHFLSYWkjYELbWVf_7xiAuUzWc6LzP293p9BlHIgbs40TS_IjeRyFH-huSLdBIoakUXAGP0Te0UxJoljKFPuZ79PT0HY3OW_hVQqHQVpQK5LXyjm7iZXfKciUytClBni5oTIYJcIVWMjpqh6RKyH2Tn2c0AfSRp4LGFxSQKh6ntCjYgUVUMcHRmuWQMg7aWXnHppEJqauZIvumNiUBK4AWgOb8IL4AZiSAiMUgv9CeyVTIjCrVUCt9YvQ5GTGRQaz7S9FyskXvQqT7JvHyKL-gSl9dNpGpQV4_d7gFJRn8BvkJeiMzIZIU0A6oHmGdpUJeDLIg0-F8t0P1LILRPcOrkZd3uS5m5AoIDLAi4-USLfQ6_M88M8r6fBtRcXuBN5Gw6P7Q62pGVfBsgs1jYLG-SJELXsC9i1UF1Jk3JhyGHLf07rEY-0qW0MIZaP8txOcbGGJ1hAxC7OvfmMqfIQ75VXtyyn8IkdU2KcrkiP0DTQsdlXlMFQSM6q3OHqdSLzLIsSi5wn6365gk2D_jP9i3PKvtOZ3OwOq7tuvYvRY-6dO-1x54juf2Bl3Pdbr2tYX_mqqdtms7Pdt2LK9vOZbb613_Adq1_9c)
 
 ### Multi-Agent Architecture
@@ -144,13 +145,18 @@ coming soon
 
 *AI-powered skin disease detection with confidence scores and treatment recommendations*
 
+<div align="center">
+  <img src="./docs/assets/image.png" alt="SmartHealth Logo" width="600"/>
+</div>
+
+
 ### Multi-Agent Chatbot Interface
 
 *Intelligent symptom analysis powered by multi-agent orchestration*
 
-### System Architecture
-
-*Multi-agent architecture with specialized AI agents and FAISS vector databases*
+<div align="center">
+  <img src="./docs/assets/chat.png" alt="SmartHealth Logo" width="600"/>
+</div>
 
 ---
 

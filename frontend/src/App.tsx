@@ -1,3 +1,5 @@
+// App.tsx
+
 import React, { useState, useEffect } from "react";
 import ChatPage from "./ChatPage";
 
@@ -25,7 +27,7 @@ export default function App() {
         <>
           {/* Navbar */}
           <div className="nav-bar">
-            <div className="logo">⚛ React Bits</div>
+            <div className="logo">⚕️ Smart Health</div>
 
             <div className="nav-links">
               <a href="/">Home</a>
@@ -42,7 +44,14 @@ export default function App() {
 </button>
 
 
-            <button className="nav-contribute">Contribute</button>
+<a
+  href="https://github.com/harmeshgv/SmartHealth-LLM"
+  className="nav-contribute"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  Contribute
+</a>
           </div>
 
           {/* Overlay Grid */}
@@ -50,7 +59,7 @@ export default function App() {
 
           <div className="center-content">
             <h1 className="main-title">
-              Customizable squares<br />moving around smoothly
+              Adaptive healthcare<br />powered by AI
             </h1>
 
             <div className="cta-btns">
