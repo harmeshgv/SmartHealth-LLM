@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/SmartHealth-LLM/static/css/main.beba6734.css",
-    "main.js": "/SmartHealth-LLM/static/js/main.77108536.js",
+    "main.css": "/SmartHealth-LLM/static/css/main.e7ec44ac.css",
+    "main.js": "/SmartHealth-LLM/static/js/main.1d0b36f9.js",
     "static/js/453.670e15c7.chunk.js": "/SmartHealth-LLM/static/js/453.670e15c7.chunk.js",
     "index.html": "/SmartHealth-LLM/index.html",
-    "main.beba6734.css.map": "/SmartHealth-LLM/static/css/main.beba6734.css.map",
-    "main.77108536.js.map": "/SmartHealth-LLM/static/js/main.77108536.js.map",
+    "main.e7ec44ac.css.map": "/SmartHealth-LLM/static/css/main.e7ec44ac.css.map",
+    "main.1d0b36f9.js.map": "/SmartHealth-LLM/static/js/main.1d0b36f9.js.map",
     "453.670e15c7.chunk.js.map": "/SmartHealth-LLM/static/js/453.670e15c7.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.beba6734.css",
-    "static/js/main.77108536.js"
+    "static/css/main.e7ec44ac.css",
+    "static/js/main.1d0b36f9.js"
   ]
 }
