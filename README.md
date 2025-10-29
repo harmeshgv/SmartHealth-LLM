@@ -146,7 +146,7 @@ coming soon
 *AI-powered skin disease detection with confidence scores and treatment recommendations*
 
 <div align="center">
-  <img src="./docs/assets/image.png" alt="SmartHealth Logo" width="600"/>
+  <img src="./docs/assets/image.png" alt="SmartHealth Logo" width="900"/>
 </div>
 
 
@@ -155,7 +155,7 @@ coming soon
 *Intelligent symptom analysis powered by multi-agent orchestration*
 
 <div align="center">
-  <img src="./docs/assets/chat.png" alt="SmartHealth Logo" width="600"/>
+  <img src="./docs/assets/chat.png" alt="SmartHealth Logo" width="900"/>
 </div>
 
 ---
