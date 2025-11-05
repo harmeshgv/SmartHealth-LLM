@@ -17,8 +17,7 @@ notebook/
 # Dev container settings
 .devcontainer/
 
-# GitHub workflows
-.github/
+
 
 # OS-specific files (optional)
 .DS_Store
