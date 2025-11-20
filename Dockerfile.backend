@@ -4,7 +4,10 @@ FROM python:3.12-slim
 # ---------- Environment ----------
 ENV PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1 \
-    PIP_NO_CACHE_DIR=1
+    PIP_NO_CACHE_DIR=1 \
+    HF_HOME=/tmp/hf_cache \
+    TRANSFORMERS_CACHE=/tmp/hf_cache \
+    SENTENCE_TRANSFORMERS_HOME=/tmp/hf_cache
 
 # ---------- Working Directory ----------
 WORKDIR /app
@@ -20,8 +23,10 @@ RUN apt-get update && \
         libxext6 && \
     rm -rf /var/lib/apt/lists/*
 
-# ---------- Copy Files ----------
-COPY . .
+# ---------- Copy Backend Files ----------
+# On HuggingFace Spaces, your backend folder sits at repo root
+COPY backend/ /app/backend/
+COPY backend/requirements.txt /app/requirements.txt
 
 # ---------- Python Dependencies ----------
 RUN pip install --upgrade pip setuptools wheel && \
@@ -29,14 +34,10 @@ RUN pip install --upgrade pip setuptools wheel && \
         torch==2.4.1+cpu \
         torchvision==0.19.1+cpu \
         --index-url https://download.pytorch.org/whl/cpu && \
-    pip install --prefer-binary -r requirements.fastapi.txt
+    pip install --no-cache-dir -r /app/requirements.txt
 
 # ---------- Expose Port ----------
-EXPOSE 8000
-# ---------- Hugging Face Cache Fix ----------
-ENV HF_HOME=/tmp/hf_cache
-ENV TRANSFORMERS_CACHE=/tmp/hf_cache
+EXPOSE 7860
 
 # ---------- Run FastAPI ----------
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "7860"]
-
+CMD ["uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "7860"]

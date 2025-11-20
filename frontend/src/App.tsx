@@ -1,87 +1,48 @@
-// App.tsx
-
 import React, { useState, useEffect } from "react";
 import ChatPage from "./ChatPage";
-
-// In JSX:
 import "./App.css";
+
+// --- SVGs ---
+const LogoIcon = () => <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v20M2 12h20" /></svg>; // Medical Cross
+const SunIcon = () => <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>;
+const MoonIcon = () => <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>;
+const ArrowRight = () => <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>;
 
 export default function App() {
   const [started, setStarted] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(true);
+  const [isDark, setIsDark] = useState(true);
 
-  // Apply/remove dark/light CSS class on body
+  // Theme Toggle
   useEffect(() => {
-    if (isDarkMode) {
-      document.body.classList.add("dark");
-      document.body.classList.remove("light");
-    } else {
-      document.body.classList.add("light");
-      document.body.classList.remove("dark");
-    }
-  }, [isDarkMode]);
+    document.body.className = isDark ? 'dark' : 'light';
+  }, [isDark]);
+
+  if (started) {
+    return <ChatPage onBack={() => setStarted(false)} isDark={isDark} toggleTheme={() => setIsDark(!isDark)} />;
+  }
 
   return (
-    <div className="app-bg">
-      {!started ? (
-        <>
-          {/* Navbar */}
-          <div className="nav-bar">
-            <div className="logo">⚕️ Smart Health</div>
+    <div className="landing-wrap">
+      <nav className="nav">
+        <div className="logo"><LogoIcon /> MediChat AI</div>
+        <button className="icon-btn" style={{width:'auto'}} onClick={() => setIsDark(!isDark)}>
+          {isDark ? <SunIcon /> : <MoonIcon />}
+        </button>
+      </nav>
 
-            <div className="nav-links">
-              <a href="/">Home</a>
-              <a href="/docs">Docs</a>
-            </div>
-
-            <button
-  className="nav-theme-toggle icon-btn"
-  onClick={() => setIsDarkMode(!isDarkMode)}
-  title={isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
-  aria-label="Toggle dark/light mode"
->
-  {isDarkMode ? "☀️" : "🌙"}
-</button>
-
-
-<a
-  href="https://github.com/harmeshgv/SmartHealth-LLM"
-  className="nav-contribute"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  Contribute
-</a>
-          </div>
-
-          {/* Overlay Grid */}
-          <div className="app-grid" />
-
-          <div className="center-content">
-            <h1 className="main-title">
-              Adaptive healthcare<br />powered by AI
-            </h1>
-
-            <div className="cta-btns">
-              <button className="btn-primary" onClick={() => setStarted(true)}>
-                Get Started
-              </button>
-              <button className="btn-secondary">Learn More</button>
-            </div>
-
-            {/* Removed old demo toggle for cleanliness */}
-          </div>
-
-          {/* Top utility bar (optional, can be kept if needed) */}
-          {/* <div className="preview-bar">
-            <button className="preview-btn">Preview</button>
-            <button className="code-btn">Code</button>
-          </div> */}
-        </>
-      ) : (
-        // Render chat page and allow going back to landing
-        <ChatPage onBack={() => setStarted(false)} />
-      )}
+      <main className="hero">
+        <div className="pill">AI-POWERED DIAGNOSTICS</div>
+        <h1>
+          Healthcare <br />
+          <span className="highlight">Simplified.</span>
+        </h1>
+        <p className="subtext">
+          Instant symptom analysis, lab report interpretation, and personalized health guidance. Powered by advanced medical LLMs.
+        </p>
+        <button className="cta-btn" onClick={() => setStarted(true)}>
+          Start Consultation
+        </button>
+      </main>
     </div>
   );
 }

@@ -1,290 +1,185 @@
 import React, { useState, useRef, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
-import rehypeHighlight from "rehype-highlight";
 import remarkGfm from "remark-gfm";
-import { askBackend, onConnectionStatusChange, getConnectionStatus, checkHealth } from "./api";
-import "highlight.js/styles/github-dark.css";
+import { askBackend, onConnectionStatusChange, checkHealth } from "./api";
+import "./App.css";
 
-interface Message {
-  type: "user" | "bot";
-  content: string;
-  isImage?: boolean;
-  previewUrl?: string;
-}
+// --- SVGs ---
+const BotIcon = () => <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2 2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/><path d="M4 11a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-7z"/><rect x="8" y="13" width="2" height="2"/><rect x="14" y="13" width="2" height="2"/></svg>;
+const UserIcon = () => <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>;
+const PlusIcon = () => <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>;
+const SendIcon = () => <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>;
+const ClipIcon = () => <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>;
+const ExitIcon = () => <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>;
+const XCircleIcon = () => <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"/></svg>;
 
-interface ChatPageProps {
-  onBack: () => void;
-}
 
-type ConnectionStatus = "connected" | "connecting" | "error";
-
-export default function ChatPage({ onBack }: ChatPageProps) {
-  const [query, setQuery] = useState("");
-  const [messages, setMessages] = useState<Message[]>([]);
-  const [loading, setLoading] = useState(false);
-  const [connectionStatus, setConnectionStatus] = useState<ConnectionStatus>(getConnectionStatus());
-  const [userId] = useState<string>(() => {
-    return `user_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+// Helper to convert file to base64
+const fileToBase64 = (file: File): Promise<string> => {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result as string);
+    reader.onerror = (error) => reject(error);
   });
+};
+
+export default function ChatPage({ onBack, isDark, toggleTheme }: any) {
+  const [query, setQuery] = useState("");
+  const [messages, setMessages] = useState<any[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState("connecting");
+  
+  // New state for staging uploads
+  const [stagedImage, setStagedImage] = useState<File | null>(null);
+  const [imagePreview, setImagePreview] = useState<string | null>(null);
 
   const bottomRef = useRef<HTMLDivElement>(null);
-  const fileInputRef = useRef<HTMLInputElement>(null);
+  const fileRef = useRef<HTMLInputElement>(null);
 
-  // Subscribe to connection status changes
   useEffect(() => {
-    const unsubscribe = onConnectionStatusChange((status) => {
-      setConnectionStatus(status);
-    });
-
-    // Manual health check on component mount
-    checkHealth().catch(console.error);
-
-    return unsubscribe;
+    const sub = onConnectionStatusChange(setStatus);
+    checkHealth().catch(() => {});
+    return sub;
   }, []);
 
-  // Auto-scroll to bottom when messages change
-  useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
+  useEffect(() => { bottomRef.current?.scrollIntoView({ behavior: "smooth" }); }, [messages, loading]);
 
-  // Convert file to Base64
-  const toBase64 = (file: File): Promise<string> =>
-    new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = () => resolve(reader.result as string);
-      reader.onerror = (error) => reject(error);
-    });
-
-  // Handle sending text messages
   const handleSend = async () => {
-    if (!query.trim() || loading) return;
+    if (!query.trim() && !stagedImage) return;
 
-    setLoading(true);
-    const userMessage = query.trim();
-    setMessages((prev) => [...prev, { type: "user", content: userMessage }]);
+    const text = query.trim();
+    const imageToSend = stagedImage;
+    const previewUrlToSend = imagePreview;
+
+    // Add user's message to chat log immediately
+    setMessages(prev => [...prev, { 
+      type: "user", 
+      content: text,
+      isImage: !!imageToSend,
+      previewUrl: previewUrlToSend
+    }]);
+
+    // Clear inputs
     setQuery("");
-
-    try {
-      const answer = await askBackend(userMessage, userId);
-      setMessages((prev) => [...prev, { type: "bot", content: answer }]);
-    } catch (error: any) {
-      console.error("API Error:", error);
-      setMessages((prev) => [
-        ...prev,
-        {
-          type: "bot",
-          content: `⚠️ **Error**\n\n${error.message || "Something went wrong. Please try again."}`,
-        },
-      ]);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  // Handle uploading images
-  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const files = e.target.files;
-    if (!files || files.length === 0 || loading) return;
-
+    setStagedImage(null);
+    setImagePreview(null);
     setLoading(true);
+
     try {
-      for (const file of Array.from(files)) {
-        const previewUrl = URL.createObjectURL(file);
-        setMessages(prev => [
-          ...prev,
-          {
-            type: "user",
-            content: `📷 Image: ${file.name}`,
-            isImage: true,
-            previewUrl
-          },
-        ]);
-
-        const base64Image = await toBase64(file);
-        const answer = await askBackend("", userId, base64Image);
-
-        setMessages(prev => [...prev, { type: "bot", content: answer }]);
+      let imageBase64: string | undefined = undefined;
+      if (imageToSend) {
+        imageBase64 = await fileToBase64(imageToSend);
       }
-    } catch (error: any) {
-      console.error("Image upload error:", error);
-      setMessages(prev => [
-        ...prev,
-        {
-          type: "bot",
-          content: `⚠️ **Upload Error**\n\n${error.message || "Failed to process the image. Please try again."}`,
-        },
-      ]);
+
+      // Replace "user-123" with real logic if needed
+      const res = await askBackend(text, "user-123", imageBase64);
+      setMessages(prev => [...prev, { type: "bot", content: res }]);
+    } catch (e) {
+      setMessages(prev => [...prev, { type: "bot", content: "⚠️ System Error. Please retry." }]);
     } finally {
       setLoading(false);
-      if (fileInputRef.current) {
-        fileInputRef.current.value = '';
-      }
     }
   };
 
-  const triggerFileInput = () => {
-    fileInputRef.current?.click();
-  };
-
-  const onEnterPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter" && query.trim() && !loading) {
-      handleSend();
+  const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      setStagedImage(file);
+      setImagePreview(URL.createObjectURL(file));
+    }
+    // Reset file input value to allow re-selection of the same file
+    if (fileRef.current) {
+      fileRef.current.value = "";
     }
   };
 
-  const getStatusText = () => {
-    switch (connectionStatus) {
-      case "connected": return "Connected";
-      case "connecting": return "Connecting...";
-      case "error": return "Connection Failed";
-      default: return "Unknown";
-    }
-  };
-
-  const handleRetryConnection = async () => {
-    await checkHealth();
-  };
+  const cancelImage = () => {
+    setStagedImage(null);
+    setImagePreview(null);
+  }
 
   return (
-    <div className="app-bg">
-      <div className="chat-page-container">
-        {/* Back Button */}
-        <button className="back-btn" onClick={onBack}>
-          ← Back to Home
+    <div className="chat-layout">
+      {/* Sidebar */}
+      <aside className="sidebar">
+        <button className="new-chat" onClick={() => setMessages([])}>
+          <PlusIcon /> New Consultation
         </button>
 
-        {/* Connection Status */}
-        <div
-          className={`connection-status status-${connectionStatus} ${connectionStatus === 'error' ? 'clickable' : ''}`}
-          onClick={connectionStatus === 'error' ? handleRetryConnection : undefined}
-          title={connectionStatus === 'error' ? 'Click to retry connection' : ''}
-        >
-          <div className="status-dot"></div>
-          <span>{getStatusText()}</span>
-        </div>
-
-        {/* Chat Title */}
-        <h1 className="chat-title">Medical Assistant</h1>
-
-        {/* Messages List */}
-        <div className="chat-list">
-          {messages.length === 0 ? (
-            <div className="welcome-message">
-              <p>
-                👋 Welcome! I'm your medical assistant. Ask me about symptoms,
-                diseases, or upload medical images for analysis.
-              </p>
-              <p
-                style={{
-                  fontSize: "0.8em",
-                  opacity: 0.7,
-                  marginTop: "10px",
-                }}
-              >
-                Session ID: {userId}
-              </p>
-              {connectionStatus === "error" && (
-                <p style={{ color: '#ef4444', marginTop: '10px' }}>
-                  ⚠️ Backend connection failed. Some features may not work.
-                </p>
-              )}
-            </div>
-          ) : (
-            messages.map((msg, index) => (
-              <div
-                key={index}
-                className={`chat-bubble ${
-                  msg.type === "user" ? "right-bubble" : "left-bubble"
-                } ${msg.isImage ? "img-bubble" : ""}`}
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                {msg.isImage && msg.previewUrl ? (
-                  <div>
-                    <img
-                      src={msg.previewUrl}
-                      alt="uploaded"
-                      style={{
-                        maxWidth: "100%",
-                        borderRadius: "12px",
-                        marginBottom: "8px"
-                      }}
-                    />
-                    <div style={{ fontSize: "0.9em", opacity: 0.8 }}>
-                      {msg.content}
-                    </div>
-                  </div>
-                ) : msg.type === "bot" ? (
-                  <div className="markdown-content">
-                    <ReactMarkdown
-                      remarkPlugins={[remarkGfm]}
-                      rehypePlugins={[rehypeHighlight]}
-                    >
-                      {msg.content}
-                    </ReactMarkdown>
-                  </div>
-                ) : (
-                  <span>{msg.content}</span>
-                )}
-              </div>
-            ))
-          )}
-
-          {/* Typing Indicator */}
-          {loading && (
-            <div className="chat-bubble left-bubble">
-              <div className="typing-indicator">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-            </div>
-          )}
-          <div ref={bottomRef} />
-        </div>
-
-        {/* Input Bar */}
-        <div className={`chat-input-bar ${loading ? "disabled" : ""}`}>
-          <button
-            className="icon-btn"
-            onClick={triggerFileInput}
-            type="button"
-            disabled={loading}
-            title="Upload image"
-          >
-            📷
+        <div style={{marginTop: 'auto'}}>
+          <div className="icon-btn" style={{cursor:'default'}}>
+            <span style={{color: status === 'connected' ? '#22c55e' : '#ef4444'}}>●</span>
+            {status === 'connected' ? 'System Operational' : 'Offline'}
+          </div>
+          <button className="icon-btn" onClick={toggleTheme}>
+            {isDark ? "Switch to Light" : "Switch to Dark"}
           </button>
-
-          <input
-            type="text"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            onKeyDown={onEnterPress}
-            placeholder="Ask about symptoms, diseases, or upload an image..."
-            disabled={loading}
-            autoFocus
-          />
-
-          <button
-            className="icon-btn"
-            onClick={handleSend}
-            disabled={loading || !query.trim()}
-            title="Send message"
-          >
-            {loading ? "⏳" : "📨"}
+          <button className="icon-btn" onClick={onBack}>
+            <ExitIcon /> End Session
           </button>
-
-          {/* Hidden file input */}
-          <input
-            ref={fileInputRef}
-            type="file"
-            accept="image/*"
-            multiple
-            onChange={handleImageUpload}
-            style={{ display: 'none' }}
-          />
         </div>
-      </div>
+      </aside>
+
+      {/* Main Area */}
+      <main className="main-area">
+        <div className="chat-scroll">
+          <div className="chat-width">
+            {messages.length === 0 ? (
+              <div style={{textAlign:'center', marginTop:'10vh', opacity:0.5}}>
+                <div style={{fontSize:'3rem', marginBottom:'20px'}}>🩺</div>
+                <h2>How can I assist you today?</h2>
+                <p>Describe symptoms or upload a report.</p>
+              </div>
+            ) : (
+              messages.map((m, i) => (
+                <div key={i} className="msg">
+                  <div className={`avatar ${m.type}`}>{m.type === 'bot' ? <BotIcon/> : <UserIcon/>}</div>
+                  <div className="bubble">
+                    {m.isImage && <img src={m.previewUrl} alt="upload" style={{maxWidth:'250px', borderRadius:'12px', border:'1px solid var(--border)', marginBottom:'10px'}} />}
+                    {m.type === 'bot' ? <ReactMarkdown remarkPlugins={[remarkGfm]}>{m.content}</ReactMarkdown> : m.content}
+                  </div>
+                </div>
+              ))
+            )}
+            {loading && (
+              <div className="msg">
+                <div className="avatar bot"><BotIcon/></div>
+                <div className="bubble" style={{fontStyle:'italic'}}>Analyzing...</div>
+              </div>
+            )}
+            <div ref={bottomRef} />
+          </div>
+        </div>
+        
+        {/* Input Area */}
+        <div className="input-area">
+            {imagePreview && (
+              <div className="image-preview">
+                <img src={imagePreview} alt="Staged upload" />
+                <button onClick={cancelImage} className="cancel-img-btn">
+                  <XCircleIcon />
+                </button>
+              </div>
+            )}
+            <div className="input-float">
+                <button className="send-icon" style={{background:'transparent', color:'var(--text-muted)'}} onClick={() => fileRef.current?.click()}>
+                    <ClipIcon />
+                </button>
+                <input
+                    placeholder="Type a symptom or health question..."
+                    value={query}
+                    onChange={(e) => setQuery(e.target.value)}
+                    onKeyDown={(e) => e.key === 'Enter' && !e.shiftKey && handleSend()}
+                />
+                <button className="send-icon" onClick={handleSend} disabled={(!query.trim() && !stagedImage) || loading}>
+                    <SendIcon />
+                </button>
+            </div>
+        </div>
+
+        <input type="file" hidden ref={fileRef} onChange={handleFileSelect} accept="image/*" />
+      </main>
     </div>
   );
 }

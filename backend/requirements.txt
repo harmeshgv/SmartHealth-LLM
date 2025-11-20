@@ -1,5 +1,5 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
 langchain_openai
-streamlit
 langchain_core
 langchain
 langchain_community
@@ -12,3 +12,9 @@ uvicorn
 pydantic
 fastapi
 rapidfuzz
+transformers
+torch
+torchvision
+google-search-results
+redis
+dill

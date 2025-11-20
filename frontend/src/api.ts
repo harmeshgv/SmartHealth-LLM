@@ -1,7 +1,7 @@
 // api.ts
 import axios from "axios";
 
-const API_URL = "https://harmesh95-smart-health-llm.hf.space";
+const API_URL = "https://harmesh95-vio.hf.space";
 
 // Connection status types
 export type ConnectionStatus = "connected" | "connecting" | "error";

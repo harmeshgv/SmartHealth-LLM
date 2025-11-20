@@ -1,137 +1,85 @@
 # backend/tools/biomedical_ner_tool.py
+import logging
 import os
-
-# use temp directory for cache (always writable on Spaces)
-cache_dir = "/tmp/hf_cache"
-os.environ["HF_HOME"] = cache_dir
-os.environ["TRANSFORMERS_CACHE"] = cache_dir
-os.makedirs(cache_dir, exist_ok=True)
-
-print(f"Hugging Face cache directory set to: {cache_dir}")
-
-
+from typing import Any, Dict, List
 from transformers import AutoTokenizer, AutoModelForTokenClassification, pipeline
-from typing import List, Dict
 import numpy as np
 
+from .base import BaseTool
 
+logger = logging.getLogger(__name__)
 
-class BiomedicalNER:
+# Note: Caching setup should be handled at the application's entry point,
+# not as a side effect of importing a module.
+# Consider setting environment variables like HF_HOME and TRANSFORMERS_CACHE
+# before the application starts.
+
+class BiomedicalNERTool(BaseTool):
+    """
+    A tool for extracting biomedical entities from text using a Hugging Face model.
+    """
+
+    name: str = "Biomedical NER"
+    description: str = (
+        "Extracts biomedical entities (like diseases, symptoms, drugs) from a given text. "
+        "Input should be a string of text."
+    )
+
     def __init__(self, model_name: str = "d4data/biomedical-ner-all"):
-        self.tokenizer = AutoTokenizer.from_pretrained(model_name)
-        self.model = AutoModelForTokenClassification.from_pretrained(model_name)
-        self.pipe = pipeline(
-            "ner",
-            model=self.model,
-            tokenizer=self.tokenizer,
-            aggregation_strategy="average",
-        )
+        super().__init__()
+        try:
+            # Configure caching. This is better handled by global environment variables
+            # but can be set here if needed for this specific tool.
+            cache_dir = os.environ.get("TRANSFORMERS_CACHE", "/tmp/hf_cache")
+            os.makedirs(cache_dir, exist_ok=True)
 
-    def extract_entities(self, text: str) -> List[Dict]:
+            logger.info(f"Using Hugging Face cache directory: {cache_dir}")
+
+            self.tokenizer = AutoTokenizer.from_pretrained(model_name, cache_dir=cache_dir)
+            self.model = AutoModelForTokenClassification.from_pretrained(model_name, cache_dir=cache_dir)
+            self.pipe = pipeline(
+                "ner",
+                model=self.model,
+                tokenizer=self.tokenizer,
+                aggregation_strategy="average",
+            )
+            logger.info(f"Biomedical NER model '{model_name}' loaded successfully.")
+        except Exception as e:
+            logger.error(f"Failed to load Biomedical NER model '{model_name}': {e}", exc_info=True)
+            raise
+
+    async def execute(self, text: str) -> Dict[str, Any]:
         """
-        Extract biomedical entities from text.
+        Extracts biomedical entities from the given text.
 
         Args:
-            text (str): Input biomedical text
+            text: The input text.
 
         Returns:
-            List[Dict]: List of extracted entities with start/end positions and labels
+            A dictionary containing the list of extracted entities or an error.
         """
+        if not text or not isinstance(text, str):
+            return {"error": "Input must be a non-empty string."}
+
         try:
             entities = self.pipe(text)
-            return entities
+
+            # Sanitize numpy types for JSON serialization
+            for entity in entities:
+                for key, value in entity.items():
+                    if isinstance(value, np.float32):
+                        entity[key] = float(value)
+
+            logger.info(f"Extracted {len(entities)} entities from text.")
+            return {"entities": entities}
         except Exception as e:
-            return []
+            error_msg = f"An error occurred during NER entity extraction: {e}"
+            logger.error(error_msg, exc_info=True)
+            return {"error": error_msg}
 
-
-# Instantiate the model
-ner = BiomedicalNER()
-
-
-def extract_data(input_dict: dict) -> dict:
-    """
-    Extract biomedical entities and return context/entity types instead of exact names.
-    """
-    text = input_dict.get("input", "")
-    entities = ner.extract_entities(text)
-
-    # Convert any float32 scores to Python float
-    for e in entities:
-        for key in e:
-            if isinstance(e[key], np.float32):
-                e[key] = float(e[key])
-
-    # Extract entity types/groups instead of exact names
-    entity_types = []
-    entity_context = []
-
-    for entity in entities:
-        entity_group = entity.get("entity_group", "").lower()
-        entity_word = entity.get("word", "").strip()
-
-        if entity_group and entity_word:
-            # Categorize entity types
-            if entity_group.startswith("disease"):
-                entity_types.append("disease_condition")
-                entity_context.append(f"disease/condition: {entity_word}")
-            elif entity_group.startswith("drug"):
-                entity_types.append("drug_treatment")
-                entity_context.append(f"drug/treatment: {entity_word}")
-            elif entity_group.startswith("symptom"):
-                entity_types.append("symptom")
-                entity_context.append(f"symptom: {entity_word}")
-            elif entity_group.startswith("anatomy"):
-                entity_types.append("body_part")
-                entity_context.append(f"body part: {entity_word}")
-            elif entity_group.startswith("chemical"):
-                entity_types.append("chemical")
-                entity_context.append(f"chemical: {entity_word}")
-            else:
-                entity_types.append(entity_group)
-                entity_context.append(f"{entity_group}: {entity_word}")
-
-    # Remove duplicates while preserving order
-    entity_types = list(dict.fromkeys(entity_types))
-    entity_context = list(dict.fromkeys(entity_context))
-
-    # Determine primary context for routing
-    primary_context = None
-    if "disease_condition" in entity_types:
-        primary_context = "disease_condition"
-    elif "symptom" in entity_types:
-        primary_context = "symptom"
-    elif "drug_treatment" in entity_types:
-        primary_context = "drug_treatment"
-    elif entity_types:
-        primary_context = entity_types[0]
-    else:
-        primary_context = "general_medical"
-
-    return {
-        "input": text,
-        "entities": entities,
-        "entity_types": entity_types,
-        "entity_context": entity_context,
-        "primary_context": primary_context,
-        "has_medical_context": len(entity_types) > 0,
-    }
-
-
-# Test run
-if __name__ == "__main__":
-    sample_texts = [
-        "The patient was diagnosed with diabetes and prescribed metformin.",
-        "I have a headache and fever.",
-        "My knee pain is getting worse.",
-        "What is aspirin used for?",
-        "Tell me about common cold symptoms.",
-    ]
-
-    for sample_text in sample_texts:
-        output = extract_data({"input": sample_text})
-        print(f"Input: {sample_text}")
-        print(f"Entity Types: {output['entity_types']}")
-        print(f"Primary Context: {output['primary_context']}")
-        print(f"Entity Context: {output['entity_context']}")
-        print(f"Has Medical Context: {output['has_medical_context']}")
-        print("-" * 50)
+# NOTE TO THE DEVELOPER:
+# The complex logic for categorizing entities and determining 'primary_context'
+# has been removed from this tool. A tool should be simple and do one thing well.
+# This logic is business logic that should be owned by an *agent*.
+# The agent can use this tool to get the raw entities, and then perform its
+# own analysis and decision-making based on the results.

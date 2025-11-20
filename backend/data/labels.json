@@ -1,10 +1,10 @@
 [
-  "cellulitis",
-  "impetigo",
-  "athlete-foot",
-  "nail-fungus",
-  "ringworm",
-  "cutaneous-larva-migrans",
-  "chickenpox",
-  "shingles"
+    "cellulitis",
+    "BA-impetigo",
+    "FU-athlete-foot",
+    "FU-nail-fungus",
+    "FU-ringworm",
+    "PA-cutaneous-larva-migrans",
+    "VI-chickenpox",
+    "VI-shingles"
 ]

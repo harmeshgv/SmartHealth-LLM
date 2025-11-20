@@ -1,0 +1,456 @@
+INFO:main:Application starting...
+INFO:main:LLM initialized.
+INFO:main:Application starting...
+INFO:main:LLM initialized.
+ERROR:main:Failed to initialize AI agent for user 12: No module named 'agents'
+Traceback (most recent call last):
+  File "/home/mcqueen/Documents/SmartHealth-LLM/backend/main.py", line 71, in ask
+    user_orchestrations[request.user_id] = AgentOrchestration(llm_instance, tool_registry)
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mcqueen/Documents/SmartHealth-LLM/backend/agent_orchestrator.py", line 30, in __init__
+    self.DECIDER_AGENT = self._initialize_agent("decider_agent", llm_instance)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mcqueen/Documents/SmartHealth-LLM/backend/agent_orchestrator.py", line 104, in _initialize_agent
+    from agents.decider_agent import DeciderAgent
+ModuleNotFoundError: No module named 'agents'
+ERROR:main:Failed to initialize AI agent for user 12: No module named 'agents'
+Traceback (most recent call last):
+  File "/home/mcqueen/Documents/SmartHealth-LLM/backend/main.py", line 71, in ask
+    user_orchestrations[request.user_id] = AgentOrchestration(llm_instance, tool_registry)
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mcqueen/Documents/SmartHealth-LLM/backend/agent_orchestrator.py", line 30, in __init__
+    self.DECIDER_AGENT = self._initialize_agent("decider_agent", llm_instance)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mcqueen/Documents/SmartHealth-LLM/backend/agent_orchestrator.py", line 104, in _initialize_agent
+    from agents.decider_agent import DeciderAgent
+ModuleNotFoundError: No module named 'agents'
+INFO:main:Application starting...
+INFO:main:LLM initialized.
+INFO:backend.agents.decider_agent:DeciderAgent initialized.
+INFO:backend.agents.symptom_agent:SymptomToDiseaseAgent initialized.
+INFO:backend.agents.disease_info_agent:DiseaseInfoAgent initialized.
+INFO:backend.agents.image_diagnosis_agent:ImageDiagnosisAgent initialized.
+INFO:backend.agents.formatter_agent:FormatterAgent initialized.
+INFO:backend.agent_orchestrator:AgentOrchestration (meta-graph) initialized with 5 agents.
+INFO:main:Initialized AI agent for user: 12443
+INFO:backend.agent_orchestrator:Orchestrator invoked for query: 'symptoms of common cold?'
+INFO:httpx:HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backend.agents.decider_agent:DeciderAgent decision for query 'symptoms of common cold?': disease_info
+INFO:backend.agents.disease_info_agent:DiseaseInfoAgent invoked for disease: 'None'.
+ERROR:main:Internal server error for user 12443: object dict can't be used in 'await' expression
+Traceback (most recent call last):
+  File "/home/mcqueen/Documents/SmartHealth-LLM/backend/main.py", line 99, in ask
+    response = await orchestrator_instance.invoke(user_query=request.message, image=image)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mcqueen/Documents/SmartHealth-LLM/backend/agent_orchestrator.py", line 141, in invoke
+    final_state = await self.workflow.ainvoke(initial_state)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mcqueen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/langgraph/pregel/main.py", line 3137, in ainvoke
+    async for chunk in self.astream(
+  File "/home/mcqueen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/langgraph/pregel/main.py", line 2956, in astream
+    async for _ in runner.atick(
+  File "/home/mcqueen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/langgraph/pregel/_runner.py", line 304, in atick
+    await arun_with_retry(
+  File "/home/mcqueen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/langgraph/pregel/_retry.py", line 137, in arun_with_retry
+    return await task.proc.ainvoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mcqueen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 705, in ainvoke
+    input = await asyncio.create_task(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mcqueen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 473, in ainvoke
+    ret = await self.afunc(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mcqueen/Documents/SmartHealth-LLM/backend/agent_orchestrator.py", line 109, in disease_info_node
+    result = await disease_info_agent.invoke(state) # This agent returns a dict, e.g., {"raw_result": "..."}
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mcqueen/Documents/SmartHealth-LLM/backend/agents/disease_info_agent.py", line 124, in invoke
+    final_internal_state = await self.graph.ainvoke(internal_state)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mcqueen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/langgraph/pregel/main.py", line 3137, in ainvoke
+    async for chunk in self.astream(
+  File "/home/mcqueen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/langgraph/pregel/main.py", line 2956, in astream
+    async for _ in runner.atick(
+  File "/home/mcqueen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/langgraph/pregel/_runner.py", line 304, in atick
+    await arun_with_retry(
+  File "/home/mcqueen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/langgraph/pregel/_retry.py", line 137, in arun_with_retry
+    return await task.proc.ainvoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mcqueen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 705, in ainvoke
+    input = await asyncio.create_task(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mcqueen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 473, in ainvoke
+    ret = await self.afunc(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mcqueen/Documents/SmartHealth-LLM/backend/agents/disease_info_agent.py", line 60, in _retrieve_from_db
+    result = await retriever_tool.execute(disease_name=state['disease_name'])
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: object dict can't be used in 'await' expression
+During task with name 'db_lookup' and id '7d5abcc6-e817-c7f9-4af5-2efd05f0e280'
+During task with name 'disease_info' and id '413c1cfd-5e5b-89dd-dbe6-cbc44de7895e'
+INFO:backend.agent_orchestrator:Orchestrator invoked for query: 'symptoms of common cold?'
+INFO:httpx:HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backend.agents.decider_agent:DeciderAgent decision for query 'symptoms of common cold?': disease_info
+INFO:backend.agents.disease_info_agent:DiseaseInfoAgent invoked for disease: 'None'.
+ERROR:main:Internal server error for user 12443: object dict can't be used in 'await' expression
+Traceback (most recent call last):
+  File "/home/mcqueen/Documents/SmartHealth-LLM/backend/main.py", line 99, in ask
+    response = await orchestrator_instance.invoke(user_query=request.message, image=image)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mcqueen/Documents/SmartHealth-LLM/backend/agent_orchestrator.py", line 141, in invoke
+    final_state = await self.workflow.ainvoke(initial_state)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mcqueen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/langgraph/pregel/main.py", line 3137, in ainvoke
+    async for chunk in self.astream(
+  File "/home/mcqueen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/langgraph/pregel/main.py", line 2956, in astream
+    async for _ in runner.atick(
+  File "/home/mcqueen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/langgraph/pregel/_runner.py", line 304, in atick
+    await arun_with_retry(
+  File "/home/mcqueen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/langgraph/pregel/_retry.py", line 137, in arun_with_retry
+    return await task.proc.ainvoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mcqueen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 705, in ainvoke
+    input = await asyncio.create_task(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mcqueen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 473, in ainvoke
+    ret = await self.afunc(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mcqueen/Documents/SmartHealth-LLM/backend/agent_orchestrator.py", line 109, in disease_info_node
+    result = await disease_info_agent.invoke(state) # This agent returns a dict, e.g., {"raw_result": "..."}
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mcqueen/Documents/SmartHealth-LLM/backend/agents/disease_info_agent.py", line 124, in invoke
+    final_internal_state = await self.graph.ainvoke(internal_state)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mcqueen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/langgraph/pregel/main.py", line 3137, in ainvoke
+    async for chunk in self.astream(
+  File "/home/mcqueen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/langgraph/pregel/main.py", line 2956, in astream
+    async for _ in runner.atick(
+  File "/home/mcqueen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/langgraph/pregel/_runner.py", line 304, in atick
+    await arun_with_retry(
+  File "/home/mcqueen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/langgraph/pregel/_retry.py", line 137, in arun_with_retry
+    return await task.proc.ainvoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mcqueen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 705, in ainvoke
+    input = await asyncio.create_task(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mcqueen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 473, in ainvoke
+    ret = await self.afunc(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mcqueen/Documents/SmartHealth-LLM/backend/agents/disease_info_agent.py", line 60, in _retrieve_from_db
+    result = await retriever_tool.execute(disease_name=state['disease_name'])
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: object dict can't be used in 'await' expression
+During task with name 'db_lookup' and id '0a512ff5-a66f-af33-5e2b-fcb5ecce18de'
+During task with name 'disease_info' and id 'deeb714b-6ca5-a182-9a17-6a6653a478dd'
+INFO:main:Application starting...
+INFO:main:LLM initialized.
+INFO:backend.agents.decider_agent:DeciderAgent initialized.
+INFO:backend.agents.symptom_agent:SymptomToDiseaseAgent initialized.
+INFO:backend.agents.disease_info_agent:DiseaseInfoAgent initialized.
+INFO:backend.agents.image_diagnosis_agent:ImageDiagnosisAgent initialized.
+INFO:backend.agents.formatter_agent:FormatterAgent initialized.
+INFO:backend.agent_orchestrator:AgentOrchestration (meta-graph) initialized with 5 agents.
+INFO:main:Initialized AI agent for user: 46738
+INFO:backend.agent_orchestrator:Orchestrator invoked for query: 'symptoms of common cold?'
+INFO:httpx:HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backend.agents.decider_agent:DeciderAgent decision for query 'symptoms of common cold?': disease_info
+INFO:backend.agents.disease_info_agent:DiseaseInfoAgent invoked for disease: 'None'.
+INFO:backend.agents.disease_info_agent:DiseaseInfoAgent: DB info missing or contains error. Deciding to search.
+INFO:httpx:HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:backend.agents.formatter_agent:FormatterAgent successfully formatted the response.
+INFO:backend.agent_orchestrator:Orchestration complete.
+INFO:main:Response Generated Successfully for user: 46738
+2025-11-20 02:39:17 - root - INFO - Logging configured with level INFO to file 'app.log' and console.
+2025-11-20 02:39:17 - backend.main - INFO - Application starting...
+2025-11-20 02:39:17 - backend.main - INFO - LLM initialized.
+2025-11-20 02:39:59 - backend.agents.decider_agent - INFO - DeciderAgent initialized.
+2025-11-20 02:39:59 - backend.agents.symptom_agent - INFO - SymptomToDiseaseAgent initialized.
+2025-11-20 02:39:59 - backend.agents.disease_info_agent - INFO - DiseaseInfoAgent initialized.
+2025-11-20 02:39:59 - backend.agents.image_diagnosis_agent - INFO - ImageDiagnosisAgent initialized.
+2025-11-20 02:39:59 - backend.agents.formatter_agent - INFO - FormatterAgent initialized.
+2025-11-20 02:39:59 - backend.agent_orchestrator - INFO - AgentOrchestration (meta-graph) initialized with 5 agents.
+2025-11-20 02:39:59 - backend.main - INFO - Initialized AI agent for user: 023987
+2025-11-20 02:39:59 - backend.agent_orchestrator - INFO - Orchestrator invoked for query: 'what is the                symptoms of hiv aids?'
+2025-11-20 02:40:00 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 02:40:00 - backend.agents.decider_agent - INFO - DeciderAgent decision for query 'what is the                symptoms of hiv aids?': disease_info
+2025-11-20 02:40:00 - backend.agents.disease_info_agent - INFO - DiseaseInfoAgent invoked for disease: 'None'.
+2025-11-20 02:40:00 - backend.agents.disease_info_agent - INFO - DiseaseInfoAgent: DB info missing or contains error. Deciding to search.
+2025-11-20 02:40:03 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 02:40:03 - backend.agents.formatter_agent - INFO - FormatterAgent successfully formatted the response.
+2025-11-20 02:40:03 - backend.agent_orchestrator - INFO - Orchestration complete.
+2025-11-20 02:40:03 - backend.main - INFO - Response Generated Successfully for user: 023987
+2025-11-20 02:41:06 - backend.agent_orchestrator - INFO - Orchestrator invoked for query: 'what is the symptoms of common cold?'
+2025-11-20 02:41:06 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 02:41:06 - backend.agents.decider_agent - INFO - DeciderAgent decision for query 'what is the symptoms of common cold?': disease_info
+2025-11-20 02:41:06 - backend.agents.disease_info_agent - INFO - DiseaseInfoAgent invoked for disease: 'None'.
+2025-11-20 02:41:06 - backend.agents.disease_info_agent - INFO - DiseaseInfoAgent: DB info missing or contains error. Deciding to search.
+2025-11-20 02:41:09 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 02:41:09 - backend.agents.formatter_agent - INFO - FormatterAgent successfully formatted the response.
+2025-11-20 02:41:09 - backend.agent_orchestrator - INFO - Orchestration complete.
+2025-11-20 02:41:09 - backend.main - INFO - Response Generated Successfully for user: 023987
+2025-11-20 04:29:39 - root - INFO - Logging configured with level INFO to file 'app.log' and console.
+2025-11-20 04:29:39 - backend.main - INFO - Application starting...
+2025-11-20 04:29:40 - backend.main - INFO - LLM initialized.
+2025-11-20 04:31:03 - backend.agents.decider_agent - INFO - DeciderAgent initialized.
+2025-11-20 04:31:03 - backend.agents.symptom_agent - INFO - SymptomToDiseaseAgent initialized.
+2025-11-20 04:31:03 - backend.agents.disease_info_agent - INFO - DiseaseInfoAgent initialized with multi-step logic.
+2025-11-20 04:31:03 - backend.agents.image_diagnosis_agent - INFO - ImageDiagnosisAgent initialized.
+2025-11-20 04:31:03 - backend.agents.formatter_agent - INFO - FormatterAgent initialized.
+2025-11-20 04:31:03 - backend.agent_orchestrator - INFO - AgentOrchestration (meta-graph) initialized with 5 agents.
+2025-11-20 04:31:03 - backend.main - INFO - Initialized AI agent for user: user_1763593235868_lbcrk882i
+2025-11-20 04:31:03 - backend.agent_orchestrator - INFO - Orchestrator invoked for query: 'what are the symptoms of common cold?'
+2025-11-20 04:31:04 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 04:31:04 - backend.agents.decider_agent - INFO - DeciderAgent decision for query 'what are the symptoms of common cold?': disease_info
+2025-11-20 04:31:04 - backend.agents.disease_info_agent - INFO - DiseaseInfoAgent invoked. Query: 'what are the symptoms of common cold?', Pre-filled Disease: 'None'
+2025-11-20 04:31:04 - backend.tools.biomedical_ner_tool - INFO - Extracted 1 entities from text.
+2025-11-20 04:31:04 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 04:31:04 - backend.agents.disease_info_agent - INFO - DiseaseInfoAgent: LLM extracted disease name: 'common cold'
+2025-11-20 04:31:04 - backend.tools.disease_info_retriever_tool - INFO - Successfully retrieved info for disease: 'Common cold' (searched for: 'common cold')
+2025-11-20 04:31:04 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 04:31:04 - backend.agents.disease_info_agent - INFO - DiseaseInfoAgent: LLM decision for web search is 'ok'.
+2025-11-20 04:31:05 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 04:31:05 - backend.agents.formatter_agent - INFO - FormatterAgent successfully formatted the response.
+2025-11-20 04:31:05 - backend.agent_orchestrator - INFO - Orchestration complete.
+2025-11-20 04:31:05 - backend.main - INFO - Response Generated Successfully for user: user_1763593235868_lbcrk882i
+2025-11-20 04:31:45 - backend.agents.decider_agent - INFO - DeciderAgent initialized.
+2025-11-20 04:31:45 - backend.agents.symptom_agent - INFO - SymptomToDiseaseAgent initialized.
+2025-11-20 04:31:45 - backend.agents.disease_info_agent - INFO - DiseaseInfoAgent initialized with multi-step logic.
+2025-11-20 04:31:45 - backend.agents.image_diagnosis_agent - INFO - ImageDiagnosisAgent initialized.
+2025-11-20 04:31:45 - backend.agents.formatter_agent - INFO - FormatterAgent initialized.
+2025-11-20 04:31:45 - backend.agent_orchestrator - INFO - AgentOrchestration (meta-graph) initialized with 5 agents.
+2025-11-20 04:31:45 - backend.main - INFO - Initialized AI agent for user: user_1763593279184_xzdvk04r2
+2025-11-20 04:31:45 - backend.main - INFO - Processed image from request.
+2025-11-20 04:31:45 - backend.agent_orchestrator - INFO - Orchestrator invoked for query: 'Analyze this image'
+2025-11-20 04:31:46 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 04:31:46 - backend.agents.decider_agent - INFO - DeciderAgent decision for query 'Analyze this image': biomedical_ner
+2025-11-20 04:31:46 - backend.agent_orchestrator - INFO - Image present, overriding decision to 'image_analysis'.
+2025-11-20 04:31:46 - backend.agents.image_diagnosis_agent - INFO - ImageDiagnosisAgent invoked with an image.
+2025-11-20 04:31:46 - backend.tools.skin_disease_prediction_tool - INFO - Predicted skin disease: cellulitis
+2025-11-20 04:31:46 - backend.agents.image_diagnosis_agent - INFO - ImageDiagnosisAgent predicted disease: cellulitis
+2025-11-20 04:31:46 - backend.agents.disease_info_agent - INFO - DiseaseInfoAgent invoked. Query: 'Analyze this image', Pre-filled Disease: 'cellulitis'
+2025-11-20 04:31:46 - backend.tools.biomedical_ner_tool - INFO - Extracted 2 entities from text.
+2025-11-20 04:31:46 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 04:31:46 - backend.agents.disease_info_agent - INFO - DiseaseInfoAgent: LLM extracted disease name: 'unknown'
+2025-11-20 04:31:46 - backend.tools.disease_info_retriever_tool - INFO - Successfully retrieved info for disease: 'Carcinoma of unknown primary' (searched for: 'unknown')
+2025-11-20 04:31:47 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 04:31:47 - backend.agents.disease_info_agent - INFO - DiseaseInfoAgent: LLM decision for web search is 'search'.
+2025-11-20 04:31:49 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 04:31:49 - backend.agents.formatter_agent - INFO - FormatterAgent successfully formatted the response.
+2025-11-20 04:31:49 - backend.agent_orchestrator - INFO - Orchestration complete.
+2025-11-20 04:31:49 - backend.main - INFO - Response Generated Successfully for user: user_1763593279184_xzdvk04r2
+2025-11-20 04:36:37 - backend.agents.decider_agent - INFO - DeciderAgent initialized.
+2025-11-20 04:36:37 - backend.agents.symptom_agent - INFO - SymptomToDiseaseAgent initialized.
+2025-11-20 04:36:37 - backend.agents.disease_info_agent - INFO - DiseaseInfoAgent initialized with multi-step logic.
+2025-11-20 04:36:37 - backend.agents.image_diagnosis_agent - INFO - ImageDiagnosisAgent initialized.
+2025-11-20 04:36:37 - backend.agents.formatter_agent - INFO - FormatterAgent initialized.
+2025-11-20 04:36:37 - backend.agent_orchestrator - INFO - AgentOrchestration (meta-graph) initialized with 5 agents.
+2025-11-20 04:36:37 - backend.main - INFO - Initialized AI agent for user: ID-CTVF43
+2025-11-20 04:36:37 - backend.agent_orchestrator - INFO - Orchestrator invoked for query: 'hi'
+2025-11-20 04:36:38 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 04:36:38 - backend.agents.decider_agent - INFO - DeciderAgent decision for query 'hi': biomedical_ner
+2025-11-20 04:36:38 - backend.agents.disease_info_agent - INFO - DiseaseInfoAgent invoked. Query: 'hi', Pre-filled Disease: 'None'
+2025-11-20 04:36:38 - backend.tools.biomedical_ner_tool - INFO - Extracted 1 entities from text.
+2025-11-20 04:36:38 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 04:36:38 - backend.agents.disease_info_agent - INFO - DiseaseInfoAgent: LLM extracted disease name: 'unknown'
+2025-11-20 04:36:38 - backend.tools.disease_info_retriever_tool - INFO - Successfully retrieved info for disease: 'Carcinoma of unknown primary' (searched for: 'unknown')
+2025-11-20 04:36:38 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 04:36:38 - backend.agents.disease_info_agent - INFO - DiseaseInfoAgent: LLM decision for web search is 'ok'.
+2025-11-20 04:36:40 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 04:36:40 - backend.agents.formatter_agent - INFO - FormatterAgent successfully formatted the response.
+2025-11-20 04:36:40 - backend.agent_orchestrator - INFO - Orchestration complete.
+2025-11-20 04:36:40 - backend.main - INFO - Response Generated Successfully for user: ID-CTVF43
+2025-11-20 04:41:35 - backend.agents.decider_agent - INFO - DeciderAgent initialized.
+2025-11-20 04:41:35 - backend.agents.symptom_agent - INFO - SymptomToDiseaseAgent initialized.
+2025-11-20 04:41:35 - backend.agents.disease_info_agent - INFO - DiseaseInfoAgent initialized with multi-step logic.
+2025-11-20 04:41:35 - backend.agents.image_diagnosis_agent - INFO - ImageDiagnosisAgent initialized.
+2025-11-20 04:41:35 - backend.agents.formatter_agent - INFO - FormatterAgent initialized.
+2025-11-20 04:41:35 - backend.agent_orchestrator - INFO - AgentOrchestration (meta-graph) initialized with 5 agents.
+2025-11-20 04:41:35 - backend.main - INFO - Initialized AI agent for user: user_1763593889530
+2025-11-20 04:41:35 - backend.agent_orchestrator - INFO - Orchestrator invoked for query: 'What are symptoms of flu?'
+2025-11-20 04:41:35 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 04:41:35 - backend.agents.decider_agent - INFO - DeciderAgent decision for query 'What are symptoms of flu?': disease_info
+2025-11-20 04:41:35 - backend.agents.disease_info_agent - INFO - DiseaseInfoAgent invoked. Query: 'What are symptoms of flu?', Pre-filled Disease: 'None'
+2025-11-20 04:41:35 - backend.tools.biomedical_ner_tool - INFO - Extracted 1 entities from text.
+2025-11-20 04:41:36 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 04:41:36 - backend.agents.disease_info_agent - INFO - DiseaseInfoAgent: LLM extracted disease name: 'flu'
+2025-11-20 04:41:36 - backend.tools.disease_info_retriever_tool - INFO - Successfully retrieved info for disease: 'Infant reflux' (searched for: 'flu')
+2025-11-20 04:41:36 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 04:41:36 - backend.agents.disease_info_agent - INFO - DiseaseInfoAgent: LLM decision for web search is 'search'.
+2025-11-20 04:41:38 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 04:41:38 - backend.agents.formatter_agent - INFO - FormatterAgent successfully formatted the response.
+2025-11-20 04:41:38 - backend.agent_orchestrator - INFO - Orchestration complete.
+2025-11-20 04:41:38 - backend.main - INFO - Response Generated Successfully for user: user_1763593889530
+2025-11-20 04:49:54 - backend.agents.decider_agent - INFO - DeciderAgent initialized.
+2025-11-20 04:49:54 - backend.agents.symptom_agent - INFO - SymptomToDiseaseAgent initialized.
+2025-11-20 04:49:54 - backend.agents.disease_info_agent - INFO - DiseaseInfoAgent initialized with multi-step logic.
+2025-11-20 04:49:54 - backend.agents.image_diagnosis_agent - INFO - ImageDiagnosisAgent initialized.
+2025-11-20 04:49:54 - backend.agents.formatter_agent - INFO - FormatterAgent initialized.
+2025-11-20 04:49:54 - backend.agent_orchestrator - INFO - AgentOrchestration (meta-graph) initialized with 5 agents.
+2025-11-20 04:49:54 - backend.main - INFO - Initialized AI agent for user: u-mi6mka8m
+2025-11-20 04:49:54 - backend.main - INFO - Processed image from request.
+2025-11-20 04:49:54 - backend.agent_orchestrator - INFO - Orchestrator invoked for query: 'Analyze this image'
+2025-11-20 04:49:54 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 04:49:54 - backend.agents.decider_agent - INFO - DeciderAgent decision for query 'Analyze this image': biomedical_ner
+2025-11-20 04:49:54 - backend.agent_orchestrator - INFO - Image present, overriding decision to 'image_analysis'.
+2025-11-20 04:49:54 - backend.agents.image_diagnosis_agent - INFO - ImageDiagnosisAgent invoked with an image.
+2025-11-20 04:49:54 - backend.tools.skin_disease_prediction_tool - INFO - Predicted skin disease: cellulitis
+2025-11-20 04:49:54 - backend.agents.image_diagnosis_agent - INFO - ImageDiagnosisAgent predicted disease: cellulitis
+2025-11-20 04:49:54 - backend.agents.disease_info_agent - INFO - DiseaseInfoAgent invoked. Query: 'Analyze this image', Pre-filled Disease: 'cellulitis'
+2025-11-20 04:49:54 - backend.tools.biomedical_ner_tool - INFO - Extracted 2 entities from text.
+2025-11-20 04:49:54 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 04:49:54 - backend.agents.disease_info_agent - INFO - DiseaseInfoAgent: LLM extracted disease name: 'unknown'
+2025-11-20 04:49:54 - backend.tools.disease_info_retriever_tool - INFO - Successfully retrieved info for disease: 'Carcinoma of unknown primary' (searched for: 'unknown')
+2025-11-20 04:49:55 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 04:49:55 - backend.agents.disease_info_agent - INFO - DiseaseInfoAgent: LLM decision for web search is 'search'.
+2025-11-20 04:49:57 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 04:49:57 - backend.agents.formatter_agent - INFO - FormatterAgent successfully formatted the response.
+2025-11-20 04:49:57 - backend.agent_orchestrator - INFO - Orchestration complete.
+2025-11-20 04:49:57 - backend.main - INFO - Response Generated Successfully for user: u-mi6mka8m
+2025-11-20 04:50:05 - backend.agent_orchestrator - INFO - Orchestrator invoked for query: 'hi'
+2025-11-20 04:50:06 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 04:50:06 - backend.agents.decider_agent - INFO - DeciderAgent decision for query 'hi': biomedical_ner
+2025-11-20 04:50:06 - backend.agents.disease_info_agent - INFO - DiseaseInfoAgent invoked. Query: 'hi', Pre-filled Disease: 'None'
+2025-11-20 04:50:06 - backend.tools.biomedical_ner_tool - INFO - Extracted 1 entities from text.
+2025-11-20 04:50:06 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 04:50:06 - backend.agents.disease_info_agent - INFO - DiseaseInfoAgent: LLM extracted disease name: 'unknown'
+2025-11-20 04:50:06 - backend.tools.disease_info_retriever_tool - INFO - Successfully retrieved info for disease: 'Carcinoma of unknown primary' (searched for: 'unknown')
+2025-11-20 04:50:06 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 04:50:06 - backend.agents.disease_info_agent - INFO - DiseaseInfoAgent: LLM decision for web search is 'ok'.
+2025-11-20 04:50:08 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 04:50:08 - backend.agents.formatter_agent - INFO - FormatterAgent successfully formatted the response.
+2025-11-20 04:50:08 - backend.agent_orchestrator - INFO - Orchestration complete.
+2025-11-20 04:50:08 - backend.main - INFO - Response Generated Successfully for user: u-mi6mka8m
+2025-11-20 04:50:46 - backend.agent_orchestrator - INFO - Orchestrator invoked for query: 'Symptoms of Migraine vs Headache'
+2025-11-20 04:50:46 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 04:50:46 - backend.agents.decider_agent - INFO - DeciderAgent decision for query 'Symptoms of Migraine vs Headache': disease_info
+2025-11-20 04:50:46 - backend.agents.disease_info_agent - INFO - DiseaseInfoAgent invoked. Query: 'Symptoms of Migraine vs Headache', Pre-filled Disease: 'None'
+2025-11-20 04:50:46 - backend.tools.biomedical_ner_tool - INFO - Extracted 2 entities from text.
+2025-11-20 04:50:46 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 04:50:46 - backend.agents.disease_info_agent - INFO - DiseaseInfoAgent: LLM extracted disease name: 'migraine'
+2025-11-20 04:50:46 - backend.tools.disease_info_retriever_tool - INFO - Successfully retrieved info for disease: 'Migraine' (searched for: 'migraine')
+2025-11-20 04:50:47 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 04:50:47 - backend.agents.disease_info_agent - INFO - DiseaseInfoAgent: LLM decision for web search is 'search'.
+2025-11-20 04:50:49 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 04:50:49 - backend.agents.formatter_agent - INFO - FormatterAgent successfully formatted the response.
+2025-11-20 04:50:49 - backend.agent_orchestrator - INFO - Orchestration complete.
+2025-11-20 04:50:49 - backend.main - INFO - Response Generated Successfully for user: u-mi6mka8m
+2025-11-20 05:20:58 - root - INFO - Logging configured with level INFO to file 'app.log' and console.
+2025-11-20 05:20:58 - backend.main - INFO - Application starting...
+2025-11-20 05:20:59 - backend.main - INFO - LLM initialized.
+2025-11-20 05:21:32 - backend.agents.decider_agent - INFO - DeciderAgent initialized.
+2025-11-20 05:21:32 - backend.agents.symptom_agent - INFO - SymptomToDiseaseAgent initialized.
+2025-11-20 05:21:32 - backend.agents.disease_info_agent - INFO - DiseaseInfoAgent initialized with multi-step logic.
+2025-11-20 05:21:32 - backend.agents.image_diagnosis_agent - INFO - ImageDiagnosisAgent initialized.
+2025-11-20 05:21:32 - backend.agents.formatter_agent - INFO - FormatterAgent initialized.
+2025-11-20 05:21:32 - backend.agents.chitchat_agent - INFO - ChitChatAgent initialized.
+2025-11-20 05:21:32 - backend.agent_orchestrator - INFO - AgentOrchestration (meta-graph) initialized with 6 agents.
+2025-11-20 05:21:32 - backend.main - INFO - Initialized AI agent for user: 765849
+2025-11-20 05:21:32 - backend.agent_orchestrator - INFO - Orchestrator invoked for query: 'hi who are you?'
+2025-11-20 05:21:32 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 05:21:32 - backend.agents.decider_agent - INFO - DeciderAgent decision for query 'hi who are you?': chitchat
+2025-11-20 05:21:32 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 05:21:32 - backend.agents.chitchat_agent - INFO - ChitChatAgent successfully generated a response.
+2025-11-20 05:21:32 - backend.agent_orchestrator - INFO - Orchestration complete.
+2025-11-20 05:21:32 - backend.main - INFO - Response Generated Successfully for user: 765849
+2025-11-20 05:22:01 - backend.agent_orchestrator - INFO - Orchestrator invoked for query: 'what are the symptoms of common cold?'
+2025-11-20 05:22:01 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 05:22:01 - backend.agents.decider_agent - INFO - DeciderAgent decision for query 'what are the symptoms of common cold?': disease_info
+2025-11-20 05:22:01 - backend.agents.disease_info_agent - INFO - DiseaseInfoAgent invoked. Query: 'what are the symptoms of common cold?', Pre-filled Disease: 'None'
+2025-11-20 05:22:01 - backend.tools.biomedical_ner_tool - INFO - Extracted 1 entities from text.
+2025-11-20 05:22:01 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 05:22:01 - backend.agents.disease_info_agent - INFO - DiseaseInfoAgent: LLM extracted disease name: 'common cold'
+2025-11-20 05:22:01 - backend.tools.disease_info_retriever_tool - INFO - Successfully retrieved info for disease: 'Common cold' (searched for: 'common cold')
+2025-11-20 05:22:02 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 05:22:02 - backend.agents.disease_info_agent - INFO - DiseaseInfoAgent: LLM decision for web search is 'the common cold typically begins 1–3 days after exposure to a cold virus, and its symptoms can vary from person to person. common signs and symptoms include:
+
+- **runny or stuffy nose** (the nasal mucus may start clear and later turn yellow or green)  
+- **sore or scratchy throat**  
+- **cough**  
+- **sneezing**  
+- **general feeling of being unwell** (fatigue, mild malaise)  
+- **slight body aches or a mild headache**  
+- **low‑grade fever** (often just a little higher than normal)  
+
+these symptoms usually last about 7–10 days, though a cough can linger a bit longer. if symptoms worsen, persist beyond a week, or you develop a higher fever, shortness of breath, or other concerning signs, it’s a good idea to see a health‑care provider.'.
+2025-11-20 05:22:02 - backend.main - ERROR - Internal server error for user 765849: 'the common cold typically begins 1–3\u202fdays after exposure to a cold virus, and its symptoms can vary from person to person. common signs and symptoms include:\n\n- **runny or stuffy nose** (the nasal mucus may start clear and later turn yellow or green)  \n- **sore or scratchy throat**  \n- **cough**  \n- **sneezing**  \n- **general feeling of being unwell** (fatigue, mild malaise)  \n- **slight body aches or a mild headache**  \n- **low‑grade fever** (often just a little higher than normal)  \n\nthese symptoms usually last about 7–10\u202fdays, though a cough can linger a bit longer. if symptoms worsen, persist beyond a week, or you develop a higher fever, shortness of breath, or other concerning signs, it’s a good idea to see a health‑care provider.'
+Traceback (most recent call last):
+  File "/home/mcqueen/Documents/SmartHealth-LLM/backend/main.py", line 96, in ask
+    response = await orchestrator_instance.invoke(user_query=request.message, image=image)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mcqueen/Documents/SmartHealth-LLM/backend/agent_orchestrator.py", line 159, in invoke
+    final_state = await self.workflow.ainvoke(initial_state)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mcqueen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/langgraph/pregel/main.py", line 3137, in ainvoke
+    async for chunk in self.astream(
+  File "/home/mcqueen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/langgraph/pregel/main.py", line 2956, in astream
+    async for _ in runner.atick(
+  File "/home/mcqueen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/langgraph/pregel/_runner.py", line 304, in atick
+    await arun_with_retry(
+  File "/home/mcqueen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/langgraph/pregel/_retry.py", line 137, in arun_with_retry
+    return await task.proc.ainvoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mcqueen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 705, in ainvoke
+    input = await asyncio.create_task(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mcqueen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 473, in ainvoke
+    ret = await self.afunc(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mcqueen/Documents/SmartHealth-LLM/backend/agent_orchestrator.py", line 118, in disease_info_node
+    result = await disease_info_agent.invoke(state)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mcqueen/Documents/SmartHealth-LLM/backend/agents/disease_info_agent.py", line 169, in invoke
+    final_internal_state = await self.graph.ainvoke(internal_state)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mcqueen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/langgraph/pregel/main.py", line 3137, in ainvoke
+    async for chunk in self.astream(
+  File "/home/mcqueen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/langgraph/pregel/main.py", line 2956, in astream
+    async for _ in runner.atick(
+  File "/home/mcqueen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/langgraph/pregel/_runner.py", line 304, in atick
+    await arun_with_retry(
+  File "/home/mcqueen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/langgraph/pregel/_retry.py", line 137, in arun_with_retry
+    return await task.proc.ainvoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mcqueen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 711, in ainvoke
+    input = await step.ainvoke(input, config)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mcqueen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 473, in ainvoke
+    ret = await self.afunc(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mcqueen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/langgraph/graph/_branch.py", line 190, in _aroute
+    return self._finish(writer, input, result, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mcqueen/.pyenv/versions/3.12.3/lib/python3.12/site-packages/langgraph/graph/_branch.py", line 203, in _finish
+    r if isinstance(r, Send) else self.ends[r] for r in result
+                                  ~~~~~~~~~^^^
+KeyError: 'the common cold typically begins 1–3\u202fdays after exposure to a cold virus, and its symptoms can vary from person to person. common signs and symptoms include:\n\n- **runny or stuffy nose** (the nasal mucus may start clear and later turn yellow or green)  \n- **sore or scratchy throat**  \n- **cough**  \n- **sneezing**  \n- **general feeling of being unwell** (fatigue, mild malaise)  \n- **slight body aches or a mild headache**  \n- **low‑grade fever** (often just a little higher than normal)  \n\nthese symptoms usually last about 7–10\u202fdays, though a cough can linger a bit longer. if symptoms worsen, persist beyond a week, or you develop a higher fever, shortness of breath, or other concerning signs, it’s a good idea to see a health‑care provider.'
+During task with name 'decision' and id '4c575d1b-ce14-0426-6d17-9775c39437fe'
+During task with name 'disease_info' and id 'be99e694-bea1-fdf7-e320-8eebd6595fd5'
+2025-11-20 05:22:44 - backend.agent_orchestrator - INFO - Orchestrator invoked for query: 'my name is priya'
+2025-11-20 05:22:45 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 05:22:45 - backend.agents.decider_agent - INFO - DeciderAgent decision for query 'my name is priya': chitchat
+2025-11-20 05:22:45 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 05:22:45 - backend.agents.chitchat_agent - INFO - ChitChatAgent successfully generated a response.
+2025-11-20 05:22:45 - backend.agent_orchestrator - INFO - Orchestration complete.
+2025-11-20 05:22:45 - backend.main - INFO - Response Generated Successfully for user: 765849
+2025-11-20 05:23:06 - backend.agent_orchestrator - INFO - Orchestrator invoked for query: 'what is my name?'
+2025-11-20 05:23:07 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 05:23:07 - backend.agents.decider_agent - INFO - DeciderAgent decision for query 'what is my name?': chitchat
+2025-11-20 05:23:07 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 05:23:07 - backend.agents.chitchat_agent - INFO - ChitChatAgent successfully generated a response.
+2025-11-20 05:23:07 - backend.agent_orchestrator - INFO - Orchestration complete.
+2025-11-20 05:23:07 - backend.main - INFO - Response Generated Successfully for user: 765849
+2025-11-20 05:23:30 - backend.agent_orchestrator - INFO - Orchestrator invoked for query: 'what are the symptoms of aids?'
+2025-11-20 05:23:30 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 05:23:30 - backend.agents.decider_agent - INFO - DeciderAgent decision for query 'what are the symptoms of aids?': disease_info
+2025-11-20 05:23:30 - backend.agents.disease_info_agent - INFO - DiseaseInfoAgent invoked. Query: 'what are the symptoms of aids?', Pre-filled Disease: 'None'
+2025-11-20 05:23:30 - backend.tools.biomedical_ner_tool - INFO - Extracted 0 entities from text.
+2025-11-20 05:23:30 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 05:23:30 - backend.agents.disease_info_agent - INFO - DiseaseInfoAgent: LLM extracted disease name: 'aids'
+2025-11-20 05:23:30 - backend.tools.disease_info_retriever_tool - INFO - Successfully retrieved info for disease: 'HIV/AIDS' (searched for: 'aids')
+2025-11-20 05:23:31 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 05:23:31 - backend.agents.disease_info_agent - INFO - DiseaseInfoAgent: LLM decision for web search is 'search'.
+2025-11-20 05:23:32 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-11-20 05:23:32 - openai._base_client - INFO - Retrying request to /chat/completions in 1.000000 seconds
+2025-11-20 05:23:35 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 05:23:35 - backend.agents.formatter_agent - INFO - FormatterAgent successfully formatted the response.
+2025-11-20 05:23:35 - backend.agent_orchestrator - INFO - Orchestration complete.
+2025-11-20 05:23:35 - backend.main - INFO - Response Generated Successfully for user: 765849

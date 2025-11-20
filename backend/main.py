@@ -2,54 +2,62 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from dotenv import load_dotenv
-import os
-from agent_orchestrator import AgentOrchestration
-from utils.llm import set_llm
 import logging
 from typing import Optional
 import base64
 from io import BytesIO
 from PIL import Image
+import uvicorn
 
-# initialize logging
-logging.basicConfig(level=logging.CRITICAL, filename="app.log", filemode="a")
+from .config import settings
+from .utils.logging import setup_logging # Import the setup function
+from .agent_orchestrator import AgentOrchestration
+from .utils.llm import set_llm
+from .tool_registry import tool_registry
 
-logger = logging.getLogger("main")
+# Set up logging before anything else
+setup_logging(log_level=settings.LOG_LEVEL, log_file=settings.LOG_FILE)
 
-logger.info("Application started")
+logger = logging.getLogger(__name__)
 
-# Load environment variables
-load_dotenv()
-logger.info("Application started")
+logger.info("Application starting...")
 
-# Initialize LLM instance
+# Initialize LLM instance (now using settings)
 llm_instance = set_llm(
-    os.getenv("TEST_API_KEY"),
-    os.getenv("TEST_API_BASE"),
-    os.getenv("TEST_MODEL"),
+    settings.TEST_API_KEY,
+    settings.TEST_API_BASE,
+    settings.TEST_MODEL,
 )
-logger.info("LLM initialized")
+logger.info("LLM initialized.")
 
 # Initialize FastAPI app
 app = FastAPI(title="Smart Health LLM API")
 
-# Add CORS middleware (for frontend access)
+# Add CORS middleware (using settings.CORS_ORIGINS)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:3000",
-        "http://127.0.0.1:3000",
-        "https://harmeshgv.github.io/SmartHealth-LLM/",
-    ],  # React dev server
+    allow_origins=settings.CORS_ORIGINS,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# Store orchestrators per user
-user_orchestrations = {}
+import redis
+import dill # Using dill for better serialization of complex objects
 
+# Initialize Redis connection
+try:
+    redis_client = redis.Redis(
+        host=settings.REDIS_HOST,
+        port=settings.REDIS_PORT,
+        db=0,
+        decode_responses=False  # Store bytes to handle pickled objects
+    )
+    redis_client.ping()
+    logger.info("Successfully connected to Redis.")
+except redis.exceptions.ConnectionError as e:
+    logger.error(f"Could not connect to Redis: {e}", exc_info=True)
+    redis_client = None
 
 # Request model
 class ChatRequest(BaseModel):
@@ -61,47 +69,71 @@ class ChatRequest(BaseModel):
 # Health check endpoint
 @app.get("/")
 def health():
-    return {"status": "ok"}
+    if redis_client and redis_client.ping():
+        return {"status": "ok", "redis_status": "ok"}
+    return {"status": "ok", "redis_status": "error"}
 
 
 # Chat endpoint
 @app.post("/ask")
-def ask(request: ChatRequest):
-    if request.user_id not in user_orchestrations:
-        try:
-            user_orchestrations[request.user_id] = AgentOrchestration(llm_instance)
-            logging.info("Initialized AI agent")
-        except Exception as e:
-            logging.error(f"Failed to initialize AI agent: {str(e)}")
+async def ask(request: ChatRequest): # Made async
+    if not redis_client:
+        return {"error": "Redis is not available. Please check the server configuration."}
 
-            return {"error": f"Failed to initialize AI agent: {str(e)}"}
+    session_key = f"session:{request.user_id}"
+    
+    # Always create a new orchestrator instance to ensure it's stateless
+    orchestrator_instance = AgentOrchestration(llm_instance, tool_registry)
+    logger.info(f"Initialized new AI agent for user: {request.user_id}")
 
-    orchestrator_instance = user_orchestrations[request.user_id]
-
+    try:
+        # Try to retrieve existing session memory from Redis
+        serialized_memory = redis_client.get(session_key)
+        
+        if serialized_memory:
+            retrieved_memory = dill.loads(serialized_memory)
+            orchestrator_instance.set_memory(retrieved_memory)
+            logger.info(f"Retrieved session memory for user: {request.user_id}")
+            
+    except Exception as e:
+        logger.error(f"Failed to retrieve or deserialize session for user {request.user_id}: {str(e)}", exc_info=True)
+        # Continue with a fresh session if retrieval fails
+    
     # Convert base64 image to PIL Image if present
     image = None
     if request.image:
         try:
-            header, base64_data = request.image.split(",", 1)
+            # Split off the header if present (e.g., "data:image/jpeg;base64,")
+            if "," in request.image:
+                header, base64_data = request.image.split(",", 1)
+            else:
+                base64_data = request.image
+
             image_bytes = base64.b64decode(base64_data)
             image = Image.open(BytesIO(image_bytes)).convert("RGB")
-            logging.info("Processed image")
+            logger.info("Processed image from request.")
         except Exception as e:
-            logging.error(f"Failed to process image: {str(e)}")
+            logger.error(f"Failed to process image for user {request.user_id}: {str(e)}", exc_info=True)
             return {"error": f"Failed to process image: {str(e)}"}
 
     # Invoke orchestrator
     try:
-        response = orchestrator_instance.invoke(user_query=request.message, image=image)
-        logging.info("Response Generated Successfully")
+        # Invoke the orchestrator (now async)
+        response = await orchestrator_instance.invoke(user_query=request.message, image=image)
+        logger.info(f"Response Generated Successfully for user: {request.user_id}")
+
+        # Get the updated memory and save it back to Redis
+        updated_memory = orchestrator_instance.get_memory()
+        serialized_memory = dill.dumps(updated_memory)
+        redis_client.setex(session_key, settings.SESSION_EXPIRE_SECONDS, serialized_memory)
+        
         return {"answer": response}
     except Exception as e:
-        logging.error(f"Internal server error: {str(e)}")
+        logger.error(f"Internal server error for user {request.user_id}: {str(e)}", exc_info=True)
         return {"error": f"Internal server error: {str(e)}"}
 
 
-# Run app
-if __name__ == "__main__":
-    import uvicorn
 
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+# Run app (using settings.UVICORN_HOST and settings.UVICORN_PORT)
+if __name__ == "__main__":
+    uvicorn.run(app, host=settings.UVICORN_HOST, port=settings.UVICORN_PORT)

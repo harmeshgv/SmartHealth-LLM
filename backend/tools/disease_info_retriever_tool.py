@@ -1,173 +1,127 @@
-# backend/tools/disease_info_retriever.py
-
-import csv
-from typing import List, Dict
-from rapidfuzz import process
+# backend/tools/disease_info_retriever_tool.py
 import logging
-from config import MAYO_CSV
+import csv
+from typing import List, Dict, Any, Optional
 
+from langchain_community.vectorstores import FAISS
+from langchain_core.embeddings import Embeddings
+from langchain_core.documents import Document
 
-class DiseaseInfoRetriever:
-    def __init__(self, csv_path: str = MAYO_CSV):
+from .base import BaseTool
+
+logger = logging.getLogger(__name__)
+
+class DiseaseInfoRetrieverTool(BaseTool):
+    """
+    A tool to retrieve detailed information about diseases from a local CSV database.
+    Uses exact, normalized, and semantic matching to find the disease.
+    """
+
+    name: str = "Disease Information Retriever"
+    description: str = (
+        "Retrieves information about a specific disease, such as overview, symptoms, "
+        "causes, and treatments. Input should be a disease name."
+    )
+    db: List[Dict[str, str]] = []
+    disease_list: List[str] = []
+    name_vectorstore: FAISS
+    db_map: Dict[str, Dict[str, str]] = {} # Declare as instance attribute type
+
+    def __init__(self, csv_path: str, embeddings: Embeddings):
+        super().__init__()
         self.csv_path = csv_path
-        self.df = self.load_csv()
-        logging.basicConfig(level=logging.INFO)
-        self.logger = logging.getLogger(__name__)
-        self.logger.info(f"DiseaseInfoRetriever loaded CSV: {csv_path}")
+        try:
+            self.db = self._load_csv()
+            self.disease_list = [row["disease"] for row in self.db]
+            self.db_map = {row["disease"].lower().strip(): row for row in self.db} # Initialize db_map
+            
+            # Build a FAISS index from the disease names for semantic search
+            name_docs = [Document(page_content=name) for name in self.disease_list]
+            self.name_vectorstore = FAISS.from_documents(name_docs, embeddings)
+            
+            logger.info(f"DiseaseInfoRetriever loaded data from {csv_path}")
+        except Exception as e:
+            logger.error(f"Failed to load disease database from {csv_path}: {e}", exc_info=True)
+            raise
 
-    def load_csv(self) -> List[Dict]:
+    def _load_csv(self) -> List[Dict[str, str]]:
+        """Loads the disease data from the CSV file."""
         with open(self.csv_path, mode="r", encoding="utf-8") as file:
-            reader = csv.DictReader(file)
-            data = [row for row in reader]
-        return data
+            return list(csv.DictReader(file))
 
-    def best_match(self, disease_name: str, disease_list: List[str], threshold=0.70):
-        if not disease_name or not disease_list:
+    def _find_best_match(self, disease_name: str, threshold: float = 0.85) -> Optional[str]:
+        """Finds the best matching disease name using exact, normalized, and semantic search."""
+        if not disease_name or not self.disease_list:
             return None
 
-        # Clean the disease name
-        disease_name = disease_name.lower().strip()
+        disease_name_lower = disease_name.lower().strip()
 
-        print(f"DEBUG - Cleaned search term: '{disease_name}'")
-
-        # First, try exact match (case insensitive)
-        for disease in disease_list:
-            if disease.lower() == disease_name:
-                print(f"DEBUG - Exact match found: '{disease}'")
+        # 1. Exact match (case-insensitive)
+        for disease in self.disease_list:
+            if disease.lower() == disease_name_lower:
+                logger.debug(f"Found exact match for '{disease_name}': '{disease}'")
                 return disease
 
-        # Then try normalized matching (remove special chars, spaces, etc.)
-        normalized_search = (
-            disease_name.replace("/", " ")
-            .replace("-", " ")
-            .replace("_", " ")
-            .replace(" and ", " ")
-            .replace("&", " ")
-        )
-        normalized_search = " ".join(normalized_search.split())  # Remove extra spaces
+        # 2. Normalized match (replace hyphens/underscores)
+        normalized_search = " ".join(disease_name_lower.replace("/", " ").replace("-", " ").replace("_", " ").split())
+        for disease_key, disease_data in self.db_map.items():
+            normalized_db_key = " ".join(disease_key.replace("/", " ").replace("-", " ").replace("_", " ").split())
+            if normalized_db_key == normalized_search:
+                logger.debug(f"Found normalized match for '{disease_name}': '{disease_data['disease']}'")
+                return disease_key # Return the original key from db_map
+        
+        # 3. Semantic (vector) search
+        logger.debug(f"No exact/normalized match for '{disease_name}'. Trying semantic search.")
+        # Ensure the query passed to the vectorstore is the same one used for assertions
+        results = self.name_vectorstore.similarity_search_with_score(disease_name_lower, k=1, score_threshold=threshold)
+        if results:
+            best_match_doc, score = results[0]
+            match_key = best_match_doc.page_content.lower().strip()
+            logger.info(f"Found semantic match for '{disease_name}': '{match_key}' with score {score:.2f}")
+            return match_key
 
-        for disease in disease_list:
-            normalized_db = (
-                disease.lower()
-                .replace("/", " ")
-                .replace("-", " ")
-                .replace("_", " ")
-                .replace(" and ", " ")
-                .replace("&", " ")
-            )
-            normalized_db = " ".join(normalized_db.split())
-
-            # Check if search term is contained in DB term or vice versa
-            if normalized_search in normalized_db or normalized_db in normalized_search:
-                print(f"DEBUG - Normalized match found: '{disease}'")
-                return disease
-
-            # Check for word overlap
-            search_words = set(normalized_search.split())
-            db_words = set(normalized_db.split())
-            if search_words & db_words:  # If there's any word overlap
-                overlap = search_words & db_words
-                print(
-                    f"DEBUG - Word overlap: {overlap} between '{disease_name}' and '{disease}'"
-                )
-                if len(overlap) >= 1:  # At least one word matches
-                    return disease
-
-        # Finally, use fuzzy matching
-        result = process.extractOne(
-            disease_name, disease_list, score_cutoff=threshold * 100
-        )
-        if result:
-            match, score, _ = result
-            print(f"DEBUG - Fuzzy match: '{match}' with score: {score}")
-            return match
-
-        print(f"DEBUG - No match found for '{disease_name}'")
+        logger.warning(f"No suitable match found for disease '{disease_name}'")
         return None
 
-    def get_info(self, disease_name: str, fields: list) -> Dict:
-        disease_list = [row["disease"] for row in self.df]
+    async def execute(self, disease_name: str, fields: Optional[List[str]] = None) -> Dict[str, Any]:
+        """
+        Retrieves information for a given disease name.
 
-        # Debug: print available diseases and the search term
-        print(f"DEBUG - Searching for: '{disease_name}'")
-        print(
-            f"DEBUG - Available diseases: {disease_list[:10]}..."
-        )  # First 10 diseases
-        print(f"DEBUG - Total diseases in DB: {len(disease_list)}")
+        Args:
+            disease_name: The name of the disease to search for.
+            fields: An optional list of fields to return. If None, all fields are returned.
 
-        best_disease = self.best_match(disease_name, disease_list)
-        print(f"DEBUG - Best match: '{best_disease}'")
+        Returns:
+            A dictionary containing the disease information or an error.
+        """
+        if not disease_name:
+            return {"error": "No disease name provided."}
 
-        if not best_disease:
-            return {
-                "error": "Disease name didn't match any known disease in local database"
-            }
+        matched_disease_key = self._find_best_match(disease_name)
 
-        for row in self.df:
-            if row["disease"] == best_disease:
-                result = {field: row.get(field, "N/A") for field in fields}
-                print(f"DEBUG - Found info for: {best_disease}")
-                return result
+        if not matched_disease_key:
+            return {"error": f"Could not find a match for '{disease_name}' in the database."}
+        
+        # Use the case-insensitive map for the final lookup
+        info = self.db_map.get(matched_disease_key, {})
+        if not info:
+             return {"error": f"Data integrity error: Matched disease key '{matched_disease_key}' not found in map."}
 
-        return {"error": "Disease not found."}
+        if fields:
+            result = {field: info.get(field, "N/A") for field in fields}
+        else:
+            result = dict(info) # Return all fields
 
+        logger.info(f"Successfully retrieved info for disease: '{info['disease']}' (searched for: '{disease_name}')")
+        return {"info": result}
 
-# Instantiate retriever
-retriever = DiseaseInfoRetriever()
-
-# All possible fields
-all_fields = [
-    "disease",
-    "Overview",
-    "Symptoms",
-    "When to see a doctor",
-    "Causes",
-    "Risk factors",
-    "Complications",
-    "Prevention",
-    "Diagnosis",
-    "Treatment",
-    "Coping and support",
-    "Preparing for your appointment",
-    "Lifestyle and home remedies",
-]
-
-
-# LangGraph-ready function
-def retrieve_disease_info(input_dict: Dict) -> Dict:
-    """
-    Retrieves full disease information from the local CSV.
-
-    Args:
-        input_dict (dict): {"disease": disease_name}
-
-    Returns:
-        dict: {
-            "input_disease_name": str,
-            "info": dict of all fields or error message
-        }
-    """
-    if input_dict is None:
-        return None
-    disease_name = input_dict.get("disease", "")
-    info = retriever.get_info(disease_name, all_fields)
-    return {"input_disease_name": disease_name, "info": info}
-
-
-# Quick test
+# testing
 if __name__ == "__main__":
-    class_names = [
-        "cellulitis",
-        "impetigo",
-        "athlete-foot",
-        "nail-fungus",
-        "ringworm",
-        "cutaneous-larva-migrans",
-        "chickenpox",
-        "shingles",
-    ]
-
-    test_output = retrieve_disease_info({"disease": class_names[7]})
-    import json
-
-    print(json.dumps(test_output, indent=2))
+    import asyncio
+    # Import necessary components for local testing
+    from backend.utils.embeddings import get_embeddings # Import get_embeddings
+    
+    embeddings = get_embeddings() # Use the singleton get_embeddings function    
+    D=DiseaseInfoRetrieverTool(csv_path="backend/data/updated_df.csv", embeddings=embeddings)
+    result = asyncio.run(D.execute("dengue"))
+    print(result)
