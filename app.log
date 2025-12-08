@@ -454,3 +454,6 @@ During task with name 'disease_info' and id 'be99e694-bea1-fdf7-e320-8eebd6595fd
 2025-11-20 05:23:35 - backend.agents.formatter_agent - INFO - FormatterAgent successfully formatted the response.
 2025-11-20 05:23:35 - backend.agent_orchestrator - INFO - Orchestration complete.
 2025-11-20 05:23:35 - backend.main - INFO - Response Generated Successfully for user: 765849
+2025-11-21 17:44:41 - root - INFO - Logging configured with level INFO to file 'app.log' and console.
+2025-11-21 17:44:41 - backend.main - INFO - Application starting...
+2025-11-21 17:44:42 - backend.main - INFO - LLM initialized.

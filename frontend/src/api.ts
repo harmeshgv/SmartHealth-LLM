@@ -1,7 +1,7 @@
 // api.ts
 import axios from "axios";
 
-const API_URL = "https://harmesh95-vio.hf.space";
+const API_URL = "http://localhost:7860";
 
 // Connection status types
 export type ConnectionStatus = "connected" | "connecting" | "error";
