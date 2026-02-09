@@ -1,7 +1,8 @@
 // api.ts
 import axios from "axios";
 
-const API_URL = process.env.REACT_APP_API_URL || "http://localhost:7860";
+const RAW_API_URL = process.env.REACT_APP_API_URL || "https://harmesh95-smarthealth-llm-backend.hf.space";
+const API_URL = RAW_API_URL.replace(/\/+$/, "");
 
 // Connection status types
 export type ConnectionStatus = "connected" | "connecting" | "error";
