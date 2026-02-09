@@ -4,8 +4,8 @@ from unittest.mock import patch, MagicMock, ANY
 import logging
 import pytest_asyncio
 
-from backend.tools.symptom_matcher_tool import SymptomDiseaseMatcherTool
-from backend.config import settings
+from app.tools.medical.symptom_matcher_tool import SymptomDiseaseMatcherTool
+from app.config import settings
 from langchain_core.documents import Document
 
 @pytest.fixture(autouse=True)
@@ -20,7 +20,7 @@ def mock_embeddings():
 
 @pytest.fixture
 def mock_faiss_vectorstore():
-    with patch('backend.tools.symptom_matcher_tool.FAISS.load_local') as mock_load_local:
+    with patch('app.tools.medical.symptom_matcher_tool.FAISS.load_local') as mock_load_local:
         mock_vectorstore_instance = MagicMock()
         
         mock_vectorstore_instance.similarity_search_with_score.return_value = [
@@ -33,29 +33,27 @@ def mock_faiss_vectorstore():
 @pytest.fixture
 def symptom_matcher_tool_instance(mock_faiss_vectorstore, mock_embeddings):
     return SymptomDiseaseMatcherTool(
-        db_path=settings.SYMPTOM_FAISS_DB,
-        embeddings=mock_embeddings
+        db_path=settings.FAISS_SYMPTOM_PATH
     )
 
 def test_tool_initialization(symptom_matcher_tool_instance, mock_faiss_vectorstore):
-    assert symptom_matcher_tool_instance.name == "Symptom to Disease Matcher"
-    assert "Finds potential diseases that match a given list of symptoms" in symptom_matcher_tool_instance.description
+    assert symptom_matcher_tool_instance.name == "symptom_disease_matcher"
     mock_faiss_vectorstore.assert_called_once_with(
-        settings.SYMPTOM_FAISS_DB,
+        settings.FAISS_SYMPTOM_PATH,
         ANY,
         allow_dangerous_deserialization=True
     )
     assert hasattr(symptom_matcher_tool_instance, 'vectorstore')
 
 def test_tool_initialization_exception(mock_embeddings):
-    with patch('backend.tools.symptom_matcher_tool.FAISS.load_local', side_effect=Exception("FAISS load error")):
+    with patch('app.tools.medical.symptom_matcher_tool.FAISS.load_local', side_effect=Exception("FAISS load error")):
         with pytest.raises(Exception, match="FAISS load error"):
-            SymptomDiseaseMatcherTool(db_path="invalid_path", embeddings=mock_embeddings)
+            SymptomDiseaseMatcherTool(db_path="invalid_path")
 
 @pytest.mark.asyncio
-async def test_execute_with_valid_symptoms(symptom_matcher_tool_instance, mock_faiss_vectorstore):
+async def test_run_with_valid_symptoms(symptom_matcher_tool_instance, mock_faiss_vectorstore):
     symptoms = ["fever", "cough"]
-    result = await symptom_matcher_tool_instance.execute(symptoms=symptoms) # Await the async method
+    result = await symptom_matcher_tool_instance.run(symptoms=symptoms)
 
     mock_faiss_vectorstore.return_value.similarity_search_with_score.assert_called_once_with(
         "fever, cough", k=3
@@ -68,22 +66,22 @@ async def test_execute_with_valid_symptoms(symptom_matcher_tool_instance, mock_f
     assert "error" not in result
 
 @pytest.mark.asyncio
-async def test_execute_with_empty_symptoms(symptom_matcher_tool_instance):
-    result = await symptom_matcher_tool_instance.execute(symptoms=[]) # Await the async method
+async def test_run_with_empty_symptoms(symptom_matcher_tool_instance):
+    result = await symptom_matcher_tool_instance.run(symptoms=[])
     assert "error" in result
     assert "non-empty list of symptoms" in result["error"]
 
 @pytest.mark.asyncio
-async def test_execute_with_non_list_input(symptom_matcher_tool_instance):
-    result = await symptom_matcher_tool_instance.execute(symptoms="fever, cough") # Await the async method
+async def test_run_with_non_list_input(symptom_matcher_tool_instance):
+    result = await symptom_matcher_tool_instance.run(symptoms="fever, cough")
     assert "error" in result
     assert "non-empty list of symptoms" in result["error"]
 
 @pytest.mark.asyncio
-async def test_execute_similarity_search_exception(symptom_matcher_tool_instance, mock_faiss_vectorstore):
+async def test_run_similarity_search_exception(symptom_matcher_tool_instance, mock_faiss_vectorstore):
     mock_faiss_vectorstore.return_value.similarity_search_with_score.side_effect = Exception("Search failed")
     symptoms = ["headache"]
-    result = await symptom_matcher_tool_instance.execute(symptoms=symptoms) # Await the async method
+    result = await symptom_matcher_tool_instance.run(symptoms=symptoms)
 
     assert "error" in result
     assert "Search failed" in result["error"]

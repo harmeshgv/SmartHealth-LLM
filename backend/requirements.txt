@@ -1,4 +1,4 @@
---extra-index-url https://download.pytorch.org/whl/cpu
+#--extra-index-url https://download.pytorch.org/whl/cpu
 langchain_openai
 langchain_core
 langchain
@@ -18,3 +18,22 @@ torchvision
 google-search-results
 redis
 dill
+pandas
+openpyxl
+opencv-python
+ultralytics
+python-multipart
+passlib
+psycopg2
+python-jose[cryptography]
+pydantic[email]
+groq
+colorlog
+python-json-logger
+
+# Added for testing and specific functionalities
+pytest==9.0.2
+pytest-asyncio==1.3.0
+Pillow==12.1.0
+numpy==2.4.2
+pydantic-settings==2.1.0

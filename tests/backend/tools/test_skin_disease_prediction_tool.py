@@ -5,9 +5,10 @@ import logging
 from PIL import Image
 import io
 import pytest_asyncio
+import unittest # Import unittest
 
-from backend.tools.skin_disease_prediction_tool import SkinDiseasePredictionTool
-from backend.config import settings
+from app.tools.ml.skin_disease_prediction_tool import SkinDiseasePredictionTool
+from app.config import settings
 
 @pytest.fixture(autouse=True)
 def cap_log(caplog):
@@ -16,10 +17,10 @@ def cap_log(caplog):
 @pytest.fixture
 def mock_torch_dependencies():
     """Mocks torch, torchvision.models, and torch.nn."""
-    with patch('backend.tools.skin_disease_prediction_tool.torch') as mock_torch, \
-         patch('backend.tools.skin_disease_prediction_tool.models') as mock_models, \
-         patch('backend.tools.skin_disease_prediction_tool.nn') as mock_nn, \
-         patch('backend.tools.skin_disease_prediction_tool.transforms') as mock_transforms_module:
+    with patch('app.tools.ml.skin_disease_prediction_tool.torch') as mock_torch, \
+         patch('app.tools.ml.skin_disease_prediction_tool.models') as mock_models, \
+         patch('app.tools.ml.skin_disease_prediction_tool.nn') as mock_nn, \
+         patch('app.tools.ml.skin_disease_prediction_tool.transforms') as mock_transforms_module:
         
         # Mock CUDA availability to ensure CPU is used for tests
         mock_torch.cuda.is_available.return_value = False
@@ -57,63 +58,64 @@ def mock_pil_image():
 
 @pytest.fixture
 def skin_predictor_tool_instance(mock_torch_dependencies):
-    return SkinDiseasePredictionTool(
-        model_path=settings.DISEASE_PREDICTION_MODEL,
-        class_names=settings.SKIN_DISEASE_CLASS_NAMES
-    )
+    # Patching os.path.exists to avoid FileNotFoundError on labels.json
+    with patch('os.path.exists') as mock_exists:
+        mock_exists.return_value = True
+        with patch('builtins.open', unittest.mock.mock_open(read_data='["class1", "class2"]')):
+            return SkinDiseasePredictionTool()
+
 
 def test_tool_initialization(skin_predictor_tool_instance, mock_torch_dependencies):
     """Test that the tool initializes correctly."""
     mock_torch, mock_models, mock_nn, mock_transforms = mock_torch_dependencies
     
-    assert skin_predictor_tool_instance.name == "Skin Disease Predictor"
-    assert "Predicts the type of skin disease" in skin_predictor_tool_instance.description
+    assert skin_predictor_tool_instance.name == "skin_disease_predictor"
     
     mock_models.densenet121.assert_called_once_with(weights=None)
-    mock_nn.Linear.assert_called_once_with(ANY, len(settings.SKIN_DISEASE_CLASS_NAMES))
+    mock_nn.Linear.assert_called_once_with(ANY, len(skin_predictor_tool_instance.class_names))
     # Assert that the model is loaded onto the device the tool has chosen
-    mock_torch.load.assert_called_once_with(settings.DISEASE_PREDICTION_MODEL, map_location=skin_predictor_tool_instance.device)
+    mock_torch.load.assert_called_once_with(skin_predictor_tool_instance.model_path, map_location=skin_predictor_tool_instance.device)
     assert skin_predictor_tool_instance.model.eval.called
     mock_transforms.Compose.assert_called_once()
 
 def test_tool_initialization_exception():
     """Test error handling during tool initialization."""
-    with patch('backend.tools.skin_disease_prediction_tool.torch.load', side_effect=Exception("Model load error")):
-        with pytest.raises(Exception, match="Model load error"):
-            SkinDiseasePredictionTool(
-                model_path="invalid_path.pth",
-                class_names=["class1"]
-            )
+    with patch('app.tools.ml.skin_disease_prediction_tool.torch.load', side_effect=Exception("Model load error")):
+        with pytest.raises(RuntimeError, match="Failed to load skin model: Model load error"):
+            with patch('os.path.exists') as mock_exists:
+                mock_exists.return_value = True
+                with patch('builtins.open', unittest.mock.mock_open(read_data='["class1", "class2"]')):
+                    SkinDiseasePredictionTool()
 
 @pytest.mark.asyncio
-async def test_execute_with_valid_image(skin_predictor_tool_instance, mock_pil_image, mock_torch_dependencies):
+async def test_run_with_valid_image(skin_predictor_tool_instance, mock_pil_image, mock_torch_dependencies):
     """Test successful prediction with a valid PIL Image."""
     mock_torch, _, _, mock_transforms = mock_torch_dependencies
     
     # Configure mock_torch.max to return class 0
     mock_torch.max.return_value = (MagicMock(), MagicMock(item=MagicMock(return_value=0)))
 
-    result = await skin_predictor_tool_instance.execute(image=mock_pil_image)
+    result = await skin_predictor_tool_instance.run(image=mock_pil_image)
     
     assert "predicted_class" in result
-    assert result["predicted_class"] == settings.SKIN_DISEASE_CLASS_NAMES[0]
+    assert result["predicted_class"] == skin_predictor_tool_instance.class_names[0]
     assert "error" not in result
     skin_predictor_tool_instance.model.assert_called_once_with(ANY)
     # The transform itself is mocked, we just need to ensure it was called.
     mock_transforms.Compose.return_value.assert_called_once_with(mock_pil_image)
 
 @pytest.mark.asyncio
-async def test_execute_with_invalid_input_type(skin_predictor_tool_instance):
-    result = await skin_predictor_tool_instance.execute(image="not_an_image_path") # Await the async method
+async def test_run_with_invalid_input_type(skin_predictor_tool_instance):
+    result = await skin_predictor_tool_instance.run(image="not_an_image_path")
     assert "error" in result
-    assert "Input must be a PIL Image object." in result["error"]
+    assert "Input must be a PIL Image" in result["error"]
     assert "predicted_class" not in result
 
 @pytest.mark.asyncio
-async def test_execute_prediction_exception_handling(skin_predictor_tool_instance):
+async def test_run_prediction_exception_handling(skin_predictor_tool_instance):
     skin_predictor_tool_instance.model.side_effect = Exception("Prediction failed")
     
-    result = await skin_predictor_tool_instance.execute(image=MagicMock(spec=Image.Image, size=(224,224))) # Await the async method
+    result = await skin_predictor_tool_instance.run(image=MagicMock(spec=Image.Image, size=(224,224)))
     
     assert "error" in result
     assert "Prediction failed" in result["error"]

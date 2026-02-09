@@ -1,478 +1,301 @@
-<div align="center">
-  <img src="./docs/assets/logo.png" alt="SmartHealth Logo" width="200"/>
+# SmartHealth-LLM
 
+SmartHealth-LLM is a multi-agent health assistant backend + frontend stack.
 
+It includes:
+- FastAPI backend with agent orchestration
+- Specialized agents (`conversation`, `symptom_matcher`, `disease_info`, `reasoning`)
+- Local/vector retrieval + optional internet fallback
+- Built-in run metrics collection and export
+- Excel-based evaluation runner for batch query testing
 
-  ### AI-Powered Medical Assistant with Multi-Agent Architecture for Disease Classification & Symptom Analysis
+## Repository Structure
 
-  [![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-4285F4?style=for-the-badge)](https://smart-health-llm.streamlit.app/)
-  [![MIT License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](https://github.com/harmeshgv/SmartHealth-LLM/blob/main/LICENSE)
-  [![Python](https://img.shields.io/badge/Python-3.9+-blue.svg?style=for-the-badge&logo=python)](https://www.python.org/)
-  [![React](https://img.shields.io/badge/React-18+-61DAFB?style=for-the-badge&logo=react)](https://reactjs.org/)
-  [![Stars](https://img.shields.io/github/stars/harmeshgv/SmartHealth-LLM?style=for-the-badge)](https://github.com/harmeshgv/SmartHealth-LLM/stargazers)
+```text
+backend/               FastAPI app, agents, tools, prompts, models
+frontend/              React client
+scripts/               Bootstrap + evaluation scripts
+tests/                 Pytest suites
+Dockerfile.backend     Backend container
+docker-compose.yml     Full stack local docker run
+```
 
-  [🚀 Quick Start](#-quick-start) • [📚 Documentation](#-features) • [🏗️ Architecture](#-architecture) • [🤝 Contributing](#-contributing)
+## Reproducible Setup (Fresh Clone)
 
-</div>
+### Option A: One-command bootstrap (recommended)
 
----
+```bash
+./scripts/bootstrap.sh
+```
 
-## Table of Contents
+This does:
+- create `.venv`
+- install backend dependencies
+- install frontend dependencies (`npm ci`)
+- create `backend/.env` from `backend/.env.example` if missing
 
-- [Overview](#-overview)
-- [Key Features](#-key-features)
-- [Architecture](#-architecture)
-- [Performance Metrics](#-performance-metrics)
-- [Screenshots](#-screenshots)
-- [Tech Stack](#-tech-stack)
-- [Quick Start](#-quick-start)
-- [Installation](#-installation)
-- [Usage](#-usage)
-- [Directory Structure](#-directory-structure)
-- [Contributing](#-contributing)
-- [License](#-license)
-- [Contact](#-contact)
+### Option B: Make targets
 
----
+```bash
+make setup
+```
 
-## Overview
+Useful commands:
+- `make dev-backend`
+- `make dev-frontend`
+- `make test-backend`
+- `make test-all`
+- `make docker-up`
+- `make docker-down`
 
+## Environment Configuration
 
-**SmartHealth-LLM** is an advanced **AI-powered medical assistant** that blends **computer vision**, **natural language processing**, and a **multi-agent reasoning framework** to deliver intelligent, reliable health assessments. The system can interpret both textual symptoms and medical images, offering AI-backed insights to assist in early disease detection and medical understanding. Designed with modular intelligence, each agent performs specialized roles such as interpreting user input, analyzing skin images, retrieving verified medical information, and deciding the next best action.
+Copy and edit backend env file:
 
-Key Highlights:
+```bash
+cp backend/.env.example backend/.env
+```
 
-1. **Multi-Agent Symptom Analysis** – A collaborative agent ecosystem that uses deep learning and reasoning to interpret symptoms, correlate them with diseases, and guide diagnostic flows.
-2. **Semantic Disease Matching** – FAISS-powered vector search enables high-precision similarity matching between patient symptoms and medical knowledge bases.
-3. **AI-Enhanced Image Diagnosis** – A computer vision pipeline using **DenseNet** for accurate skin disease classification and visual health assessments.
+Important vars:
+- `GROQ_API_KEY` (if using Groq adapter)
+- `SERPER_API_KEY` (optional, enables live web fallback)
+- `OLLAMA_HOST` (default `http://localhost:11434`)
 
+## Run Locally
 
+### Backend
 
-### Why SmartHealth-LLM?
+```bash
+source .venv/bin/activate
+cd backend
+uvicorn app.main:app --reload --port 7860
+```
 
-- **Multi-Agent System**: Specialized agents (Symptom, Disease Info, Decider, Formatter) for intelligent orchestration
-- **Real-Time**: Optimized inference pipeline with CUDA support for instant predictions
-- **Privacy-First**: In-memory processing with no persistent data storage
-- **Modern Stack**: React + TypeScript frontend, FastAPI backend, Streamlit interface
-- **Research-Grade**: Leverages LangChain, FAISS vector databases, biomedical NER, and state-of-the-art embeddings
-
----
-
-## Key Features
-
-### Dual-Mode Health Assessment
-
-| Feature | Description | Technology |
-|---------|-------------|------------|
-| **Skin Disease Classification** | Upload images for instant AI-powered diagnosis through agents| EfficientNet-B0 CNN |
-| **Symptom Analysis** | Chat with AI to analyze symptoms and get disease predictions | LLM + RAG Pipeline |
-| **Semantic Search** | Find diseases matching your symptoms using vector similarity | FAISS + MiniLM |
-| **Multi-Agent Architecture** | Separate agents for classification, chat, and verification | LangChain + LangGraph |
-
-### Performance Highlights
-
-- **99.86%** Top-5 Disease Matching Accuracy
-- **GPU-Accelerated** inference with CUDA support
-- **Real-Time** predictions and chat responses
-- **200K+ Context** window for comprehensive medical knowledge
-
----
-
-## Architecture
-
-### System Design Overview
-
-
-[![](https://mermaid.ink/img/pako:eNptkk2TojAQhv9KKmfHFQURDluloo4z4_fMZYOHFLSYWkjYELbWVf_7xiAuUzWc6LzP293p9BlHIgbs40TS_IjeRyFH-huSLdBIoakUXAGP0Te0UxJoljKFPuZ79PT0HY3OW_hVQqHQVpQK5LXyjm7iZXfKciUytClBni5oTIYJcIVWMjpqh6RKyH2Tn2c0AfSRp4LGFxSQKh6ntCjYgUVUMcHRmuWQMg7aWXnHppEJqauZIvumNiUBK4AWgOb8IL4AZiSAiMUgv9CeyVTIjCrVUCt9YvQ5GTGRQaz7S9FyskXvQqT7JvHyKL-gSl9dNpGpQV4_d7gFJRn8BvkJeiMzIZIU0A6oHmGdpUJeDLIg0-F8t0P1LILRPcOrkZd3uS5m5AoIDLAi4-USLfQ6_M88M8r6fBtRcXuBN5Gw6P7Q62pGVfBsgs1jYLG-SJELXsC9i1UF1Jk3JhyGHLf07rEY-0qW0MIZaP8txOcbGGJ1hAxC7OvfmMqfIQ75VXtyyn8IkdU2KcrkiP0DTQsdlXlMFQSM6q3OHqdSLzLIsSi5wn6365gk2D_jP9i3PKvtOZ3OwOq7tuvYvRY-6dO-1x54juf2Bl3Pdbr2tYX_mqqdtms7Pdt2LK9vOZbb613_Adq1_9c?type=png)](https://mermaid.live/edit#pako:eNptkk2TojAQhv9KKmfHFQURDluloo4z4_fMZYOHFLSYWkjYELbWVf_7xiAuUzWc6LzP293p9BlHIgbs40TS_IjeRyFH-huSLdBIoakUXAGP0Te0UxJoljKFPuZ79PT0HY3OW_hVQqHQVpQK5LXyjm7iZXfKciUytClBni5oTIYJcIVWMjpqh6RKyH2Tn2c0AfSRp4LGFxSQKh6ntCjYgUVUMcHRmuWQMg7aWXnHppEJqauZIvumNiUBK4AWgOb8IL4AZiSAiMUgv9CeyVTIjCrVUCt9YvQ5GTGRQaz7S9FyskXvQqT7JvHyKL-gSl9dNpGpQV4_d7gFJRn8BvkJeiMzIZIU0A6oHmGdpUJeDLIg0-F8t0P1LILRPcOrkZd3uS5m5AoIDLAi4-USLfQ6_M88M8r6fBtRcXuBN5Gw6P7Q62pGVfBsgs1jYLG-SJELXsC9i1UF1Jk3JhyGHLf07rEY-0qW0MIZaP8txOcbGGJ1hAxC7OvfmMqfIQ75VXtyyn8IkdU2KcrkiP0DTQsdlXlMFQSM6q3OHqdSLzLIsSi5wn6365gk2D_jP9i3PKvtOZ3OwOq7tuvYvRY-6dO-1x54juf2Bl3Pdbr2tYX_mqqdtms7Pdt2LK9vOZbb613_Adq1_9c)
-
-### Multi-Agent Architecture
-
-The platform implements a sophisticated **agent orchestration system** with specialized AI agents:
-
-#### **Agent Orchestrator**
-Central coordinator that manages agent communication, workflow execution, and decision routing.
-
-#### Core Agents:
-
-**Symptom Agent**
-Processes natural language symptom descriptions to extract key medical entities using biomedical NER. It queries the FAISS symptom vector database for semantic matching and collaborates with the Disease Matcher Tool for multi-stage disease retrieval.
-
-**Disease Info Agent**
-Retrieves comprehensive disease information by querying the FAISS disease vector database and integrating Google Search for the latest medical updates. It provides detailed disease profiles along with relevant metadata.
-
-**Decider Agent**
-Acts as the central routing intelligence, deciding which agents to invoke based on the query type. It handles edge cases, uncertainty, and optimizes agent workflows for efficient processing.
-
-**Formatter Agent**
-Structures responses for clarity and readability, formatting medical information with proper citations. Ensures consistent output across all agents and generates user-friendly explanations.
-
-**Image Diagnosis Agent**
-Analyzes medical images, particularly for skin diseases, using deep learning models. It complements text-based diagnosis by providing visual detection and classification of conditions.
-
-
-#### Specialized Tools:
-
-- **Biomedical NER Tool** - Extracts medical entities (symptoms, diseases, body parts)
-- **Disease Matcher Tool** - Semantic similarity search using FAISS
-- **Disease Info Retriever** - Comprehensive disease knowledge retrieval
-- **Google Search Tool** - Real-time medical information augmentation
-- **Skin Disease Prediction Tool** - Skin Disease Image Classification Using DenseNet121 Model
-
-### Technology Stack Layers
-| Layer                     | Technologies / Components                        |
-|----------------------------|-------------------------------------------------|
-| Frontend Layer             | React 18+, TypeScript, Streamlit, Chat, Image Upload |
-| Orchestration Layer        | Agent Orchestrator, Multi-Agent Coordination, Workflow Management |
-| Agent Layer                | Symptom Agent, Disease Info Agent, Decider Agent, Formatter Agent, LangChain Integration |
-| Tools & Services Layer     | Biomedical NER, Disease Matcher, Info Retriever, Google Search |
-| Data & ML Layer            | FAISS Vector DBs, MiniLM Embeddings, Medical Knowledge Base, DenseNet121 Model |
-
-
-
----
-
-## Performance Metrics
-
-### Disease Matching Evolution
-
-coming soon
-
----
-
-## Screenshots
-
-### Skin Disease Classification
-
-*AI-powered skin disease detection with confidence scores and treatment recommendations*
-
-<div align="center">
-  <img src="./docs/assets/image.png" alt="SmartHealth Logo" width="900"/>
-</div>
-
-
-### Multi-Agent Chatbot Interface
-
-*Intelligent symptom analysis powered by multi-agent orchestration*
-
-<div align="center">
-  <img src="./docs/assets/chat.png" alt="SmartHealth Logo" width="900"/>
-</div>
-
----
-
-## 🛠️ Tech Stack
+Backend URL: `http://localhost:7860`
 
 ### Frontend
-![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
-![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
 
-### Backend & Orchestration
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
-![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white)
-![LangChain](https://img.shields.io/badge/🦜_LangChain-000000?style=flat-square)
-![LangGraph](https://img.shields.io/badge/LangGraph-034000?style=flat-square)
-
-### AI/ML & Vector Search
-![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?style=flat-square&logo=tensorflow&logoColor=white)
-![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white)
-![FAISS](https://img.shields.io/badge/FAISS-0066FF?style=flat-square)
-![HuggingFace](https://img.shields.io/badge/🤗_HuggingFace-FFD21E?style=flat-square)
-![DenseNet121](https://img.shields.io/badge/DenseNet121-119988)
-
-
-### DevOps & Testing
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
-![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=github-actions&logoColor=white)
-![Pytest](https://img.shields.io/badge/Pytest-0A9EDC?style=flat-square&logo=pytest&logoColor=white)
-
----
-
-## 🚀 Quick Start
-
-### Prerequisites
-- Python 3.9+
-- CUDA-compatible GPU (optional, for faster inference)
-- 8GB+ RAM recommended
-
-### Installation
-
-1. **Clone the repository**
-```bash
-git clone https://github.com/harmeshgv/SmartHealth-LLM.git
-cd SmartHealth-LLM
-```
-
-2. **Create virtual environment**
-```bash
-python -m venv venv
-
-# Windows
-venv\\Scripts\\activate
-
-# Linux/macOS
-source venv/bin/activate
-```
-
-3. **Install dependencies**
-```bash
-pip install -r requirements.txt
-```
-
-4. **Set up environment variables**
-```bash
-# Create .env file
-cp .env.example .env
-
-# Add your API keys
-GROQ_API_KEY=your_key_here
-GROQ_API_BASE=base_link
-GROQ_API_MODEL=selected_model
-# or
-GRAVIX_API_KEY=your_key_here
-GRAVIX_API_BASE=base_link
-GRAVIXs_API_MODEL=selected_model
-```
-
----
-
-## Usage
-
-### Running the Application
-
-#### Option 1: Streamlit Interface (Recommended for Demo)
-```bash
-# Start Streamlit app
-streamlit run streamlit_app.py
-
-# Access at http://localhost:8501
-```
-
-#### Option 2: React Frontend + Python Backend
-
-**Terminal 1 - Start Backend**
-```bash
-# Run main application
-uvicorn backend.main:app --reload
-
-# Backend runs on http://localhost:8000
-```
-
-**Terminal 2 - Start React Frontend**
 ```bash
 cd frontend
-npm install
 npm start
-
-# Frontend runs on http://localhost:3000
 ```
 
-### Using Docker
+Frontend URL: `http://localhost:3000`
+
+Optional frontend API base override:
 
 ```bash
-# Build and run with Docker
-docker build -t smarthealth-llm .
-docker run -p 8501:8501 smarthealth-llm
-
-# Access the app at http://localhost:8501
+REACT_APP_API_URL=http://localhost:7860 npm start
 ```
 
-### Building FAISS Vector Databases
-
-If you need to rebuild the vector databases:
+## Run with Docker
 
 ```bash
-# Build symptom vector database
-python scripts/build_faiss_db.py
+cp backend/.env.example backend/.env
+# fill required keys in backend/.env
 
-# Build disease information database
-python scripts/build_disease_db.py
+docker compose up --build
 ```
 
----
+URLs:
+- Frontend: `http://localhost:3000`
+- Backend: `http://localhost:7860`
 
-## Directory Structure
+## How To Use (End User Flow)
 
-```
-SmartHealth-LLM/
-│
-├── 📄 README.md                    # Project documentation
-├── 📄 LICENSE                      # MIT License
-├── 📄 requirements.txt             # Python dependencies
-├── 📄 pyproject.toml               # Project configuration
-├── 📄 Dockerfile                   # Docker configuration
-├── 📄 .env                         # Environment variables
-├── 📄 main.py                      # Main application entry
-├── 📄 streamlit_app.py             # Streamlit web interface
-│
-├── ⚙️ backend/                     # Backend system
-│   ├── __init__.py
-│   ├── README.md                   # Backend documentation
-│   ├── config.py                   # Configuration settings
-│   ├── agent_orchestrator.py      # Multi-agent coordinator
-│   │
-│   ├── 🤖 agents/                  # Specialized AI agents
-│   │   ├── __init__.py
-│   │   ├── symptom_agent.py       # Symptom analysis agent
-│   │   ├── disease_info_agent.py  # Disease information agent
-│   │   ├── decider_agent.py       # Decision routing agent
-│   │   └── formatter_agent.py     # Response formatting agent
-│   │
-│   ├── 🛠️ tools/                   # Agent tools
-│   │   ├── __init__.py
-│   │   ├── biomedical_ner_tool.py # Medical entity extraction
-│   │   ├── disease_matcher_tool.py # FAISS-based disease matching
-│   │   ├── disease_info_retriever_tool.py # Disease info retrieval
-│   │   └── google_search.py       # Web search integration
-│   │
-│   ├── 📊 data/                    # Datasets and vector stores
-│   │   ├── __init__.py
-│   │   ├── updated_df.csv         # Medical knowledge base
-│   │   ├── labels.json            # Disease labels
-│   │   ├── test.json              # Test data
-│   │   └── Vector/                # FAISS vector databases
-│   │       ├── symptom_faiss_db/  # Symptom embeddings
-│   │       │   ├── index.faiss
-│   │       │   └── index.pkl
-│   │       └── disease_faiss_db/  # Disease embeddings
-│   │           ├── index.faiss
-│   │           └── index.pkl
-│   │
-│   └── 🔧 utils/                   # Utility modules
-│       ├── __init__.py
-│       ├── llm.py                 # LLM configurations
-│       └── embeddings.py          # Embedding models
-│
-├── 🎨 frontend/                    # React frontend
-│   ├── package.json
-│   ├── tsconfig.json
-│   ├── public/                    # Static assets
-│   │   ├── index.html
-│   │   ├── manifest.json
-│   │   ├── favicon.ico
-│   │   ├── logo192.png
-│   │   └── logo512.png
-│   └── src/                       # React components
-│       ├── index.tsx
-│       ├── App.tsx
-│       ├── App.css
-│       ├── ChatPage.tsx
-│       ├── ChatPage.css
-│       ├── api.ts                 # API integration
-│       └── index.css
-│
-├── 📓 notebook/                    # Jupyter notebooks
-│   ├── __init__.py
-│   ├── skin_disease_prediction.ipynb # CNN training
-│   ├── web_scrapping.ipynb        # Data collection
-│   └── catboost_info/             # Model training logs
-│
-├── 📜 scripts/                     # Utility scripts
-│   ├── model.py                   # Model utilities
-│   ├── build_faiss_db.py          # Build symptom vector DB
-│   ├── build_disease_db.py        # Build disease vector DB
-│   ├── update_readme.py           # Documentation generator
-│   └── scrapers/                  # Web scraping tools
-│       ├── main.py
-│       ├── web_scrapers.py
-│       └── web_scraper2.py
-│
-├── 🧪 tests/                       # Unit tests
-│   └── test_llm.py                # LLM integration tests
-│
-├── 📖 docs/                        # Documentation
-│   └── assets/                    # Images and media
-│       ├── logo.png
-│       ├── skin.png
-│       ├── chatbot.png
-│       └── image.png
-│
-└── 🔄 .github/                     # GitHub workflows
-    └── workflows/
-        └── python-test.yml        # CI/CD pipeline
-```
+1. Open frontend at `http://localhost:3000`
+2. Start chat with normal text:
+   - casual message -> conversation agent path
+   - symptom/disease question -> medical agent workflow
+3. Backend endpoint used by frontend: `POST /chat/send`
+4. Optional debug run with logs: `POST /debug/debug_chat_send`
+5. Check run analytics with:
+   - `GET /metrics/summary`
+   - `GET /metrics/runs`
 
----
+## Backend API
 
-## Testing
+### Core
+- `GET /` -> backend status message
+- `GET /health/status` -> `{"status":"ok"}`
+- `GET /health/ping`
+- `GET /health/live`
+- `GET /health/ready`
 
-### Run Unit Tests
+### Chat
+- `POST /chat/send`
+- `POST /chat/history`
+- `POST /chat/clear`
+
+Example:
+
 ```bash
-pytest tests/
+curl -X POST http://localhost:7860/chat/send \
+  -H "Content-Type: application/json" \
+  -d '{"message":"I have fever and cough","session_id":"demo-1"}'
 ```
 
-### Run Integration Tests
+### Debug
+- `POST /debug/debug_chat_send`
+
+### Metrics
+- `GET /metrics/summary`
+- `GET /metrics/runs?limit=50`
+- `POST /metrics/save-local`
+- `POST /metrics/reset`
+
+Save metrics locally:
+
 ```bash
-pytest tests/integration/
+curl -X POST http://localhost:7860/metrics/save-local \
+  -H "Content-Type: application/json" \
+  -d '{"filepath":"metrics_store/session_metrics.json","limit":500}'
 ```
 
-### Test Coverage
+## Metrics Captured
+
+Per run:
+- routing: intent, planned/executed agents
+- tool usage: local DB calls/success, vector DB calls/success, internet calls/success
+- memory usage: recall/save counts, context items used
+- latency and status
+- final output and relevance score
+
+Aggregate summary fields include:
+- `local_data_usage_rate`
+- `internet_usage_rate`
+- `web_fallback_rate`
+- `local_hit_success_rate`
+- `avg_relevance_score`
+- `avg_latency_ms`, `p95_latency_ms`
+- `medical_query_rate`, `conversation_query_rate`
+
+## Excel Evaluation Workflow
+
+Script: `scripts/run_excel_eval.py`
+
+### 1) Create template
+
 ```bash
-pytest --cov=backend tests/
+source .venv/bin/activate
+python scripts/run_excel_eval.py --input eval_queries.xlsx --create-template
 ```
 
----
+This creates an Excel file with `queries` column.
 
-## 🔧 Configuration
+### 2) Fill queries
 
-### Environment Variables
+Put one query per row under `queries`.
 
-coming soon
+### 3) Run batch evaluation
 
----
-
-## Deployment
-
-coming soon
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome! Here's how you can help:
-
-### Ways to Contribute
--  Report bugs and issues
--  Suggest new features
--  Improve documentation
--  Submit pull requests
-
-### Contribution Guidelines
-
-1. **Fork the repository**
 ```bash
-git fork https://github.com/harmeshgv/SmartHealth-LLM.git
+python scripts/run_excel_eval.py \
+  --input eval_queries.xlsx \
+  --output eval_queries_evaluated.xlsx
 ```
 
-2. **Create a feature branch**
+The output file writes results back in the same row with columns like:
+- `run_id`, `status`, `error`
+- `intent`, `agents_planned`, `agents_executed`
+- `conversation_output`, `symptom_matcher_output`, `disease_info_output`, `reasoning_output`
+- `final_output`
+- metrics columns (`latency_ms`, relevance, local/internet usage, memory usage, tool errors)
+
+## Tests
+
+Backend tests:
+
 ```bash
-git checkout -b feature/AmazingFeature
+source .venv/bin/activate
+pytest -q tests/backend
 ```
 
-3. **Commit your changes**
+All tests:
+
 ```bash
-git commit -m 'Add some AmazingFeature'
+source .venv/bin/activate
+pytest -q
 ```
 
-4. **Push to the branch**
-```bash
-git push origin feature/AmazingFeature
-```
+## Hosting Options
 
-5. **Open a Pull Request**
+Free-tier details change over time. The notes below are accurate as checked on **February 9, 2026**.
 
-### Code Style
-- Follow PEP 8 for Python code
-- Use type hints where applicable
-- Write docstrings for functions
-- Add unit tests for new features
+### 1) Hugging Face Spaces (best truly free option for demos)
 
----
+Why:
+- Free CPU Basic hardware is available.
+- Good for public demo sharing.
 
-## Learning Resources
+How:
+1. Create a new **Docker Space** on Hugging Face.
+2. Connect your GitHub repo (or push repo files directly).
+3. Ensure `backend/.env` values are set as Space Secrets (for keys).
+4. Build/deploy using `Dockerfile.backend` or full-stack approach you choose.
+5. Verify health endpoint after deployment.
 
-- **Notebooks**: Check the \`notebook/\` directory for detailed tutorials
-- **API Docs**: See \`docs/API.md\` for endpoint documentation
-- **Blog Posts**: [Coming Soon]
-- **Video Tutorials**: [Coming Soon]
+Notes:
+- Free hardware has limits (CPU/RAM/storage).
+- Disk persistence on default free setup is limited/non-persistent for app runtime data.
+- Official references:
+  - https://huggingface.co/pricing
+  - https://huggingface.co/docs/hub/en/spaces-overview
+
+### 2) Render (good free preview, not for heavy production)
+
+Why:
+- Free web services are available for testing/hobby preview.
+
+How:
+1. Create a Render account and connect GitHub repo.
+2. Create a new Web Service from this repo.
+3. Set build/start commands for backend:
+   - Build: `pip install -r backend/requirements.txt`
+   - Start: `cd backend && uvicorn app.main:app --host 0.0.0.0 --port $PORT`
+4. Add environment variables from `backend/.env.example`.
+5. Deploy and test `GET /health/status`.
+
+Notes:
+- Free services have usage/feature limits and are not recommended for production.
+- Official references:
+  - https://render.com/docs/free
+
+### 3) Railway (trial-friendly, but not fully free long-term)
+
+Why:
+- Very quick deploy workflow.
+
+How:
+1. Create Railway project from GitHub repo.
+2. Add backend service with start command:
+   - `cd backend && uvicorn app.main:app --host 0.0.0.0 --port $PORT`
+3. Add env vars from `backend/.env.example`.
+4. Deploy and validate health + chat endpoints.
+
+Notes:
+- Current model includes trial credits and then low-cost paid usage.
+- Use it for fast testing if free budget is acceptable.
+- Official references:
+  - https://railway.com/pricing
+  - https://docs.railway.com/reference/pricing/free-trial
+
+### 4) AWS / GCP / Azure (not free for real workloads)
+
+Best when you need:
+- reliability, scaling control, networking/security compliance.
+
+### 5) Fly.io
+
+Notes:
+- Historical free allowances changed; verify current plan terms before choosing.
+- Use mainly if you want Fly’s multi-region container model.
+
+## Additional Deployment/Setup Notes
+
+Detailed reproducible setup and hosting notes:
+- `docs/REPRODUCIBLE_SETUP_AND_HOSTING.md`
+
+## License
+
+MIT

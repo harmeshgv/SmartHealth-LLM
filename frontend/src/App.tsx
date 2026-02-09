@@ -36,7 +36,7 @@ export default function App() {
           <span className="highlight">Simplified.</span>
         </h1>
         <p className="subtext">
-          Instant symptom analysis, lab report interpretation, and personalized health guidance. Powered by advanced medical LLMs.
+          Instant symptom analysis, image analysis and personalized health guidance. Powered by advanced medical LLMs.
         </p>
         <button className="cta-btn" onClick={() => setStarted(true)}>
           Start Consultation
