@@ -39,13 +39,17 @@ class Settings(BaseSettings):
 
     # ---------- AGENT MODEL MAP ----------
     AGENT_MODEL_MAP: ClassVar[Dict[str, Tuple[str, str]]] = {
-        "decider_agent": ("ollama", "llama3.2:latest"),
-        "planner_agent": ("ollama", "llama3.2:latest"),
-        "reasoning_agent": ("ollama", "llama3.2:latest"),
-        "symptom_matcher_agent": ("ollama", "llama3.2:latest"),
-        "disease_info_agent": ("ollama", "llama3.2:latest"),
-        "image_agent": ("ollama", "llama3.2:latest"),
-        "conversation_agent": ("ollama", "llama3.2:latest"),
+        # Groq production models (per supported model list).
+        # Heavy reasoning/medical synthesis -> strongest open model.
+        "decider_agent": ("groq", "openai/gpt-oss-120b"),
+        "planner_agent": ("groq", "openai/gpt-oss-120b"),
+        "reasoning_agent": ("groq", "openai/gpt-oss-120b"),
+        "symptom_matcher_agent": ("groq", "openai/gpt-oss-120b"),
+        "disease_info_agent": ("groq", "openai/gpt-oss-120b"),
+        # Fast/cheap small-talk model.
+        "conversation_agent": ("groq", "llama-3.1-8b-instant"),
+        # Keep image route on production model to avoid preview churn.
+        "image_agent": ("groq", "openai/gpt-oss-120b"),
     }
 
 

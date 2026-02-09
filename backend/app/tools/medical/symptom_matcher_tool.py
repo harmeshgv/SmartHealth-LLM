@@ -1,6 +1,8 @@
 # app/tools/medical/symptom_matcher_tool.py
 import time
 import logging
+import csv
+import os
 from typing import List, Dict, Any
 from langchain_community.vectorstores import FAISS
 from app.utils.embedding_wrapper import LCEmbeddingWrapper
@@ -29,13 +31,51 @@ class SymptomDiseaseMatcherTool(BaseTool):
             "Loading FAISS index with allow_dangerous_deserialization=True. Use only trusted FAISS files."
         )
 
-        self.vectorstore = FAISS.load_local(
-            self.db_path,
-            self.embeddings,
-            allow_dangerous_deserialization=True
-        )
+        self.vectorstore = self._load_or_rebuild_vectorstore()
 
         logger.info(f"Loaded symptom FAISS DB from {db_path}")
+
+    def _load_or_rebuild_vectorstore(self) -> FAISS:
+        try:
+            return FAISS.load_local(
+                self.db_path,
+                self.embeddings,
+                allow_dangerous_deserialization=True
+            )
+        except Exception as exc:
+            # Legacy FAISS pickles created with older pydantic/langchain can fail
+            # with "__fields_set__" errors after dependency upgrades.
+            logger.warning(
+                "Failed to load symptom FAISS DB from %s (%s). Rebuilding from CSV.",
+                self.db_path,
+                str(exc),
+            )
+            return self._rebuild_vectorstore()
+
+    def _rebuild_vectorstore(self) -> FAISS:
+        csv_path = settings.DISEASE_INFO_PATH
+        disease_symptoms: Dict[str, List[str]] = {}
+
+        with open(csv_path, mode="r", encoding="utf-8") as f:
+            for row in csv.DictReader(f):
+                disease = (row.get("disease") or "").strip()
+                symptoms_str = (row.get("updated") or "").strip()
+                if not disease or not symptoms_str:
+                    continue
+                symptoms = [s.strip() for s in symptoms_str.split(",") if s.strip()]
+                if symptoms:
+                    disease_symptoms[disease] = symptoms
+
+        texts = ["; ".join(symptoms) for symptoms in disease_symptoms.values()]
+        metadatas = [{"disease": name} for name in disease_symptoms.keys()]
+        if not texts:
+            raise RuntimeError(f"No symptom text found in {csv_path}; cannot rebuild FAISS DB.")
+
+        vectorstore = FAISS.from_texts(texts, self.embeddings, metadatas=metadatas)
+        os.makedirs(self.db_path, exist_ok=True)
+        vectorstore.save_local(self.db_path)
+        logger.info("Rebuilt and saved symptom FAISS DB at %s", self.db_path)
+        return vectorstore
 
     async def run(self, symptoms: List[str], k: int = 3, run_id: str = None) -> Dict[str, Any]:
         start_time = time.time()
