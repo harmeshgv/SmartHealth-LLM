@@ -1,6 +1,7 @@
 import httpx
 from app.llm.base.base_llm import BaseLLM
 
+
 class OllamaLLM(BaseLLM):
 
     def __init__(self, model="llama3", host="http://localhost:11434"):

@@ -26,7 +26,7 @@ class BaseTool(ABC):
         pass
 
     @abstractmethod
-    async def run(self, *args, **kwargs) -> Any:
+    async def run(self, *args, run_id: str = None, **kwargs) -> Any:
         """
         Main execution method for the tool.
         Must be implemented by all subclasses.

@@ -1,10 +1,15 @@
 import csv
 import os
+import time
+import logging
 from typing import List, Dict, Optional, Any
 from app.tools.base_tool import BaseTool
 from app.utils.embeddings import EmbeddingSingleton
 import faiss
 from app.config import settings
+from app.core.metrics_tracker import metrics_tracker
+
+logger = logging.getLogger(__name__)
 
 
 class DiseaseInfoRetrieverTool(BaseTool):
@@ -77,21 +82,40 @@ class DiseaseInfoRetrieverTool(BaseTool):
 
     # -------------------------------
     async def run(self, disease_name: str,
-                  fields: Optional[List[str]] = None) -> Dict[str, Any]:
+                  fields: Optional[List[str]] = None, run_id: str = None) -> Dict[str, Any]:
+        start_time = time.time()
+        logger.info("Tool run started", extra={"run_id": run_id, "tool": self.name})
 
         if not disease_name:
+            logger.warning("No disease name provided", extra={"run_id": run_id, "tool": self.name})
+            metrics_tracker.record_tool_event(
+                run_id=run_id, tool_name=self.name, source="local_db", success=False, error=True
+            )
             return {"error": "No disease name provided"}
 
         match_key = self._find_best_match(disease_name)
 
         if not match_key:
+            logger.warning(f"No match found for {disease_name}", extra={"run_id": run_id, "tool": self.name})
+            metrics_tracker.record_tool_event(
+                run_id=run_id, tool_name=self.name, source="local_db", success=False
+            )
             return {"error": f"No match found for {disease_name}"}
 
         info = self.db_map.get(match_key, {})
 
         # If user wants specific fields
         if fields:
-            return {"info": {f: info.get(f, "N/A") for f in fields}}
+            output = {"info": {f: info.get(f, "N/A") for f in fields}}
+        else:
+            # Return entire info row
+            output = {"info": info}
 
-        # Return entire info row
-        return {"info": info}
+        end_time = time.time()
+        latency = end_time - start_time
+        logger.info("Tool run finished", extra={"run_id": run_id, "tool": self.name, "latency": latency})
+        metrics_tracker.record_tool_event(
+            run_id=run_id, tool_name=self.name, source="local_db", success=True
+        )
+        
+        return output

@@ -1,49 +1,50 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 from typing import Optional
+import logging
 
-from app.dependencies import get_current_user
 from app.core.agent_orchestrator import AgentOrchetrator
 from app.core.agent_context import AgentContext
 
+logger = logging.getLogger(__name__)
+
 router = APIRouter(prefix="/chat", tags=["Chat"])
+
 
 class ChatRequest(BaseModel):
     message: str
-    image: Optional[str] = None   # base64 string
+    session_id: Optional[str] = None
+    image: Optional[str] = None  # base64 string
+
+
+class SessionRequest(BaseModel):
+    session_id: str
+
 
 @router.post("/send")
-async def send_message(data: ChatRequest, user=Depends(get_current_user)):
+async def send_message(data: ChatRequest):
+
     if not data.message.strip():
         raise HTTPException(status_code=400, detail="Message cannot be empty")
 
-    # Create context with user
-    context = AgentContext(user=user)
+    context = AgentContext(session_id=data.session_id)
 
     orchestrator = AgentOrchetrator(context)
 
     reply = await orchestrator.run(data.message)
 
-    return {"reply": reply}
-
+    return {"reply": reply, "session_id": context.session_id}
 
 
 @router.post("/clear")
-async def clear_chat(user=Depends(get_current_user)):
+async def clear_chat(data: SessionRequest):
+    context = AgentContext(session_id=data.session_id)
+    await context.long_memory.clear(context.session_id)
     return {"message": "Session Cleared"}
 
 
-from app.core.agent_context import AgentContext
-
-@router.get("/history")
-async def chat_history(user=Depends(get_current_user)):
-    context = AgentContext(user=user)
-
+@router.post("/history")
+async def chat_history(data: SessionRequest):
+    context = AgentContext(session_id=data.session_id)
     all_history = await context.long_memory.get(context.session_id)
-
     return {"history": all_history}
-
-
-@router.get("/debug")
-async def debug_chat(user=Depends(get_current_user)):
-    return {"debug": "hi"}

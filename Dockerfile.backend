@@ -40,4 +40,5 @@ RUN pip install --upgrade pip setuptools wheel && \
 EXPOSE 7860
 
 # ---------- Run FastAPI ----------
-CMD ["uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "7860"]
+WORKDIR /app/backend
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "7860"]

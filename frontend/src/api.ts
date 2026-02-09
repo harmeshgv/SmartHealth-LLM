@@ -1,7 +1,7 @@
 // api.ts
 import axios from "axios";
 
-const API_URL = "http://localhost:7860";
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:7860";
 
 // Connection status types
 export type ConnectionStatus = "connected" | "connecting" | "error";
@@ -24,7 +24,7 @@ export const checkHealth = async (): Promise<boolean> => {
   notifyStatusChange("connecting");
 
   try {
-    const response = await axios.get(`${API_URL}/`, {
+    const response = await axios.get(`${API_URL}/health/status`, {
       timeout: 10000, // 10 second timeout
       headers: {
         'Accept': 'application/json',
@@ -80,7 +80,7 @@ export const askBackend = async (message: string, userId: string, image?: string
 
   try {
     const payload: any = {
-      user_id: userId,
+      session_id: userId,
       message: message || "Analyze this image",
     };
 
@@ -88,7 +88,7 @@ export const askBackend = async (message: string, userId: string, image?: string
       payload.image = image;
     }
 
-    const response = await axios.post(`${API_URL}/ask`, payload, {
+    const response = await axios.post(`${API_URL}/chat/send`, payload, {
       timeout: 30000, // 30 second timeout for AI responses
       headers: {
         'Content-Type': 'application/json',
@@ -99,7 +99,7 @@ export const askBackend = async (message: string, userId: string, image?: string
     // Update connection status to connected on successful request
     notifyStatusChange("connected");
 
-    return response.data.answer;
+    return response.data?.reply?.final_output || "";
   } catch (error: any) {
     console.error("Error calling backend:", error);
 
@@ -118,7 +118,7 @@ export const askBackend = async (message: string, userId: string, image?: string
       throw new Error(`Server error: ${error.response.status} - ${error.response.data?.error || 'Unknown error'}`);
     } else if (error.request) {
       // Request made but no response received
-      throw new Error("No response from server. Please check your internet connection.");
+      throw new Error("No response from server. Please verify backend is running and reachable.");
     } else {
       // Something else happened
       throw new Error(`Request failed: ${error.message}`);

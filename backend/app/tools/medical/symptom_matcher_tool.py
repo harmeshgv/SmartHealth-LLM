@@ -1,11 +1,12 @@
 # app/tools/medical/symptom_matcher_tool.py
-
+import time
 import logging
 from typing import List, Dict, Any
 from langchain_community.vectorstores import FAISS
 from app.utils.embedding_wrapper import LCEmbeddingWrapper
 from app.tools.base_tool import BaseTool
 from app.config import settings
+from app.core.metrics_tracker import metrics_tracker
 
 logger = logging.getLogger(__name__)
 
@@ -36,8 +37,15 @@ class SymptomDiseaseMatcherTool(BaseTool):
 
         logger.info(f"Loaded symptom FAISS DB from {db_path}")
 
-    async def run(self, symptoms: List[str], k: int = 3) -> Dict[str, Any]:
+    async def run(self, symptoms: List[str], k: int = 3, run_id: str = None) -> Dict[str, Any]:
+        start_time = time.time()
+        logger.info("Tool run started", extra={"run_id": run_id, "tool": self.name})
+
         if not symptoms or not isinstance(symptoms, list):
+            logger.warning("Input must be a non-empty list of symptoms", extra={"run_id": run_id, "tool": self.name})
+            metrics_tracker.record_tool_event(
+                run_id=run_id, tool_name=self.name, source="vector_db", success=False, error=True
+            )
             return {"error": "Input must be a non-empty list of symptoms."}
 
         query = ", ".join(symptoms)
@@ -52,8 +60,23 @@ class SymptomDiseaseMatcherTool(BaseTool):
                     "symptoms": doc.page_content,
                     "score": float(score)
                 })
+            
+            output = {"matched_diseases": matched}
 
-            return {"matched_diseases": matched}
+            end_time = time.time()
+            latency = end_time - start_time
+            logger.info("Tool run finished", extra={"run_id": run_id, "tool": self.name, "latency": latency, "output": output})
+            metrics_tracker.record_tool_event(
+                run_id=run_id, tool_name=self.name, source="vector_db", success=True
+            )
+
+            return output
 
         except Exception as e:
+            end_time = time.time()
+            latency = end_time - start_time
+            logger.error("Tool run failed", extra={"run_id": run_id, "tool": self.name, "latency": latency, "error": str(e)})
+            metrics_tracker.record_tool_event(
+                run_id=run_id, tool_name=self.name, source="vector_db", success=False, error=True
+            )
             return {"error": f"Search failed: {e}"}

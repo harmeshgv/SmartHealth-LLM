@@ -36,6 +36,19 @@ export default function ChatPage({ onBack, isDark, toggleTheme }: any) {
 
   const bottomRef = useRef<HTMLDivElement>(null);
   const fileRef = useRef<HTMLInputElement>(null);
+  const sessionIdRef = useRef<string>("");
+
+  useEffect(() => {
+    const existing = localStorage.getItem("smarthealth_session_id");
+    if (existing) {
+      sessionIdRef.current = existing;
+      return;
+    }
+
+    const newId = `user-${crypto.randomUUID()}`;
+    localStorage.setItem("smarthealth_session_id", newId);
+    sessionIdRef.current = newId;
+  }, []);
 
   useEffect(() => {
     const sub = onConnectionStatusChange(setStatus);
@@ -72,8 +85,7 @@ export default function ChatPage({ onBack, isDark, toggleTheme }: any) {
         imageBase64 = await fileToBase64(imageToSend);
       }
 
-      // Replace "user-123" with real logic if needed
-      const res = await askBackend(text, "user-123", imageBase64);
+      const res = await askBackend(text, sessionIdRef.current || "user-anon", imageBase64);
       setMessages(prev => [...prev, { type: "bot", content: res }]);
     } catch (e) {
       setMessages(prev => [...prev, { type: "bot", content: "⚠️ System Error. Please retry." }]);

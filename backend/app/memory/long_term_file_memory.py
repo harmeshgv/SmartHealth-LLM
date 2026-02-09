@@ -38,3 +38,8 @@ class LongTermFileMemory:
 
         with open(filepath, "r") as f:
             return json.load(f)
+
+    async def clear(self, session_id):
+        filepath = self._filepath(session_id)
+        if os.path.exists(filepath):
+            os.remove(filepath)
